@@ -12,20 +12,20 @@ interface ApproachCard {
 const approachContent: ApproachCard[] = [
   {
     id: 1,
-    title: "Academic Excellence",
-    description: "Fostering well-rounded individuals through a comprehensive approach to education...",
+    title: "Holistic Development",
+    description: "Fostering well-rounded individuals through a comprehensive approach to education, emphasizing robust minds, healthy bodies, and ethical characters. Explore our diverse curriculum, sports programs, and vibrant arts initiatives.",
     imageUrl: "/assets/approach/holistic.png"
   },
   {
     id: 2,
     title: "Transformative Education",
-    description: "Empowering students to thrive in a rapidly evolving world, our enriching environment...",
+    description: "Empowering students to thrive in a rapidly evolving world, our enriching environment prepares them for tomorrow's challenges. Discover an immersive learning experience beyond the classroom at St. Vivekanand.",
     imageUrl: "/assets/approach/transform.png"
   },
   {
     id: 3,
-    title: "Cultural Activities",
-    description: "Rich cultural programs that help students explore and develop their artistic talents.",
+    title: "Physical Education",
+    description: "Emphasizing teamwork and leadership, our cricket facilities offer enthusiasts the perfect setting to hone their skills and foster a lifelong love for the sport.",
     imageUrl: "/assets/approach/sports.png"
   },
   {
@@ -38,7 +38,7 @@ const approachContent: ApproachCard[] = [
 
 const Approach = () => {
   return (
-    <section className='w-full bg-white py-16'>
+    <section className='w-full bg-[#F1EEE9] py-16'>
       <div className='max-w-7xl mx-auto px-4 md:px-0'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-[#1D3557] mb-4'>
           Our Approach
@@ -48,12 +48,12 @@ const Approach = () => {
           character development, and overall growth of our students.
         </p>
         
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-full px-4 md:px-0'>
           {approachContent.map((card) => (
             <div 
               key={card.id} 
-              className='flex flex-col bg-[#1D3557] shadow-md hover:shadow-xl 
-                transition-shadow duration-300 h-[450px] w-full'
+              className='flex flex-col bg-[#002147] shadow-md hover:shadow-xl 
+                transition-shadow duration-300 h-[500px] w-full border'
             >
               {/* Image Container */}
               <div className='relative w-full h-56 overflow-hidden'>

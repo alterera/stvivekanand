@@ -11,22 +11,22 @@ interface Highlight {
 
 const highlights: Highlight[][] = [
   [
-    { id: 1, text: "✦ State-of-the-art infrastructure with modern facilities" },
-    { id: 2, text: "✦ Experienced faculty dedicated to student success" },
-    { id: 3, text: "✦ Comprehensive curriculum focusing on holistic development" },
-    { id: 4, text: "✦ Strong emphasis on sports and activities" },
+    { id: 1, text: "State-of-the-art infrastructure with modern facilities" },
+    { id: 2, text: "Experienced faculty dedicated to student success" },
+    { id: 3, text: "Comprehensive curriculum focusing on holistic development" },
+    { id: 4, text: "Strong emphasis on sports and activities" },
   ],
   [
-    { id: 5, text: "✦ Safe and nurturing learning environment" },
-    { id: 6, text: "✦ Regular workshops and seminars for development" },
-    { id: 7, text: "✦ Advanced computer labs and science facilities" },
-    { id: 8, text: "✦ Focus on character building and moral values" },
+    { id: 5, text: "Safe and nurturing learning environment" },
+    { id: 6, text: "Regular workshops and seminars for development" },
+    { id: 7, text: "Advanced computer labs and science facilities" },
+    { id: 8, text: "Focus on character building and moral values" },
   ],
   [
-    { id: 9, text: "✦ Individual attention to each student" },
-    { id: 10, text: "✦ Regular parent-teacher interactions" },
-    { id: 11, text: "✦ Modern library with vast collection of books" },
-    { id: 12, text: "✦ Emphasis on practical learning and experiments" },
+    { id: 9, text: "Individual attention to each student" },
+    { id: 10, text: "Regular parent-teacher interactions" },
+    { id: 11, text: "Modern library with vast collection of books" },
+    { id: 12, text: "Emphasis on practical learning and experiments" },
   ]
 ]
 
@@ -42,7 +42,7 @@ const Highlights = () => {
   }, [])
 
   return (
-    <section className='relative w-full pb-10 overflow-hidden'>
+    <section className='relative w-full py-10 overflow-hidden bg-[#F1EEE9]'>
       {/* Background Image */}
       {/* <div 
         className='absolute inset-0 z-0 bg-cover bg-center bg-no-repeat'
@@ -52,14 +52,14 @@ const Highlights = () => {
       /> */}
       
       {/* Dark Overlay */}
-      <div className='absolute inset-0 z-0 bg-white/70' />
+      {/* <div className='absolute inset-0 z-0 bg-white/70' /> */}
 
       <div className='relative z-10 max-w-7xl mx-auto px-4 md:px-0'>
         <div className='flex flex-col lg:flex-row gap-12 lg:gap-20'>
           {/* Left Column */}
           <div className='flex-1 space-y-12'>
             <div>
-              <h2 className='text-3xl md:text-4xl font-bold text-[#1D3557] mb-4'>
+              <h2 className='text-3xl md:text-4xl font-bold text-[#002147] mb-4'>
                 Elevating Education - A Commitment to Excellence
               </h2>
               <p className='text-[#1D3557] font-semibold text-lg'>
@@ -84,7 +84,7 @@ const Highlights = () => {
                       key={highlight.id}
                       className='text-xl font-medium text-[#1D3557]'
                     >
-                      {highlight.text}
+                      <span className='text-red-500'>✦ </span>{highlight.text}
                     </div>
                   ))}
                 </motion.div>
@@ -93,7 +93,7 @@ const Highlights = () => {
           </div>
 
           {/* Right Column - Director's Message */}
-          <div className='flex-1 bg-[#1D3557] p-8 rounded-lg text-white shadow-xl'>
+          <div className='flex-1 bg-[#002147] p-8 rounded-lg text-white shadow-xl'>
             <div className='text-5xl text-[#E63946] mb-6'>&quot;</div>
             <blockquote className='text-2xl font-bold mb-8'>
               Our commitment is to nurture not just students, but future leaders who will 

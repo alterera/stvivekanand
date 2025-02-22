@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { PT_Sans } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
-import LenisProvider from "@/components/providers/LenisProvider";
+// import LenisProvider from "@/components/providers/LenisProvider";
 
-const getMontserrat = Montserrat({
-  variable: "--font-geist-sans",
+const getPtSans = PT_Sans({
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -21,11 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${getMontserrat.className} antialiased`}>
-        <LenisProvider>
+      <body className={`${getPtSans.className} antialiased`}>
+        {/* <LenisProvider> */}
           <NavBar />
           {children}
-        </LenisProvider>
+        {/* </LenisProvider> */}
       </body>
     </html>
   );

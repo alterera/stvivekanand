@@ -59,7 +59,7 @@ const Events = () => {
     <section className='w-full bg-white py-16'>
       <div className='max-w-7xl mx-auto px-4 md:px-0'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-[#1D3557] mb-16'>
-          School Events & Activities
+           Events & Activities
         </h2>
 
         {/* Events Grid */}

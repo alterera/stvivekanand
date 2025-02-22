@@ -40,7 +40,7 @@ const rankingContent: RankingCard[] = [
 
 const Rankings = () => {
   return (
-    <section className='w-full bg-[#1D3557] py-16'>
+    <section className='w-full bg-[#002147] py-16'>
       <div className='max-w-7xl mx-auto px-4 md:px-0'>
         <div className='flex flex-col md:flex-row items-center gap-8 md:gap-16'>
           {/* Title Section */}
@@ -56,7 +56,7 @@ const Rankings = () => {
             {rankingContent.map((rank) => (
               <motion.div
                 key={rank.id}
-                className='bg-white p-6 flex flex-col items-center text-center 
+                className='bg-white rounded-md p-6 flex flex-col items-center text-center 
                   group hover:bg-[#457B9D] transition-all duration-300'
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}

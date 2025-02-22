@@ -56,7 +56,23 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  // Handle scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Handle click outside for mobile menu
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       const mobileMenu = document.getElementById('mobile-menu');
@@ -70,8 +86,11 @@ export function NavBar() {
 
   return (
     <>
-      <section className="fixed top-0 left-0 w-full h-16 shadow-md z-30 bg-white">
-        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4">
+      <section 
+        className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-colors duration-300 
+          ${isScrolled ? 'bg-white ' : 'bg-transparent text-white'}`}
+      >
+        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0">
           <Image
             src="/assets/logo/stlogo.png"
             alt="School Logo"
@@ -90,9 +109,9 @@ export function NavBar() {
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none hover:bg-[#1D3557] hover:text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none hover:bg-[#002147] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="/"
-                          >
+                          style={{backgroundImage: "url('/assets/background/stvivek.png')"}} >
                             <div className="mb-2 mt-4 text-lg font-bold hover:text-[#E63946]">
                               Our History
                             </div>
@@ -102,15 +121,15 @@ export function NavBar() {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="#"  title="Why Choose Us?" className="hover:bg-[#1D3557] hover:text-white">
+                      <ListItem href="#"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
                         Want to know why we are the best in whole north India.
                       </ListItem>
-                      <ListItem href="#" title="Mission & Vision" className="hover:bg-[#1D3557] hover:text-white">
+                      <ListItem href="#" title="Mission & Vision" className="hover:bg-[#002147] hover:text-white">
                         Read about our mission and vision for the society from our past.
                       </ListItem>
                       <ListItem
                         href="#"
-                        title="Principal Message" className="hover:bg-[#1D3557] hover:text-white"
+                        title="Principal Message" className="hover:bg-[#002147] hover:text-white"
                       >
                         Message that has been passed by our Principal.
                       </ListItem>
@@ -156,7 +175,7 @@ export function NavBar() {
           </div>
 
           <div className="lg:hidden flex items-center gap-4">
-            <Button variant="destructive" className='text-white bg-[#1D3557] font-semibold shadow-lg'>
+            <Button variant="destructive" className='text-white bg-[#002147] font-semibold shadow-lg'>
               Apply Now
             </Button>
             <button
@@ -167,7 +186,7 @@ export function NavBar() {
             </button>
           </div>
 
-          <Button variant="destructive" className='hidden lg:block text-white bg-[#1D3557] font-semibold shadow-lg'>
+          <Button variant="destructive" className='hidden lg:block text-white bg-[#002147] font-semibold shadow-lg'>
             Apply Now
           </Button>
         </header>
@@ -278,13 +297,13 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block  select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
           <div className="text-sm font-bold leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p className="text-sm leading-snug text-muted-foreground">
             {children}
           </p>
         </a>

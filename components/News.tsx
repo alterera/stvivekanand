@@ -63,7 +63,7 @@ const News = () => {
           {newsContent.map((post) => (
             <motion.div
               key={post.id}
-              className='bg-[#1D3557] overflow-hidden group'
+              className='bg-[#002147] overflow-hidden group shadow-sm'
               whileHover={{ y: -5 }}
               transition={{ duration: 0.3 }}
             >

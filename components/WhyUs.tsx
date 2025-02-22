@@ -72,7 +72,7 @@ const whyUsContent: WhyUsCard[] = [
 
 const WhyUs = () => {
   return (
-    <section className='w-full bg-[#1D3557] py-16'>
+    <section className='w-full bg-[#002147] py-16'>
       <div className='max-w-7xl mx-auto px-4 md:px-0'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-white mb-12'>
           Why St. Vivekanand School?

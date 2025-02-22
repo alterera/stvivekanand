@@ -13,7 +13,7 @@ import {
 
 const Cta = () => {
   return (
-    <section className="relative w-full bg-[#1D3557] py-16 overflow-hidden">
+    <section className="relative w-full bg-[#002147] py-16 overflow-hidden">
       {/* Background Overlay Image */}
       <div
         className="absolute inset-0 z-0 opacity-10"

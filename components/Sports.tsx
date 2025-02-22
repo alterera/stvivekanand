@@ -45,7 +45,7 @@ const Sports = () => {
         {/* Hero Section */}
         <div className='flex flex-col lg:flex-row gap-8 mb-5'>
           {/* Image Container */}
-          <div className='lg:w-[60%] relative h-[300px] md:h-[00px] lg:h-[500px] overflow-hidden'>
+          <div className='lg:w-full relative h-[200px] md:h-[100px] lg:h-[300px] overflow-hidden'>
             <Image
               src="/assets/sports/cricket.png"
               alt="Sports at St. Vivekanand"
@@ -56,16 +56,14 @@ const Sports = () => {
           </div>
 
           {/* Content Container */}
-          <div className='lg:w-[40%] flex flex-col'>
+          <div className='lg:w-[40%] flex flex-col justify-between'>
             <h3 className='text-2xl md:text-3xl font-bold text-[#1D3557] mb-4'>
               Welcome to St. Vivekanand&quot;s sports
             </h3>
-            <p className='text-gray-600 mb-6'>
+            <p className='text-gray-600 mb-6 text-sm md:text-base'>
               Welcome to St. Vivekanand&quot;s sports, the physical education department of our school. 
               We believe that sports is not just a thing, but a way of life that teaches discipline, 
-              perseverance, and teamwork. At St. Vivekanand School, we offer a comprehensive and 
-              integrated growth program that is designed to provide a well-characterized and moving 
-              roadmap for our students.
+              perseverance, and teamwork.
             </p>
             <Button 
               variant="destructive"
