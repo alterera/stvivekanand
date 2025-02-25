@@ -15,6 +15,7 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -57,6 +58,7 @@ const components: { title: string; href: string; description: string }[] = [
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
 
   // Handle scroll
   useEffect(() => {
@@ -71,6 +73,9 @@ export function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const isHomePage = pathname === "/";
+  const navBg = isHomePage && !isScrolled ? "bg-transparent text-white" : "bg-white text-black";
 
   // Handle click outside for mobile menu
   useEffect(() => {
@@ -87,17 +92,18 @@ export function NavBar() {
   return (
     <>
       <section 
-        className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-colors duration-300 
-          ${isScrolled ? 'bg-white ' : 'bg-transparent text-white'}`}
+        className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-colors duration-300 ${navBg}`}
       >
         <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0">
+          <Link href={"/"}>
           <Image
             src="/assets/logo/stlogo.png"
             alt="School Logo"
             width={150}
             height={80}
             className="object-contain"
-          />
+            />
+            </Link>
 
           <div className="hidden lg:block">
             <NavigationMenu>
@@ -110,7 +116,7 @@ export function NavBar() {
                         <NavigationMenuLink asChild>
                           <Link
                             className="flex h-full w-full select-none hover:bg-[#002147] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="/"
+                            href="/our-history"
                           style={{backgroundImage: "url('/assets/background/stvivek.png')"}} >
                             <div className="mb-2 mt-4 text-lg font-bold hover:text-[#E63946]">
                               Our History
@@ -121,7 +127,7 @@ export function NavBar() {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="#"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
+                      <ListItem href="/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
                         Want to know why we are the best in whole north India.
                       </ListItem>
                       <ListItem href="#" title="Mission & Vision" className="hover:bg-[#002147] hover:text-white">
