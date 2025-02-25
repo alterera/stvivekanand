@@ -53,7 +53,7 @@ const Approach = () => {
             <div 
               key={card.id} 
               className='flex flex-col bg-[#002147] shadow-md hover:shadow-xl 
-                transition-shadow duration-300 h-[500px] w-full border'
+                 h-[500px] w-full border transition-transform hover:scale-[1.02] duration-300'
             >
               {/* Image Container */}
               <div className='relative w-full h-56 overflow-hidden'>

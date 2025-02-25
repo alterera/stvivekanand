@@ -61,7 +61,7 @@ const About = () => {
 
     return (
       <div key={card.id} className="flex-1 flex flex-col items-center">
-        <div className="aspect-square w-full relative group overflow-hidden">
+        <div className="aspect-square transition-transform hover:scale-[1.02] duration-300 w-full relative group overflow-hidden">
           <div
             className="h-full w-full bg-cover bg-center transition-transform 
                   "

@@ -56,7 +56,7 @@ const eventsContent: EventCard[] = [
 
 const Events = () => {
   return (
-    <section className='w-full bg-white py-16'>
+    <section className='w-full bg-white py-12'>
       <div className='max-w-7xl mx-auto px-4 md:px-0'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-[#1D3557] mb-16'>
            Events & Activities
@@ -87,7 +87,7 @@ const Events = () => {
 
               {/* Content */}
               <div className='absolute inset-0 p-4 flex flex-col justify-end'>
-                <h4 className='text-xl md:text-2xl font-bold text-white mb-3 
+                <h4 className='text-lg md:text-2xl font-bold text-white mb-3 
                   transform transition-transform duration-300 group-hover:translate-y-[-8px]'>
                   {event.title}
                 </h4>
@@ -106,7 +106,7 @@ const Events = () => {
         <div className='flex justify-center'>
           <Button 
             variant="destructive"
-            className='text-white bg-[#E63946] hover:bg-[#E63946]/90 px-8 py-6 text-lg'
+            className='text-white bg-[#E63946] hover:bg-[#E63946]/90 px-2 py-2 text-base'
           >
             View All Events
           </Button>
