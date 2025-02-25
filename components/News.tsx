@@ -52,23 +52,46 @@ const newsContent: NewsPost[] = [
 
 const News = () => {
   return (
-    <section className='w-full bg-[#457B9D] py-6'>
+    <motion.section 
+      className='w-full bg-[#457B9D] py-16'
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className='max-w-7xl mx-auto px-8 md:px-0'>
-        <h2 className='text-3xl md:text-4xl font-bold text-center text-white mb-16'>
+        {/* Title Section */}
+        <motion.h2 
+          className='text-3xl md:text-4xl font-bold text-center text-white mb-16'
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           News & Updates
-        </h2>
+        </motion.h2>
 
         {/* News Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'>
-          {newsContent.map((post) => (
+        <motion.div 
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          {newsContent.map((post, index) => (
             <motion.div
               key={post.id}
-              className='bg-[#002147] overflow-hidden group shadow-sm'
-              whileHover={{ y: -5 }}
+              className='bg-[#002147] overflow-hidden group shadow-md rounded-lg'
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               {/* Image Container */}
-              <div className='relative h-48 w-full overflow-hidden'>
+              <motion.div 
+                className='relative h-48 w-full overflow-hidden rounded-t-lg'
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Image
                   src={post.imageUrl}
                   alt={post.title}
@@ -76,10 +99,16 @@ const News = () => {
                   className='object-cover transition-transform duration-500 group-hover:scale-110'
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
-              </div>
+              </motion.div>
 
               {/* Content */}
-              <div className='p-6'>
+              <motion.div 
+                className='p-6'
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
                 <p className='text-sm text-[#457B9D] font-semibold mb-2'>
                   {post.date}
                 </p>
@@ -99,24 +128,30 @@ const News = () => {
                     Read More
                   </Button>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* View All News Button */}
-        <div className='flex justify-center'>
+        <motion.div 
+          className='flex justify-center'
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <Link href="/news">
             <Button 
               variant="destructive"
-              className='text-white bg-[#E63946] hover:bg-[#E63946]/90 px-8 py-6 text-lg'
+              className='text-white bg-[#E63946] hover:bg-[#E63946]/90 px-8 py-4 text-lg'
             >
               View All News
             </Button>
           </Link>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

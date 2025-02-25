@@ -47,12 +47,6 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "A set of layered sections of content—known as tab panels—that.",
   },
-  {
-    title: "Cultural",
-    href: "/academics/cultural",
-    description:
-      "A popup that displays information related to an element it.",
-  },
 ];
 
 const admissionComponent: { title: string; href: string; description: string }[] = [
@@ -70,13 +64,13 @@ const admissionComponent: { title: string; href: string; description: string }[]
   },
   {
     title: "Withdrawal Process",
-    href: "/admissions/withdrawal-process",
+    href: "#",
     description:
       "All the information you need to know about withdrawal process.",
   },
   {
     title: "TC Updates",
-    href: "/admissions/tc-updates",
+    href: "#",
     description: "Our all terms and conditions updates in one place.",
   }
 ];
@@ -200,8 +194,8 @@ export function NavBar() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                <Link href={'/contact'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Contact</Link>
-                <Link href={'mandotary-disclosure'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Disclosure</Link>
+                <Link href={'/contact-us'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Contact</Link>
+                <Link href={'/mandatory-disclosure'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Disclosure</Link>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -278,10 +272,10 @@ export function NavBar() {
               ))}
             </MobileDropdown>
 
-            <Link href="/contact" className="block p-3 hover:bg-gray-100 rounded-md">
+            <Link href="/contact-us" className="block p-3 hover:bg-gray-100 rounded-md">
               Contact
             </Link>
-            <Link href="/mandotary-disclosure" className="block p-3 hover:bg-gray-100 rounded-md">
+            <Link href="/mandatory-disclosure" className="block p-3 hover:bg-gray-100 rounded-md">
               Disclosure
             </Link>
           </div>

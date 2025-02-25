@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import React from 'react'
+import { motion } from 'framer-motion'
 import { Button } from "./ui/button";
 
 // Define types for our content
@@ -35,9 +38,16 @@ const aboutContent: ContentCard[] = [
 
 const About = () => {
   const renderCard = (card: ContentCard) => {
-    if (card.type === "text") {
-      return (
-        <div key={card.id} className="flex-1 flex flex-col items-center">
+    return (
+      <motion.div
+        key={card.id}
+        className="flex-1 flex flex-col items-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {card.type === "text" ? (
           <div
             className="aspect-square w-full bg-transparent p-6 border-2 border-white 
                   transition-transform hover:scale-[1.02] duration-300 flex flex-col justify-between"
@@ -46,7 +56,9 @@ const About = () => {
               <h2 className="text-2xl font-semibold text-white mb-4">
                 {card.title}
               </h2>
-              <p className="text-gray-200 text-sm md:text-base">{card.description}</p>
+              <p className="text-gray-200 text-sm md:text-base">
+                {card.description}
+              </p>
             </div>
             <Button
               variant="destructive"
@@ -55,57 +67,73 @@ const About = () => {
               Read More
             </Button>
           </div>
-        </div>
-      );
-    }
-
-    return (
-      <div key={card.id} className="flex-1 flex flex-col items-center">
-        <div className="aspect-square transition-transform hover:scale-[1.02] duration-300 w-full relative group overflow-hidden">
-          <div
-            className="h-full w-full bg-cover bg-center transition-transform 
-                  "
-            style={{ backgroundImage: `url('${card.imageUrl}')` }}
-          >
-            <div className="absolute inset-0 bg-black/40"></div>
-            <div className="absolute inset-0 p-6 flex flex-col justify-end gap-4">
-              <h2 className="text-2xl font-semibold text-white">
-                {card.title}
-              </h2>
-              <Button
-                variant="destructive"
-                className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
-              >
-                Read More
-              </Button>
+        ) : (
+          <div className="aspect-square transition-transform hover:scale-[1.02] duration-300 w-full relative group overflow-hidden">
+            <div
+              className="h-full w-full bg-cover bg-center transition-transform"
+              style={{ backgroundImage: `url('${card.imageUrl}')` }}
+            >
+              <div className="absolute inset-0 bg-black/40"></div>
+              <div className="absolute inset-0 p-6 flex flex-col justify-end gap-4">
+                <h2 className="text-2xl font-semibold text-white">
+                  {card.title}
+                </h2>
+                <Button
+                  variant="destructive"
+                  className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
+                >
+                  Read More
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </motion.div>
     );
   };
 
   return (
     <section className="w-full bg-[#002147]">
-      <div
+      <motion.div
         className="relative max-w-7xl mx-auto bg-[#002147] py-12 px-4 md:px-0"
         style={{
           backgroundImage: "url('/assets/background/stvivek.png')",
           objectFit: "cover",
           backgroundRepeat: "no-repeat",
         }}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
       >
-        <h1 className="text-xl md:text-4xl font-bold text-white pb-4">
+        {/* Heading */}
+        <motion.h1
+          className="text-xl md:text-4xl font-bold text-white pb-4"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
           About St. Vivekanand School
-        </h1>
-        <p className="md:w-[50%] text-white text-sm md:text-base pb-8">
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p
+          className="md:w-[50%] text-white text-sm md:text-base pb-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           Our school is well-known for its high-quality education, providing a
           co-educational Day cum Boarding school environment.
-        </p>
+        </motion.p>
+
+        {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6">
           {aboutContent.map((card) => renderCard(card))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
