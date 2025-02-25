@@ -66,14 +66,14 @@ const MissionVision = () => {
               Our Mission
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              "At Saint Vivekanand School, our mission is to provide a holistic education 
+            &ldquo;At Saint Vivekanand School, our mission is to provide a holistic education 
               that nurtures creativity, critical thinking, and compassion. We are committed 
               to fostering an inclusive and dynamic learning environment where students are 
-              empowered to reach their full potential."
+              empowered to reach their full potential.&rdquo;
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mt-4">
-              "We aim to instill a love for lifelong learning and equip students with the 
-              skills necessary to navigate an ever-changing world."
+            &ldquo;We aim to instill a love for lifelong learning and equip students with the 
+              skills necessary to navigate an ever-changing world.&rdquo;
             </p>
           </div>
         </motion.div>
@@ -103,14 +103,14 @@ const MissionVision = () => {
               Our Vision
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              "Our vision is to create a school community that inspires students to become 
+            &ldquo;Our vision is to create a school community that inspires students to become 
               compassionate leaders, innovative thinkers, and responsible global citizens. 
               We strive to be a center of academic excellence, character development, and 
-              social responsibility."
+              social responsibility.&rdquo;
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mt-4">
-              "By embracing new technologies and methodologies, we envision a future where 
-              every student is equipped to thrive in an ever-evolving world."
+            &ldquo;By embracing new technologies and methodologies, we envision a future where 
+              every student is equipped to thrive in an ever-evolving world.&rdquo;
             </p>
           </div>
         </motion.div>
