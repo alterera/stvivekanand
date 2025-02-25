@@ -3,7 +3,6 @@ import { PT_Sans } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
-// import LenisProvider from "@/components/providers/LenisProvider";
 
 const getPtSans = PT_Sans({
   weight: ["400", "700"],

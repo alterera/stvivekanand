@@ -4,19 +4,19 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb";
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const PrincipalMessage = () => {
   return (
     <section className="w-full bg-[#F9F9F9] py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-      <Breadcrumb className="pb-5">
+        <Breadcrumb className="pb-5">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -37,7 +37,8 @@ const PrincipalMessage = () => {
             Principal&apos;s Message
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            A message from our esteemed principal, shaping the future of our students.
+            A message from our esteemed principal, shaping the future of our
+            students.
           </p>
         </div>
 
@@ -66,18 +67,34 @@ const PrincipalMessage = () => {
               Welcome to Saint Vivekanand School
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            &ldquo;Education is not just about acquiring knowledge but also about developing 
-              character, values, and a lifelong love for learning. At Saint Vivekanand School, 
-              we strive to create an environment where students can grow holistically, 
-              embracing both academic excellence and personal integrity.&rdquo;
+            &ldquo;As we embark on another academic year at Saint Vivekanand Sr. Sec.
+              School, Bikaner, I am delighted to extend a warm welcome to our
+              esteemed students, parents, and faculty. For over 45 years, our
+              institution has been a beacon of learning, rooted in values that
+              go beyond textbooks. Our commitment lies not just in academic
+              achievements but in instilling enduring values that shape
+              responsible, compassionate individuals. We take pride in fostering
+              a culture of respect, integrity, and empathy, values that are
+              woven into the fabric of our daily interactions.&rdquo;
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mt-4">
-            &ldquo;Our goal is to equip students with the skills and mindset to thrive in a 
-              rapidly evolving world. We believe in nurturing curiosity, creativity, 
-              and compassion in every child.&rdquo;
+              &ldquo;In our classrooms, on the sports field, and amidst the
+              creative pursuits, we emphasize character development alongside
+              academic excellence. Our journey is a testament to the belief that
+              education is not merely about acquiring knowledge but about
+              cultivating a strong moral compass. At Saint Vivekanand, we are
+              not just educators; we are mentors guiding students toward
+              becoming conscientious global citizens. Join us in this legacy of
+              values-driven education, where each day is an opportunity to
+              nurture not just bright minds, but noble hearts. Here&apos;s to another
+              year of inspiring growth and learning.&rdquo;
             </p>
-            <p className="text-[#E63946] font-bold text-lg mt-6">- Dr. [Principal&apos;s Name]</p>
-            <p className="text-gray-600 text-sm">Principal, Saint Vivekanand School</p>
+            <p className="text-[#E63946] font-bold text-lg mt-6">
+              - Nidhi Gupta
+            </p>
+            <p className="text-gray-600 text-sm">
+              Principal, Saint Vivekanand School
+            </p>
           </div>
         </motion.div>
       </div>

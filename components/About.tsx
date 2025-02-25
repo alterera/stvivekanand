@@ -3,12 +3,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Button } from "./ui/button";
+import Link from 'next/link';
 
 // Define types for our content
 interface ContentCard {
   id: number;
   title: string;
   description?: string;
+  url: string,
   imageUrl?: string;
   type: "text" | "image";
 }
@@ -21,18 +23,21 @@ const aboutContent: ContentCard[] = [
     title: "Our Vision",
     description:
       "At St. Vivekanand Sr. Sec. School, we are guided by the timeless wisdom of Swami Vivekananda, a beacon of education and social reform. We believe that true education transcends mere academics, aiming to awaken the inherent potential within every student and nurture well-rounded individuals who are responsible global citizens.",
+    url: "/about-us/mission-vision"
   },
   {
     id: 2,
     type: "image",
     title: "From Principal's Desk",
     imageUrl: "/assets/faculty/principal.jpg",
+    url: "about-us/principals-message"
   },
   {
     id: 3,
     type: "image",
     title: "Academic Excellence",
     imageUrl: "/assets/background/why-shpuld.jpg",
+    url: "about-us/why-choose-us"
   },
 ];
 
@@ -60,12 +65,14 @@ const About = () => {
                 {card.description}
               </p>
             </div>
+            <Link href={card.url} >
             <Button
               variant="destructive"
               className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
             >
               Read More
             </Button>
+            </Link>
           </div>
         ) : (
           <div className="aspect-square transition-transform hover:scale-[1.02] duration-300 w-full relative group overflow-hidden">
@@ -78,12 +85,14 @@ const About = () => {
                 <h2 className="text-2xl font-semibold text-white">
                   {card.title}
                 </h2>
+                <Link href={card.url}>
                 <Button
                   variant="destructive"
                   className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
-                >
+                  >
                   Read More
                 </Button>
+                  </Link>
               </div>
             </div>
           </div>

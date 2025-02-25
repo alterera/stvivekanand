@@ -315,26 +315,26 @@ function MobileDropdown({ title, children }: { title: string; children: React.Re
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
+  React.ComponentPropsWithoutRef<"a"> & { href: string; title: string }
+>(({ className, title, href, children, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
-        <a
+        <Link
           ref={ref}
+          href={href} // ✅ Ensure href is always passed
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#002147]  hover:text-white focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-bold leading-none ">{title}</div>
-          <p className="text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
+          <div className="text-sm font-bold leading-none">{title}</div>
+          <p className="text-sm leading-snug text-muted-foreground">{children}</p>
+        </Link>
       </NavigationMenuLink>
     </li>
   );
 });
+
 ListItem.displayName = "ListItem";
