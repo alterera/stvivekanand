@@ -20,39 +20,65 @@ import { usePathname } from "next/navigation";
 const components: { title: string; href: string; description: string }[] = [
   {
     title: "CBSE Affiliation",
-    href: "#",
+    href: "/academics/cbse-affiliation",
     description:
-      "CBSE affiliation details that the viewers must know.",
+      "Know about the affiliation of our school with CBSE.",
   },
   {
-    title: "Curriculumn",
-    href: "#",
+    title: "Curriculum",
+    href: "/academics/curriculum",
     description:
-      "Know more about the curriculmn we provide.",
+      "Know more about the curriculmn our school provides.",
   },
   {
     title: "Streams Offered",
-    href: "/docs/primitives/progress",
+    href: "/academics/streams-offered",
     description:
       "Displays an indicator showing the completion progress of a task.",
   },
   {
-    title: "Career Couselling",
-    href: "/docs/primitives/scroll-area",
+    title: "Career Counselling",
+    href: "/academics/career-counselling",
     description: "Visually or semantically separates content.",
   },
   {
     title: "Sports",
-    href: "/docs/primitives/tabs",
+    href: "/academics/sports",
     description:
       "A set of layered sections of content—known as tab panels—that.",
   },
   {
     title: "Cultural",
-    href: "/docs/primitives/tooltip",
+    href: "/academics/cultural",
     description:
       "A popup that displays information related to an element it.",
   },
+];
+
+const admissionComponent: { title: string; href: string; description: string }[] = [
+  {
+    title: "Admission Procedure",
+    href: "/admissions/admission-process",
+    description:
+      "Read about the process we follow in our school for the admission.",
+  },
+  {
+    title: "Fee Structure",
+    href: "/admissions/fee-structure",
+    description:
+      "Know more about the fee structure of your child future journey.",
+  },
+  {
+    title: "Withdrawal Process",
+    href: "/admissions/withdrawal-process",
+    description:
+      "All the information you need to know about withdrawal process.",
+  },
+  {
+    title: "TC Updates",
+    href: "/admissions/tc-updates",
+    description: "Our all terms and conditions updates in one place.",
+  }
 ];
 
 export function NavBar() {
@@ -116,7 +142,7 @@ export function NavBar() {
                         <NavigationMenuLink asChild>
                           <Link
                             className="flex h-full w-full select-none hover:bg-[#002147] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                            href="/our-history"
+                            href="/about-us/our-history"
                           style={{backgroundImage: "url('/assets/background/stvivek.png')"}} >
                             <div className="mb-2 mt-4 text-lg font-bold hover:text-[#E63946]">
                               Our History
@@ -127,14 +153,14 @@ export function NavBar() {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
+                      <ListItem href="/about-us/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
                         Want to know why we are the best in whole north India.
                       </ListItem>
-                      <ListItem href="#" title="Mission & Vision" className="hover:bg-[#002147] hover:text-white">
+                      <ListItem href="/about-us/mission-vision" title="Mission & Vision" className="hover:bg-[#002147] hover:text-white">
                         Read about our mission and vision for the society from our past.
                       </ListItem>
                       <ListItem
-                        href="#"
+                        href="/about-us/principals-message"
                         title="Principal Message" className="hover:bg-[#002147] hover:text-white"
                       >
                         Message that has been passed by our Principal.
@@ -145,7 +171,7 @@ export function NavBar() {
                 <NavigationMenuItem>
                   <NavigationMenuTrigger>Academics</NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {components.map((component) => (
                         <ListItem
                           key={component.title}
@@ -162,7 +188,7 @@ export function NavBar() {
                   <NavigationMenuTrigger>Admissions</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                      {components.map((component) => (
+                      {admissionComponent.map((component) => (
                         <ListItem
                           key={component.title}
                           title={component.title}
@@ -214,16 +240,16 @@ export function NavBar() {
 
           <div className="space-y-4">
             <MobileDropdown title="About">
-              <Link href="/our-history" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/our-history" className="block p-3 hover:bg-gray-100 rounded-md">
                 Our History
               </Link>
-              <Link href="/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md">
                 Why Choose Us?
               </Link>
-              <Link href="#" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/mision-vision" className="block p-3 hover:bg-gray-100 rounded-md">
                 Mission & Vision
               </Link>
-              <Link href="/principals-message" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/principals-message" className="block p-3 hover:bg-gray-100 rounded-md">
                 Principal Message
               </Link>
             </MobileDropdown>
@@ -241,7 +267,7 @@ export function NavBar() {
             </MobileDropdown>
 
             <MobileDropdown title="Admissions">
-              {components.map((component) => (
+              {admissionComponent.map((component) => (
                 <Link
                   key={component.title}
                   href={component.href}
@@ -303,12 +329,12 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#002147]  hover:text-white focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-bold leading-none">{title}</div>
+          <div className="text-sm font-bold leading-none ">{title}</div>
           <p className="text-sm leading-snug text-muted-foreground">
             {children}
           </p>
