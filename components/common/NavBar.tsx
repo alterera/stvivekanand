@@ -214,16 +214,16 @@ export function NavBar() {
 
           <div className="space-y-4">
             <MobileDropdown title="About">
-              <Link href="/" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/our-history" className="block p-3 hover:bg-gray-100 rounded-md">
                 Our History
               </Link>
-              <Link href="#" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md">
                 Why Choose Us?
               </Link>
               <Link href="#" className="block p-3 hover:bg-gray-100 rounded-md">
                 Mission & Vision
               </Link>
-              <Link href="#" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/principals-message" className="block p-3 hover:bg-gray-100 rounded-md">
                 Principal Message
               </Link>
             </MobileDropdown>
