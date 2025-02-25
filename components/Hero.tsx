@@ -4,31 +4,34 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Background from "./Background";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const heroData = [
   {
     subTitle: "Unlock Your Potential",
     title: "Welcome to Saint Vivekanand School",
-    description: "A premier educational institution in Bikaner, Rajasthan, shaping young minds with excellence, discipline, and innovation.",
+    description:
+      "A premier educational institution in Bikaner, Rajasthan, shaping young minds with excellence, discipline, and innovation.",
     buttonText: "Explore More",
-    url: "#",
+    url: "/academics/overview",
   },
   {
     subTitle: "Excellence in Education",
     title: "Empowering Future Leaders",
-    description: "Our mission is to provide top-tier education with a balance of academics, sports, and extracurricular activities.",
+    description:
+      "Our mission is to provide top-tier education with a balance of academics, sports, and extracurricular activities.",
     buttonText: "Join Us Today",
     url: "#",
   },
   {
     subTitle: "A Legacy of Learning",
-    title: "Nurturing Young Minds Since 1995",
-    description: "We believe in holistic development, fostering curiosity, creativity, and confidence in every student.",
+    title: "Nurturing Young Minds Since 1977",
+    description:
+      "We believe in holistic development, fostering curiosity, creativity, and confidence in every student.",
     buttonText: "Discover More",
     url: "#",
-  }
+  },
 ];
-
 
 const Hero = () => {
   const [heroCount, setHeroCount] = useState(0);
@@ -96,12 +99,14 @@ const Hero = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 1.2 }}
               >
-                <Button
-                  variant="destructive"
-                  className="text-white bg-[#E63946] hover:scale-105 transition-transform duration-300"
-                >
-                  {heroData[heroCount].buttonText}
-                </Button>
+                <Link href={heroData[heroCount].url}>
+                  <Button
+                    variant="destructive"
+                    className="text-white bg-[#E63946] hover:scale-105 transition-transform duration-300"
+                  >
+                    {heroData[heroCount].buttonText}
+                  </Button>
+                </Link>
               </motion.div>
             </AnimatePresence>
           </div>

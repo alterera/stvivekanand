@@ -19,17 +19,23 @@ import { usePathname } from "next/navigation";
 
 const components: { title: string; href: string; description: string }[] = [
   {
+    title: "Overview",
+    href: "/academics/overview",
+    description:
+      "A brief overview of our campus to get the idea of our legacy.",
+  },
+  {
     title: "CBSE Affiliation",
     href: "/academics/cbse-affiliation",
     description:
       "Know about the affiliation of our school with CBSE.",
   },
-  {
-    title: "Curriculum",
-    href: "/academics/curriculum",
-    description:
-      "Know more about the curriculmn our school provides.",
-  },
+  // {
+  //   title: "Curriculum",
+  //   href: "/academics/curriculum",
+  //   description:
+  //     "Know more about the curriculmn our school provides.",
+  // },
   {
     title: "Streams Offered",
     href: "/academics/streams-offered",
@@ -39,13 +45,19 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Career Counselling",
     href: "/academics/career-counselling",
-    description: "Visually or semantically separates content.",
+    description: "Our school have dedicated department to help you with your career decisions.",
   },
   {
     title: "Sports",
     href: "/academics/sports",
     description:
       "A set of layered sections of content—known as tab panels—that.",
+  },
+  {
+    title: "Gallery",
+    href: "/gallery",
+    description:
+      "See the glimpses of our school in a page which contains the memory.",
   },
 ];
 
@@ -71,7 +83,7 @@ const admissionComponent: { title: string; href: string; description: string }[]
   {
     title: "TC Updates",
     href: "#",
-    description: "Our all terms and conditions updates in one place.",
+    description: "Find transfer certificates of your ward in a easy way.",
   }
 ];
 

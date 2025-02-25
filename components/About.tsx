@@ -37,7 +37,7 @@ const aboutContent: ContentCard[] = [
     type: "image",
     title: "Academic Excellence",
     imageUrl: "/assets/background/why-shpuld.jpg",
-    url: "about-us/why-choose-us"
+    url: "/academics/overview"
   },
 ];
 
@@ -104,7 +104,7 @@ const About = () => {
   return (
     <section className="w-full bg-[#002147]">
       <motion.div
-        className="relative max-w-7xl mx-auto bg-[#002147] py-12 px-4 md:px-0"
+        className="relative max-w-7xl mx-auto bg-[#002147] py-12 px-6 md:px-0"
         style={{
           backgroundImage: "url('/assets/background/stvivek.png')",
           objectFit: "cover",
