@@ -13,9 +13,9 @@ interface RankingCard {
 
 const rankingContent: RankingCard[] = [
   { id: 1, rank: "#1", location: "IN INDIA", description: "Career Counselling Leaders" },
-  { id: 2, rank: "#1", location: "IN BIKANER", description: "Day-Cum-Boarding-School" },
-  { id: 3, rank: "#1", location: "IN BIKANER", description: "Top Co-Education Day-Cum-Boarding-School" },
-  { id: 4, rank: "#1", location: "IN INDIA", description: "Academic Reputation" },
+  { id: 2, rank: "A+", location: "IN Rajasthan", description: "Day-Cum-Boarding-School" },
+  { id: 3, rank: "NAC", location: "IN BIKANER", description: "Top Co-Education Day-Cum-Boarding-School" },
+  { id: 4, rank: "TOP", location: "IN INDIA", description: "Academic Reputation" },
 ];
 
 const Rankings = () => {

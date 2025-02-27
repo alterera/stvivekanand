@@ -9,17 +9,17 @@ import Link from "next/link";
 const heroData = [
   {
     subTitle: "Unlock Your Potential",
-    title: "Welcome to Saint Vivekanand School",
+    title: "Empowering Minds, Enriching Lives",
     description:
-      "A premier educational institution in Bikaner, Rajasthan, shaping young minds with excellence, discipline, and innovation.",
+      "Inspired by Swami Vivekananda's vision, we nurture intellect, character, and spirit—cultivating leaders who embrace knowledge, innovation, and service to humanity.",
     buttonText: "Explore More",
     url: "/academics/overview",
   },
   {
-    subTitle: "Excellence in Education",
-    title: "Empowering Future Leaders",
+    subTitle: "Excellence in Leadership",
+    title: "Where Learning Meets Leadership",
     description:
-      "Our mission is to provide top-tier education with a balance of academics, sports, and extracurricular activities.",
+      "We believe in fostering curiosity, critical thinking, and resilience, shaping students into confident individuals ready to excel in an ever-evolving world.",
     buttonText: "Join Us Today",
     url: "#",
   },

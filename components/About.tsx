@@ -1,149 +1,205 @@
 "use client";
 
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Button } from "./ui/button";
-import Link from 'next/link';
-
-// Define types for our content
-interface ContentCard {
-  id: number;
-  title: string;
-  description?: string;
-  url: string,
-  imageUrl?: string;
-  type: "text" | "image";
-}
-
-// Content data
-const aboutContent: ContentCard[] = [
-  {
-    id: 1,
-    type: "text",
-    title: "Our Vision",
-    description:
-      "At St. Vivekanand Sr. Sec. School, we are guided by the timeless wisdom of Swami Vivekananda, a beacon of education and social reform. We believe that true education transcends mere academics, aiming to awaken the inherent potential within every student and nurture well-rounded individuals who are responsible global citizens.",
-    url: "/about-us/mission-vision"
-  },
-  {
-    id: 2,
-    type: "image",
-    title: "From Principal's Desk",
-    imageUrl: "/assets/faculty/principal.jpg",
-    url: "about-us/principals-message"
-  },
-  {
-    id: 3,
-    type: "image",
-    title: "Academic Excellence",
-    imageUrl: "/assets/background/why-shpuld.jpg",
-    url: "/academics/overview"
-  },
-];
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Quote from "./ui/quote";
 
 const About = () => {
-  const renderCard = (card: ContentCard) => {
-    return (
-      <motion.div
-        key={card.id}
-        className="flex-1 flex flex-col items-center"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {card.type === "text" ? (
-          <div
-            className="aspect-square w-full bg-transparent p-6 border-2 border-white 
-                  transition-transform hover:scale-[1.02] duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <h2 className="text-2xl font-semibold text-white mb-4">
-                {card.title}
-              </h2>
-              <p className="text-gray-200 text-sm md:text-base">
-                {card.description}
-              </p>
-            </div>
-            <Link href={card.url} >
-            <Button
-              variant="destructive"
-              className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
-            >
-              Read More
-            </Button>
-            </Link>
-          </div>
-        ) : (
-          <div className="aspect-square transition-transform hover:scale-[1.02] duration-300 w-full relative group overflow-hidden">
-            <div
-              className="h-full w-full bg-cover bg-center transition-transform"
-              style={{ backgroundImage: `url('${card.imageUrl}')` }}
-            >
-              <div className="absolute inset-0 bg-black/40"></div>
-              <div className="absolute inset-0 p-6 flex flex-col justify-end gap-4">
-                <h2 className="text-2xl font-semibold text-white">
-                  {card.title}
-                </h2>
-                <Link href={card.url}>
-                <Button
-                  variant="destructive"
-                  className="text-white bg-[#E63946] hover:scale-110 transition-transform duration-300 w-fit"
-                  >
-                  Read More
-                </Button>
-                  </Link>
-              </div>
-            </div>
-          </div>
-        )}
-      </motion.div>
-    );
-  };
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section className="w-full bg-[#002147]">
-      <motion.div
-        className="relative max-w-7xl mx-auto bg-[#002147] py-12 px-6 md:px-0"
-        style={{
-          backgroundImage: "url('/assets/background/stvivek.png')",
-          objectFit: "cover",
-          backgroundRepeat: "no-repeat",
-        }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {/* Heading */}
-        <motion.h1
-          className="text-xl md:text-4xl font-bold text-white pb-4"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+    <motion.section className="w-full bg-gray-100" initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}>
+      <div className="hidden md:flex flex-col md:flex-row transition-all duration-500">
+        {/* First Container */}
+        <motion.div
+          className={`relative flex flex-col justify-between min-h-[600px] bg-[#1D3557] p-10 transition-all duration-500 ease-in-out text-white ${
+            hovered ? "md:w-[60%]" : "md:w-[50%]"
+          }`}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
         >
-          About St. Vivekanand School
-        </motion.h1>
+          <div className="absolute top-20 right-0 h-[300px] w-[400px] bg-white/20 rounded-s-3xl" style={{backgroundImage: "url('/assets/background/pattern-3.png')", opacity: "20%", objectFit: "cover"}}>
+          </div>
+          <Quote className="text-white absolute top-10 left-10 h-[50px] w-[50px]" />
 
-        {/* Description */}
-        <motion.p
-          className="md:w-[50%] text-white text-sm md:text-base pb-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          {/* Heading (Hidden on Hover) */}
+          <motion.h2
+            className={`text-4xl font-bold transition-opacity duration-300 pt-20 ${hovered ? "opacity-0 absolute" : "opacity-100"}`}>
+            Hear From The <br /> Principal
+          </motion.h2>
+
+          {/* Paragraph (Shown on Hover) */}
+          <p
+            className={`text-lg transition-opacity duration-300 w-[70%] pt-20 ${
+              hovered ? "opacity-100" : "opacity-0 absolute"
+            }`}
+          >
+            Our commitment lies not just in academic achievements but in
+            instilling enduring values that shape responsible, compassionate
+            individuals. We take pride in fostering a culture of respect,
+            integrity, and empathy, values that are woven into the fabric of our
+            daily interactions. In our classrooms, on the sports field, and
+            amidst the creative pursuits, we emphasize character development
+            alongside academic excellence. Our journey is a testament to the
+            belief that education is not merely about acquiring knowledge but
+            about cultivating a strong moral compass.
+          </p>
+
+          {/* Name & Position */}
+          <div className="mt-6">
+            <span className="block font-semibold text-lg">Nidhi Gupta</span>
+            <span className="text-sm opacity-80">Principal</span>
+          </div>
+
+          {/* Image Positioned Bottom Right */}
+          <Image
+            src="/assets/background/isha.png"
+            alt="Nita Mukesh Ambani"
+            width={400}
+            height={400}
+            className="absolute bottom-0 right-6"
+          />
+        </motion.div>
+
+        {/* Second Container */}
+        <div
+          className={`relative flex flex-col justify-between bg-[#E63946] p-10 transition-all duration-500 ease-in-out text-white ${
+            hovered ? "md:w-[40%]" : "md:w-[60%]"
+          }`}
         >
-          Our school is well-known for its high-quality education, providing a
-          co-educational Day cum Boarding school environment.
-        </motion.p>
+          <div className="absolute top-20 right-0 h-[300px] w-[450px] bg-white/20 rounded-s-3xl" style={{backgroundImage: "url('/assets/background/pattern-3.png')", opacity: "50%", objectFit: "cover"}}></div>
+          <Quote className='text-white absolute top-10 left-10 h-[50px] w-[50px]' />
 
-        {/* Cards */}
-        <div className="flex flex-col md:flex-row gap-6">
-          {aboutContent.map((card) => renderCard(card))}
+          {/* Heading (Shown on Hover) */}
+          <h2
+            className={`text-3xl font-bold transition-opacity duration-300 pt-20 ${
+              hovered ? "opacity-100" : "opacity-0 absolute"
+            }`}
+          >
+            Director&apos;s Note
+          </h2>
+
+          {/* Paragraph (Hidden on Hover) */}
+          <p
+            className={`text-lg transition-opacity duration-300 pt-20 md:w-[70%] ${
+              hovered ? "opacity-0 absolute" : "opacity-100"
+            }`}
+          >
+            Our commitment to modern pedagogy, bagless schooling, and aligning
+            with the latest NEP practices sets us apart. From spacetech &
+            astronomy, AI learning & robotics, to performance and liberal arts,
+            we cultivate holistic development. Our teachers undergo
+            international standard training, ensuring a world-class education. I
+            am thrilled to share that our focus on experiential learning has
+            earned us the prestigious title of the Best in Experiential Learning
+            by a reputed organization in Thailand.
+          </p>
+
+          {/* Name & Position */}
+          <div className="mt-6">
+            <span className="block font-semibold text-lg">SH. Nipun Gupta</span>
+            <span className="text-sm opacity-80">Director</span>
+          </div>
+
+          {/* Image Positioned Bottom (Moves to Right End on Hover) */}
+          <Image
+            src="/assets/background/nita.png"
+            alt="Isha Ambani Piramal"
+            width={500}
+            height={500}
+            className={`absolute bottom-0 transition-all duration-500 ${
+              hovered ? "right-6" : "left-2/3 transform -translate-x-2/3"
+            }`}
+          />
         </div>
-      </motion.div>
-    </section>
+      </div>
+
+      <div className="md:hidden w-full flex flex-col items-center">
+        {/* First Container */}
+        <div className="relative flex flex-col justify-evenly w-full bg-[#1D3557] py-12 px-6 h-full text-white">
+        <Quote className='text-white absolute top-10 left-5 h-[40px] w-[40px]' />
+          <h2 className="text-2xl font-bold pt-10">
+            Hear From The <br /> Principal
+          </h2>
+
+          {/* Image Container */}
+          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+            <Image
+              src="/assets/background/isha.png"
+              alt="Nita Mukesh Ambani"
+              width={480}
+              height={450}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
+            />
+            <div className="h-80"></div>{" "}
+            {/* Space to position the image above */}
+          </div>
+
+          {/* Paragraph */}
+          <p className="my-6 text-lg">
+            Our commitment lies not just in academic achievements but in
+            instilling enduring values that shape responsible, compassionate
+            individuals. We take pride in fostering a culture of respect,
+            integrity, and empathy, values that are woven into the fabric of our
+            daily interactions. In our classrooms, on the sports field, and
+            amidst the creative pursuits, we emphasize character development
+            alongside academic excellence. Our journey is a testament to the
+            belief that education is not merely about acquiring knowledge but
+            about cultivating a strong moral compass.
+          </p>
+
+          {/* Name & Position */}
+          <div className="mt-4">
+            <span className="block font-semibold text-lg">Nidhi Gupta</span>
+            <span className="text-sm opacity-80">Principal</span>
+          </div>
+        </div>
+
+        {/* Second Container */}
+        <div className="relative flex flex-col justify-evenly w-full bg-[#E63946] py-12 px-4 h-full text-white">
+        <Quote className='text-white absolute top-10 left-5 h-[40px] w-[40px]' />
+          <h2 className="text-2xl font-bold pt-10">Director&apos;s Note</h2>
+
+          {/* Image Container */}
+          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+            <Image
+              src="/assets/background/nita.png"
+              alt="Nita Mukesh Ambani"
+              width={480}
+              height={450}
+              className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
+            />
+            <div className="h-80"></div>{" "}
+            {/* Space to position the image above */}
+          </div>
+
+          {/* Paragraph */}
+          <p className="my-6 text-lg">
+            Our commitment to modern pedagogy, bagless schooling, and aligning
+            with the latest NEP practices sets us apart. From spacetech &
+            astronomy, AI learning & robotics, to performance and liberal arts,
+            we cultivate holistic development. Our teachers undergo
+            international standard training, ensuring a world-class education. I
+            am thrilled to share that our focus on experiential learning has
+            earned us the prestigious title of the Best in Experiential Learning
+            by a reputed organization in Thailand.
+          </p>
+
+          {/* Name & Position */}
+          <div className="mt-4">
+            <span className="block font-semibold text-lg">
+              SH. Nipun Gupta
+            </span>
+            <span className="text-sm opacity-80">Director</span>
+          </div>
+        </div>
+      </div>
+      {/* </div> */}
+    </motion.section>
   );
 };
 

@@ -21,16 +21,17 @@ const sportsContent: SportCard[] = [
 const Sports = () => {
   return (
     <motion.section 
-      className="w-full bg-white py-16"
+      className="w-full bg-gray-100"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
+      <div className="w-full rounded-t-3xl bg-white py-10 md:py-16">
       <div className="max-w-7xl mx-auto px-4 md:px-0">
         {/* Title */}
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center text-[#1D3557] mb-2"
+          className="text-3xl md:text-4xl font-bold text-[#1D3557] mb-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -39,7 +40,7 @@ const Sports = () => {
           Sports Excellence
         </motion.h2>
         <motion.p
-        className="text-center mb-16"
+        className=" mb-16"
         initial={{opacity: 0 ,y: 30}}
         whileInView={{opacity: 1, y: 0}}
         transition={{ duration: 0.8}}
@@ -157,6 +158,7 @@ const Sports = () => {
             </motion.div>
           ))}
         </motion.div>
+      </div>
       </div>
     </motion.section>
   );
