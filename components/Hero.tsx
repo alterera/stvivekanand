@@ -9,9 +9,9 @@ import Link from "next/link";
 const heroData = [
   {
     subTitle: "Unlock Your Potential",
-    title: "Empowering Minds, Enriching Lives",
+    title: "A Tradition of Knowledge, A Future of Possibilities",
     description:
-      "Inspired by Swami Vivekananda's vision, we nurture intellect, character, and spirit—cultivating leaders who embrace knowledge, innovation, and service to humanity.",
+      "With decades of academic excellence, our institution continues to blend innovation with tradition, ensuring holistic development for every student.",
     buttonText: "Explore More",
     url: "/academics/overview",
   },
@@ -46,7 +46,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative w-full h-[500px] lg:h-[700px] overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
       <Background playStatus={playStatus} heroCount={heroCount} />
 
       <div className="absolute inset-0 flex items-center">
@@ -101,7 +101,6 @@ const Hero = () => {
               >
                 <Link href={heroData[heroCount].url}>
                   <Button
-                    variant="destructive"
                     className="text-white bg-[#E63946] hover:scale-105 transition-transform duration-300"
                   >
                     {heroData[heroCount].buttonText}

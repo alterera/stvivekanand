@@ -12,6 +12,8 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
   } from "@/components/ui/breadcrumb";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const facilities = [
   { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FaFlask className="text-5xl text-[#E63946]" /> },
@@ -22,7 +24,7 @@ const facilities = [
   { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <FaBookReader className="text-5xl text-[#E63946]" /> },
   { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <FaBrain className="text-5xl text-[#E63946]" /> },
   { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <FaLanguage className="text-5xl text-[#E63946]" /> },
-  { id: 9, title: "STEAM Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <FaChalkboardTeacher className="text-5xl text-[#E63946]" /> },
+  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <FaChalkboardTeacher className="text-5xl text-[#E63946]" /> },
 ];
   
   const sportsFacilities = [
@@ -78,7 +80,7 @@ const Academics = () => {
             Academics at St. Vivekanand School
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Our institution follows the NCERT curriculum under CBSE guidelines, providing **modern learning experiences** with a legacy of excellence since 1977.
+            Our institution follows the NCERT curriculum under CBSE guidelines, providing modern learning experiences with a legacy of excellence since 1977.
           </p>
         </motion.div>
 
@@ -95,7 +97,7 @@ const Academics = () => {
               Our Journey Since 1977
             </h3>
             <p className="text-gray-700">
-              St. Vivekanand Sr. Sec. School started as a primary school in 1977, and has grown into one of Bikaner&apos;s finest learning institutions. We provide **education from Kindergarten to Class 12, following CBSE & NEP guidelines in a modern, technology-enabled environment.
+              St. Vivekanand Sr. Sec. School started as a primary school in 1977, and has grown into one of Bikaner&apos;s finest learning institutions. We provide education from Kindergarten to Class 12, following CBSE & NEP guidelines in a modern, technology-enabled environment.
             </p>
           </div>
           <Image
@@ -116,7 +118,7 @@ const Academics = () => {
           viewport={{ once: true }}
         >
           {facilities.map((sport) => (
-            <div key={sport.id} className="bg-[#002147] text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105">
+            <div key={sport.id} className="bg-[#1D3557] text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105">
               <div className="flex items-center gap-4">
                 {sport.icon}
                 <h4 className="text-xl font-semibold">{sport.title}</h4>
@@ -149,15 +151,18 @@ const Academics = () => {
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-[#1D3557] mb-4">Sports Facilities</h3>
             <p className="text-gray-700">
-              Our school boasts one of the largest in-house sports infrastructures in the city, with world-class courts and facilities.
+            Our school takes immense pride in offering one of the largest in-house sports infrastructures in the city, designed to provide students with world-class courts and facilities. From state-of-the-art basketball and badminton courts to professional-grade cricket practice turfs, we ensure that every aspiring athlete gets the best training environment. Our indoor and outdoor sports complexes cater to a wide range of activities, including table tennis, lawn tennis, football, and athletics, helping students develop physical strength, teamwork, and sportsmanship. With trained coaches and structured programs, we prepare students not just for inter-school competitions but also for state and national-level championships, nurturing their potential to excel in the world of sports.
             </p>
+            <Link href={'/academics/sports/'}>
+              <Button className="bg-[#E63946] w-fit my-5 font-semibold">Learn More</Button>
+            </Link>
           </div>
         </motion.div>
 
         {/* Sports Grid */}
         <motion.div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {sportsFacilities.map((sport) => (
-            <div key={sport.id} className="bg-[#002147] text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105">
+            <div key={sport.id} className="bg-[#1D3557] text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-transform hover:scale-105">
               <div className="flex items-center gap-4">
                 {sport.icon}
                 <h4 className="text-xl font-semibold">{sport.title}</h4>
@@ -172,7 +177,7 @@ const Academics = () => {
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-[#1D3557] mb-4">Co-Curricular Activities</h3>
             <p className="text-gray-700">
-              Our arts, music, and cultural programs help students **nurture their talents** beyond academics.
+            At our school, we believe that education extends beyond textbooks, which is why we have dedicated arts, music, and cultural programs to help students explore and refine their creative talents. Whether it&npos;s vocal and instrumental music, theater and dance, or painting and textile embroidery, we provide a platform for students to express themselves artistically. Our expert mentors guide students in mastering their craft, fostering confidence, creativity, and self-discipline. Through annual cultural events, art exhibitions, and music recitals, we encourage students to showcase their skills, giving them opportunities to shine on local, national, and international stages. These programs ensure a holistic development approach, making learning a joyful and enriching experience.
             </p>
           </div>
           <Image src="/assets/events/event-1.png" alt="Co-Curricular Activities" width={500} height={350} className="rounded-lg shadow-lg" />

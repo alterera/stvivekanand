@@ -50,7 +50,7 @@ const activities = [
 const CoCurricular = () => {
   return (
     <motion.section 
-      className="w-full bg-gray-100 py-10"
+      className="w-full bg-white py-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

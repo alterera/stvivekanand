@@ -213,7 +213,7 @@ export function NavBar() {
           </div>
 
           <div className="lg:hidden flex items-center gap-4">
-            <Button variant="destructive" className='text-white bg-[#1D3557] font-semibold shadow-lg'>
+            <Button variant="destructive" className='text-white bg-[#E63946] font-semibold shadow-lg'>
               Apply Now
             </Button>
             <button
@@ -224,7 +224,7 @@ export function NavBar() {
             </button>
           </div>
 
-          <Button variant="destructive" className='hidden lg:block text-white bg-[#002147] font-semibold shadow-lg'>
+          <Button variant="destructive" className='hidden lg:block text-white bg-[#E63946] font-semibold shadow-lg'>
             Apply Now
           </Button>
         </header>

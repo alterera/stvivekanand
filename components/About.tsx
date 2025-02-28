@@ -9,10 +9,13 @@ const About = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <motion.section className="w-full bg-gray-100" initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    viewport={{ once: true }}>
+    <motion.section
+      className="w-full bg-gray-100"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+    >
       <div className="hidden md:flex flex-col md:flex-row transition-all duration-500">
         {/* First Container */}
         <motion.div
@@ -22,13 +25,20 @@ const About = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <div className="absolute top-20 right-0 h-[300px] w-[400px] bg-white/20 rounded-s-3xl" style={{backgroundImage: "url('/assets/background/pattern-3.png')", opacity: "20%", objectFit: "cover"}}>
-          </div>
+          <div
+            className="absolute top-20 right-0 h-[300px] w-[400px] bg-white/20 rounded-s-3xl"
+            style={{
+              backgroundImage: "url('/assets/background/pattern-3.png')",
+              opacity: "20%",
+              objectFit: "cover",
+            }}
+          ></div>
           <Quote className="text-white absolute top-10 left-10 h-[50px] w-[50px]" />
 
           {/* Heading (Hidden on Hover) */}
           <motion.h2
-            className={`text-4xl font-bold transition-opacity duration-300 pt-20 ${hovered ? "opacity-0 absolute" : "opacity-100"}`}>
+            className={`text-4xl font-bold transition-opacity duration-300 pt-20 ${hovered ? "opacity-0 absolute" : "opacity-100"}`}
+          >
             Hear From The <br /> Principal
           </motion.h2>
 
@@ -51,6 +61,7 @@ const About = () => {
 
           {/* Name & Position */}
           <div className="mt-6">
+            <div className="w-[150px] h-[0.5%] bg-white mb-5"></div>
             <span className="block font-semibold text-lg">Nidhi Gupta</span>
             <span className="text-sm opacity-80">Principal</span>
           </div>
@@ -71,8 +82,15 @@ const About = () => {
             hovered ? "md:w-[40%]" : "md:w-[60%]"
           }`}
         >
-          <div className="absolute top-20 right-0 h-[300px] w-[450px] bg-white/20 rounded-s-3xl" style={{backgroundImage: "url('/assets/background/pattern-3.png')", opacity: "50%", objectFit: "cover"}}></div>
-          <Quote className='text-white absolute top-10 left-10 h-[50px] w-[50px]' />
+          <div
+            className="absolute top-20 right-0 h-[300px] w-[450px] bg-white/20 rounded-s-3xl"
+            style={{
+              backgroundImage: "url('/assets/background/pattern-3.png')",
+              opacity: "50%",
+              objectFit: "cover",
+            }}
+          ></div>
+          <Quote className="text-white absolute top-10 left-10 h-[50px] w-[50px]" />
 
           {/* Heading (Shown on Hover) */}
           <h2
@@ -100,7 +118,8 @@ const About = () => {
           </p>
 
           {/* Name & Position */}
-          <div className="mt-6">
+          <div className="mt-6 z-10">
+            <div className="w-[150px] h-[0.5%] bg-white mb-5"></div>
             <span className="block font-semibold text-lg">SH. Nipun Gupta</span>
             <span className="text-sm opacity-80">Director</span>
           </div>
@@ -121,7 +140,7 @@ const About = () => {
       <div className="md:hidden w-full flex flex-col items-center">
         {/* First Container */}
         <div className="relative flex flex-col justify-evenly w-full bg-[#1D3557] py-12 px-6 h-full text-white">
-        <Quote className='text-white absolute top-10 left-5 h-[40px] w-[40px]' />
+          <Quote className="text-white absolute top-10 left-5 h-[40px] w-[40px]" />
           <h2 className="text-2xl font-bold pt-10">
             Hear From The <br /> Principal
           </h2>
@@ -153,7 +172,8 @@ const About = () => {
           </p>
 
           {/* Name & Position */}
-          <div className="mt-4">
+          <div className="mt-10">
+          <div className="w-[150px] h-[1px] bg-white mb-5"></div>
             <span className="block font-semibold text-lg">Nidhi Gupta</span>
             <span className="text-sm opacity-80">Principal</span>
           </div>
@@ -161,7 +181,7 @@ const About = () => {
 
         {/* Second Container */}
         <div className="relative flex flex-col justify-evenly w-full bg-[#E63946] py-12 px-4 h-full text-white">
-        <Quote className='text-white absolute top-10 left-5 h-[40px] w-[40px]' />
+          <Quote className="text-white absolute top-10 left-5 h-[40px] w-[40px]" />
           <h2 className="text-2xl font-bold pt-10">Director&apos;s Note</h2>
 
           {/* Image Container */}
@@ -190,10 +210,9 @@ const About = () => {
           </p>
 
           {/* Name & Position */}
-          <div className="mt-4">
-            <span className="block font-semibold text-lg">
-              SH. Nipun Gupta
-            </span>
+          <div className="mt-10">
+          <div className="w-[150px] h-[1px] bg-white mb-5"></div>
+            <span className="block font-semibold text-lg">SH. Nipun Gupta</span>
             <span className="text-sm opacity-80">Director</span>
           </div>
         </div>

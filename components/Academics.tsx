@@ -63,7 +63,7 @@ const gridItems = [
 
 const Academics = () => {
   return (
-    <section className="w-full pt-16 flex flex-col items-center bg-gray-100">
+    <section className="w-full pt-16 flex flex-col items-center bg-gray-100 text-[#1D3557]">
         <div className="px-6">
 
       <h2 className="text-3xl font-bold text-center mb-2">Academic Facilities</h2>
@@ -116,7 +116,7 @@ const Academics = () => {
                     style={{ backgroundImage: `url(${box.image})` }}
                   ></div>
                   <div className={`absolute inset-0 ${box.color} opacity-60`}></div>
-                  <div className="absolute inset-0 flex items-center justify-center text-white text-lg font-semibold">
+                  <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-semibold">
                     {box.title}
                   </div>
                 </div>
@@ -125,8 +125,9 @@ const Academics = () => {
           ))}
         </Swiper>
       </div>
-
-      <Button variant="destructive" className="my-10">Learn More</Button>
+      <Link href={'/academics/overview/'}>
+      <Button className="my-10 bg-[#E63946] hover:bg-[#1D3557] font-semibold">Learn More</Button>
+      </Link>
     </section>
   );
 };
@@ -159,7 +160,7 @@ const GridBox = ({
       <div className={`absolute inset-0 ${color} opacity-60 group-hover:opacity-80 transition-all duration-300`}></div>
 
       {/* Title */}
-      <div className="absolute inset-0 flex items-center justify-center text-2xl font-bold">
+      <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold">
         {title}
       </div>
     </motion.a>

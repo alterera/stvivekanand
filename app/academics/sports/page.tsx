@@ -22,31 +22,31 @@ import { Button } from "@/components/ui/button";
 const sportsData = [
   {
     id: 1,
-    title: "Badminton: A Brief Introduction",
+    title: "Basketball: A Brief Introduction",
     intro:
-      "Badminton is a racquet game that can be played either in singles (one player per side) or doubles (two players per side) formats. It is known for its fast-paced rallies, agility, and precision. The game takes place on a rectangular court separated by a net, and the goal is to score points by striking the shuttlecock over the net and into the opponents side of the court. Players must exhibit quick reflexes, endurance, and strategy to outmaneuver their rivals.",
-    atSchoolTitle: "Badminton at St. Vivekanand",
+      "Basketball is one of the most thrilling and widely played sports in the world. It is a high-energy game that requires speed, agility, teamwork, and strategy. Played between two teams, the objective is to score points by shooting the ball through the opponent's hoop. The game enhances coordination, endurance, and mental resilience, making it a great choice for overall fitness and personal development.",
+    atSchoolTitle: "Basketball at St. Vivekanand",
     atSchoolIntro:
-      "Badminton is more than just a sport at St. Vivekanand School; it is a culture. We believe in the holistic development of our students, and badminton offers an avenue to instill essential life skills such as discipline, teamwork, and sportsmanship.",
-    imageUrl: "/assets/background/bg-2.jpeg",
+      "Our **state-of-the-art basketball court** is home to one of the finest basketball communities in the town. With expert coaching and structured practice sessions, we encourage students to master dribbling, shooting, and defensive strategies. Our school regularly hosts **inter-house and inter-school basketball tournaments**, providing students with the opportunity to showcase their skills and compete at a higher level.",
+    imageUrl: "/assets/sports/basketball.png",
     faqs: [
       {
         id: 1,
-        faq: "State-of-the-Art Facilities",
+        faq: "What facilities does the basketball court offer?",
         answer:
-          "We pride ourselves on our world-class badminton facilities. Our courts are equipped with the latest technology to ensure that students can train and compete at their best. Our proficient coaching staff is devoted to fostering young talent and providing guidance for players at all skill levels.",
+          "Our basketball court is designed with professional-grade flooring, high-quality hoops, and ample lighting, ensuring a world-class training experience for students.",
       },
       {
         id: 2,
-        faq: "Coaching and Training",
+        faq: "Is coaching available for beginners?",
         answer:
-          "We offer comprehensive coaching programs designed to cater to students of various skill levels. Our proficient trainers work closely with each player, focusing on skill development, physical fitness, and strategic play. Our training programs help students acquire the fundamental skills and knowledge needed to excel in this engaged sport.",
+          "Yes! We have specialized training programs for beginners, focusing on fundamentals like dribbling, passing, and shooting to build confidence and skill.",
       },
       {
         id: 3,
-        faq: "Competitive Opportunities",
+        faq: "Do students get opportunities to play in competitions?",
         answer:
-          "At St. Vivekanand School, we believe that competition is essential for personal growth. Our pupils have the chance to compete in various provincial, national, and international badminton tournaments. We have a robust convention of superiority in badminton, and our students regularly bring home trophies and accolades.",
+          "Absolutely! Our school participates in district, state, and national-level basketball tournaments, providing students with the platform to compete and excel.",
       },
     ],
   },
@@ -54,81 +54,155 @@ const sportsData = [
     id: 2,
     title: "Badminton: A Brief Introduction",
     intro:
-      "Badminton is a racquet game that can be played either in singles (one player per side) or doubles (two players per side) formats. It is known for its fast-paced rallies, agility, and precision. The game takes place on a rectangular court separated by a net, and the goal is to score points by striking the shuttlecock over the net and into the opponents side of the court. Players must exhibit quick reflexes, endurance, and strategy to outmaneuver their rivals.",
+      "Badminton is a fast-paced sport that requires agility, precision, and quick reflexes. Played with a shuttlecock and racquets, the objective is to score points by hitting the shuttle over the net into the opponent’s court. It is a sport that enhances cardiovascular fitness, hand-eye coordination, and strategic thinking.",
     atSchoolTitle: "Badminton at St. Vivekanand",
     atSchoolIntro:
-      "Badminton is more than just a sport at St. Vivekanand School; it is a culture. We believe in the holistic development of our students, and badminton offers an avenue to instill essential life skills such as discipline, teamwork, and sportsmanship.",
-    imageUrl: "/assets/background/bg-2.jpeg",
+      "Our **indoor badminton court** is well-maintained and equipped with professional flooring and net systems. Students receive **daily guided practice sessions** under the mentorship of expert coaches. With a structured curriculum, students at all levels—beginners to advanced—get the right training to refine their techniques and participate in school, district, and national tournaments.",
+    imageUrl: "/assets/sports/cric.png",
     faqs: [
       {
         id: 1,
-        faq: "Skill Development",
+        faq: "What makes our badminton court special?",
         answer:
-          "Our experienced coaches are committed to honing the skills of young athletes, from dribbling and shooting to defensive tactics and teamwork. Our comprehensive training ensures that students become well-rounded players.",
+          "Our indoor badminton court is designed with high-quality synthetic flooring, ensuring a safe and professional playing experience for students.",
       },
       {
         id: 2,
-        faq: "Teamwork",
+        faq: "Are there structured coaching programs?",
         answer:
-          "Basketball is not just about individual prowess; it is about collaborating with teammates, understanding their strengths, and capitalizing on them. We instill the value of teamwork and sportsmanship in our students.",
+          "Yes, we offer expert coaching tailored to different skill levels, helping students enhance their strokes, footwork, and gameplay strategies.",
       },
       {
         id: 3,
-        faq: "Competitive Opportunities",
+        faq: "Can students compete in tournaments?",
         answer:
-          "At St. Vivekanand School, we believe that competition is essential for personal growth. Our pupils have the chance to compete in various provincial, national, and international badminton tournaments. We have a robust convention of superiority in badminton, and our students regularly bring home trophies and accolades.",
+          "Yes, students have the opportunity to compete in inter-school, district, and state-level tournaments, building confidence and competitive spirit.",
       },
     ],
   },
   {
     id: 3,
-    title: "The Spirit of Basketball at St. Vivekanand School",
+    title: "Cricket: A Brief Introduction",
     intro:
-      "Basketball is not just a sport at St. Vivekanand School; it is a way of life. We have created an environment where every child has the opportunity to thrive and express themselves on the court. Our basketball program embodies the following principles -",
-    atSchoolTitle: "Life Skills Through Basketball",
+      "Cricket is one of the most celebrated sports worldwide, requiring a unique blend of skill, strategy, and endurance. Played between two teams, the game involves batting, bowling, and fielding, with the ultimate goal of scoring more runs than the opposition.",
+    atSchoolTitle: "Cricket at St. Vivekanand",
     atSchoolIntro:
-      "At St. Vivekanand School, basketball is more than just a game—its a powerful tool for personal growth and character development. Our basketball program goes beyond scoring points and making rebounds; it instills essential life skills that shape our students into well-rounded individuals. Through rigorous training, students develop discipline, mastering time management and dedication that extend beyond the court. They cultivate resilience, learning to overcome challenges and setbacks with determination.",
-    imageUrl: "/assets/background/bg-2.jpeg",
+      "Our **closed-net cricket practice turf** provides students with the perfect environment to refine their batting, bowling, and fielding skills. With structured training programs, regular matches, and expert coaching, students develop the discipline and technical expertise needed to perform at the highest level. We also prepare students for **competitive cricket tournaments** at the district and state levels.",
+    imageUrl: "/assets/sports/cricket.png",
     faqs: [
       {
         id: 1,
-        faq: "How can students join the football team?",
+        faq: "What are the benefits of our closed-net practice turf?",
         answer:
-          "Students can try out during annual selections held in August...",
+          "Our practice turf is designed to help students develop batting and bowling techniques in a focused, controlled environment.",
       },
       {
         id: 2,
-        faq: "Are there competitions organized?",
+        faq: "Do students get professional cricket coaching?",
         answer:
-          "Yes, we participate in district and state-level football competitions...",
+          "Yes, we have experienced cricket coaches who provide structured training programs, preparing students for professional-level competitions.",
+      },
+      {
+        id: 3,
+        faq: "Are students given match exposure?",
+        answer:
+          "Yes, we organize intra-school and inter-school matches, ensuring students get ample real-game experience.",
       },
     ],
   },
   {
     id: 4,
-    title: "The Spirit of Basketball at St. Vivekanand School",
+    title: "Table Tennis: A Brief Introduction",
     intro:
-      "Basketball is not just a sport at St. Vivekanand School; it is a way of life. We have created an environment where every child has the opportunity to thrive and express themselves on the court. Our basketball program embodies the following principles -",
-    atSchoolTitle: "Life Skills Through Basketball",
+      "Table Tennis is a fast-paced indoor sport that tests reflexes, hand-eye coordination, and precision. Played with paddles and a lightweight ball on a compact table, it demands quick decision-making and strategic play.",
+    atSchoolTitle: "Table Tennis at St. Vivekanand",
     atSchoolIntro:
-      "At St. Vivekanand School, basketball is more than just a game—its a powerful tool for personal growth and character development. Our basketball program goes beyond scoring points and making rebounds; it instills essential life skills that shape our students into well-rounded individuals. Through rigorous training, students develop discipline, mastering time management and dedication that extend beyond the court. They cultivate **resilience**, learning to overcome challenges and setbacks with determination. The sport also nurtures leadership, as players take on responsibilities, guide their teams, and make strategic decisions under pressure.",
-    imageUrl: "/assets/background/bg-2.jpeg",
+      "Our **fully-equipped Table Tennis room** features high-quality tables and professional coaching for students at all skill levels. The sport not only enhances reaction speed but also helps improve focus and mental agility. We actively encourage participation in school and external table tennis tournaments.",
+    imageUrl: "/assets/sports/tennis.png",
     faqs: [
       {
         id: 1,
-        faq: "How can students join the football team?",
+        faq: "How many tables are available for practice?",
         answer:
-          "Students can try out during annual selections held in August...",
+          "We have multiple table tennis setups, allowing students to train effectively in a competitive and structured environment.",
       },
       {
         id: 2,
-        faq: "Are there competitions organized?",
+        faq: "Is coaching available for all skill levels?",
         answer:
-          "Yes, we participate in district and state-level football competitions...",
+          "Yes, our coaching programs are designed to help beginners, intermediate, and advanced players improve their technique and gameplay strategies.",
+      },
+      {
+        id: 3,
+        faq: "Are there tournament opportunities?",
+        answer:
+          "Yes, students are encouraged to participate in various table tennis tournaments at the school and district levels.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Gymnasium: A Brief Introduction",
+    intro:
+      "A gymnasium is an essential facility for students aiming to enhance their physical fitness, endurance, and strength. It provides an environment where students can engage in weight training, cardio exercises, and body conditioning.",
+    atSchoolTitle: "Gymnasium at St. Vivekanand",
+    atSchoolIntro:
+      "Our **school gymnasium** is designed for students who want to put in the extra hours to build their stamina and overall fitness. It features a range of fitness equipment, including treadmills, weights, and training machines, ensuring a well-rounded physical development approach.",
+    imageUrl: "/assets/sports/football.png",
+    faqs: [
+      {
+        id: 1,
+        faq: "What equipment is available in the gym?",
+        answer:
+          "Our gym is equipped with cardio machines, free weights, resistance training machines, and other fitness essentials.",
+      },
+      {
+        id: 2,
+        faq: "Can all students access the gym?",
+        answer:
+          "Yes, but students must follow a structured fitness program under the supervision of certified trainers.",
+      },
+      {
+        id: 3,
+        faq: "Does the school offer guided fitness programs?",
+        answer:
+          "Yes, our trainers help students develop personalized fitness routines based on their individual goals.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Lawn Tennis: A Brief Introduction",
+    intro:
+      "A gymnasium is an essential facility for students aiming to enhance their physical fitness, endurance, and strength. It provides an environment where students can engage in weight training, cardio exercises, and body conditioning.",
+    atSchoolTitle: "Gymnasium at St. Vivekanand",
+    atSchoolIntro:
+      "Our **school gymnasium** is designed for students who want to put in the ‘extra hours’ to build their stamina and overall fitness. It features a range of fitness equipment, including treadmills, weights, and training machines, ensuring a well-rounded physical development approach.",
+    imageUrl: "/assets/sports/tennis.png",
+    faqs: [
+      {
+        id: 1,
+        faq: "What equipment is available in the gym?",
+        answer:
+          "Our gym is equipped with cardio machines, free weights, resistance training machines, and other fitness essentials.",
+      },
+      {
+        id: 2,
+        faq: "Can all students access the gym?",
+        answer:
+          "Yes, but students must follow a structured fitness program under the supervision of certified trainers.",
+      },
+      {
+        id: 3,
+        faq: "Does the school offer guided fitness programs?",
+        answer:
+          "Yes, our trainers help students develop personalized fitness routines based on their individual goals.",
       },
     ],
   },
 ];
+
+
 
 const firstSec = sportsData.slice(0, sportsData.length / 2);
 const nextSec = sportsData.slice(sportsData.length / 2);
@@ -136,9 +210,9 @@ const nextSec = sportsData.slice(sportsData.length / 2);
 const Sports = () => {
   return (
     <section className="w-full bg-[#F9F9F9] py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+      <div className="max-w-7xl mx-auto px-6">
         {/* Breadcrumb Navigation */}
-        <Breadcrumb className="pb-5">
+        <Breadcrumb className="py-5">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -168,7 +242,7 @@ const Sports = () => {
         {/* Sports Sections */}
         <div className="flex flex-col gap-16">
           {firstSec.map((item, index) => (
-            <div key={item.id}>
+            <div key={item.id} id={`item.id`}>
               {/* Sports Info Section */}
               <motion.div
                 className={`flex flex-col md:flex-row items-center gap-12 ${
@@ -209,7 +283,7 @@ const Sports = () => {
 
               {/* FAQ Section Below Each Sport (Full Width) */}
               <motion.section
-                className="w-full mt-12 bg-[#002147] text-white p-4"
+                className="w-full mt-12 bg-[#1D3557] text-white p-4"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
