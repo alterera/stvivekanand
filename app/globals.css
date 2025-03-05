@@ -16,3 +16,7 @@ body {
     --radius: 0.5rem;
   }
 }
+
+.fontGaramond {
+  font-family: var(--font-garamond);
+}

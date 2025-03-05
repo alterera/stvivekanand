@@ -89,7 +89,7 @@ const Cta = () => {
               </div>
 
               <div className="space-y-4">
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">
                     Academic Year
                   </label>
@@ -103,9 +103,9 @@ const Cta = () => {
                       <SelectItem value="system">2022 - 2023</SelectItem>
                     </SelectContent>
                   </Select>
-                </motion.div>
+                </div>
 
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">
                     Class
                   </label>
@@ -125,9 +125,9 @@ const Cta = () => {
                       ))}
                     </SelectContent>
                   </Select>
-                </motion.div>
+                </div>
 
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-1">
                     School Type
                   </label>
@@ -140,7 +140,7 @@ const Cta = () => {
                       <SelectItem value="lkg">Boarding</SelectItem>
                     </SelectContent>
                   </Select>
-                </motion.div>
+                </div>
               </div>
 
               <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
