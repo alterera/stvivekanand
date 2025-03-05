@@ -43,12 +43,13 @@ const sportsContent: SportCard[] = [
 const Sports = () => {
   return (
     <motion.section
-      className="w-full bg-white"
+      className="relative w-full bg-white"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
+      <Image src="/assets/patterns/hilly.png" alt="hilly" height={100} width={120} className="absolute bottom-0 left-32"/>
       <div className="w-full rounded-t-3xl py-10 md:py-16" style={{backgroundImage: `url('/assets/background/cricket-2.png')`, objectFit: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'top right'}}>
         <div className="max-w-7xl mx-auto px-4 md:px-0">
           {/* Title */}

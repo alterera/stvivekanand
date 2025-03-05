@@ -143,14 +143,14 @@ const Cta = () => {
                 </div>
               </div>
 
-              <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
+              
                 <Button
                   type="submit"
-                  className="w-full bg-[#E63946] hover:bg-[#E63946]/90 text-white"
+                  className="w-full bg-[#85193C] hover:bg-[#85193C]/90 text-white"
                 >
                   Submit
                 </Button>
-              </motion.div>
+              
             </form>
           </motion.div>
         </div>

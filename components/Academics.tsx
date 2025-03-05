@@ -63,7 +63,8 @@ const gridItems = [
 
 const Academics = () => {
   return (
-    <section className="w-full py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557]">
+    <section className="relative w-full py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
+      <Image src="/assets/patterns/tri-dots.png" alt="hilly" height={100} width={140} className="absolute top-16 -right-5 rotate-90 "/>
       <div className="px-6">
         <h2 className="relative text-4xl font-bold text-center mb-2">
           Academic Facilities

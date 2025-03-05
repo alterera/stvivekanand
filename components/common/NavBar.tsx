@@ -336,7 +336,7 @@ const ListItem = React.forwardRef<
           ref={ref}
           href={href} // ✅ Ensure href is always passed
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#002147]  hover:text-white focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#0D3658]  hover:text-white focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}

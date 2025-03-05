@@ -102,7 +102,7 @@ const Hero = () => {
               >
                 <Link href={heroData[heroCount].url}>
                   <Button
-                    className="text-white bg-[#85193C] hover:scale-105 transition-transform duration-300"
+                    className="text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold hover:scale-105 transition-transform duration-300"
                   >
                     {heroData[heroCount].buttonText}
                   </Button>
