@@ -3,19 +3,20 @@
 import React from "react";
 import { FaTrophy } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { NumberTicker } from "./magicui/number-ticker";
 
 interface RankingCard {
   id: number;
-  rank: string;
-  location: string;
+  rank: number;
+  suffix: string;
   description: string;
 }
 
 const rankingContent: RankingCard[] = [
-  { id: 1, rank: "#1", location: "IN INDIA", description: "Career Counselling Leaders" },
-  { id: 2, rank: "A+", location: "IN Rajasthan", description: "Day-Cum-Boarding-School" },
-  { id: 3, rank: "NAC", location: "IN BIKANER", description: "Top Co-Education Day-Cum-Boarding-School" },
-  { id: 4, rank: "TOP", location: "IN INDIA", description: "Academic Reputation" },
+  { id: 1, rank: 55, suffix: "K+", description: "Students Enrolled Since 1977" },
+  { id: 2, rank: 6, suffix: "K+", description: "Total Students Passed 12th Boards" },
+  { id: 3, rank: 500, suffix: "+", description: "Students Cracked IIT-JEE & NEET" },
+  { id: 4, rank: 50, suffix: "+", description: "Represent at the National Level Sports" },
 ];
 
 const Rankings = () => {
@@ -52,19 +53,15 @@ const Rankings = () => {
             {rankingContent.map((rank) => (
               <motion.div
                 key={rank.id}
-                className="bg-white rounded-md p-6 flex flex-col items-center text-center 
+                className="bg-gray-100 rounded-md p-6 flex flex-col items-center text-center 
                 group hover:bg-[#457B9D] transition-all duration-300 shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-[#457B9D] mb-2 
-                group-hover:text-white transition-colors duration-300">
-                  {rank.rank}
+                <h3 className="text-4xl md:text-5xl font-bold text-[#7B243D] mb-2 
+                group-hover:text-white ">
+                  <NumberTicker value={rank.rank} className="text-[#7B243D] group-hover:text-white"/><span>{rank.suffix}</span>
                 </h3>
-                <p className="text-lg md:text-xl font-semibold text-[#1D3557] mb-2
-                group-hover:text-white transition-colors duration-300">
-                  {rank.location}
-                </p>
                 <p className="text-sm md:text-base text-gray-600
                 group-hover:text-white/90 transition-colors duration-300">
                   {rank.description}

@@ -17,25 +17,25 @@ const sportsContent: SportCard[] = [
   {
     id: 1,
     title: "Basketball Court",
-    imageUrl: "/assets/sports/basketball.png",
+    imageUrl: "/assets/sports/basketball.jpeg",
     link: "/academics/sports/#1",
   },
   {
     id: 2,
     title: "Gymnasium",
-    imageUrl: "/assets/sports/tennis.png",
+    imageUrl: "/assets/sports/gymnasium.jpeg",
     link: "/academics/sports/#2",
   },
   {
     id: 3,
     title: "Cricket Turf",
-    imageUrl: "/assets/sports/football.png",
+    imageUrl: "/assets/sports/cricket.jpeg",
     link: "#",
   },
   {
     id: 4,
     title: "Lawn Tennis Court",
-    imageUrl: "/assets/sports/cric.png",
+    imageUrl: "/assets/sports/tennis.jpeg",
     link: "#",
   },
 ];
@@ -43,23 +43,24 @@ const sportsContent: SportCard[] = [
 const Sports = () => {
   return (
     <motion.section
-      className="w-full bg-gray-100"
+      className="w-full bg-white"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="w-full rounded-t-3xl bg-white py-10 md:py-16">
+      <div className="w-full rounded-t-3xl py-10 md:py-16" style={{backgroundImage: `url('/assets/background/cricket-2.png')`, objectFit: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'top right'}}>
         <div className="max-w-7xl mx-auto px-4 md:px-0">
           {/* Title */}
           <motion.h2
-            className="text-3xl md:text-4xl font-bold text-[#1D3557] mb-2"
+            className="relative text-3xl md:text-4xl font-bold text-[#1D3557] mb-2"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
             Sports Facilities
+            <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-40"/>
           </motion.h2>
           <motion.p
             className=" mb-10"
@@ -81,9 +82,9 @@ const Sports = () => {
             viewport={{ once: true }}
           >
             {/* Image Container */}
-            <div className="lg:w-full relative h-[200px] md:h-[100px] lg:h-[300px] overflow-hidden rounded-lg shadow-lg">
+            <div className="lg:w-full relative h-[200px] md:h-[100px] lg:h-[300px] overflow-hidden rounded-sm shadow-lg">
               <Image
-                src="/assets/sports/cricket.png"
+                src="/assets/sports/sports.jpeg"
                 alt="Sports at St. Vivekanand"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
@@ -123,7 +124,7 @@ const Sports = () => {
                 viewport={{ once: true }}
               >
                 <Link href={"/academics/sports/"}>
-                  <Button className="w-fit text-white bg-[#E63946] hover:bg-[#1D3557] font-bold">
+                  <Button className="w-fit text-white bg-[#7B243D] hover:bg-[#1D3557] font-bold">
                     Read More
                   </Button>
                 </Link>
@@ -142,7 +143,7 @@ const Sports = () => {
             {sportsContent.map((sport, index) => (
               <motion.div
                 key={sport.id}
-                className="relative h-[200px] md:h-[300px] overflow-hidden group rounded-lg shadow-lg"
+                className="relative h-[200px] md:h-[300px] overflow-hidden group rounded-sm shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -177,7 +178,7 @@ const Sports = () => {
                   <Link href={sport.link}>
                     <Button
                       variant="outline"
-                      className="w-fit bg-transparent text-white border-white hover:bg-[#E63946] font-bold hover:text-white hover:border-none"
+                      className="w-fit bg-transparent text-white border-white hover:bg-[#7B243D] font-bold hover:text-white hover:border-none"
                     >
                       Read More
                     </Button>

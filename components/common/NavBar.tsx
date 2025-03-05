@@ -147,10 +147,10 @@ export function NavBar() {
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none hover:bg-[#002147] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none hover:bg-[#0D3658] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="/about-us/our-history"
                           style={{backgroundImage: "url('/assets/background/stvivek.png')"}} >
-                            <div className="mb-2 mt-4 text-lg font-bold hover:text-[#E63946]">
+                            <div className="mb-2 mt-4 text-lg font-bold hover:text-[#85193C]">
                               Our History
                             </div>
                             <p className="text-sm leading-tight text-muted-foreground">
@@ -159,15 +159,15 @@ export function NavBar() {
                           </Link>
                         </NavigationMenuLink>
                       </li>
-                      <ListItem href="/about-us/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#002147] hover:text-white">
+                      <ListItem href="/about-us/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#0D3658] hover:text-white">
                         Want to know why we are the best in whole north India.
                       </ListItem>
-                      <ListItem href="/about-us/mission-vision" title="Mission & Vision" className="hover:bg-[#002147] hover:text-white">
+                      <ListItem href="/about-us/mission-vision" title="Mission & Vision" className="hover:bg-[#0D3658] hover:text-white">
                         Read about our mission and vision for the society from our past.
                       </ListItem>
                       <ListItem
                         href="/about-us/principals-message"
-                        title="Principal Message" className="hover:bg-[#002147] hover:text-white"
+                        title="Principal Message" className="hover:bg-[#0D3658] hover:text-white"
                       >
                         Message that has been passed by our Principal.
                       </ListItem>
@@ -206,14 +206,14 @@ export function NavBar() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
-                <Link href={'/contact-us'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Contact</Link>
-                <Link href={'/mandatory-disclosure'} className="text-sm font-bold px-4 py-2 hover:text-[#E63946]">Disclosure</Link>
+                <Link href={'/contact-us'} className="text-sm font-bold px-4 py-2 hover:text-[#85193C]">Contact</Link>
+                <Link href={'/mandatory-disclosure'} className="text-sm font-bold px-4 py-2 hover:text-[#85193C]">Disclosure</Link>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
           <div className="lg:hidden flex items-center gap-4">
-            <Button variant="destructive" className='text-white bg-[#E63946] font-semibold shadow-lg'>
+            <Button variant="destructive" className='text-white bg-[#85193C] font-semibold shadow-lg'>
               Apply Now
             </Button>
             <button
@@ -224,7 +224,7 @@ export function NavBar() {
             </button>
           </div>
 
-          <Button variant="destructive" className='hidden lg:block text-white bg-[#E63946] font-semibold shadow-lg'>
+          <Button className='hidden lg:block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg'>
             Apply Now
           </Button>
         </header>

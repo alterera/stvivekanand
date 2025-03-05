@@ -21,10 +21,10 @@ const Background = ({ playStatus, heroCount }: BackgroundProps) => {
         <Image 
           src={
             heroCount === 0
-              ? '/assets/background/bg-3.jpeg'
+              ? '/assets/background/campus-main.jpeg'
               : heroCount === 1
-              ? '/assets/background/bg-2.jpeg'
-              : '/assets/background/campus-bg.png'
+              ? '/assets/background/new-1.jpg'
+              : '/assets/background/new-2.jpg'
           }
           alt="hero background"
           fill
@@ -33,7 +33,7 @@ const Background = ({ playStatus, heroCount }: BackgroundProps) => {
         />
       )}
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/30" />
     </div>
   )
 }

@@ -71,21 +71,21 @@ const Cta = () => {
             </h3>
             <form className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div>
                   <Input type="text" placeholder="Name" className="bg-gray-50" />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                </div>
+                <div>
                   <Input type="email" placeholder="Email" className="bg-gray-50" />
-                </motion.div>
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div>
                   <Input type="tel" placeholder="Mobile No." className="bg-gray-50" />
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                </div>
+                <div>
                   <Input type="text" placeholder="City" className="bg-gray-50" />
-                </motion.div>
+                </div>
               </div>
 
               <div className="space-y-4">

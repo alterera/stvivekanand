@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Background from "./Background";
-// import { Button } from "./ui/button";
-// import Link from "next/link";
+import { Button } from "./ui/button";
+import Link from "next/link";
 
 const heroData = [
   {
@@ -51,7 +51,7 @@ const Hero = () => {
 
       <div className="absolute inset-0 flex items-center w-full">
         <div className="w-full">
-          <div className="bg-[#E63946]/20 py-5 shadow-lg text-center text-white space-y-4">
+          <div className="bg-white/20 py-5 text-center text-white space-y-4">
             {/* <AnimatePresence mode="wait">
               <motion.span
                 key={heroCount}
@@ -72,7 +72,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.8 }}
-                className="text-2xl md:text-4xl lg:text-5xl font-medium text-yellow-300 uppercase"
+                className="text-2xl md:text-4xl lg:text-5xl font-medium uppercase"
                 style={{fontFamily: 'var(--font-garamond)'}}
               >
                 {heroData[heroCount].title}
@@ -92,7 +92,7 @@ const Hero = () => {
               </motion.p>
             </AnimatePresence>
 
-            {/* <AnimatePresence mode="wait">
+            <AnimatePresence mode="wait">
               <motion.div
                 key={`btn-${heroCount}`}
                 initial={{ opacity: 0, y: 10 }}
@@ -102,13 +102,13 @@ const Hero = () => {
               >
                 <Link href={heroData[heroCount].url}>
                   <Button
-                    className="text-white bg-[#E63946] hover:scale-105 transition-transform duration-300"
+                    className="text-white bg-[#85193C] hover:scale-105 transition-transform duration-300"
                   >
                     {heroData[heroCount].buttonText}
                   </Button>
                 </Link>
               </motion.div>
-            </AnimatePresence> */}
+            </AnimatePresence>
           </div>
         </div>
       </div>

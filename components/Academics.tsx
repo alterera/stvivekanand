@@ -2,76 +2,78 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/button";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Link from "next/link";
+import Image from "next/image";
 
 const gridItems = [
   {
     id: 1,
     title: "Science Laborities",
-    color: "bg-red-500",
+    color: "bg-purple-500",
     link: "#",
-    image: "/assets/approach/holistic.png",
+    image: "/assets/academics/science.webp",
   },
   {
     id: 2,
     title: "Space Lab",
-    color: "bg-blue-500",
+    color: "bg-orange-500",
     link: "#",
-    image: "/assets/approach/sports.png",
+    image: "/assets/academics/space.webp",
   },
   {
     id: 3,
     title: "Computer Department",
-    color: "bg-green-500",
+    color: "bg-blue-500",
     link: "#",
-    image: "/assets/approach/transform.png",
+    image: "/assets/academics/computer.webp",
   },
   {
     id: 4,
     title: "Phonics Lab",
-    color: "bg-yellow-500",
+    color: "bg-red-400",
     link: "#",
-    image: "/assets/approach/yoga.png",
+    image: "/assets/academics/phonic.webp",
   },
   {
     id: 5,
     title: "AI / ML Lab",
-    color: "bg-purple-500",
+    color: "bg-gray-500",
     link: "#",
-    image: "/assets/approach/holistic.png",
+    image: "/assets/academics/ai-ml.webp",
   },
   {
     id: 6,
     title: "Experiential Learning",
-    color: "bg-pink-500",
+    color: "bg-green-500",
     link: "#",
-    image: "/assets/approach/sports.png",
+    image: "/assets/academics/experiential.webp",
   },
   {
     id: 7,
     title: "Library",
     color: "bg-teal-500",
     link: "#",
-    image: "/assets/approach/yoga.png",
+    image: "/assets/academics/library.webp",
   },
 ];
 
 const Academics = () => {
   return (
-    <section className="w-full pt-16 flex flex-col items-center bg-gray-100 text-[#1D3557]">
-        <div className="px-6">
-
-      <h2 className="text-3xl font-bold text-center mb-2">Academic Facilities</h2>
-      <p className="text-center mb-16">
-        Fully equipped classrooms, a majority of them have been transformed into digital
-        learning classrooms.
-      </p>
-        </div>
+    <section className="w-full py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557]">
+      <div className="px-6">
+        <h2 className="relative text-4xl font-bold text-center mb-2">
+          Academic Facilities
+          <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[60%]"/>
+        </h2>
+        <p className="text-center mb-16">
+          Fully equipped classrooms, a majority of them have been transformed
+          into digital learning classrooms.
+        </p>
+      </div>
 
       {/* Desktop Grid Layout */}
       <div className="hidden md:grid grid-cols-3 md:gap-6 w-full max-w-7xl text-white">
@@ -97,7 +99,6 @@ const Academics = () => {
         </div>
       </div>
 
-
       {/* Mobile Slider */}
       <div className="md:hidden w-full px-4">
         <Swiper
@@ -115,7 +116,9 @@ const Academics = () => {
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: `url(${box.image})` }}
                   ></div>
-                  <div className={`absolute inset-0 ${box.color} opacity-60`}></div>
+                  <div
+                    className={`absolute inset-0 ${box.color} opacity-60`}
+                  ></div>
                   <div className="absolute inset-0 flex items-center justify-center text-white text-2xl font-semibold">
                     {box.title}
                   </div>
@@ -125,9 +128,6 @@ const Academics = () => {
           ))}
         </Swiper>
       </div>
-      <Link href={'/academics/overview/'}>
-      <Button className="my-10 bg-[#E63946] hover:bg-[#1D3557] font-semibold">Learn More</Button>
-      </Link>
     </section>
   );
 };
@@ -157,10 +157,12 @@ const GridBox = ({
       ></div>
 
       {/* Color Overlay */}
-      <div className={`absolute inset-0 ${color} opacity-60 group-hover:opacity-80 transition-all duration-300`}></div>
+      <div
+        className={`absolute inset-0 ${color} opacity-70 group-hover:opacity-60 transition-all duration-300`}
+      ></div>
 
       {/* Title */}
-      <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold">
+      <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold" style={{fontFamily: 'var(--font-garamond)'}}>
         {title}
       </div>
     </motion.a>

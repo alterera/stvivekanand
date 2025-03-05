@@ -6,101 +6,126 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { motion } from "framer-motion";
-import { FaMusic, FaPalette, FaTheaterMasks, FaUsers } from "react-icons/fa";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
 
-const activities = [
+interface CardProps {
+  title: string;
+  subtitle: string;
+  backgroundColors: { top: string; bottom: string };
+  image: string;
+  link: string;
+}
+
+const activities: CardProps[] = [
   {
-    id: 1,
-    title: "Vocal & Instrumental Music",
-    description: "Dedicated coach for singing classes and instrumental music.",
-    icon: <FaMusic className="text-5xl text-[#E63946]" />,
-    color: "bg-red-500",
+    title: "Vocal & Music",
+    subtitle: "Dedicated coach for singing classes and instrumental music.",
+    backgroundColors: { top: "#51D1F7", bottom: "#FFFFFF" },
+    image: "/assets/background/bg-2.jpeg",
+    link: "#"
   },
   {
-    id: 2,
     title: "Painting Workshops",
-    description: "Regular painting classes where students create different styles of art.",
-    icon: <FaPalette className="text-5xl text-[#E63946]" />,
-    color: "bg-blue-500",
+    subtitle: "Regular painting classes where students create different styles of art.",
+    backgroundColors: { top: "#F85B6B", bottom: "#FFFFFF" },
+    image: "/assets/background/bg-2.jpeg",
+    link: "#"
   },
   {
-    id: 3,
     title: "Kathak Chapter",
-    description: "Special classes by a renowned tutor hailing from the Jaipur Kathak Gharana.",
-    icon: <FaTheaterMasks className="text-5xl text-[#E63946]" />,
-    color: "bg-green-500",
+    subtitle: "Special classes by a renowned tutor hailing from the Jaipur Kathak Gharana.",
+    backgroundColors: { top: "#28DFAB", bottom: "#FFFFFF" },
+    image: "/assets/co-curricular/kathak.webp",
+    link: "#"
   },
   {
-    id: 4,
-    title: "Textile - Embroidery Workshops",
-    description: "Textile & embroidery masterclasses by a resident tutor for those who opt for it.",
-    icon: <FaMusic className="text-5xl text-[#E63946]" />,
-    color: "bg-yellow-500",
+    title: "Textile & Embroidery",
+    subtitle: "Textile & embroidery masterclasses by a resident tutor for those who opt for it.",
+    backgroundColors: { top: "#6F3FF1", bottom: "#FFFFFF" },
+    image: "/assets/background/bg-2.jpeg",
+    link: "#"
   },
   {
-    id: 5,
     title: "Clubs & Chapters",
-    description:
-      "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
-    icon: <FaUsers className="text-5xl text-[#E63946]" />,
-    color: "bg-purple-500",
+    subtitle: "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
+    backgroundColors: { top: "#FBDA35", bottom: "#FFFFFF" },
+    image: "/assets/background/bg-2.jpeg",
+    link: "#"
+  },
+  {
+    title: "& Many More",
+    subtitle: "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
+    backgroundColors: { top: "#6F3FF1", bottom: "#FBDA35" },
+    image: "/assets/background/bg-2.jpeg",
+    link: "#"
   },
 ];
 
 const CoCurricular = () => {
   return (
-    <motion.section 
+    <motion.section
       className="w-full bg-white py-10"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
+      style={{backgroundImage: `url('/assets/background/co-curricular.png')`, objectFit: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'right top'}}
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Title */}
-        <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-[#1D3557] text-center mb-12"
+        <motion.h2
+          className="relative text-3xl md:text-4xl font-bold text-[#1D3557] text-center mb-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           Co-Curricular Activities
+          <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[55%]"/>
         </motion.h2>
+        <motion.p
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Success beyond classroom
+        </motion.p>
 
-        {/* Desktop Grid Layout */}
-        <div className="hidden md:grid grid-cols-3 gap-8">
-          {activities.map((activity) => (
-            <motion.div
-              key={activity.id}
-              className={`relative flex flex-col items-center justify-center p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 ${activity.color} text-white`}
-              whileHover={{ scale: 1.05 }}
-            >
-              {activity.icon}
-              <h3 className="text-xl font-bold mt-4">{activity.title}</h3>
-              <p className="text-center mt-2">{activity.description}</p>
-            </motion.div>
+        {/* Desktop View */}
+        <div className="hidden md:grid grid-cols-3 gap-6" >
+          {activities.map((eachData, index) => (
+            <Card
+              key={index}
+              title={eachData.title}
+              subtitle={eachData.subtitle}
+              backgroundColors={eachData.backgroundColors}
+              image={eachData.image}
+              link={eachData.link}
+            />
           ))}
         </div>
 
-        {/* Mobile Slider */}
-        <div className="md:hidden w-full mt-6">
+        {/* Mobile View - Swiper */}
+        <div className="md:hidden w-full mt-6 px-4">
           <Swiper
             modules={[Pagination]}
-            slidesPerView={1.2}
+            slidesPerView={1}
             spaceBetween={15}
             pagination={{ clickable: true }}
             centeredSlides={true}
           >
-            {activities.map((activity) => (
-              <SwiperSlide key={activity.id} className="flex justify-center">
-                <div className={`relative w-full p-6 rounded-lg shadow-lg ${activity.color} text-white`}>
-                  <div className="flex flex-col items-center justify-center">
-                    {activity.icon}
-                    <h3 className="text-xl font-bold mt-4">{activity.title}</h3>
-                    <p className="text-center mt-2">{activity.description}</p>
-                  </div>
-                </div>
+            {activities.map((activity, i) => (
+              <SwiperSlide key={i} className="flex justify-center">
+                <Card
+                  title={activity.title}
+                  subtitle={activity.subtitle}
+                  backgroundColors={activity.backgroundColors}
+                  image={activity.image}
+                  link={activity.link}
+                />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -111,3 +136,33 @@ const CoCurricular = () => {
 };
 
 export default CoCurricular;
+
+const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => {
+  const { bottom } = backgroundColors;
+
+  return (
+    <div
+      className="relative flex flex-col justify-between p-6 rounded-lg shadow-lg w-full h-[320px] text-white overflow-hidden"
+      style={{
+        background: `linear-gradient(to bottom, #0D3658, ${bottom})`,
+      }}
+    >
+      {/* Background Image with mix-blend */}
+      <div className="absolute inset-0 opacity-70 mix-blend-multiply">
+        <Image src={image} alt={title} fill className="object-cover" />
+      </div>
+
+      <div className="relative z-10">
+        <h3 className="text-2xl font-bold">{title}</h3>
+        <p className="mt-2">{subtitle}</p>
+      </div>
+
+      <Link
+        href={link}
+        className="relative z-10 mt-4  rounded-md self-start"
+      >
+        <Button className="bg-white text-black font-semibold hover:text-white">Learn More</Button>
+      </Link>
+    </div>
+  );
+};

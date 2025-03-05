@@ -19,7 +19,7 @@ const About = () => {
       <div className="hidden md:flex flex-col md:flex-row transition-all duration-500">
         {/* First Container */}
         <motion.div
-          className={`relative flex flex-col justify-between min-h-[600px] bg-[#1D3557] p-10 transition-all duration-500 ease-in-out text-white ${
+          className={`relative flex flex-col justify-between min-h-[600px] bg-[#0D3658] p-10 transition-all duration-500 ease-in-out text-white ${
             hovered ? "md:w-[60%]" : "md:w-[50%]"
           }`}
           onMouseEnter={() => setHovered(true)}
@@ -38,6 +38,7 @@ const About = () => {
           {/* Heading (Hidden on Hover) */}
           <motion.h2
             className={`text-4xl font-bold transition-opacity duration-300 pt-20 ${hovered ? "opacity-0 absolute" : "opacity-100"}`}
+            style={{fontFamily: 'var(--font-garamond)'}}
           >
             Hear From The <br /> Principal
           </motion.h2>
@@ -62,7 +63,7 @@ const About = () => {
           {/* Name & Position */}
           <div className="mt-6">
             <div className="w-[150px] h-[0.5%] bg-white mb-5"></div>
-            <span className="block font-semibold text-lg">Nidhi Gupta</span>
+            <span className="block font-semibold text-lg" >Nidhi Gupta</span>
             <span className="text-sm opacity-80">Principal</span>
           </div>
 
@@ -78,7 +79,7 @@ const About = () => {
 
         {/* Second Container */}
         <div
-          className={`relative flex flex-col justify-between bg-[#E63946] p-10 transition-all duration-500 ease-in-out text-white ${
+          className={`relative flex flex-col justify-between bg-[#85193C] p-10 transition-all duration-500 ease-in-out text-white ${
             hovered ? "md:w-[40%]" : "md:w-[60%]"
           }`}
         >
@@ -97,6 +98,7 @@ const About = () => {
             className={`text-3xl font-bold transition-opacity duration-300 pt-20 ${
               hovered ? "opacity-100" : "opacity-0 absolute"
             }`}
+            style={{fontFamily: 'var(--font-garamond)'}}
           >
             Director&apos;s Note
           </h2>
