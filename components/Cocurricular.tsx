@@ -97,19 +97,20 @@ const CoCurricular = () => {
         {/* Desktop View */}
         <div className="hidden md:grid grid-cols-3 gap-6" >
           {activities.map((eachData, index) => (
-            <Card
+            <motion.div
               key={index}
-              title={eachData.title}
-              subtitle={eachData.subtitle}
-              backgroundColors={eachData.backgroundColors}
-              image={eachData.image}
-              link={eachData.link}
-            />
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card {...eachData} />
+            </motion.div>
           ))}
         </div>
 
         {/* Mobile View - Swiper */}
-        <div className="md:hidden w-full mt-6 px-4">
+        <motion.div className="md:hidden w-full mt-6 px-4">
           <Swiper
             modules={[Pagination]}
             slidesPerView={1}
@@ -119,17 +120,11 @@ const CoCurricular = () => {
           >
             {activities.map((activity, i) => (
               <SwiperSlide key={i} className="flex justify-center">
-                <Card
-                  title={activity.title}
-                  subtitle={activity.subtitle}
-                  backgroundColors={activity.backgroundColors}
-                  image={activity.image}
-                  link={activity.link}
-                />
+                <Card {...activity} />
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </motion.div>
       </div>
     </motion.section>
   );
@@ -141,13 +136,12 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
   const { bottom } = backgroundColors;
 
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ duration: 0.3 }}
       className="relative flex flex-col justify-between p-6 rounded-lg shadow-lg w-full h-[320px] text-white overflow-hidden"
-      style={{
-        background: `linear-gradient(to bottom, #0D3658, ${bottom})`,
-      }}
+      style={{ background: `linear-gradient(to bottom, #0D3658, ${bottom})` }}
     >
-      {/* Background Image with mix-blend */}
       <div className="absolute inset-0 opacity-70 mix-blend-multiply">
         <Image src={image} alt={title} fill className="object-cover" />
       </div>
@@ -157,12 +151,9 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
         <p className="mt-2">{subtitle}</p>
       </div>
 
-      <Link
-        href={link}
-        className="relative z-10 mt-4  rounded-md self-start"
-      >
+      <Link href={link} className="relative z-10 mt-4 rounded-md self-start">
         <Button className="bg-white text-black font-semibold hover:text-white">Learn More</Button>
       </Link>
-    </div>
+    </motion.div>
   );
 };

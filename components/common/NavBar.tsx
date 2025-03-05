@@ -30,12 +30,6 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Know about the affiliation of our school with CBSE.",
   },
-  // {
-  //   title: "Curriculum",
-  //   href: "/academics/curriculum",
-  //   description:
-  //     "Know more about the curriculmn our school provides.",
-  // },
   {
     title: "Streams Offered",
     href: "/academics/streams-offered",
@@ -89,6 +83,8 @@ const admissionComponent: { title: string; href: string; description: string }[]
 
 export function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
@@ -105,6 +101,20 @@ export function NavBar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY - lastScrollY > 10) { // Increase value for smoother effect
+        setIsVisible(false);
+      } else if (lastScrollY - window.scrollY > 10) {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+  
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]); // Dependency array
 
   const isHomePage = pathname === "/";
   const navBg = isHomePage && !isScrolled ? "bg-transparent text-white" : "bg-white text-black";
@@ -124,8 +134,9 @@ export function NavBar() {
   return (
     <>
       <section 
-        className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-colors duration-300 ${navBg}`}
-      >
+        className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-transform duration-300 ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        } ${navBg}`}>
         <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0">
           <Link href={"/"}>
           <Image
@@ -246,16 +257,16 @@ export function NavBar() {
 
           <div className="space-y-4">
             <MobileDropdown title="About">
-              <Link href="/about-us/our-history" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/our-history" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Our History
               </Link>
-              <Link href="/about-us/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Why Choose Us?
               </Link>
-              <Link href="/about-us/mision-vision" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/mision-vision" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Mission & Vision
               </Link>
-              <Link href="/about-us/principals-message" className="block p-3 hover:bg-gray-100 rounded-md">
+              <Link href="/about-us/principals-message" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Principal Message
               </Link>
             </MobileDropdown>
@@ -266,6 +277,7 @@ export function NavBar() {
                   key={component.title}
                   href={component.href}
                   className="block p-3 hover:bg-gray-100 rounded-md"
+                  onClick={() => setIsOpen(false)}
                 >
                   {component.title}
                 </Link>
@@ -278,16 +290,17 @@ export function NavBar() {
                   key={component.title}
                   href={component.href}
                   className="block p-3 hover:bg-gray-100 rounded-md"
+                  onClick={() => setIsOpen(false)}
                 >
                   {component.title}
                 </Link>
               ))}
             </MobileDropdown>
 
-            <Link href="/contact-us" className="block p-3 hover:bg-gray-100 rounded-md">
+            <Link href="/contact-us" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
               Contact
             </Link>
-            <Link href="/mandatory-disclosure" className="block p-3 hover:bg-gray-100 rounded-md">
+            <Link href="/mandatory-disclosure" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
               Disclosure
             </Link>
           </div>

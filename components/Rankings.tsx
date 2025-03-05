@@ -39,7 +39,7 @@ const Rankings = () => {
             viewport={{ once: true }}
           >
             <FaTrophy className="text-6xl md:text-7xl text-white mb-4" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Rankings</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Legacy</h2>
           </motion.div>
 
           {/* Rankings Grid */}

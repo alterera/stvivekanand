@@ -21,10 +21,10 @@ const Background = ({ playStatus, heroCount }: BackgroundProps) => {
         <Image 
           src={
             heroCount === 0
-              ? '/assets/background/campus-main.jpeg'
+              ? '/assets/background/campus-main.webp'
               : heroCount === 1
-              ? '/assets/background/new-1.jpg'
-              : '/assets/background/new-2.jpg'
+              ? '/assets/background/staff.webp'
+              : '/assets/background/young.webp'
           }
           alt="hero background"
           fill
