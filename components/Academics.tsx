@@ -116,7 +116,7 @@ const Academics = () => {
       {/* Mobile Slider */}
       <div className="block md:hidden w-full px-4 h-auto min-h-[250px]">
         <Swiper modules={[Pagination]} slidesPerView={1.2} spaceBetween={15} pagination={{ clickable: true }} centeredSlides={true} loop={true}>
-          {gridItems.map((box, index) => (
+          {gridItems.map((box) => (
             <SwiperSlide key={box.id}>
               <div
                 
