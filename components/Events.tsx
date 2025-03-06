@@ -39,7 +39,7 @@ const Events = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <Image src={'/assets/patterns/dots.png'} alt="pattern" height={100} width={100} className="absolute top-16"/>
+      <Image src={'/assets/patterns/dots.png'} alt="pattern" height={100} width={100} className="hidden md:flex absolute top-16"/>
       <Image src={'/assets/patterns/hilly.png'} alt="pattern" height={100} width={100} className="absolute bottom-16 right-0"/>
       <Image src={'/assets/patterns/3-circle.png'} alt="pattern" height={100} width={180} className="absolute bottom-16 left-10 -rotate-12"/>
       <div className="max-w-7xl mx-auto px-4 md:px-0">

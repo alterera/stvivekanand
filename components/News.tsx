@@ -22,7 +22,7 @@ interface NewsPost {
 const newsContent: NewsPost[] = [
   {
     id: 1,
-    title: "25th Annual Athletic Meet, 2024 Closing Ceremony",
+    title: "25th Annual Athletic Meet",
     excerpt:
       "Over five days of fierce competition, students from the four houses showcased their athletic prowess and sportsmanship...",
     imageUrl: "/assets/events/event-3.png",
@@ -31,7 +31,7 @@ const newsContent: NewsPost[] = [
   },
   {
     id: 2,
-    title: "Science Exhibition Showcases Student Innovation",
+    title: "Science Exhibition Showcases Innovation",
     excerpt:
       "Our young scientists demonstrated their creativity and understanding of scientific principles through innovative projects...",
     imageUrl: "/assets/events/event-3.png",
@@ -68,7 +68,7 @@ const News = () => {
       viewport={{ once: true }}
       style={{backgroundImage: `url('/assets/background/stvivek.png')`, backgroundRepeat: 'no-repeat'}}
     >
-      <Image src={'/assets/patterns/line-circle-half.png'} alt="pattern" height={100} width={180} className="absolute bottom-5 right-10"/>
+      <Image src={'/assets/patterns/line-circle-half.png'} alt="pattern" height={100} width={180} className="hidden md:flex absolute bottom-5 right-10"/>
       <div className="max-w-7xl mx-auto px-8 md:px-0 z-10">
         {/* Title Section */}
         <motion.h2

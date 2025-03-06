@@ -114,15 +114,21 @@ const Academics = () => {
       </motion.div>
 
       {/* Mobile Slider */}
-      <motion.div className="md:hidden w-full px-4">
-        <Swiper modules={[Pagination]} slidesPerView={1.2} spaceBetween={15} pagination={{ clickable: true }} centeredSlides={true}>
+      <div className="block md:hidden w-full px-4 h-auto min-h-[250px]">
+        <Swiper modules={[Pagination]} slidesPerView={1.2} spaceBetween={15} pagination={{ clickable: true }} centeredSlides={true} loop={true}>
           {gridItems.map((box, index) => (
             <SwiperSlide key={box.id}>
-              <GridBox {...box} delay={index * 0.2} />
+              <div
+                
+                className="flex justify-center text-white"
+              >
+                <GridBox {...box} delay={0}/>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
-      </motion.div>
+      </div>
+      
     </section>
   );
 };
@@ -131,7 +137,7 @@ const GridBox = ({ title, color, link, image, delay }: { title: string; color: s
   return (
     <motion.a
       href={link}
-      className="relative h-40 md:h-96 w-full rounded-lg overflow-hidden group"
+      className="relative h-72 md:h-96 w-full rounded-lg overflow-hidden group"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
