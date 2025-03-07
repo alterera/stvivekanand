@@ -8,55 +8,56 @@ import "swiper/css";
 import "swiper/css/pagination";
 // import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 const gridItems = [
   {
     id: 1,
     title: "Science Laboratories",
     color: "bg-purple-500",
-    link: "#",
+    link: "/academics/all-facilities/#science",
     image: "/assets/academics/science.webp",
   },
   {
     id: 2,
     title: "Space Lab",
     color: "bg-orange-500",
-    link: "#",
+    link: "/academics/all-facilities/#space",
     image: "/assets/academics/space.webp",
   },
   {
     id: 3,
     title: "Computer Department",
     color: "bg-blue-500",
-    link: "#",
+    link: "/academics/all-facilities/#computer-department",
     image: "/assets/academics/computer.webp",
   },
   {
     id: 4,
     title: "Phonics Lab",
     color: "bg-red-400",
-    link: "#",
+    link: "/academics/all-facilities/#phonic-lab",
     image: "/assets/academics/phonic.webp",
   },
   {
     id: 5,
     title: "AI / ML Lab",
     color: "bg-gray-500",
-    link: "#",
+    link: "/academics/all-facilities/#ai-ml-lab",
     image: "/assets/academics/ai-ml.webp",
   },
   {
     id: 6,
     title: "Experiential Learning",
     color: "bg-green-500",
-    link: "#",
+    link: "/academics/all-facilities/#experiential-learning-department",
     image: "/assets/academics/experiential.webp",
   },
   {
     id: 7,
     title: "Library",
     color: "bg-teal-500",
-    link: "#",
+    link: "/academics/all-facilities/#library",
     image: "/assets/academics/library.webp",
   },
 ];
@@ -74,7 +75,7 @@ const Academics = () => {
         className="px-6"
       >
         <h2 className="relative text-4xl font-bold text-center mb-2">
-          Academic Facilities
+          Academic - The Experential Learning
           <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[60%]"/>
         </h2>
         <motion.p 
@@ -135,8 +136,7 @@ const Academics = () => {
 
 const GridBox = ({ title, color, link, image, delay }: { title: string; color: string; link: string; image: string; delay: number }) => {
   return (
-    <motion.a
-      href={link}
+    <motion.div
       className="relative h-72 md:h-96 w-full rounded-lg overflow-hidden group"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 50 }}
@@ -146,10 +146,10 @@ const GridBox = ({ title, color, link, image, delay }: { title: string; color: s
     >
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
       <div className={`absolute inset-0 ${color} opacity-70 group-hover:opacity-60 transition-all duration-300`}></div>
-      <div className="absolute inset-0 flex items-center justify-center text-3xl font-bold" style={{ fontFamily: 'var(--font-garamond)' }}>
+      <Link href={link} className="absolute inset-0 flex items-center justify-center text-3xl font-bold" style={{ fontFamily: 'var(--font-garamond)' }}>
         {title}
-      </div>
-    </motion.a>
+      </Link>
+    </motion.div>
   );
 };
 

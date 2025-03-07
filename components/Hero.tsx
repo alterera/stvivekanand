@@ -5,55 +5,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import Background from "./Background";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { sanityClient } from "@/lib/sanity";
+import Preloader from "./Preloader";
 
-const heroData: { 
-  subTitle: string; 
-  title: string; 
-  description: string; 
-  buttonText: string; 
-  url: string; 
-  titleDirection: "left" | "right" | "top"; // Restrict titleDirection type
-}[] = [
-  {
-    subTitle: "Unlock Your Potential",
-    title: "WATER THE ROOTS OF THE TREE AND THE WHOLE TREE IS WATERED",
-    description: "Ensuring holistic development for every student.",
-    buttonText: "Explore More",
-    url: "/academics/overview",
-    titleDirection: "left", // Now TypeScript recognizes it correctly
-  },
-  {
-    subTitle: "Excellence in Leadership",
-    title: "Where Learning Meets Leadership",
-    description: "We believe in fostering curiosity, critical thinking, and resilience, shaping students.",
-    buttonText: "Join Us Today",
-    url: "#",
-    titleDirection: "right",
-  },
-  {
-    subTitle: "A Legacy of Learning",
-    title: "Nurturing Young Minds Since 1977",
-    description: "We believe in holistic development, fostering curiosity, creativity, and confidence in every student.",
-    buttonText: "Discover More",
-    url: "#",
-    titleDirection: "top",
-  },
-];
-
+interface HeroData {
+  title: string;
+  description: string;
+  buttonText: string;
+  url: string;
+  titleDirection: "left" | "right" | "top";
+}
 
 const Hero = () => {
+  const [hero, setHero] = useState<HeroData[] | null>(null);
   const [heroCount, setHeroCount] = useState(0);
   const [playStatus] = useState(false);
 
+  // Fetch hero data from Sanity
   useEffect(() => {
+    sanityClient
+      .fetch(`*[_type == "hero"] | order(order asc)`)
+      .then((data) => setHero(data));
+  }, []);
+  
+
+  // Auto slide transition
+  useEffect(() => {
+    if (!hero) return;
     const interval = setInterval(() => {
-      setHeroCount((prev) => (prev + 1) % heroData.length);
+      setHeroCount((prev) => (prev + 1) % hero.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [hero]);
 
-  // Determine animation direction for title
+  if (!hero) return <Preloader />;
+
+  const handleDotClick = (index: number) => {
+    setHeroCount(index);
+  };
+
   const titleVariants = {
     left: { opacity: 0, x: -50 },
     right: { opacity: 0, x: 50 },
@@ -71,13 +62,13 @@ const Hero = () => {
             <AnimatePresence mode="wait">
               <motion.h1
                 key={`title-${heroCount}`}
-                initial={titleVariants[heroData[heroCount].titleDirection]}
+                initial={titleVariants[hero[heroCount]?.titleDirection]}
                 animate={titleVariants.visible}
-                exit={titleVariants[heroData[heroCount].titleDirection]}
+                exit={titleVariants[hero[heroCount]?.titleDirection]}
                 className="text-2xl md:text-4xl lg:text-5xl font-medium uppercase"
                 style={{ fontFamily: "var(--font-garamond)" }}
               >
-                {heroData[heroCount].title}
+                {hero[heroCount]?.title}
               </motion.h1>
             </AnimatePresence>
 
@@ -90,7 +81,7 @@ const Hero = () => {
                 transition={{ duration: 1 }}
                 className="text-sm md:text-base lg:text-lg text-gray-200 uppercase"
               >
-                {heroData[heroCount].description}
+                {hero[heroCount]?.description}
               </motion.p>
             </AnimatePresence>
 
@@ -102,15 +93,28 @@ const Hero = () => {
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 1.2 }}
               >
-                <Link href={heroData[heroCount].url}>
+                <Link href={hero[heroCount]?.url || "#"}>
                   <Button className="text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold hover:scale-105 transition-transform duration-300">
-                    {heroData[heroCount].buttonText}
+                    {hero[heroCount]?.buttonText}
                   </Button>
                 </Link>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
+      </div>
+
+      {/* Navigation Dots */}
+      <div className="absolute bottom-8 right-8 flex gap-2">
+        {hero.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handleDotClick(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              heroCount === index ? "bg-[#85193C] scale-125" : "bg-gray-400 hover:bg-gray-300"
+            }`}
+          ></button>
+        ))}
       </div>
     </section>
   );
