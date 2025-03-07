@@ -68,13 +68,20 @@ const About = () => {
           </div>
 
           {/* Image Positioned Bottom Right */}
-          <Image
-            src="/assets/background/isha.png"
-            alt="Nita Mukesh Ambani"
-            width={400}
-            height={400}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="absolute bottom-0 right-6"
-          />
+          >
+            <Image
+              src="/assets/background/isha.png"
+              alt="Nita Mukesh Ambani"
+              width={400}
+              height={400}
+            />
+          </motion.div>
         </motion.div>
 
         {/* Second Container */}
@@ -127,15 +134,21 @@ const About = () => {
           </div>
 
           {/* Image Positioned Bottom (Moves to Right End on Hover) */}
-          <Image
-            src="/assets/background/nita.png"
-            alt="Isha Ambani Piramal"
-            width={500}
-            height={500}
-            className={`absolute bottom-0 transition-all duration-500 ${
-              hovered ? "right-6" : "left-2/3 transform -translate-x-2/3"
-            }`}
-          />
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className={`absolute bottom-0 flex justify-center w-full `}
+          >
+            <Image
+              src="/assets/background/nita.png"
+              alt="Nita Mukesh Ambani"
+              width={500}
+              height={400}
+              className=""
+            />
+          </motion.div>
         </div>
       </div>
 
