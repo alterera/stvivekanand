@@ -18,25 +18,25 @@ const sportsContent: SportCard[] = [
     id: 1,
     title: "Basketball Court",
     imageUrl: "/assets/sports/basketball.jpeg",
-    link: "/academics/sports/#1",
+    link: "/academics/sports/#basketball-court",
   },
   {
     id: 2,
     title: "Gymnasium",
     imageUrl: "/assets/sports/gymnasium.jpeg",
-    link: "/academics/sports/#2",
+    link: "/academics/sports/#gymnasium-strength-and-fitness",
   },
   {
     id: 3,
     title: "Cricket Turf",
     imageUrl: "/assets/sports/cricket.jpeg",
-    link: "#",
+    link: "/academics/sports/#cricket-turf",
   },
   {
     id: 4,
     title: "Lawn Tennis Court",
     imageUrl: "/assets/sports/tennis.jpeg",
-    link: "#",
+    link: "/academics/sports/#lawn-tennis"
   },
 ];
 

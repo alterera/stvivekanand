@@ -27,6 +27,7 @@
     "motion": "^12.4.10",
     "next": "15.1.7",
     "next-sanity": "^9.8.60",
+    "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-fast-marquee": "^1.6.5",

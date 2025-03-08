@@ -2,10 +2,10 @@
 
 import FacilitySection from "@/components/FacilitySection";
 import { motion } from "framer-motion";
-import { FacilityData } from "@/types";
+import { SectionData } from "@/types";
 
 interface SectionDataProps {
-    sections: FacilityData[];
+    sections: SectionData[];
   }
 
 const fadeInVariant = {
@@ -15,18 +15,18 @@ const fadeInVariant = {
 
 const AcademicFacilitiesPage = ({ sections }: SectionDataProps) => {
   return (
-    <motion.section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
+    <section className="max-w-7xl mx-auto px-6 md:px-12 py-24">
       <motion.h1 className="text-center text-4xl font-semibold" variants={fadeInVariant}>
         Academic Facilities
       </motion.h1>
       <motion.p className="text-center text-sm mb-10" variants={fadeInVariant}>
-        Explore our world-class labs, digital classrooms, and advanced learning spaces.
+      The central Building Consists of 50+ well-lit, fully equipped classrooms, a majority of them have been transformed into digital learning classrooms.
       </motion.p>
 
       {sections.map((section, index) => (
         <FacilitySection key={section.sectionId.current} section={section} index={index} />
       ))}
-    </motion.section>
+    </section>
   );
 };
 
