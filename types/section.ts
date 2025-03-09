@@ -1,22 +1,18 @@
+export interface ListItem {
+  text: string;
+  icon: string;
+}
+
 export interface SectionData {
   title: string;
   description: string;
-  listContent: string[];
-  image?: {
+  listContent: ListItem[];
+  image: {
     asset: {
-      _ref?: string;
-      url?: string;
+      _ref: string;
     };
   };
-  sectionId?: {
+  sectionId: {
     current: string;
   };
-}
-
-export interface FacilityData {
-  title: string;
-  description: string;
-  listContent: string[];
-  image: { asset: { url: string } };
-  sectionId: { current: string };
 }
