@@ -37,7 +37,7 @@ type PageProps = {
 
 export default async function EventPage({ params }: PageProps) {
   // Get the slug directly from params (no need to await)
-  const { slug } = await params;
+  const { slug } =  params;
 
   // Fetch the event data using the slug
   const event = await sanityClient.fetch(EVENT_QUERY, { slug });
