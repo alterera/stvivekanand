@@ -3,6 +3,7 @@ import { PT_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
+import NextTopLoader from 'nextjs-toploader';
 
 const getPtSans = PT_Sans({
   weight: ["400", "700"],
@@ -32,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${getPtSans.className} ${getGaramond.variable} antialiased`}>
+        <NextTopLoader color="#85193C" shadow="0 0 10px #85193C,0 0 5px #85193C"/>
           <NavBar />
           {children}
           <Footer />

@@ -24,35 +24,35 @@ const activities: CardProps[] = [
     subtitle: "Dedicated coach for singing classes and instrumental music.",
     backgroundColors: { top: "#51D1F7", bottom: "#FFFFFF" },
     image: "/assets/background/bg-2.jpeg",
-    link: "#"
+    link: "/co-curricular/vocal-and-instrumental-music"
   },
   {
     title: "Painting Workshops",
     subtitle: "Regular painting classes where students create different styles of art.",
     backgroundColors: { top: "#F85B6B", bottom: "#FFFFFF" },
     image: "/assets/background/bg-2.jpeg",
-    link: "#"
+    link: "/co-curricular/painting-workshops"
   },
   {
     title: "Kathak Chapter",
     subtitle: "Special classes by a renowned tutor hailing from the Jaipur Kathak Gharana.",
     backgroundColors: { top: "#28DFAB", bottom: "#FFFFFF" },
     image: "/assets/co-curricular/kathak.webp",
-    link: "#"
+    link: "/co-curricular/kathak-chapter"
   },
   {
     title: "Textile & Embroidery",
     subtitle: "Textile & embroidery masterclasses by a resident tutor for those who opt for it.",
     backgroundColors: { top: "#6F3FF1", bottom: "#FFFFFF" },
     image: "/assets/background/bg-2.jpeg",
-    link: "#"
+    link: "/co-curricular/textile-and-embroidery"
   },
   {
     title: "Clubs & Chapters",
     subtitle: "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
     backgroundColors: { top: "#FBDA35", bottom: "#FFFFFF" },
     image: "/assets/background/bg-2.jpeg",
-    link: "#"
+    link: "/co-curricular/clubs-and-chapters"
   },
   {
     title: "& Many More",

@@ -84,8 +84,7 @@ const Academics = () => {
           transition={{ duration: 0.8, delay: 0.3 }} 
           viewport={{ once: true }}
           className="text-center mb-16"
-        >
-          Fully equipped classrooms, a majority of them have been transformed into digital learning classrooms.
+        >The central Building Consists of 50+ well-lit, fully equipped classrooms, a majority of them have been transformed into digital learning classrooms.
         </motion.p>
       </motion.div>
 

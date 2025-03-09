@@ -19,7 +19,15 @@ export default defineType({
       name: "listContent",
       title: "List Content",
       type: "array",
-      of: [{ type: "string" }],
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "text", title: "Text", type: "string" },
+            { name: "icon", title: "Icon Name", type: "string" },
+          ],
+        },
+      ],
     },
     {
       name: "image",
