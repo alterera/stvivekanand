@@ -1,5 +1,5 @@
 import { getSportsData } from "@/lib/queries";
-import { Sport } from "@/lib/types";
+import { Sport } from "@/types/index";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,8 +22,8 @@ const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
 
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-12">
-      <Breadcrumb className="pt-20">
+    <section className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+      <Breadcrumb className="py-5">
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink href="/">Home</BreadcrumbLink>

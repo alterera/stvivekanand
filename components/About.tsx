@@ -16,7 +16,7 @@ const About = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="hidden md:flex flex-col md:flex-row transition-all duration-500">
+      <div className="hidden md:flex flex-col md:flex-row transition-all duration-500 overflow-hidden">
         {/* First Container */}
         <motion.div
           className={`relative flex flex-col justify-between min-h-[600px] bg-[#0D3658] p-10 transition-all duration-500 ease-in-out text-white ${

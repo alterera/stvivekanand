@@ -39,8 +39,8 @@ const historyData = [
 const OurHistory = () => {
   return (
     <section className="w-full bg-[#F9F9F9] py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-        <Breadcrumb className="pb-5">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Breadcrumb className="py-5">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/">Home</BreadcrumbLink>
@@ -62,7 +62,7 @@ const OurHistory = () => {
             Our History
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            A journey of excellence, discipline, and growth – Saint Vivekanand
+            A journey of excellence, discipline, and growth - Saint Vivekanand
             School has been shaping young minds and inspiring future leaders
             since its foundation.
           </p>
