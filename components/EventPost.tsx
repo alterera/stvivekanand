@@ -18,7 +18,7 @@ const EventPost: React.FC<EventPostProps> = ({
   images
 }) => {
   return (
-    <div className="w-full mx-auto px-4 bg-white md:shadow-lg space-y-6">
+    <div className="w-full mx-auto bg-white md:shadow-lg space-y-6">
       {/* Swiper Slider */}
       <Swiper
         modules={[Pagination, Navigation]}

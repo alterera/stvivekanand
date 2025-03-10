@@ -33,7 +33,7 @@ const Page = async ({ params }: { params: Params }) => {
     <>
       <section className="py-20 w-full px-4 md:px-12">
         <h1 className="text-3xl font-bold text-center">{blogData.title}</h1>
-        <div className="flex flex-col md:flex-row gap-10 mt-10 relative px-6 md:px-0">
+        <div className="flex flex-col md:flex-row gap-10 mt-10 relative">
           <div className="w-full md:w-3/4">
             <BlogPost
               title={blogData.title}

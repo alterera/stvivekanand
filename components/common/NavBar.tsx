@@ -263,7 +263,7 @@ export function NavBar() {
               <Link href="/about-us/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Why Choose Us?
               </Link>
-              <Link href="/about-us/mision-vision" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
+              <Link href="/about-us/mission-vision" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Mission & Vision
               </Link>
               <Link href="/about-us/principals-message" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>

@@ -26,12 +26,12 @@ const Page = async ({ params }: { params: Params }) => {
 
   return (
     <>
-      <section className="w-full px-6 md:px-12 py-24">
+      <section className="w-full px-4 md:px-12 py-20">
         <h1 className="text-3xl font-bold text-center mb-2">
           {eventData.title}
         </h1>
         {eventData.subtitle && (
-          <h2 className="text-sm text-gray-500 text-center">
+          <h2 className="text-sm text-gray-500 text-center mb-8">
             {eventData.subtitle}
           </h2>
         )}
