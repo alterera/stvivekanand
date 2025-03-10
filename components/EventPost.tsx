@@ -9,11 +9,13 @@ import 'swiper/css/navigation';
 import Image from 'next/image';
 
 interface EventPostProps {
+  title: string;
   description: string;
   images: { asset: { url: string } }[];
 }
 
 const EventPost: React.FC<EventPostProps> = ({
+  title,
   description,
   images
 }) => {
@@ -38,8 +40,8 @@ const EventPost: React.FC<EventPostProps> = ({
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <p className="text-gray-600 pb-4">{description}</p>
+        <p className='text-gray-600 px-4 text-2xl font-semibold'>{title}</p>
+      <p className="text-gray-600 px-4 pb-5">{description}</p>
     </div>
   );
 };

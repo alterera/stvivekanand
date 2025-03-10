@@ -7,19 +7,19 @@ interface ModalProps {
 
 const Modal: React.FC<ModalProps> = ({ content, onClose }) => {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-md w-3/4 max-w-lg">
+    <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+      <div className="bg-white w-[90%] md:w-[70%] lg:w-[50%] p-5 rounded-lg shadow-lg relative">
         <button
-          className="absolute top-2 right-2 text-2xl text-red-500"
+          className="absolute top-3 right-4 text-lg font-bold text-gray-600 hover:text-black"
           onClick={onClose}
         >
-          &times;
+          ✖
         </button>
-        <iframe
-          src={content}
-          className="w-full h-96"
-          frameBorder="0"
-          allowFullScreen
+        <embed
+          src={`${content}#toolbar=0&navpanes=0&scrollbar=0`}
+          type="application/pdf"
+          className="w-full h-[700px]"
+          onContextMenu={(e) => e.preventDefault()}
         />
       </div>
     </div>

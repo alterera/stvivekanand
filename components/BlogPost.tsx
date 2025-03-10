@@ -19,9 +19,6 @@ export default function BlogPost({
 }: BlogPostProps) {
   return (
     <div className="w-full">
-      <p className="text-gray-500 mb-4 text-sm">
-        Published on: {new Date(publishedAt).toLocaleDateString()}
-      </p>
 
       {featuredImage && (
         <div className="relative w-full h-64 mb-6">
@@ -33,7 +30,9 @@ export default function BlogPost({
           />
         </div>
       )}
-
+    <p className="text-gray-500 mb-4 text-sm">
+        Published on: {new Date(publishedAt).toLocaleDateString()}
+      </p>
       <div className="prose">
         <p className="text-2xl font-semibold mb-2">{title}</p>
         <PortableText value={article} components={PortableTextComponents} />

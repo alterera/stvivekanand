@@ -39,6 +39,7 @@ const Page = async ({ params }: { params: Params }) => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row relative gap-5">
           <div className="w-full md:w-3/4">
             <EventPost
+            title={eventData.title}
               description={eventData.description}
               images={eventData.images}
             />
