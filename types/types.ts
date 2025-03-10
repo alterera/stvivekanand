@@ -114,9 +114,69 @@ export interface EventData {
   }[];
 }
 
-export interface BlogPost {
+export interface BlogPostData {
   title: string;
   slug: {
     current: string;
   };
+}
+
+export interface DocumentData {
+  id: number;
+  info: string;
+  file: {
+    asset: {
+      url: string;
+    };
+  };
+}
+
+export interface GeneralInformation {
+  srNo: number;
+  information: string;
+  detail: string;
+}
+
+export interface MandatoryDisclosureData {
+  title: string;
+  description: string;
+  documents: DocumentData[];
+  generalInformationTable: GeneralInformation[];
+}
+
+export interface MandatoryDisclosureData {
+  title: string;
+  description: string;
+  tables: Table[];
+}
+
+interface Table {
+  order: number;
+  tableName: string;
+  tableType: "text" | "file" | "link";
+  content: TableContent[];
+}
+
+interface TableContent {
+  srNo: number;
+  information: string;
+  detail?: string; // For text table
+  file?: {
+    asset: {
+      url: string;
+    };
+  }; // For file table
+  link?: string; // For link table
+}
+
+
+export interface BlogDataX {
+  title: string;
+  article: any[]; // Assuming Portable Text content from Sanity
+  featuredImage?: {
+    asset?: {
+      url: string;
+    };
+  };
+  publishedAt: string;
 }

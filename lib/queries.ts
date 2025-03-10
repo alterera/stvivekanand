@@ -102,3 +102,28 @@ export const LATEST_BLOGS_QUERY = groq`
     slug
   }
 `;
+
+
+
+export const MANDATORY_DISCLOSURE_QUERY = groq`
+  *[_type == "mandatoryDisclosure"][0] {
+    title,
+    description,
+    tables[] | order(order asc) {
+      order,
+      tableName,
+      tableType,
+      content[] {
+        srNo,
+        information,
+        detail,
+        file {
+          asset-> {
+            url
+          }
+        },
+        link
+      }
+    }
+  }
+`;

@@ -58,10 +58,10 @@ const FacilitySection = ({ section, index }: FacilitySectionProps) => {
         </motion.h3>
         <motion.p className="text-gray-700">{section.description}</motion.p>
         <motion.div
-          className="flex flex-wrap pt-10 gap-5"
+          className="flex flex-wrap pt-10 gap-5 justify-between"
           variants={fadeInVariant}
         >
-          {section.listContent.map((item, idx) => {
+          {section.listContent?.map((item, idx) => {
             // Dynamically get the icon component from LucideIcons
             const Icon = LucideIcons[item.icon as keyof typeof LucideIcons] as LucideIcon;
             return (
