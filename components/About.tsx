@@ -139,10 +139,10 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className={`absolute bottom-0 flex justify-center w-full `}
+            className={`absolute bottom-0 flex justify-center -right-48 w-full`}
           >
             <Image
-              src="/assets/background/nita.png"
+              src="/assets/about/Nipun_Gupta.png"
               alt="Nipun Gupta"
               width={500}
               height={400}
@@ -202,7 +202,7 @@ const About = () => {
           {/* Image Container */}
           <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/background/nita.png"
+              src="/assets/about/Nipun_Gupta.png"
               alt="Nipun Gupta"
               width={480}
               height={450}

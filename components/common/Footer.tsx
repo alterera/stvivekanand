@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Mail, Phone } from "lucide-react";
 
 const footerLinks = [
   {
@@ -41,14 +42,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* School Info */}
           <div className="space-y-6">
-            
-              <Image
-                src="/assets/logo/stlogo.png"
-                alt="St. Vivekanand School"
-                width={200}
-                height={80}
-                className="object-contain"
-              />
+            <Image
+              src="/assets/logo/stlogo.png"
+              alt="St. Vivekanand School"
+              width={200}
+              height={80}
+              className="object-contain"
+            />
             <div className="space-y-4">
               <p className="text-gray-300">
                 Statue Circle, JNV Main Rd, Sector 3 <br />
@@ -56,19 +56,19 @@ const Footer = () => {
                 Rajasthan - 334001 IN
               </p>
               <div className="space-y-2">
-                <p>
-                  Phone:{" "}
+                <p className="flex items-center gap-2">
+                <Phone size={20} />
                   <a href="tel:+919571665859" className="hover:text-[#E63946]">
-                    +91 9571665859
+                    +91 957-166-5859
                   </a>
                 </p>
-                <p>
-                  Email:{" "}
+                <p className="flex items-center gap-2">
+                  <Mail size={20}/>
                   <a
-                    href="mailto:contact@school.com"
+                    href="mailto:st.vivekanand@yahoo.com"
                     className="hover:text-[#E63946]"
                   >
-                    contact@svsbikaner.com
+                    st.vivekanand@yahoo.com
                   </a>
                 </p>
               </div>
@@ -95,10 +95,7 @@ const Footer = () => {
                 <h3 className="text-xl font-bold mb-4">{category.section}</h3>
                 <ul className="space-y-2">
                   {category.links.map((link) => (
-                    <li
-                      key={link.title}
-                      
-                    >
+                    <li key={link.title}>
                       <Link
                         href={link.href}
                         className="text-gray-300 hover:text-white transition-colors duration-200"
@@ -139,9 +136,12 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-sm text-gray-400">
-              Designed & Developed by{" "}
-              <a href="https://alterera.net" className="text-white hover:text-[#E63946]">
-                Alterera
+              Powered by{" "}
+              <a
+                href="https://alterera.net"
+                className="text-white hover:text-[#E63946]"
+              >
+                Alterera Networks
               </a>
             </p>
           </div>

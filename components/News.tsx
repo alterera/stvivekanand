@@ -166,7 +166,7 @@ const News = () => {
                       {post.excerpt}
                     </p>
                     <Link href={`/news/${post.slug.current}`}>
-                      <Button className="w-full text-white font-medium bg-[#85193C] hover:bg-white hover:text-[#0D3658] transition-all duration-300">
+                      <Button className="w-full text-white font-semibold bg-[#85193C] hover:bg-[#E63946]/90 transition-all duration-300">
                         Read More
                       </Button>
                     </Link>
@@ -186,9 +186,9 @@ const News = () => {
           <Link href="/news">
             <Button
               variant="destructive"
-              className="text-white bg-[#85193C] hover:bg-[#E63946]/90 px-8 py-4 text-lg mb-10"
+              className="text-white bg-[#85193C] hover:bg-[#E63946]/90 p-4 text-sm mb-10"
             >
-              View All News
+              View All Updates
             </Button>
           </Link>
         </motion.div>
