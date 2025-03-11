@@ -12,7 +12,7 @@ type Facility = {
   id: number;
   title: string;
   description: string;
-  icon: JSX.Element;
+  icon: React.JSX.Element;
   link: string;
 };
 
