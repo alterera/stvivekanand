@@ -8,7 +8,7 @@ import { sanityClient } from "@/lib/sanity";
 import { FEE_STRUCTURE_QUERY } from "@/lib/queries";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
 
-const iconMap: Record<string, JSX.Element> = {
+const iconMap: Record<string, React.JSX.Element> = {
   FaSchool: <FaSchool className="text-4xl text-[#E63946]" />,
   FaBook: <FaBook className="text-4xl text-[#E63946]" />,
   FaUserGraduate: <FaUserGraduate className="text-4xl text-[#E63946]" />,
