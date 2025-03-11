@@ -36,7 +36,7 @@ const admissionSteps = [
 const Admissions = () => {
   return (
     <motion.section 
-      className="w-full bg-white py-16"
+      className="w-full bg-white py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -106,15 +106,15 @@ const Admissions = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-[#1D3557] mb-6">General Guidelines for Parents</h3>
-          <ul className="space-y-4 text-gray-700">
-            <li>📌 Parents should not enter classrooms during school hours.</li>
-            <li>📌 Meetings with teachers should be arranged through the Principal.</li>
-            <li>📌 Ensure regularity, punctuality, and discipline in your child’s school life.</li>
-            <li>📌 Check the student’s diary daily for homework and school notices.</li>
-            <li>📌 Inform the school about any address changes.</li>
-            <li>📌 Children who are sick should not be sent to school.</li>
-            <li>📌 Avoid criticizing teachers or the school in front of children.</li>
-            <li>📌 All communication should be addressed to the Principal.</li>
+          <ul className="space-y-4 text-gray-700 list-disc pl-4 marker:text-[#85193C]">
+            <li>Parents should not enter classrooms during school hours.</li>
+            <li>Meetings with teachers should be arranged through the Principal.</li>
+            <li>Ensure regularity, punctuality, and discipline in your child&apos;s school life.</li>
+            <li>Check the student&apos;s diary daily for homework and school notices.</li>
+            <li>Inform the school about any address changes.</li>
+            <li>Children who are sick should not be sent to school.</li>
+            <li>Avoid criticizing teachers or the school in front of children.</li>
+            <li>All communication should be addressed to the Principal.</li>
           </ul>
         </motion.div>
 
@@ -127,11 +127,11 @@ const Admissions = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold mb-6">Required Documents</h3>
-          <ul className="space-y-4 text-gray-200">
-            <li>📌 **Transfer Certificate (TC)** for students transferring from another school.</li>
-            <li>📌 **Birth Certificate** for students enrolling in school for the first time.</li>
-            <li>📌 **Previous Academic Records** (for classes above Grade 1).</li>
-            <li>📌 **Recent Passport-Size Photographs** of the student.</li>
+          <ul className="space-y-4 text-gray-200 list-disc pl-4 marker:text-[#85193C]">
+            <li>Transfer Certificate (TC) for students transferring from another school.</li>
+            <li>Birth Certificate for students enrolling in school for the first time.</li>
+            <li>Previous Academic Records (for classes above Grade 1).</li>
+            <li>Recent Passport-Size Photographs of the student.</li>
           </ul>
         </motion.div>
       </div>

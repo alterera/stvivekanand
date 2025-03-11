@@ -9,21 +9,21 @@ const footerLinks = [
   {
     section: "Links",
     links: [
-      { title: "FAQs", href: "/faqs" },
-      { title: "Calendar", href: "/calendar" },
-      { title: "Notice Board", href: "/notices" },
-      { title: "Fee Structure", href: "/fees" },
-      { title: "E-Prospectus", href: "/prospectus" },
-      { title: "Admissions", href: "/admissions" },
+      { title: "FAQs", href: "#" },
+      { title: "Calendar", href: "#" },
+      { title: "Notice Board", href: "#" },
+      { title: "Fee Structure", href: "/admissions/fee-structure" },
+      { title: "E-Prospectus", href: "#" },
+      { title: "Admissions", href: "/admissions/admission-process" },
     ],
   },
   {
     section: "About Us",
     links: [
-      { title: "Our History", href: "/about/history" },
-      { title: "Why Choose Us", href: "/about/why-us" },
-      { title: "CBSE Affiliation", href: "/about/cbse-affiliation" },
-      { title: "Careers", href: "/about/careers" },
+      { title: "Our History", href: "/about/our-history" },
+      { title: "Why Choose Us", href: "/about/why-choose-us" },
+      { title: "CBSE Affiliation", href: "/academics/cbse-affiliation" },
+      { title: "Careers", href: "#" },
     ],
   },
 ];
@@ -68,7 +68,7 @@ const Footer = () => {
                     href="mailto:contact@school.com"
                     className="hover:text-[#E63946]"
                   >
-                    contact@school.com
+                    contact@svsbikaner.com
                   </a>
                 </p>
               </div>
@@ -126,11 +126,11 @@ const Footer = () => {
               © St. Vivekanand School, 2025. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <Link href="/terms" className="hover:text-white">
+              <Link href="/terms-of-use" className="hover:text-white">
                 Terms of Use
               </Link>
               <span>|</span>
-              <Link href="/privacy" className="hover:text-white">
+              <Link href="/privacy-policy" className="hover:text-white">
                 Privacy Policy
               </Link>
               <span>|</span>
