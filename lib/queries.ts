@@ -127,3 +127,14 @@ export const MANDATORY_DISCLOSURE_QUERY = groq`
     }
   }
 `;
+
+export const FEE_STRUCTURE_QUERY = `
+*[_type == "feeStructure"]{
+  _id,
+  category,
+  annualFee,
+  tuitionFee,
+  otherCharges,
+  icon
+}
+`;

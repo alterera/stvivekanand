@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-// import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -64,7 +63,7 @@ const gridItems = [
 
 const Academics = () => {
   return (
-    <section className="relative w-full py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
+    <section className="relative w-full xl:px-4 py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
       <Image src="/assets/patterns/tri-dots.png" alt="hilly" height={100} width={140} className="absolute top-16 -right-5 rotate-90" />
       
       <motion.div 

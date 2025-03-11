@@ -4,6 +4,7 @@ import { EVENT_QUERY } from "@/lib/queries";
 import EventPost from "@/components/EventPost";
 import { notFound } from "next/navigation";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 interface EventData {
   title: string;
@@ -27,7 +28,10 @@ const Page = async ({ params }: { params: Params }) => {
   return (
     <>
       <section className="w-full px-4 md:px-12 py-20">
-        <h1 className="text-3xl font-bold text-center mb-2">
+        <DynamicBreadcrumb />
+
+        <div className="my-5">
+        <h1 className="text-3xl text-[#0D3658] font-bold text-center mb-2">
           {eventData.title}
         </h1>
         {eventData.subtitle && (
@@ -35,6 +39,7 @@ const Page = async ({ params }: { params: Params }) => {
             {eventData.subtitle}
           </h2>
         )}
+        </div>
 
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row relative gap-5">
           <div className="w-full md:w-3/4">

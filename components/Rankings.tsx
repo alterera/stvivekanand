@@ -22,7 +22,7 @@ const rankingContent: RankingCard[] = [
 const Rankings = () => {
   return (
     <motion.section 
-      className="w-full bg-[#002147] py-16"
+      className="w-full bg-[#002147] py-16 xl:px-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

@@ -3,14 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const whyUsData = [
   {
@@ -32,37 +25,23 @@ const whyUsData = [
     title: "Legacy & Future",
     description:
       "With a legacy of academic brilliance and student success, the school continues to evolve, embracing new teaching methodologies, digital transformation, and global perspectives to prepare students for the future.",
-    imageUrl: "/assets/background/campus-bg.png",
+    imageUrl: "/assets/background/campus-bg.webp",
   },
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
+    <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">About Us</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Why Choose Us</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
 
         {/* Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-5">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Why Choose Us
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            A journey of excellence, discipline, and growth – Saint Vivekanand
+            A journey of excellence, discipline, and growth - Saint Vivekanand
             School has been shaping young minds and inspiring future leaders
             since its foundation.
           </p>

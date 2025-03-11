@@ -1,13 +1,5 @@
 import { getSportsData } from "@/lib/queries";
 import { Sport } from "@/types/index";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import SwiperComponent from "@/components/SwiperComponent";
 
 import {
@@ -17,27 +9,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
 
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-12 py-16">
-      <Breadcrumb className="py-5">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Academics</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Sports</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+    <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
+      <DynamicBreadcrumb />
 
       <div className="container mx-auto pt-4">
         <h1 className="text-4xl font-bold mb-2 text-center">

@@ -3,41 +3,21 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const CbseAffiliation = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
+    <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-      <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Academics</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>CBSE Affiliation</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
         {/* Heading Section */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             CBSE Affiliation
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, animi.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+            animi.
           </p>
         </div>
 
@@ -66,9 +46,16 @@ const CbseAffiliation = () => {
               CBSE Affiliation: St. Vivekanand School
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            The St. Vivekanand School has national recognition for its quality standard, as it is a CBSE school. CBSE, which stands for Central Board of Secondary Education, is a national-level board of education in India that follows a standardized curriculum across all affiliated schools.
-
-Being a CBSE-affiliated school, St. Vivekanand School, Bikaner follows the standards set by the board in terms of academics, infrastructure, and overall quality of education. The school has to adhere to the guidelines and regulations laid down by CBSE, which ensures a certain level of uniformity and quality across all CBSE schools in the country.
+              The St. Vivekanand School has national recognition for its quality
+              standard, as it is a CBSE school. CBSE, which stands for Central
+              Board of Secondary Education, is a national-level board of
+              education in India that follows a standardized curriculum across
+              all affiliated schools. Being a CBSE-affiliated school, St.
+              Vivekanand School, Bikaner follows the standards set by the board
+              in terms of academics, infrastructure, and overall quality of
+              education. The school has to adhere to the guidelines and
+              regulations laid down by CBSE, which ensures a certain level of
+              uniformity and quality across all CBSE schools in the country.
             </p>
           </div>
         </motion.div>

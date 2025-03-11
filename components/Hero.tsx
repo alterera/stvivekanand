@@ -65,7 +65,7 @@ const Hero = () => {
                 initial={titleVariants[hero[heroCount]?.titleDirection]}
                 animate={titleVariants.visible}
                 exit={titleVariants[hero[heroCount]?.titleDirection]}
-                className="text-2xl md:text-4xl lg:text-5xl font-medium uppercase"
+                className="text-2xl md:text-3xl lg:text-4xl font-medium uppercase"
                 style={{ fontFamily: "var(--font-garamond)" }}
               >
                 {hero[heroCount]?.title}
@@ -79,7 +79,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -50 }}
                 transition={{ duration: 1 }}
-                className="text-sm md:text-base lg:text-lg text-gray-200 uppercase"
+                className="text-xs md:text-xs lg:text-sm text-gray-100 uppercase"
               >
                 {hero[heroCount]?.description}
               </motion.p>

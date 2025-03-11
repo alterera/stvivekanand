@@ -137,7 +137,7 @@ export function NavBar() {
         className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${navBg}`}>
-        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0">
+        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0 xl:px-4">
           <Link href={"/"}>
           <Image
             src="/assets/logo/stlogo.png"

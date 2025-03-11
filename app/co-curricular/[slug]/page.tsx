@@ -1,7 +1,5 @@
-// app/curricular/[slug]/page.tsx
 import Image from "next/image";
 import React from "react";
-
 import Link from "next/link";
 import { sanityClient } from "@/lib/sanity";
 import { CURRICULAR_QUERY } from "@/lib/queries";

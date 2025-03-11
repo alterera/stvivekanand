@@ -31,7 +31,7 @@ const footerLinks = [
 const Footer = () => {
   return (
     <motion.footer
-      className="w-full bg-[#002147] text-white"
+      className="w-full bg-[#002147] text-white xl:px-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -41,10 +41,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* School Info */}
           <div className="space-y-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
+            
               <Image
                 src="/assets/logo/stlogo.png"
                 alt="St. Vivekanand School"
@@ -52,7 +49,6 @@ const Footer = () => {
                 height={80}
                 className="object-contain"
               />
-            </motion.div>
             <div className="space-y-4">
               <p className="text-gray-300">
                 Statue Circle, JNV Main Rd, Sector 3 <br />
@@ -99,10 +95,9 @@ const Footer = () => {
                 <h3 className="text-xl font-bold mb-4">{category.section}</h3>
                 <ul className="space-y-2">
                   {category.links.map((link) => (
-                    <motion.li
+                    <li
                       key={link.title}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
+                      
                     >
                       <Link
                         href={link.href}
@@ -110,7 +105,7 @@ const Footer = () => {
                       >
                         {link.title}
                       </Link>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -145,7 +140,7 @@ const Footer = () => {
             </div>
             <p className="text-sm text-gray-400">
               Designed & Developed by{" "}
-              <a href="#" className="text-white hover:text-[#E63946]">
+              <a href="https://alterera.net" className="text-white hover:text-[#E63946]">
                 Alterera
               </a>
             </p>

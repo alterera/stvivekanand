@@ -3,14 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaUserCheck, FaFileAlt, FaCalendarCheck, FaSchool } from "react-icons/fa";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import AdmissionForm from "@/components/widgets/AdmissionForm";
 
 const admissionSteps = [
   {
@@ -50,21 +44,7 @@ const Admissions = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Breadcrumb Navigation */}
-        <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Admissions</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Admission Procedure</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
         {/* Page Title */}
         <motion.div 
           className="text-center mb-12"
@@ -82,8 +62,9 @@ const Admissions = () => {
         </motion.div>
 
         {/* Admission Steps Section */}
+        <div className="flex flex-col md:flex-row gap-5">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full md:w-2/3"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -110,6 +91,11 @@ const Admissions = () => {
             </motion.div>
           ))}
         </motion.div>
+        
+        <div className="w-full md:w-1/3 p-5 bg-gray-200 h-fit rounded-md">
+          <AdmissionForm />
+        </div>
+        </div>
 
         {/* Admission Guidelines Section */}
         <motion.div 

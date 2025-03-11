@@ -15,7 +15,7 @@ const Background = ({ playStatus, heroCount }: BackgroundProps) => {
           muted
           loop
           className="w-full h-full object-cover"
-          src="/assets/videos/hero.mp4"  // Add your video path here
+          src="/assets/videos/hero.mp4" 
         />
       ) : (
         <Image 

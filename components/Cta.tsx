@@ -7,7 +7,7 @@ import AdmissionForm from "./widgets/AdmissionForm";
 const Cta = () => {
   return (
     <motion.section 
-      className="relative w-full bg-[#002147] py-16 overflow-hidden"
+      className="relative w-full bg-[#002147] py-16 overflow-hidden xl:px-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -17,7 +17,7 @@ const Cta = () => {
       <div
         className="absolute inset-0 z-0 opacity-10"
         style={{
-          backgroundImage: "url('/assets/background/campus-bg.png')",
+          backgroundImage: "url('/assets/background/campus-bg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "repeat",

@@ -139,7 +139,7 @@ const News = () => {
         </div>
 
         {/* News Grid for Larger Screens */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 xl:px-4">
           {isLoading
             ? [1, 2, 3, 4].map((i) => <SkeletonLoader key={i} />)
             : blogPosts?.map((post) => (

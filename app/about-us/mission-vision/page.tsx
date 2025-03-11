@@ -3,41 +3,22 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+
 
 const MissionVision = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
+    <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-      <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">About Us</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Mission & Vision</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
         {/* Page Heading */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 mt-5">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Our Mission & Vision
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Guiding principles that shape the future of our students and community.
+            Guiding principles that shape the future of our students and
+            community.
           </p>
         </div>
 
@@ -66,14 +47,16 @@ const MissionVision = () => {
               Our Mission
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            &ldquo;At Saint Vivekanand School, our mission is to provide a holistic education 
-              that nurtures creativity, critical thinking, and compassion. We are committed 
-              to fostering an inclusive and dynamic learning environment where students are 
-              empowered to reach their full potential.&rdquo;
+              &ldquo;At Saint Vivekanand School, our mission is to provide a
+              holistic education that nurtures creativity, critical thinking,
+              and compassion. We are committed to fostering an inclusive and
+              dynamic learning environment where students are empowered to reach
+              their full potential.&rdquo;
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mt-4">
-            &ldquo;We aim to instill a love for lifelong learning and equip students with the 
-              skills necessary to navigate an ever-changing world.&rdquo;
+              &ldquo;We aim to instill a love for lifelong learning and equip
+              students with the skills necessary to navigate an ever-changing
+              world.&rdquo;
             </p>
           </div>
         </motion.div>
@@ -103,14 +86,16 @@ const MissionVision = () => {
               Our Vision
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            &ldquo;Our vision is to create a school community that inspires students to become 
-              compassionate leaders, innovative thinkers, and responsible global citizens. 
-              We strive to be a center of academic excellence, character development, and 
-              social responsibility.&rdquo;
+              &ldquo;Our vision is to create a school community that inspires
+              students to become compassionate leaders, innovative thinkers, and
+              responsible global citizens. We strive to be a center of academic
+              excellence, character development, and social
+              responsibility.&rdquo;
             </p>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed mt-4">
-            &ldquo;By embracing new technologies and methodologies, we envision a future where 
-              every student is equipped to thrive in an ever-evolving world.&rdquo;
+              &ldquo;By embracing new technologies and methodologies, we
+              envision a future where every student is equipped to thrive in an
+              ever-evolving world.&rdquo;
             </p>
           </div>
         </motion.div>
