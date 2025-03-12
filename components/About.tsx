@@ -156,20 +156,20 @@ const About = () => {
         {/* First Container */}
         <div className="relative flex flex-col justify-evenly w-full bg-[#1D3557] py-12 px-6 h-full text-white">
           <Quote className="text-gray-100 absolute top-10 left-5 h-[40px] w-[40px]" />
-          <h2 className="text-2xl font-bold pt-10">
+          <h2 className="text-2xl font-bold pt-10" style={{ fontFamily: "var(--font-garamond)" }}>
             Hear From The <br /> Principal
           </h2>
 
           {/* Image Container */}
-          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+          <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
               src="/assets/background/isha.png"
               alt="Nidhi Gupta"
-              width={480}
-              height={450}
+              width={300}
+              height={300}
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
-            <div className="h-80"></div>
+            <div className="h-60"></div>
             {/* Space to position the image above */}
           </div>
 
@@ -197,10 +197,12 @@ const About = () => {
         {/* Second Container */}
         <div className="relative flex flex-col justify-evenly w-full bg-[#85193C] py-12 px-4 h-full text-white">
           <Quote className="text-white absolute top-10 left-5 h-[40px] w-[40px]" />
-          <h2 className="text-2xl font-bold pt-10 text-gray-100">Director&apos;s Note</h2>
+          <h2 className="text-2xl font-bold pt-10 text-gray-100">
+            Director&apos;s Note
+          </h2>
 
           {/* Image Container */}
-          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+          <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
               src="/assets/about/Nipun_Gupta.png"
               alt="Nipun Gupta"
@@ -208,7 +210,7 @@ const About = () => {
               height={450}
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
-            <div className="h-80"></div>
+            <div className="h-60"></div>
             {/* Space to position the image above */}
           </div>
 

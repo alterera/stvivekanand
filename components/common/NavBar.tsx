@@ -223,25 +223,25 @@ export function NavBar() {
             </NavigationMenu>
           </div>
 
-          <div className="lg:hidden flex items-center gap-4">
-            <Link href='/admissions/admission-process'>
-            <Button variant="destructive" className='text-white bg-[#85193C] font-semibold shadow-lg'>
-              Apply Now
-            </Button>
-            </Link>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 hover:bg-gray-100 rounded-md"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <div className="flex-1 flex justify-end lg:hidden items-center gap-4">
+  <Link href="/admissions/admission-process">
+    <Button variant="destructive" className="text-white bg-[#85193C] font-semibold shadow-lg">
+      Apply Now
+    </Button>
+  </Link>
+  <button
+    onClick={() => setIsOpen(!isOpen)}
+    className="p-2 hover:bg-gray-100 rounded-md"
+  >
+    {isOpen ? <X size={24} /> : <Menu size={24} />}
+  </button>
+</div>
 
-          <Link href='/admissions/admission-process'>
-          <Button className='hidden lg:block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg'>
-            Apply Now
-          </Button>
-          </Link>
+<Link href="/admissions/admission-process">
+  <Button className="hidden lg:inline-block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg">
+    Apply Now
+  </Button>
+</Link>
         </header>
       </section>
 

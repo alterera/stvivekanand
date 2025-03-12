@@ -30,7 +30,7 @@ const activities: CardProps[] = [
     title: "Painting Workshops",
     subtitle: "Regular painting classes where students create different styles of art.",
     backgroundColors: { top: "#F85B6B", bottom: "#FFFFFF" },
-    image: "/assets/background/bg-2.jpeg",
+    image: "/assets/co-curricular/paintings.webp",
     link: "/co-curricular/painting-workshops"
   },
   {
@@ -55,8 +55,8 @@ const activities: CardProps[] = [
     link: "/co-curricular/clubs-and-chapters"
   },
   {
-    title: "& Many More",
-    subtitle: "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
+    title: "& Many More!",
+    subtitle: " From music and dance to coding and debate, our co-curricular programs go beyond the classroom to inspire creativity, leadership, and lifelong skills.",
     backgroundColors: { top: "#6F3FF1", bottom: "#FBDA35" },
     image: "/assets/background/bg-2.jpeg",
     link: "#"

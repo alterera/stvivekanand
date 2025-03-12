@@ -74,7 +74,7 @@ const Academics = () => {
         className="px-6"
       >
         <h2 className="relative text-4xl font-bold text-center mb-2">
-          Academic - The Experential Learning
+          Academics - The Experential Learning
           <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[60%]"/>
         </h2>
         <motion.p 
@@ -83,7 +83,7 @@ const Academics = () => {
           transition={{ duration: 0.8, delay: 0.3 }} 
           viewport={{ once: true }}
           className="text-center mb-16"
-        >The central Building Consists of 50+ well-lit, fully equipped classrooms, a majority of them have been transformed into digital learning classrooms.
+        >Fostering curiosity and critical thinking through hands-on, real-world experiences that empower students to explore, innovate, and excel in their academic journey.
         </motion.p>
       </motion.div>
 
