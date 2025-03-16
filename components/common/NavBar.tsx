@@ -25,6 +25,12 @@ const components: { title: string; href: string; description: string }[] = [
       "A brief overview of our campus to get the idea of our legacy.",
   },
   {
+    title: "All Facilitues",
+    href: "/academics/all-facilities",
+    description:
+      "All details of the academic facilities our school provides.",
+  },
+  {
     title: "CBSE Affiliation",
     href: "/academics/cbse-affiliation",
     description:
@@ -36,11 +42,11 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Displays an indicator showing the completion progress of a task.",
   },
-  {
-    title: "Career Counselling",
-    href: "/academics/career-counselling",
-    description: "Our school have dedicated department to help you with your career decisions.",
-  },
+  // {
+  //   title: "Career Counselling",
+  //   href: "/academics/career-counselling",
+  //   description: "Our school have dedicated department to help you with your career decisions.",
+  // },
   {
     title: "Sports",
     href: "/academics/sports",

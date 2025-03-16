@@ -87,7 +87,7 @@ const PrincipalMessage = () => {
             {/* Image Section */}
             <div className="w-full md:w-1/2">
               <Image
-                src="/assets/faculty/principal.jpg"
+                src="/assets/faculty/principal.webp"
                 alt="Principal"
                 width={500}
                 height={500}

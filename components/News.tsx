@@ -65,7 +65,7 @@ const News = () => {
         width={180}
         className="hidden md:flex absolute bottom-5 right-10"
       />
-      <div className="max-w-7xl mx-auto px-8 md:px-0 z-10">
+      <div className="max-w-7xl mx-auto md:px-8 md:px-0 z-10">
         {/* Title Section */}
         <motion.h2
           className="relative text-3xl md:text-4xl font-bold text-center text-white mb-2"

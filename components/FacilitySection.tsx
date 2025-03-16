@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { PortableText } from "@portabletext/react"; // ✅ Import PortableText
 import { urlFor } from "@/lib/sanity"; 
 import { SectionData } from "@/types";
-// import * as LucideIcons from "lucide-react";
-// import { LucideIcon } from "lucide-react";
+import { PortableTextComponents } from "./PortableTextComponent";
 
 interface FacilitySectionProps {
   section: SectionData;
@@ -56,26 +56,11 @@ const FacilitySection = ({ section, index }: FacilitySectionProps) => {
         <motion.h3 className="text-4xl font-bold text-[#1D3557] mb-4">
           {section.title}
         </motion.h3>
-        <motion.p className="text-gray-700">{section.description}</motion.p>
-        {/* <motion.div
-          className="flex flex-wrap pt-10 gap-5 justify-between"
-          variants={fadeInVariant}
-        >
-          {section.listContent?.map((item, idx) => {
-            // Dynamically get the icon component from LucideIcons
-            const Icon = LucideIcons[item.icon as keyof typeof LucideIcons] as LucideIcon;
-            return (
-              <motion.div
-                key={idx}
-                variants={fadeInVariant}
-                className="bg-[#1D3557] p-2 rounded-md grid grid-cols-1 grid-rows-4 text-white hover:bg-[#85193C] "
-              >
-                {Icon && <Icon className="w-10 h-10" />}
-                <p className="text-lg font-semibold">{item.text}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div> */}
+
+        {/* ✅ Display Rich Text Properly */}
+        <motion.div className="prose max-w-none text-gray-700">
+          <PortableText value={section.description} components={PortableTextComponents}/>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
