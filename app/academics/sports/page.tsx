@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/accordion";
 import Image from "next/image";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import { PortableText } from "next-sanity";
+import { PortableTextComponents } from "@/components/PortableTextComponent";
 
 const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
@@ -19,7 +21,7 @@ const SportsPage = async () => {
       <DynamicBreadcrumb />
 
       <div className="container mx-auto pt-4">
-        <h1 className="text-4xl font-bold mb-2 text-center">
+        <h1 className="text-4xl font-bold mb-2 text-center text-[#0D3658]">
           Sports Facilities
         </h1>
         <p className="text-center mb-8">
@@ -33,7 +35,7 @@ const SportsPage = async () => {
             height={100}
             width={100}
             alt="pa"
-            className="absolute top-0 left-0"
+            className="hidden md:block absolute -top-10 left-0"
           />
           {sportsData.map((sport, i) => {
             const sectionId = sport.sportId?.current;
@@ -56,15 +58,22 @@ const SportsPage = async () => {
                   className={`flex flex-col-reverse gap-10 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
                   <div className="w-full md:w-1/2 py-5 md:py-10 flex flex-col justify-center">
-                    <h2 className="text-3xl font-semibold mb-4">
+                    <h2 className="text-3xl font-semibold mb-4 text-[#0D3658]">
                       {sport.title}
                     </h2>
-                    <p className="mb-4">{sport.intro}</p>
+                    <div className="mb-4 text-gray-700">
+                      <PortableText
+                        value={sport.intro}
+                        
+                      />
+                    </div>
 
-                    <h3 className="text-xl font-bold mb-4">
+                    <h3 className="text-xl font-bold mb-4 text-[#0D3658]">
                       {sport.atSchoolTitle}
                     </h3>
-                    <p className="mb-4">{sport.atSchoolIntro}</p>
+                    <div className="mb-4 text-gray-700">
+                      <PortableText value={sport.atSchoolIntro} components={PortableTextComponents}/>
+                    </div>
                   </div>
 
                   {/* Pass image URLs to SwiperComponent */}
@@ -88,6 +97,6 @@ const SportsPage = async () => {
       </div>
     </section>
   );
-}
+};
 
 export default SportsPage;

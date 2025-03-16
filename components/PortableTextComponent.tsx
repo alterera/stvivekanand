@@ -57,8 +57,8 @@ export const PortableTextComponents: Partial<PortableTextReactComponents> = {
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="flex items-center gap-2 py-2">
-        <span className="text-[#85193C]">★</span> {children}
+      <li className="flex gap-2 py-2">
+        <span className="text-[#85193C]">●</span> {children}
       </li>
     ),
     number: ({ children }) => <li className="ml-4">{children}</li>,

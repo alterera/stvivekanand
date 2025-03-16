@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "@portabletext/types";
+
 export interface Faq {
     faq: string;
     answer: string;
@@ -36,9 +38,9 @@ export interface SportFAQ {
 export interface Sport {
   _id: string;
   title: string;
-  intro: string;
+  intro: PortableTextBlock[];
   atSchoolTitle: string;
-  atSchoolIntro: string;
+  atSchoolIntro: PortableTextBlock[];
   images: SportImage[];
   faqs: SportFAQ[];
   sportId: {

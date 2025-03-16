@@ -165,8 +165,8 @@ const About = () => {
             <Image
               src="/assets/about/principal.png"
               alt="Nidhi Gupta"
-              width={300}
-              height={300}
+              width={480}
+              height={500}
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
             <div className="h-60"></div>
