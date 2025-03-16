@@ -76,10 +76,10 @@ const About = () => {
             className="absolute bottom-0 right-6"
           >
             <Image
-              src="/assets/about/Nidhi_Gupta.png"
+              src="/assets/about/principal.png"
               alt="Nidhi Gupta"
-              width={400}
-              height={400}
+              width={600}
+              height={300}
             />
           </motion.div>
         </motion.div>
@@ -163,7 +163,7 @@ const About = () => {
           {/* Image Container */}
           <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/about/Nidhi_Gupta.png"
+              src="/assets/about/principal.png"
               alt="Nidhi Gupta"
               width={300}
               height={300}
