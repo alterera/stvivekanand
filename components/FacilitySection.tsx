@@ -4,8 +4,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { urlFor } from "@/lib/sanity"; 
 import { SectionData } from "@/types";
-import * as LucideIcons from "lucide-react"; // Import all Lucide icons
-import { LucideIcon } from "lucide-react"; // Import LucideIcon type
+// import * as LucideIcons from "lucide-react";
+// import { LucideIcon } from "lucide-react";
 
 interface FacilitySectionProps {
   section: SectionData;
