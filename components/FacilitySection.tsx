@@ -41,8 +41,8 @@ const FacilitySection = ({ section, index }: FacilitySectionProps) => {
           <Image
             src={urlFor(section.image)}
             alt={section.title}
-            width={500}
-            height={350}
+            width={400}
+            height={300}
             className="rounded-lg shadow-lg object-cover w-full"
           />
         </motion.div>
@@ -57,7 +57,7 @@ const FacilitySection = ({ section, index }: FacilitySectionProps) => {
           {section.title}
         </motion.h3>
         <motion.p className="text-gray-700">{section.description}</motion.p>
-        <motion.div
+        {/* <motion.div
           className="flex flex-wrap pt-10 gap-5 justify-between"
           variants={fadeInVariant}
         >
@@ -68,14 +68,14 @@ const FacilitySection = ({ section, index }: FacilitySectionProps) => {
               <motion.div
                 key={idx}
                 variants={fadeInVariant}
-                className="bg-[#1D3557] p-5 rounded-md flex flex-col justify-center gap-5 items-center text-white hover:bg-[#85193C] "
+                className="bg-[#1D3557] p-2 rounded-md grid grid-cols-1 grid-rows-4 text-white hover:bg-[#85193C] "
               >
                 {Icon && <Icon className="w-10 h-10" />}
                 <p className="text-lg font-semibold">{item.text}</p>
               </motion.div>
             );
           })}
-        </motion.div>
+        </motion.div> */}
       </motion.div>
     </motion.div>
   );
