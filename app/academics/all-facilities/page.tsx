@@ -16,10 +16,11 @@ const Page = () => {
         <div className="max-w-7xl mx-auto">
           <DynamicBreadcrumb />
           <div className="mt-5">
-            <h1 className="text-center text-4xl font-semibold text-[#0D3658]">
+            <h1 className="text-center text-4xl font-semibold text-[#0D3658] relative">
               Academic Facilities
+              <Image src={'/assets/patterns/curvy.png'} alt="shs" height={100} width={100} className="absolute left-[55%]" />
             </h1>
-            <p className="text-center text-sm mb-10 text-gray-800">
+            <p className="text-center text-sm mb-5 text-gray-800">
               The central Building Consists of 50+ well-lit, fully equipped
               classrooms, a majority of them have been transformed into digital
               learning classrooms.
@@ -197,9 +198,9 @@ const Page = () => {
                 <Image
                   src={"/assets/patterns/joint-dash.png"}
                   height={200}
-                  width={450}
+                  width={280}
                   alt="science-p"
-                  className="hidden md:flex absolute -bottom-48 left-24"
+                  className="hidden md:flex absolute -bottom-44 left-[450px] rotate-90"
                 />
                 <motion.div
                   className="w-full md:w-1/2"
@@ -256,12 +257,19 @@ const Page = () => {
               {/* Computer Lab */}
               <motion.div
                 id="computer-department"
-                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/joint-2.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="hidden md:flex absolute -bottom-40 left-96 rotate-180"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: 100 }}
@@ -315,12 +323,26 @@ const Page = () => {
               {/* Experiential */}
               <motion.div
                 id="experiential-learning"
-                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/joint-dash.png"}
+                  height={200}
+                  width={300}
+                  alt="science-p"
+                  className="hidden md:flex absolute -bottom-48 left-[450px] rotate-90"
+                />
+                <Image
+                  src={"/assets/patterns/boy.png"}
+                  height={200}
+                  width={300}
+                  alt="science-p"
+                  className="absolute bottom-40 opacity-10 right-10"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: -100 }}
@@ -376,12 +398,33 @@ const Page = () => {
               {/* Library */}
               <motion.div
                 id="library"
-                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/books.png"}
+                  height={100}
+                  width={300}
+                  alt="science-p"
+                  className="absolute bottom-0 md:bottom-10 left-32  opacity-15"
+                />
+                <Image
+                  src={"/assets/patterns/joint-dash.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="hidden md:flex absolute -bottom-40 right-64"
+                />
+                <Image
+                  src={"/assets/patterns/book-2.png"}
+                  height={100}
+                  width={150}
+                  alt="science-p"
+                  className="hidden md:flex absolute top-0 left-96 opacity-10"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: 100 }}
@@ -417,12 +460,19 @@ const Page = () => {
               {/* AI ML Lab */}
               <motion.div
                 id="ai-ml-lab"
-                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/joint-2.png"}
+                  height={200}
+                  width={450}
+                  alt="science-p"
+                  className="hidden md:flex absolute -bottom-96 left-64 rotate-180"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: -100 }}
@@ -459,12 +509,19 @@ const Page = () => {
               {/* Phonic */}
               <motion.div
                 id="phonic-lab"
-                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/joint-2.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="hidden md:flex absolute -bottom-48 right-72 rotate-180"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: 100 }}
