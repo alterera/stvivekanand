@@ -1,3 +1,5 @@
+import { PortableTextBlock } from "@portabletext/types";
+
 export interface ListItem {
   text: string;
   icon: string;
@@ -5,8 +7,7 @@ export interface ListItem {
 
 export interface SectionData {
   title: string;
-  description: string;
-  listContent: ListItem[];
+  description: PortableTextBlock[];
   image: {
     asset: {
       _ref: string;

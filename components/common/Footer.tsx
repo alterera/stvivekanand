@@ -4,26 +4,27 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Mail, Phone } from "lucide-react";
 
 const footerLinks = [
   {
     section: "Links",
     links: [
-      { title: "FAQs", href: "/faqs" },
-      { title: "Calendar", href: "/calendar" },
-      { title: "Notice Board", href: "/notices" },
-      { title: "Fee Structure", href: "/fees" },
-      { title: "E-Prospectus", href: "/prospectus" },
-      { title: "Admissions", href: "/admissions" },
+      { title: "FAQs", href: "#" },
+      { title: "Calendar", href: "#" },
+      { title: "Notice Board", href: "#" },
+      { title: "Fee Structure", href: "/admissions/fee-structure" },
+      { title: "E-Prospectus", href: "#" },
+      { title: "Admissions", href: "/admissions/admission-process" },
     ],
   },
   {
     section: "About Us",
     links: [
-      { title: "Our History", href: "/about/history" },
-      { title: "Why Choose Us", href: "/about/why-us" },
-      { title: "CBSE Affiliation", href: "/about/cbse-affiliation" },
-      { title: "Careers", href: "/about/careers" },
+      { title: "Our History", href: "/about/our-history" },
+      { title: "Why Choose Us", href: "/about/why-choose-us" },
+      { title: "CBSE Affiliation", href: "/academics/cbse-affiliation" },
+      { title: "Careers", href: "#" },
     ],
   },
 ];
@@ -31,7 +32,7 @@ const footerLinks = [
 const Footer = () => {
   return (
     <motion.footer
-      className="w-full bg-[#002147] text-white"
+      className="w-full bg-[#002147] text-white xl:px-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -41,18 +42,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* School Info */}
           <div className="space-y-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.2 }}
-            >
-              <Image
-                src="/assets/logo/stlogo.png"
-                alt="St. Vivekanand School"
-                width={200}
-                height={80}
-                className="object-contain"
-              />
-            </motion.div>
+            <Image
+              src="/assets/logo/stlogo.png"
+              alt="St. Vivekanand School"
+              width={200}
+              height={80}
+              className="object-contain"
+            />
             <div className="space-y-4">
               <p className="text-gray-300">
                 Statue Circle, JNV Main Rd, Sector 3 <br />
@@ -60,19 +56,19 @@ const Footer = () => {
                 Rajasthan - 334001 IN
               </p>
               <div className="space-y-2">
-                <p>
-                  Phone:{" "}
+                <p className="flex items-center gap-2">
+                <Phone size={20} />
                   <a href="tel:+919571665859" className="hover:text-[#E63946]">
-                    +91 9571665859
+                    +91 957-166-5859
                   </a>
                 </p>
-                <p>
-                  Email:{" "}
+                <p className="flex items-center gap-2">
+                  <Mail size={20}/>
                   <a
-                    href="mailto:contact@school.com"
+                    href="mailto:st.vivekanand@yahoo.com"
                     className="hover:text-[#E63946]"
                   >
-                    contact@school.com
+                    st.vivekanand@yahoo.com
                   </a>
                 </p>
               </div>
@@ -99,18 +95,14 @@ const Footer = () => {
                 <h3 className="text-xl font-bold mb-4">{category.section}</h3>
                 <ul className="space-y-2">
                   {category.links.map((link) => (
-                    <motion.li
-                      key={link.title}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.2 }}
-                    >
+                    <li key={link.title}>
                       <Link
                         href={link.href}
                         className="text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {link.title}
                       </Link>
-                    </motion.li>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -131,11 +123,11 @@ const Footer = () => {
               © St. Vivekanand School, 2025. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
-              <Link href="/terms" className="hover:text-white">
+              <Link href="/terms-of-use" className="hover:text-white">
                 Terms of Use
               </Link>
               <span>|</span>
-              <Link href="/privacy" className="hover:text-white">
+              <Link href="/privacy-policy" className="hover:text-white">
                 Privacy Policy
               </Link>
               <span>|</span>
@@ -144,9 +136,12 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-sm text-gray-400">
-              Designed & Developed by{" "}
-              <a href="#" className="text-white hover:text-[#E63946]">
-                Alterera
+              Powered by{" "}
+              <a
+                href="https://alterera.net"
+                className="text-white hover:text-[#E63946]"
+              >
+                Alterera Networks
               </a>
             </p>
           </div>

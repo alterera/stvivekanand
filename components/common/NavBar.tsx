@@ -25,6 +25,12 @@ const components: { title: string; href: string; description: string }[] = [
       "A brief overview of our campus to get the idea of our legacy.",
   },
   {
+    title: "All Facilitues",
+    href: "/academics/all-facilities",
+    description:
+      "All details of the academic facilities our school provides.",
+  },
+  {
     title: "CBSE Affiliation",
     href: "/academics/cbse-affiliation",
     description:
@@ -36,11 +42,11 @@ const components: { title: string; href: string; description: string }[] = [
     description:
       "Displays an indicator showing the completion progress of a task.",
   },
-  {
-    title: "Career Counselling",
-    href: "/academics/career-counselling",
-    description: "Our school have dedicated department to help you with your career decisions.",
-  },
+  // {
+  //   title: "Career Counselling",
+  //   href: "/academics/career-counselling",
+  //   description: "Our school have dedicated department to help you with your career decisions.",
+  // },
   {
     title: "Sports",
     href: "/academics/sports",
@@ -137,7 +143,7 @@ export function NavBar() {
         className={`fixed top-0 left-0 w-full h-16 shadow-md z-30 transition-transform duration-300 ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${navBg}`}>
-        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0">
+        <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0 xl:px-4">
           <Link href={"/"}>
           <Image
             src="/assets/logo/stlogo.png"
@@ -223,21 +229,25 @@ export function NavBar() {
             </NavigationMenu>
           </div>
 
-          <div className="lg:hidden flex items-center gap-4">
-            <Button variant="destructive" className='text-white bg-[#85193C] font-semibold shadow-lg'>
-              Apply Now
-            </Button>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 hover:bg-gray-100 rounded-md"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <div className="flex-1 flex justify-end lg:hidden items-center gap-4">
+  <Link href="/admissions/admission-process">
+    <Button variant="destructive" className="text-white bg-[#85193C] font-semibold shadow-lg">
+      Apply Now
+    </Button>
+  </Link>
+  <button
+    onClick={() => setIsOpen(!isOpen)}
+    className="p-2 hover:bg-gray-100 rounded-md"
+  >
+    {isOpen ? <X size={24} /> : <Menu size={24} />}
+  </button>
+</div>
 
-          <Button className='hidden lg:block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg'>
-            Apply Now
-          </Button>
+<Link href="/admissions/admission-process">
+  <Button className="hidden lg:inline-block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg">
+    Apply Now
+  </Button>
+</Link>
         </header>
       </section>
 
@@ -263,7 +273,7 @@ export function NavBar() {
               <Link href="/about-us/why-choose-us" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Why Choose Us?
               </Link>
-              <Link href="/about-us/mision-vision" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
+              <Link href="/about-us/mission-vision" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
                 Mission & Vision
               </Link>
               <Link href="/about-us/principals-message" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>

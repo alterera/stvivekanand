@@ -31,14 +31,6 @@ export default defineType({
       title: "Button URL",
       type: "url",
     },
-    {
-      name: "titleDirection",
-      title: "Title Direction",
-      type: "string",
-      options: {
-        list: ["left", "right", "top"],
-      },
-    },
   ],
   orderings: [
     {

@@ -13,21 +13,8 @@ export default defineType({
     {
       name: "description",
       title: "Description",
-      type: "text",
-    },
-    {
-      name: "listContent",
-      title: "List Content",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "text", title: "Text", type: "string" },
-            { name: "icon", title: "Icon Name", type: "string" },
-          ],
-        },
-      ],
+      type: "array", // ✅ Change from "text" to "array"
+      of: [{ type: "block" }], // ✅ Enables rich text formatting
     },
     {
       name: "image",

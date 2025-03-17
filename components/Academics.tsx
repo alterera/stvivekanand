@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-// import Link from "next/link";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -15,14 +14,14 @@ const gridItems = [
     id: 1,
     title: "Science Laboratories",
     color: "bg-purple-500",
-    link: "/academics/all-facilities/#science",
+    link: "/academics/all-facilities/#science-laborities",
     image: "/assets/academics/science.webp",
   },
   {
     id: 2,
     title: "Space Lab",
     color: "bg-orange-500",
-    link: "/academics/all-facilities/#space",
+    link: "/academics/all-facilities/#space-lab",
     image: "/assets/academics/space.webp",
   },
   {
@@ -50,7 +49,7 @@ const gridItems = [
     id: 6,
     title: "Experiential Learning",
     color: "bg-green-500",
-    link: "/academics/all-facilities/#experiential-learning-department",
+    link: "/academics/all-facilities/#experiential-learning",
     image: "/assets/academics/experiential.webp",
   },
   {
@@ -64,7 +63,7 @@ const gridItems = [
 
 const Academics = () => {
   return (
-    <section className="relative w-full py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
+    <section className="relative w-full xl:px-4 py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
       <Image src="/assets/patterns/tri-dots.png" alt="hilly" height={100} width={140} className="absolute top-16 -right-5 rotate-90" />
       
       <motion.div 
@@ -75,7 +74,7 @@ const Academics = () => {
         className="px-6"
       >
         <h2 className="relative text-4xl font-bold text-center mb-2">
-          Academic - The Experential Learning
+          Academics - The Experential Learning
           <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[60%]"/>
         </h2>
         <motion.p 
@@ -84,7 +83,7 @@ const Academics = () => {
           transition={{ duration: 0.8, delay: 0.3 }} 
           viewport={{ once: true }}
           className="text-center mb-16"
-        >The central Building Consists of 50+ well-lit, fully equipped classrooms, a majority of them have been transformed into digital learning classrooms.
+        >Fostering curiosity and critical thinking through hands-on, real-world experiences that empower students to explore, innovate, and excel in their academic journey.
         </motion.p>
       </motion.div>
 

@@ -29,7 +29,7 @@ const About = () => {
             className="absolute top-20 right-0 h-[300px] w-[400px] bg-white/20 rounded-s-3xl"
             style={{
               backgroundImage: "url('/assets/background/pattern-3.png')",
-              opacity: "20%",
+              opacity: "10%",
               objectFit: "cover",
             }}
           ></div>
@@ -38,7 +38,7 @@ const About = () => {
           {/* Heading (Hidden on Hover) */}
           <motion.h2
             className={`text-4xl font-bold transition-opacity duration-300 pt-20 ${hovered ? "opacity-0 absolute" : "opacity-100"}`}
-            style={{fontFamily: 'var(--font-garamond)'}}
+            style={{ fontFamily: "var(--font-garamond)" }}
           >
             Hear From The <br /> Principal
           </motion.h2>
@@ -63,7 +63,7 @@ const About = () => {
           {/* Name & Position */}
           <div className="mt-6">
             <div className="w-[150px] h-[0.5%] bg-white mb-5"></div>
-            <span className="block font-semibold text-lg" >Nidhi Gupta</span>
+            <span className="block font-semibold text-lg">Nidhi Gupta</span>
             <span className="text-sm opacity-80">Principal</span>
           </div>
 
@@ -76,10 +76,10 @@ const About = () => {
             className="absolute bottom-0 right-6"
           >
             <Image
-              src="/assets/background/isha.png"
-              alt="Nita Mukesh Ambani"
-              width={400}
-              height={400}
+              src="/assets/about/principal.png"
+              alt="Nidhi Gupta"
+              width={600}
+              height={300}
             />
           </motion.div>
         </motion.div>
@@ -94,7 +94,7 @@ const About = () => {
             className="absolute top-20 right-0 h-[300px] w-[450px] bg-white/20 rounded-s-3xl"
             style={{
               backgroundImage: "url('/assets/background/pattern-3.png')",
-              opacity: "50%",
+              opacity: "15%",
               objectFit: "cover",
             }}
           ></div>
@@ -105,7 +105,7 @@ const About = () => {
             className={`text-3xl font-bold transition-opacity duration-300 pt-20 ${
               hovered ? "opacity-100" : "opacity-0 absolute"
             }`}
-            style={{fontFamily: 'var(--font-garamond)'}}
+            style={{ fontFamily: "var(--font-garamond)" }}
           >
             Director&apos;s Note
           </h2>
@@ -139,11 +139,11 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className={`absolute bottom-0 flex justify-center w-full `}
+            className={`absolute bottom-0 flex justify-center -right-48 w-full`}
           >
             <Image
-              src="/assets/background/nita.png"
-              alt="Nita Mukesh Ambani"
+              src="/assets/about/Nipun_Gupta.png"
+              alt="Nipun Gupta"
               width={500}
               height={400}
               className=""
@@ -155,26 +155,26 @@ const About = () => {
       <div className="md:hidden w-full flex flex-col items-center">
         {/* First Container */}
         <div className="relative flex flex-col justify-evenly w-full bg-[#1D3557] py-12 px-6 h-full text-white">
-          <Quote className="text-white absolute top-10 left-5 h-[40px] w-[40px]" />
-          <h2 className="text-2xl font-bold pt-10">
+          <Quote className="text-gray-100 absolute top-10 left-5 h-[40px] w-[40px]" />
+          <h2 className="text-2xl font-bold pt-10" style={{ fontFamily: "var(--font-garamond)" }}>
             Hear From The <br /> Principal
           </h2>
 
           {/* Image Container */}
-          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+          <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/background/isha.png"
-              alt="Nita Mukesh Ambani"
+              src="/assets/about/principal.png"
+              alt="Nidhi Gupta"
               width={480}
-              height={450}
+              height={500}
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
-            <div className="h-80"></div>{" "}
+            <div className="h-60"></div>
             {/* Space to position the image above */}
           </div>
 
           {/* Paragraph */}
-          <p className="my-6 text-lg">
+          <p className="my-6 text-base text-gray-100">
             Our commitment lies not just in academic achievements but in
             instilling enduring values that shape responsible, compassionate
             individuals. We take pride in fostering a culture of respect,
@@ -187,33 +187,35 @@ const About = () => {
           </p>
 
           {/* Name & Position */}
-          <div className="mt-10">
-          <div className="w-[150px] h-[1px] bg-white mb-5"></div>
+          <div className="">
+            <div className="w-[150px] h-[1px] bg-gray-300 mb-5"></div>
             <span className="block font-semibold text-lg">Nidhi Gupta</span>
             <span className="text-sm opacity-80">Principal</span>
           </div>
         </div>
 
         {/* Second Container */}
-        <div className="relative flex flex-col justify-evenly w-full bg-[#E63946] py-12 px-4 h-full text-white">
+        <div className="relative flex flex-col justify-evenly w-full bg-[#85193C] py-12 px-4 h-full text-white">
           <Quote className="text-white absolute top-10 left-5 h-[40px] w-[40px]" />
-          <h2 className="text-2xl font-bold pt-10">Director&apos;s Note</h2>
+          <h2 className="text-2xl font-bold pt-10 text-gray-100">
+            Director&apos;s Note
+          </h2>
 
           {/* Image Container */}
-          <div className="relative w-full bg-white/20 bg-opacity-80 p-6 rounded-lg mt-6">
+          <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/background/nita.png"
-              alt="Nita Mukesh Ambani"
+              src="/assets/about/Nipun_Gupta.png"
+              alt="Nipun Gupta"
               width={480}
               height={450}
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
-            <div className="h-80"></div>{" "}
+            <div className="h-60"></div>
             {/* Space to position the image above */}
           </div>
 
           {/* Paragraph */}
-          <p className="my-6 text-lg">
+          <p className="my-6 text-base text-gray-100">
             Our commitment to modern pedagogy, bagless schooling, and aligning
             with the latest NEP practices sets us apart. From spacetech &
             astronomy, AI learning & robotics, to performance and liberal arts,
@@ -225,14 +227,13 @@ const About = () => {
           </p>
 
           {/* Name & Position */}
-          <div className="mt-10">
-          <div className="w-[150px] h-[1px] bg-white mb-5"></div>
+          <div className="">
+            <div className="w-[150px] h-[1px] bg-white mb-5"></div>
             <span className="block font-semibold text-lg">SH. Nipun Gupta</span>
             <span className="text-sm opacity-80">Director</span>
           </div>
         </div>
       </div>
-      {/* </div> */}
     </motion.section>
   );
 };

@@ -1,41 +1,37 @@
-import Image from 'next/image'
-import React from 'react'
+"use client";
 
-interface BackgroundProps {
-  playStatus: boolean;
-  heroCount: number;
-}
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const Background = ({ playStatus, heroCount }: BackgroundProps) => {
+const Background = ({ mediaType, mediaUrl }: { mediaType: "video" | "image"; mediaUrl: string }) => {
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+  }, []);
+
   return (
     <div className="absolute inset-0 w-full h-full">
-      {playStatus ? (
-        <video
-          autoPlay
-          muted
-          loop
-          className="w-full h-full object-cover"
-          src="/assets/videos/hero.mp4"  // Add your video path here
-        />
+      {mediaType === "video" ? (
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          {/* Use `.mp4` if Safari is detected */}
+          {isSafari ? (
+            <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
+          ) : (
+            <>
+              <source src={mediaUrl} type="video/webm" />
+              <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
+            </>
+          )}
+        </video>
       ) : (
-        <Image 
-          src={
-            heroCount === 0
-              ? '/assets/background/campus-main.webp'
-              : heroCount === 1
-              ? '/assets/background/staff.webp'
-              : '/assets/background/young.webp'
-          }
-          alt="hero background"
-          fill
-          priority
-          className="object-cover"
-        />
+        <Image src={mediaUrl} alt="Background" height={300} width={800} className="w-full h-full object-cover" />
       )}
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/30" />
-    </div>
-  )
-}
 
-export default Background
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
+  );
+};
+
+export default Background;

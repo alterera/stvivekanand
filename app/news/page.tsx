@@ -4,6 +4,7 @@ import Link from "next/link";
 import { sanityClient } from "@/lib/sanity";
 import { ALL_BLOGS_QUERY } from "@/lib/queries";
 import { BlogPost } from "@/types/index";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 export default async function NewsPage() {
   const blogPosts: BlogPost[] = await sanityClient.fetch(ALL_BLOGS_QUERY);
@@ -11,8 +12,11 @@ export default async function NewsPage() {
   return (
     <section className="w-full py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-0">
+        <DynamicBreadcrumb />
+        <div className="py-5">
         <h1 className="text-3xl font-bold text-center pb-2">News & Blog</h1>
         <p className="text-center text-sm">Stay updated with the latest news and blog posts.</p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
           {blogPosts.map((post) => (

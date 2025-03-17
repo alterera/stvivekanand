@@ -5,14 +5,7 @@ import { motion } from "framer-motion";
 import { FaCalculator } from "react-icons/fa";
 import { MdScience } from "react-icons/md";
 import { HiAcademicCap } from "react-icons/hi";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-  } from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const streams = [
   {
@@ -36,7 +29,7 @@ const streams = [
 const Streams = () => {
   return (
     <motion.section 
-      className="w-full bg-white py-16"
+      className="w-full bg-white py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -44,21 +37,7 @@ const Streams = () => {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Breadcrumb Navigation */}
-        <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Academics</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Streams Offered</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
 
         {/* Page Title */}
         <motion.div 

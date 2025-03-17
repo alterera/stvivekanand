@@ -3,14 +3,19 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+
+// export const metadata = {
+//   title: "Our History | Saint Vivekanand School",
+//   description: "Our mission is to provide quality education in Bikaner, fostering knowledge, growth, and excellence.",
+//   keywords: ["Mission", "Vision", "Saint Vivekanand School", "Education", "Bikaner"],
+//   openGraph: {
+//     title: "Mission & Vision",
+//     description: "Our mission is to provide quality education in Bikaner.",
+//     url: "https://www.saintvivekanandschool.com/about-us/mission-vision",
+//     images: ["/assets/logo/ic-logo.png"],
+//   },
+// };
 
 const historyData = [
   {
@@ -32,29 +37,15 @@ const historyData = [
     title: "Legacy & Future",
     description:
       "With a legacy of academic brilliance and student success, the school continues to evolve, embracing new teaching methodologies, digital transformation, and global perspectives to prepare students for the future.",
-    imageUrl: "/assets/background/campus-bg.png",
+    imageUrl: "/assets/background/campus-bg.webp",
   },
 ];
 
 const OurHistory = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
+    <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Breadcrumb className="py-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">About Us</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Our History</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+        <DynamicBreadcrumb />
 
         {/* Heading */}
         <div className="text-center mb-12">

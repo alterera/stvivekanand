@@ -3,14 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Marquee } from "@/components/magicui/marquee";
 import {
   Accordion,
@@ -18,6 +10,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const FaqData = [
   {
@@ -39,25 +32,21 @@ const FaqData = [
 
 const CareerCounselling = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-        <Breadcrumb className="pb-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Academics</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Career Counselling</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+    <section className="w-full bg-[#F9F9F9] py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <DynamicBreadcrumb />
 
-
+        {/* Heading */}
+        <div className="text-center mb-12 mt-5">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+            Career Counselling
+          </h2>
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+            A journey of excellence, discipline, and growth - Saint Vivekanand
+            School has been shaping young minds and inspiring future leaders
+            since its foundation.
+          </p>
+        </div>
         {/* History Timeline */}
         <div className="flex flex-col gap-16">
           {/* {counsellingData.map((item, index) => ( */}

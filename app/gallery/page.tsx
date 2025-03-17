@@ -1,4 +1,3 @@
-// app/gallery/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -7,6 +6,7 @@ import { sanityClient } from "@/lib/sanity";
 import { GALLERY_QUERY } from "@/lib/queries";
 import { GalleryData } from "@/types/index";
 import { motion } from "framer-motion";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const Gallery = () => {
   const [galleryData, setGalleryData] = useState<GalleryData[]>([]);
@@ -18,7 +18,7 @@ const Gallery = () => {
     const fetchData = async () => {
       const data = await sanityClient.fetch(GALLERY_QUERY);
       setGalleryData(data);
-      setFilteredData(data); // Default to showing all images
+      setFilteredData(data);
     };
     fetchData();
   }, []);
@@ -35,15 +35,16 @@ const Gallery = () => {
   };
 
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <DynamicBreadcrumb />
         <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557] text-center mt-8 mb-2">
           School Gallery
         </h2>
         <p className="text-center text-sm mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nihil provident praesentium, labore libero quas?</p>
 
         {/* Category Filter Buttons */}
-        <div className="flex gap-4 justify-center mb-10 text-sm font-semibold">
+        <div className="flex gap-4 justify-center mb-10 text-sm font-semibold flex-wrap">
           <button
             className={`px-4 py-2 rounded-md ${
               selectedCategory === null ? "bg-[#85193C] text-white" : "bg-gray-200"

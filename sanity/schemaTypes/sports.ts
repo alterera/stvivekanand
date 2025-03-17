@@ -13,7 +13,8 @@ export default defineType({
     {
       name: "intro",
       title: "Introduction",
-      type: "text",
+      type: "array", 
+      of: [{ type: "block" }],
     },
     {
       name: "atSchoolTitle",
@@ -22,8 +23,9 @@ export default defineType({
     },
     {
       name: "atSchoolIntro",
-      title: "At School Introduction",
-      type: "text",
+      title: "Description",
+      type: "array",
+      of: [{ type: "block" }],
     },
     {
       name: "images",

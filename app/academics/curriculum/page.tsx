@@ -3,14 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 const historyData = [
   {
@@ -29,23 +22,9 @@ const historyData = [
 
 const Curriculum = () => {
   return (
-    <section className="w-full bg-[#F9F9F9] py-16">
+    <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
-        <Breadcrumb className="pb-5">
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink href="/">Home</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink href="#">Academics</BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbPage>Curriculum</BreadcrumbPage>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
+       <DynamicBreadcrumb />
 
         {/* Heading */}
         <div className="text-center mb-12">

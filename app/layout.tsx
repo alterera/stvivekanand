@@ -4,6 +4,7 @@ import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
 import NextTopLoader from 'nextjs-toploader';
+import BackToTop from "@/components/BackToTop";
 
 const getPtSans = PT_Sans({
   weight: ["400", "700"],
@@ -37,6 +38,7 @@ export default function RootLayout({
           <NavBar />
           {children}
           <Footer />
+          <BackToTop/>
       </body>
     </html>
   );

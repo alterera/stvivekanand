@@ -95,7 +95,7 @@ const Events = () => {
 
         {/* Events Grid */}
         <motion.div
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12 xl:px-4"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
