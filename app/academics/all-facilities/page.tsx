@@ -18,7 +18,13 @@ const Page = () => {
           <div className="mt-5">
             <h1 className="text-center text-4xl font-semibold text-[#0D3658] relative">
               Academic Facilities
-              <Image src={'/assets/patterns/curvy.png'} alt="shs" height={100} width={100} className="absolute left-[55%]" />
+              <Image
+                src={"/assets/patterns/curvy.png"}
+                alt="shs"
+                height={100}
+                width={100}
+                className="absolute left-[55%]"
+              />
             </h1>
             <p className="text-center text-sm mb-5 text-gray-800">
               The central Building Consists of 50+ well-lit, fully equipped
@@ -42,14 +48,14 @@ const Page = () => {
                   height={200}
                   width={400}
                   alt="science-p"
-                  className="absolute bottom-10 md:top-24 right-0 opacity-25 -rotate-45"
+                  className="absolute bottom-10 md:bottom-0 right-80 opacity-30 rotate-12"
                 />
                 <Image
                   src={"/assets/patterns/micro.png"}
                   height={100}
-                  width={300}
+                  width={350}
                   alt="science-p"
-                  className="absolute bottom-10 md:bottom-0 right-80 opacity-15 rotate-12"
+                  className="absolute bottom-20 md:top-24 right-0 opacity-30 md:-rotate-12"
                 />
                 <Image
                   src={"/assets/patterns/joint-dash.png"}
@@ -202,6 +208,20 @@ const Page = () => {
                   alt="science-p"
                   className="hidden md:flex absolute -bottom-44 left-[450px] rotate-90"
                 />
+                <Image
+                  src={"/assets/patterns/rob.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="absolute bottom-72 md:bottom-0 right-0 md:right-64 opacity-15 rotate-12"
+                />
+                <Image
+                  src={"/assets/patterns/rob-2.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="absolute top-80 md:top-28 left-20 md:left-[80%] opacity-15 rotate-12"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: -100 }}
@@ -231,8 +251,8 @@ const Page = () => {
                     <p>
                       At SVS, we believe that every child is unique and deserves
                       access to state-of-the-art facilities that align with the
-                      demands of today&apos;s technologically advanced world. With
-                      this vision, we introduce exclusive Space Robotics, a
+                      demands of today&apos;s technologically advanced world.
+                      With this vision, we introduce exclusive Space Robotics, a
                       program designed to ignite curiosity and foster hands-on
                       learning.
                       <br />
@@ -409,7 +429,7 @@ const Page = () => {
                   height={100}
                   width={300}
                   alt="science-p"
-                  className="absolute bottom-0 md:bottom-10 left-32  opacity-15"
+                  className="absolute bottom-0 md:bottom-10 left-36  opacity-15"
                 />
                 <Image
                   src={"/assets/patterns/joint-dash.png"}
@@ -452,7 +472,15 @@ const Page = () => {
                     variants={fadeInVariant}
                   >
                     <p>
-                    Our library is a treasure trove of knowledge with thousands of books, periodicals, research papers, and digital resources. It features a dedicated IIT-JEE and NEET section, ensuring students preparing for competitive exams have access to the best study materials. Students can also access e-books, digital archives, and online journals, making learning accessible beyond physical books. A peaceful and inspiring reading space fosters a love for literature and knowledge.
+                      Our library is a treasure trove of knowledge with
+                      thousands of books, periodicals, research papers, and
+                      digital resources. It features a dedicated IIT-JEE and
+                      NEET section, ensuring students preparing for competitive
+                      exams have access to the best study materials. Students
+                      can also access e-books, digital archives, and online
+                      journals, making learning accessible beyond physical
+                      books. A peaceful and inspiring reading space fosters a
+                      love for literature and knowledge.
                     </p>
                   </motion.div>
                 </motion.div>
@@ -493,15 +521,21 @@ const Page = () => {
                   variants={fadeInVariant}
                 >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
-                  Artificial Intelligence & Machine Learning Lab
+                    Artificial Intelligence & Machine Learning Lab
                   </h3>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
                   >
                     <p>
-                    
-                    This lab is dedicated to AI & ML technologies, where students learn about data science, neural networks, and automation. They gain hands-on experience in coding AI models, building machine-learning applications, and understanding real-world AI use cases. The lab includes AI-based projects, voice recognition software, and automated systems, encouraging students to explore the future of intelligent technology.
+                      This lab is dedicated to AI & ML technologies, where
+                      students learn about data science, neural networks, and
+                      automation. They gain hands-on experience in coding AI
+                      models, building machine-learning applications, and
+                      understanding real-world AI use cases. The lab includes
+                      AI-based projects, voice recognition software, and
+                      automated systems, encouraging students to explore the
+                      future of intelligent technology.
                     </p>
                   </motion.div>
                 </motion.div>
@@ -521,6 +555,13 @@ const Page = () => {
                   width={400}
                   alt="science-p"
                   className="hidden md:flex absolute -bottom-48 right-72 rotate-180"
+                />
+                <Image
+                  src={"/assets/patterns/phonic.png"}
+                  height={200}
+                  width={400}
+                  alt="science-p"
+                  className="absolute bottom-0 md:bottom-10 right-5 md:left-32  opacity-15"
                 />
                 <motion.div
                   className="w-full md:w-1/2"
@@ -542,19 +583,33 @@ const Page = () => {
                   variants={fadeInVariant}
                 >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
-                  Phonic Lab: A Revolutionary Approach to Early Language Learning
+                    Phonic Lab: A Revolutionary Approach to Early Language
+                    Learning
                   </h3>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
                   >
                     <p>
-                    
-At SVS, our commitment to experiential learning begins in the early years. Our exclusive Phonics Lab, specially designed for toddlers, redefines language learning by focusing on sound recognition, blending, and segmenting, ensuring a strong foundation in English from the start.
-<br /><br />
-We break away from traditional rote learning—no more just “A for Apple, B for Ball.” Instead, our young learners dynamically engage with language, mastering phonics through an interactive, hands-on approach. This method not only enhances their reading and speaking abilities but also builds confidence in language acquisition.
-<br /><br />
-With our innovative phonics program, we ensure that language is never a barrier for our students. At SVS, we prepare Alpha Kids for a future where they communicate effortlessly and effectively.
+                      At SVS, our commitment to experiential learning begins in
+                      the early years. Our exclusive Phonics Lab, specially
+                      designed for toddlers, redefines language learning by
+                      focusing on sound recognition, blending, and segmenting,
+                      ensuring a strong foundation in English from the start.
+                      <br />
+                      <br />
+                      We break away from traditional rote learning—no more just
+                      “A for Apple, B for Ball.” Instead, our young learners
+                      dynamically engage with language, mastering phonics
+                      through an interactive, hands-on approach. This method not
+                      only enhances their reading and speaking abilities but
+                      also builds confidence in language acquisition.
+                      <br />
+                      <br />
+                      With our innovative phonics program, we ensure that
+                      language is never a barrier for our students. At SVS, we
+                      prepare Alpha Kids for a future where they communicate
+                      effortlessly and effectively.
                     </p>
                   </motion.div>
                 </motion.div>
@@ -562,12 +617,19 @@ With our innovative phonics program, we ensure that language is never a barrier 
               {/* STEM */}
               <motion.div
                 id="stem"
-                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44 relative`}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={fadeInVariant}
               >
+                <Image
+                  src={"/assets/patterns/stem.png"}
+                  height={200}
+                  width={350}
+                  alt="science-p"
+                  className="absolute bottom-0 md:bottom-10 right-32  opacity-15"
+                />
                 <motion.div
                   className="w-full md:w-1/2"
                   initial={{ opacity: 0, x: -100 }}
@@ -588,19 +650,31 @@ With our innovative phonics program, we ensure that language is never a barrier 
                   variants={fadeInVariant}
                 >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
-                  STEM Skill Program: Hands-On Learning for Future Innovators
+                    STEM Skill Program: Hands-On Learning for Future Innovators
                   </h3>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
                   >
                     <p>
-                    
-At SVS, we proudly introduce STEM as a skill program for students in Grades 3 to 8, featuring a U.S.-based curriculum that is entirely practical and application-driven—no theory, just real-world learning.
-<br /><br />
-In this program, students collaborate, create, and innovate, working on hands-on projects that integrate science, technology, engineering, and mathematics. Each task challenges them to think critically, solve problems, and build physical models with a strong technical and scientific foundation.
-<br /><br />
-By making STEM an experiential journey, we ensure that our students develop the skills, confidence, and curiosity needed to become the thinkers and problem-solvers of tomorrow.
+                      At SVS, we proudly introduce STEM as a skill program for
+                      students in Grades 3 to 8, featuring a U.S.-based
+                      curriculum that is entirely practical and
+                      application-driven—no theory, just real-world learning.
+                      <br />
+                      <br />
+                      In this program, students collaborate, create, and
+                      innovate, working on hands-on projects that integrate
+                      science, technology, engineering, and mathematics. Each
+                      task challenges them to think critically, solve problems,
+                      and build physical models with a strong technical and
+                      scientific foundation.
+                      <br />
+                      <br />
+                      By making STEM an experiential journey, we ensure that our
+                      students develop the skills, confidence, and curiosity
+                      needed to become the thinkers and problem-solvers of
+                      tomorrow.
                     </p>
                   </motion.div>
                 </motion.div>
