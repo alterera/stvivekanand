@@ -16,11 +16,10 @@ const Background = ({ mediaType, mediaUrl }: { mediaType: "video" | "image"; med
         <video autoPlay loop muted playsInline className="w-full h-full object-cover">
           {/* Use `.mp4` if Safari is detected */}
           {isSafari ? (
-            <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
+            <source src={'/assets/background/hero-fallback.mp4'} type="video/mp4" />
           ) : (
             <>
               <source src={mediaUrl} type="video/webm" />
-              <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
             </>
           )}
         </video>
