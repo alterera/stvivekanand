@@ -28,7 +28,7 @@ const gridItems = [
     id: 3,
     title: "Computer Department",
     color: "bg-blue-500",
-    link: "/academics/all-facilities/#computer-department",
+    link: "/academics/all-facilities/#computer",
     image: "/assets/academics/computer.webp",
   },
   {
@@ -49,7 +49,7 @@ const gridItems = [
     id: 6,
     title: "Experiential Learning",
     color: "bg-green-500",
-    link: "/academics/all-facilities/#experiential-learning-department",
+    link: "/academics/all-facilities/#experiential-learning",
     image: "/assets/academics/experiential.webp",
   },
   {

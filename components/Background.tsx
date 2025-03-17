@@ -1,21 +1,33 @@
-import Image from 'next/image';
-import React from 'react';
+"use client";
 
-interface BackgroundProps {
-  mediaType: 'image' | 'video';
-  mediaUrl: string;
-}
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const Background = ({ mediaType, mediaUrl }: BackgroundProps) => {
+const Background = ({ mediaType, mediaUrl }: { mediaType: "video" | "image"; mediaUrl: string }) => {
+  const [isSafari, setIsSafari] = useState(false);
+
+  useEffect(() => {
+    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+  }, []);
+
   return (
     <div className="absolute inset-0 w-full h-full">
-      {mediaType === 'video' ? (
-        <video autoPlay muted loop className="w-full h-full object-cover">
-          <source src={mediaUrl} type="video/mp4" />
+      {mediaType === "video" ? (
+        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+          {/* Use `.mp4` if Safari is detected */}
+          {isSafari ? (
+            <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
+          ) : (
+            <>
+              <source src={mediaUrl} type="video/webm" />
+              <source src={mediaUrl.replace(".webm", ".mp4")} type="video/mp4" />
+            </>
+          )}
         </video>
       ) : (
-        <Image src={mediaUrl} alt="hero background" fill priority className="object-cover" />
+        <Image src={mediaUrl} alt="Background" height={300} width={800} className="w-full h-full object-cover" />
       )}
+
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/40" />
     </div>
