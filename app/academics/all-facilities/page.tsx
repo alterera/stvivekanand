@@ -1,11 +1,13 @@
+"use client";
+
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-// const fadeInVariant = {
-//   hidden: { opacity: 0, y: 50 },
-//   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-// };
+const fadeInVariant = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 const Page = () => {
   return (
@@ -14,8 +16,9 @@ const Page = () => {
         <div className="max-w-7xl mx-auto">
           <DynamicBreadcrumb />
           <div className="mt-5">
-            <h1 className="text-center text-4xl font-semibold text-[#0D3658]">
+            <h1 className="text-center text-4xl font-semibold text-[#0D3658] relative">
               Academic Facilities
+              <Image src={'/assets/patterns/curvy.png'} height={100} width={100} alt="curv" className="absolute left-[55%]" />
             </h1>
             <p className="text-center text-sm mb-10 text-gray-800">
               The central Building Consists of 50+ well-lit, fully equipped
@@ -25,11 +28,21 @@ const Page = () => {
           </div>
           <div className="flex flex-col md:flex-row relative gap-5">
             <div className="w-full">
-              <div
+              <motion.div
                 id="science"
                 className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/science.webp"}
                     alt={"science"}
@@ -37,12 +50,20 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Science Laborities
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <Image src={'/assets/patterns/science-lab.png'} alt="science-pattern" height={200} width={400} className="absolute top-10 right-5 opacity-25" />
+                  <Image src={'/assets/patterns/an.png'} alt="science-pattern-2" height={150} width={300} className="hidden md:flex absolute bottom-0 left-0 opacity-10" />
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, our Advanced Science Laboratories—Physics,
                       Chemistry, and Biology—are equipped with state-of-the-art
@@ -65,14 +86,26 @@ const Page = () => {
                       ensure that science is not just a subject but an
                       experience that ignites curiosity and critical thinking.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="space"
-                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44 relative`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <Image src={'/assets/patterns/met.png'} alt="space-pattern" height={125} width={250} className="absolute top-0 left-0 opacity-10" />
+                <Image src={'/assets/patterns/astro.png'} alt="space-pattern-2" height={200} width={400} className="absolute -bottom-24 left-36 opacity-10" />
+                <motion.div
+                  className="w-full md:w-1/2 z-10"
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/space.webp"}
                     alt={"science"}
@@ -80,12 +113,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Space Lab
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, we take pride in being a pioneer in experiential
                       learning, offering a cutting-edge Space Lab accredited by
@@ -111,14 +150,24 @@ const Page = () => {
                       excel in the fields of space technology, artificial
                       intelligence, and robotics.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="robotics"
                 className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/ai-ml.webp"}
                     alt={"robotics-lab"}
@@ -126,12 +175,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Robotics Lab: Where Innovation Meets Learning
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, we believe that every child is unique and deserves
                       access to state-of-the-art facilities that align with the
@@ -155,14 +210,24 @@ const Page = () => {
                       equipped to excel in the ever-evolving world of
                       technology.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="computer"
                 className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/computer.webp"}
                     alt={"computer"}
@@ -170,12 +235,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Computer Lab
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, our specialized Computer Lab is designed to ignite
                       students passion for technology and innovation. Equipped
@@ -197,14 +268,24 @@ const Page = () => {
                       future-ready, equipped with the skills needed to excel in
                       the digital era.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="experiential-learning"
                 className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/experiential.webp"}
                     alt={"experiential"}
@@ -212,8 +293,8 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div className="relative flex flex-col justify-center w-full md:w-1/2">
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Best School for Experiential Learning
                   </h3>
@@ -242,13 +323,23 @@ const Page = () => {
                       confident, and equipped for success.
                     </p>
                   </div>
-                </div>
-              </div>
-              <div
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="library"
                 className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/library.webp"}
                     alt={"library"}
@@ -256,12 +347,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Library
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       Our library is a treasure trove of knowledge with
                       thousands of books, periodicals, research papers, and
@@ -273,14 +370,24 @@ const Page = () => {
                       books. A peaceful and inspiring reading space fosters a
                       love for literature and knowledge.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="ai-ml-lab"
                 className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/ai-ml.webp"}
                     alt={"ai-ml"}
@@ -288,12 +395,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Artificial Intelligence & Machine Learning Lab
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       This lab is dedicated to AI & ML technologies, where
                       students learn about data science, neural networks, and
@@ -304,14 +417,24 @@ const Page = () => {
                       automated systems, encouraging students to explore the
                       future of intelligent technology.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="phonic-lab"
                 className={`flex flex-col md:flex-row-reverse gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/phonic.webp"}
                     alt={"phonic"}
@@ -319,13 +442,19 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Phonic Lab: A Revolutionary Approach to Early Language
                     Learning
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, our commitment to experiential learning begins in
                       the early years. Our exclusive Phonics Lab, specially
@@ -347,14 +476,24 @@ const Page = () => {
                       prepare Alpha Kids for a future where they communicate
                       effortlessly and effectively.
                     </p>
-                  </div>
-                </div>
-              </div>
-              <div
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div
                 id="stem"
                 className={`flex flex-col md:flex-row gap-10 my-10 pb-10 scroll-mt-44`}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInVariant}
               >
-                <div className="w-full md:w-1/2">
+                <motion.div
+                  className="w-full md:w-1/2"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <Image
                     src={"/assets/academics/stem.webp"}
                     alt={"science"}
@@ -362,12 +501,18 @@ const Page = () => {
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
                   />
-                </div>
-                <div className="relative flex flex-col justify-center w-full md:w-1/2">
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col justify-center w-full md:w-1/2"
+                  variants={fadeInVariant}
+                >
                   <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
                     STEM Skill Program: Hands-On Learning for Future Innovators
                   </h3>
-                  <div className="prose max-w-none text-gray-700">
+                  <motion.div
+                    className="prose max-w-none text-gray-700"
+                    variants={fadeInVariant}
+                  >
                     <p>
                       At SVS, we proudly introduce STEM as a skill program for
                       students in Grades 3 to 8, featuring a U.S.-based
@@ -388,9 +533,9 @@ const Page = () => {
                       needed to become the thinkers and problem-solvers of
                       tomorrow.
                     </p>
-                  </div>
-                </div>
-              </div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
