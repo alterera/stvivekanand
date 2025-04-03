@@ -2,35 +2,40 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FaRupeeSign, FaSchool, FaBook, FaUserGraduate } from "react-icons/fa";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 import { sanityClient } from "@/lib/sanity";
 import { FEE_STRUCTURE_QUERY } from "@/lib/queries";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-const iconMap: Record<string, React.JSX.Element> = {
-  FaSchool: <FaSchool className="text-4xl text-[#E63946]" />,
-  FaBook: <FaBook className="text-4xl text-[#E63946]" />,
-  FaUserGraduate: <FaUserGraduate className="text-4xl text-[#E63946]" />,
-  FaRupeeSign: <FaRupeeSign className="text-4xl text-[#E63946]" />,
+type FeeDetail = {
+  class: string;
+  emi1: string;
+  emi2: string;
+  emi3: string;
+  yearly: string;
 };
 
 type FeeStructureType = {
   _id: string;
-  category: string;
-  annualFee: string;
-  tuitionFee: string;
-  otherCharges: string;
-  icon: string;
+  title: string;
+  fees: FeeDetail[];
 };
 
 const FeeStructure = () => {
-  const [feeStructure, setFeeStructure] = useState<FeeStructureType[]>([]);
+  const [feeStructures, setFeeStructures] = useState<FeeStructureType[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await sanityClient.fetch(FEE_STRUCTURE_QUERY);
-      setFeeStructure(data);
+      setFeeStructures(data);
     };
     fetchData();
   }, []);
@@ -64,51 +69,46 @@ const FeeStructure = () => {
 
         <div className="flex flex-col md:flex-row relative gap-5">
           <div className="w-full md:w-2/3">
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              {feeStructure.map((fee, index) => (
-                <motion.div
-                  key={fee._id}
-                  className="bg-[#002147] p-6 rounded-lg shadow-lg hover:shadow-xl 
-              transition-transform hover:scale-105 duration-300 text-gray-100 flex flex-col gap-4"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="flex items-center gap-4">
-                    {iconMap[fee.icon]}
-                    <h3 className="text-xl font-bold">{fee.category}</h3>
-                  </div>
-
-                  <div className="text-gray-300 font-sans space-y-2">
-                    <p>
-                      Annual Fee:{" "}
-                      <span className="font-semibold text-white">
-                        ₹{fee.annualFee}
-                      </span>
-                    </p>
-                    <p>
-                      Tuition Fee:{" "}
-                      <span className="font-semibold text-white">
-                        ₹{fee.tuitionFee}
-                      </span>
-                    </p>
-                    <p>
-                      Other Charges:{" "}
-                      <span className="font-semibold text-white">
-                        ₹{fee.otherCharges}
-                      </span>
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            {feeStructures.map((structure, index) => (
+              <motion.div 
+                key={structure._id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="mb-12 border pt-2"
+              >
+                <h1 className="text-2xl font-semibold text-center pb-4 text-[#1D3557]">
+                  {structure.title}
+                </h1>
+                <Table>
+                  <TableHeader>
+                    <TableRow className="bg-gray-200">
+                      <TableHead>Class</TableHead>
+                      <TableHead>1st EMI</TableHead>
+                      <TableHead>2nd EMI</TableHead>
+                      <TableHead>3rd EMI</TableHead>
+                      <TableHead className="text-right">Yearly Total</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {structure.fees.map((fee, i) => (
+                      <TableRow key={i}>
+                        <TableCell className="font-medium">
+                          {fee.class}
+                        </TableCell>
+                        <TableCell>{fee.emi1}</TableCell>
+                        <TableCell>{fee.emi2}</TableCell>
+                        <TableCell>{fee.emi3}</TableCell>
+                        <TableCell className="text-right">
+                          {fee.yearly}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </motion.div>
+            ))}
 
             <motion.div
               className="mt-16 bg-[#F1EEE9] p-10 rounded-lg shadow-lg"
