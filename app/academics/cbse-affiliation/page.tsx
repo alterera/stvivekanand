@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const CbseAffiliation = () => {
   return (
@@ -57,6 +59,9 @@ const CbseAffiliation = () => {
               regulations laid down by CBSE, which ensures a certain level of
               uniformity and quality across all CBSE schools in the country.
             </p>
+            <Link href={"/mandatory-disclosure"}>
+              <Button className="bg-[#85193C] my-2 hover:bg-[#8e2345]">Mandatory Disclosure</Button>
+            </Link>
           </div>
         </motion.div>
       </div>

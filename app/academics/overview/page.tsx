@@ -125,16 +125,16 @@ const Academics = () => {
         >
           <h3 className="text-2xl font-bold text-[#1D3557] mb-6">A Glimpse Into Our Campus</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Image src="/assets/events/event-1.png" alt="Classroom" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/events/event-2.png" alt="Science Lab" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/events/event-3.png" alt="Library" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/events/event-1.png" alt="Computer Lab" width={300} height={200} className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/science.webp" alt="Classroom" width={300} height={200} className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/computer.webp" alt="Science Lab" width={300} height={200} className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/experiential.webp" alt="Library" width={300} height={200} className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/library.webp" alt="Computer Lab" width={300} height={200} className="rounded-lg shadow-md" />
           </div>
         </motion.div>
 
         {/* Sports Facilities */}
         <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
-          <Image src="/assets/sports/football.png" alt="Sports Facilities" width={500} height={350} className="rounded-lg shadow-lg" />
+          <Image src="/assets/sports/cricket.jpeg" alt="Sports Facilities" width={500} height={350} className="rounded-lg shadow-lg" />
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-[#1D3557] mb-4">Sports Facilities</h3>
             <p className="text-gray-700">
@@ -167,7 +167,7 @@ const Academics = () => {
             At our school, we believe that education extends beyond textbooks, which is why we have dedicated arts, music, and cultural programs to help students explore and refine their creative talents. Whether it&npos;s vocal and instrumental music, theater and dance, or painting and textile embroidery, we provide a platform for students to express themselves artistically. Our expert mentors guide students in mastering their craft, fostering confidence, creativity, and self-discipline. Through annual cultural events, art exhibitions, and music recitals, we encourage students to showcase their skills, giving them opportunities to shine on local, national, and international stages. These programs ensure a holistic development approach, making learning a joyful and enriching experience.
             </p>
           </div>
-          <Image src="/assets/events/event-1.png" alt="Co-Curricular Activities" width={500} height={350} className="rounded-lg shadow-lg" />
+          <Image src="/assets/co-curricular/paintings.webp" alt="Co-Curricular Activities" width={500} height={350} className="rounded-lg shadow-lg" />
         </motion.div>
 
         {/* Co-Curricular Grid */}

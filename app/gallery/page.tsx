@@ -105,7 +105,7 @@ const Gallery = () => {
                 className="rounded-lg shadow-lg object-contain"
               />
               <button
-                className="absolute top-4 right-4 text-white text-2xl"
+                className="absolute top-4 right-4 text-white text-2xl p-4"
                 onClick={() => setPopupImage(null)}
               >
                 ✖

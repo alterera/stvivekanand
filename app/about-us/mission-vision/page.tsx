@@ -33,7 +33,7 @@ const MissionVision = () => {
           {/* Image */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/assets/background/bg-3.jpeg"
+              src="/assets/about/msn.jpeg"
               alt="Our Mission"
               width={500}
               height={400}
@@ -68,7 +68,7 @@ const MissionVision = () => {
           {/* Image */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/assets/background/bg-2.jpeg"
+              src="/assets/academics/stem.webp"
               alt="Our Vision"
               width={500}
               height={400}
