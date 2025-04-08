@@ -129,9 +129,10 @@ export const MANDATORY_DISCLOSURE_QUERY = groq`
 `;
 
 export const FEE_STRUCTURE_QUERY = groq`
-  *[_type == "feeStructure"] {
+  *[_type == "feeStructure"] | order(order asc) {
     _id,
     title,
+    order,
     fees[] {
       class,
       emi1,

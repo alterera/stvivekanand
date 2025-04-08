@@ -10,6 +10,12 @@ export default {
         description: 'e.g., New Student Fee 2025-26'
       },
       {
+        name: 'order',
+        title: 'Order',
+        type: 'number',
+        description: 'Order in which this fee structure should appear (lower numbers first)'
+      },
+      {
         name: 'fees',
         title: 'Fee Details',
         type: 'array',

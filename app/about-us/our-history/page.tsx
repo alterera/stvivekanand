@@ -23,7 +23,7 @@ const historyData = [
     title: "Foundation & Vision",
     description:
       "St. Vivekanand Sr. Sec. School holds the distinction of being an integral & inseparable part of the finest centres of learning in Bikaner. The school saw the dawn of its existence on the auspicious national day of 15th August in 1977 as a primary school in Kamla Colony, Bikaner. It was further raised to middle standards in 1984-85. It is being run by a Samiti with distinguished members who hold magnificent farsightedness. Its second branch was started at the towns primary location in JNV Colony in 1990. From the Kindergarten wing to 12th standard, the institution follows NCERT syllabus recognised by the CBSE, based on the latest NEP guidelines. The school has the distinction of running in a spacious campus right in the middle of the town, providing a congenial and inspiring environment to the students.",
-    imageUrl: "/assets/background/bg-2.jpeg",
+    imageUrl: "/assets/about/vision.jpg",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const historyData = [
     title: "Legacy & Future",
     description:
       "With a legacy of academic brilliance and student success, the school continues to evolve, embracing new teaching methodologies, digital transformation, and global perspectives to prepare students for the future.",
-    imageUrl: "/assets/background/campus-bg.webp",
+    imageUrl: "/assets/about/growth.jpg",
   },
 ];
 

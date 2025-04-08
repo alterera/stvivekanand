@@ -74,12 +74,7 @@ const admissionComponent: { title: string; href: string; description: string }[]
     description:
       "Know more about the fee structure of your child future journey.",
   },
-  {
-    title: "Withdrawal Process",
-    href: "#",
-    description:
-      "All the information you need to know about withdrawal process.",
-  },
+  
   {
     title: "TC Updates",
     href: "#",
