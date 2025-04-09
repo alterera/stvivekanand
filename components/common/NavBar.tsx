@@ -187,7 +187,7 @@ export function NavBar() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Academics</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>Our Curriculum</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {components.map((component) => (
@@ -276,7 +276,7 @@ export function NavBar() {
               </Link>
             </MobileDropdown>
 
-            <MobileDropdown title="Academics">
+            <MobileDropdown title="Our Curriculum">
               {components.map((component) => (
                 <Link
                   key={component.title}

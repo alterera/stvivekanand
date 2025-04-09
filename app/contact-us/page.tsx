@@ -85,6 +85,11 @@ const Contact = () => {
             <FaPhoneAlt className="text-4xl mb-4 mx-auto" />
             <h3 className="text-xl font-bold">Phone</h3>
             <p className="text-gray-300 mt-2">
+              <a href="tel:01512231906" className="hover:text-[#E63946]">
+               (0151) 223 190 6
+              </a>
+            </p>
+            <p className="text-gray-300 mt-2">
               <a href="tel:+919571665859" className="hover:text-[#E63946]">
                 +91 9571665859
               </a>
@@ -97,7 +102,7 @@ const Contact = () => {
             <h3 className="text-xl font-bold">Email</h3>
             <p className="text-gray-300 mt-2">
               <a href="mailto:contact@school.com" className="hover:text-[#E63946]">
-                contact@school.com
+                st.vivekanand@yahoo.com
               </a>
             </p>
           </div>

@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
+import { Headset, Mail, Phone } from "lucide-react";
 
 const footerLinks = [
   {
@@ -56,6 +56,12 @@ const Footer = () => {
                 Rajasthan - 334001 IN
               </p>
               <div className="space-y-2">
+                <p className="flex items-center gap-2">
+                <Headset size={20} />
+                  <a href="tel:01512231906" className="hover:text-[#E63946]">
+                    (0151) 223 190 6
+                  </a>
+                </p>
                 <p className="flex items-center gap-2">
                 <Phone size={20} />
                   <a href="tel:+919571665859" className="hover:text-[#E63946]">
