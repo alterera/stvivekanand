@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { FaBasketballBall, FaFlask, FaRobot, FaBookReader, FaLaptopCode, FaMicroscope, FaBrain, FaLanguage, FaLightbulb, FaChalkboardTeacher, FaChild, FaTableTennis, FaUsers, FaDumbbell, FaMusic, FaPalette, FaPaintBrush } from "react-icons/fa";
+import { FaBasketballBall, FaFlask, FaRobot, FaBookReader, FaLaptopCode, FaMicroscope, FaBrain, FaLanguage, FaLightbulb, FaChalkboardTeacher, FaChild, FaUsers, FaDumbbell, FaMusic, FaPalette, FaPaintBrush } from "react-icons/fa";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -17,24 +17,23 @@ type Facility = {
 };
 
 const facilities: Facility[] = [
-  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FaFlask className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#computer-department" },
-  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <FaMicroscope className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
-  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <FaRobot className="text-5xl text-[#E63946]" />, link: "" },
-  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <FaLaptopCode className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
-  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <FaLightbulb className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
-  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <FaBookReader className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
-  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <FaBrain className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
-  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <FaLanguage className="text-5xl text-[#E63946]" /> , link: "/academics/all-facilities/#"},
-  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <FaChalkboardTeacher className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#" },
+  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FaFlask className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#science-laborities" },
+  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <FaMicroscope className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#space-lab" },
+  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <FaRobot className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#robotics" },
+  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <FaLaptopCode className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#computer-department" },
+  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <FaLightbulb className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#experiential-learning" },
+  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <FaBookReader className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#library" },
+  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <FaBrain className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#ai-ml-lab" },
+  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <FaLanguage className="text-5xl text-[#E63946]" /> , link: "/academics/all-facilities/#phonic-lab"},
+  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <FaChalkboardTeacher className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#steam-lab" },
 ];
   
   const sportsFacilities: Facility[] = [
-    { id: 1, title: "Basketball Court", description: "A state-of-the-art court that hosts one of the finest basketball communities in town.", icon: <FaBasketballBall className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
-    { id: 2, title: "Badminton Court", description: "Indoor badminton court with guided daily practice sessions.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
-    { id: 3, title: "Cricket Practice Turf", description: "A closed-net cricket practice area for future cricketers.", icon: <FaUsers className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
-    { id: 4, title: "Table Tennis Room", description: "Fully-equipped table-tennis room for competitive and recreational play.", icon: <FaTableTennis className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
-    { id: 5, title: "Gymnasium", description: "An elementary gym for students who want to put in extra hours of training.", icon: <FaDumbbell className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
-    { id: 6, title: "Lawn Tennis Court", description: "A newly-added hard-court tennis facility.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#" },
+    { id: 1, title: "Basketball Court", description: "A state-of-the-art court that hosts one of the finest basketball communities in town.", icon: <FaBasketballBall className="text-5xl text-[#E63946]" />, link: "/academics/sports/#basketball-court" },
+    { id: 2, title: "Badminton Court", description: "Indoor badminton court with guided daily practice sessions.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#badminton-court" },
+    { id: 3, title: "Cricket Practice Turf", description: "A closed-net cricket practice area for future cricketers.", icon: <FaUsers className="text-5xl text-[#E63946]" />, link: "/academics/sports/#cricket-turf" },
+    { id: 4, title: "Gymnasium", description: "An elementary gym for students who want to put in extra hours of training.", icon: <FaDumbbell className="text-5xl text-[#E63946]" />, link: "/academics/sports/#gymnasium-strength-and-fitness" },
+    { id: 5, title: "Lawn Tennis Court", description: "A newly-added hard-court tennis facility.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#table-tennis-spin-to-win" },
   ];
   
   const coCurricular = [
@@ -141,7 +140,7 @@ const Academics = () => {
             Our school takes immense pride in offering one of the largest in-house sports infrastructures in the city, designed to provide students with world-class courts and facilities. From state-of-the-art basketball and badminton courts to professional-grade cricket practice turfs, we ensure that every aspiring athlete gets the best training environment. Our indoor and outdoor sports complexes cater to a wide range of activities, including table tennis, lawn tennis, football, and athletics, helping students develop physical strength, teamwork, and sportsmanship. With trained coaches and structured programs, we prepare students not just for inter-school competitions but also for state and national-level championships, nurturing their potential to excel in the world of sports.
             </p>
             <Link href={'/academics/sports/'}>
-              <Button className="bg-[#E63946] w-fit my-5 font-semibold">Learn More</Button>
+              <Button className="bg-[#85193C] w-fit my-5 font-semibold">Learn More</Button>
             </Link>
           </div>
         </motion.div>

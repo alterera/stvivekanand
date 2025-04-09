@@ -5,6 +5,7 @@ import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
 import NextTopLoader from 'nextjs-toploader';
 import BackToTop from "@/components/BackToTop";
+// import Prospectus from "@/components/Prospectus";
 
 const getPtSans = PT_Sans({
   weight: ["400", "700"],
@@ -37,6 +38,7 @@ export default function RootLayout({
         <NextTopLoader color="#85193C" shadow="0 0 10px #85193C,0 0 5px #85193C"/>
           <NavBar />
           {children}
+          {/* <Prospectus/> */}
           <Footer />
           <BackToTop/>
       </body>
