@@ -1,7 +1,7 @@
 import { getSportsData } from "@/lib/queries";
 import { Sport } from "@/types/index";
 import SwiperComponent from "@/components/SwiperComponent";
-
+import { Metadata } from "next";
 import {
   Accordion,
   AccordionContent,
@@ -12,6 +12,46 @@ import Image from "next/image";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 import { PortableText } from "next-sanity";
 import { PortableTextComponents } from "@/components/PortableTextComponent";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const sportsData: Sport[] = await getSportsData();
+  
+  return {
+    title: "Sports Facilities | St. Vivekanand School Bikaner",
+    description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
+    keywords: [
+      "sports facilities",
+      "school sports",
+      "sports infrastructure",
+      "athletic programs",
+      "best school in bikaner",
+      "sports education",
+      "physical education",
+      "sports development",
+      "athletic training"
+    ],
+    openGraph: {
+      title: "Sports Facilities | St. Vivekanand School Bikaner",
+      description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
+      type: "website",
+      locale: "en_IN",
+      siteName: "St. Vivekanand School",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Sports Facilities | St. Vivekanand School Bikaner",
+      description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+      },
+    },
+  };
+}
 
 const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
@@ -45,7 +85,6 @@ const SportsPage = async () => {
               return null;
             }
 
-            // Extract image URLs for the SwiperComponent
             const imageUrls = sport.images.map((image) => image.asset.url);
 
             return (
@@ -64,7 +103,6 @@ const SportsPage = async () => {
                     <div className="mb-4 text-gray-700">
                       <PortableText
                         value={sport.intro}
-                        
                       />
                     </div>
 
@@ -76,7 +114,6 @@ const SportsPage = async () => {
                     </div>
                   </div>
 
-                  {/* Pass image URLs to SwiperComponent */}
                   <div className="w-full md:w-1/2">
                     <SwiperComponent images={imageUrls} />
                   </div>

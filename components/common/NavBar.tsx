@@ -74,6 +74,12 @@ const admissionComponent: { title: string; href: string; description: string }[]
     description:
       "Know more about the fee structure of your child future journey.",
   },
+  {
+    title: "Career Counselling",
+    href: "/admissions/career-counselling",
+    description:
+      "Know more about the fee structure of your child future journey.",
+  },
   
   {
     title: "TC Updates",

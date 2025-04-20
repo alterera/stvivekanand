@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 
+
 const MissionVision = () => {
   return (
     <section className="w-full bg-[#F9F9F9] py-20">

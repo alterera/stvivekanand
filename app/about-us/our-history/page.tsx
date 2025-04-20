@@ -5,17 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
-// export const metadata = {
-//   title: "Our History | Saint Vivekanand School",
-//   description: "Our mission is to provide quality education in Bikaner, fostering knowledge, growth, and excellence.",
-//   keywords: ["Mission", "Vision", "Saint Vivekanand School", "Education", "Bikaner"],
-//   openGraph: {
-//     title: "Mission & Vision",
-//     description: "Our mission is to provide quality education in Bikaner.",
-//     url: "https://www.saintvivekanandschool.com/about-us/mission-vision",
-//     images: ["/assets/logo/ic-logo.png"],
-//   },
-// };
 
 const historyData = [
   {

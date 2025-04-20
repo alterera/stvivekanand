@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 import Head from "next/head";
 
+
 const PrincipalMessage = () => {
   return (
     <>

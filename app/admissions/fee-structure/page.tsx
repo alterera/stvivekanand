@@ -76,32 +76,32 @@ const FeeStructure = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="mb-12 border pt-2"
+                className="mb-12 pt-2"
               >
                 <h1 className="text-2xl font-semibold text-center pb-4 text-[#1D3557]">
                   {structure.title}
                 </h1>
-                <Table>
+                <Table className="border">
                   <TableHeader>
-                    <TableRow className="bg-gray-200">
+                    <TableRow className="bg-[#85193C] text-white">
                       <TableHead>Class</TableHead>
-                      <TableHead>1st EMI</TableHead>
-                      <TableHead>2nd EMI</TableHead>
-                      <TableHead>3rd EMI</TableHead>
+                      <TableHead>1st Instalment</TableHead>
+                      <TableHead>2nd Instalment</TableHead>
+                      <TableHead>3rd Instalment</TableHead>
                       <TableHead className="text-right">Yearly Total</TableHead>
                     </TableRow>
                   </TableHeader>
-                  <TableBody>
+                  <TableBody style={{fontFamily: 'arial'}}>
                     {structure.fees.map((fee, i) => (
                       <TableRow key={i}>
-                        <TableCell className="font-medium">
+                        <TableCell className="font-bold">
                           {fee.class}
                         </TableCell>
-                        <TableCell>{fee.emi1}</TableCell>
-                        <TableCell>{fee.emi2}</TableCell>
-                        <TableCell>{fee.emi3}</TableCell>
-                        <TableCell className="text-right">
-                          {fee.yearly}
+                        <TableCell>₹{fee.emi1}</TableCell>
+                        <TableCell>₹{fee.emi2}</TableCell>
+                        <TableCell>₹{fee.emi3}</TableCell>
+                        <TableCell className="text-right font-bold">
+                        ₹{fee.yearly}
                         </TableCell>
                       </TableRow>
                     ))}
