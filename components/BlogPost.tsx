@@ -9,13 +9,14 @@ interface BlogPostProps {
   article: PortableTextBlock[];
   featuredImage: string;
   publishedAt: string;
+  formattedDate: string;
 }
 
 export default function BlogPost({
   title,
   article,
   featuredImage,
-  publishedAt,
+  formattedDate,
 }: BlogPostProps) {
   return (
     <div className="w-full">
@@ -31,7 +32,7 @@ export default function BlogPost({
         </div>
       )}
     <p className="text-gray-500 mb-4 text-sm">
-        Published on: {new Date(publishedAt).toLocaleDateString()}
+        Published on: {formattedDate}
       </p>
       <div className="prose">
         <p className="text-2xl font-semibold mb-2">{title}</p>

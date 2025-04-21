@@ -20,10 +20,77 @@ const getGaramond = EB_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: "St. Vivekanand School - #1 School in Bikaner",
-  description: "Best school, rajashtan",
+  metadataBase: new URL('https://stvivekanandschool.com'),
+  title: {
+    default: "St. Vivekanand School - Best CBSE School in Bikaner",
+    template: "%s | St. Vivekanand School Bikaner"
+  },
+  description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
+  keywords: [
+    "best school in bikaner",
+    "cbse school bikaner",
+    "top school in bikaner",
+    "school in bikaner",
+    "education in bikaner",
+    "best cbse school",
+    "quality education",
+    "holistic development",
+    "nursery to class 12"
+  ],
+  authors: [{ name: "St. Vivekanand School" }],
+  creator: "St. Vivekanand School",
+  publisher: "St. Vivekanand School",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://stvivekanandschool.com",
+    siteName: "St. Vivekanand School",
+    title: "St. Vivekanand School - Best CBSE School in Bikaner",
+    description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
+    images: [
+      {
+        url: "/st-og.png",
+        width: 1200,
+        height: 630,
+        alt: "St. Vivekanand School - Best CBSE School in Bikaner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "St. Vivekanand School - Best CBSE School in Bikaner",
+    description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
+    images: ["/st-og.png"],
+    creator: "@stvivekanandschool",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: "/assets/icons/fav.png",
+    shortcut: "/assets/icons/fav.png",
+    apple: "/assets/icons/fav.png",
+  },
+  alternates: {
+    canonical: "https://stvivekanandschool.com",
+  },
+  verification: {
+    google: "your-google-site-verification",
+    yandex: "your-yandex-verification",
+    yahoo: "your-yahoo-verification",
   },
 };
 
@@ -38,7 +105,6 @@ export default function RootLayout({
         <NextTopLoader color="#85193C" shadow="0 0 10px #85193C,0 0 5px #85193C"/>
           <NavBar />
           {children}
-          {/* <Prospectus/> */}
           <Footer />
           <BackToTop/>
       </body>

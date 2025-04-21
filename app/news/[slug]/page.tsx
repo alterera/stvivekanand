@@ -20,7 +20,7 @@ interface BlogData {
 type Params = Promise<{ slug: string }>;
 
 const Page = async ({ params }: { params: Params }) => {
-  const resolvedParams = await params; // Await the params Promise
+  const resolvedParams = await params;
   const { slug } = resolvedParams;
 
   const blogData: BlogData = await sanityClient.fetch(BLOG_QUERY, { slug });
@@ -28,6 +28,13 @@ const Page = async ({ params }: { params: Params }) => {
   if (!blogData) {
     notFound();
   }
+
+  // Format the date on the server side
+  const formattedDate = new Date(blogData.publishedAt).toLocaleDateString('en-IN', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
 
   return (
     <>
@@ -40,6 +47,7 @@ const Page = async ({ params }: { params: Params }) => {
               article={blogData.article}
               featuredImage={blogData.featuredImage?.asset?.url || ""}
               publishedAt={blogData.publishedAt}
+              formattedDate={formattedDate}
             />
           </div>
 
