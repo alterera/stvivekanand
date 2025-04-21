@@ -59,7 +59,7 @@ const Footer = () => {
                 <p className="flex items-center gap-2">
                 <Headset size={20} />
                   <a href="tel:01512231906" className="hover:text-[#E63946]">
-                    (0151) 223 190 6
+                    0151-223-1906
                   </a>
                 </p>
                 <p className="flex items-center gap-2">

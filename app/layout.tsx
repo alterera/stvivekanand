@@ -5,6 +5,8 @@ import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
 import NextTopLoader from 'nextjs-toploader';
 import BackToTop from "@/components/BackToTop";
+import AdmissionModal from "@/components/AdmissionModal";
+import { Toaster } from "@/components/ui/toaster";
 // import Prospectus from "@/components/Prospectus";
 
 const getPtSans = PT_Sans({
@@ -107,6 +109,8 @@ export default function RootLayout({
           {children}
           <Footer />
           <BackToTop/>
+          <AdmissionModal />
+          <Toaster />
       </body>
     </html>
   );
