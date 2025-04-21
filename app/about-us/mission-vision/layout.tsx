@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     "best school in bikaner",
     "holistic education",
     "student development",
-    "educational excellence"
+    "educational excellence",
+    "schools in bikaner",
+    "cbse schools bikaner",
   ],
   openGraph: {
     title: "Mission & Vision | St. Vivekanand School Bikaner",
