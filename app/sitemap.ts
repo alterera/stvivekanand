@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { sanityClient } from '@/lib/sanity';
-import { ALL_BLOGS_QUERY, EVENT_QUERY } from '@/lib/queries';
+import { ALL_BLOGS_QUERY, EVENT_QUERY, CURRICULAR_QUERY } from '@/lib/queries';
 
 interface Blog {
   slug: string;
@@ -11,20 +11,30 @@ interface Event {
   slug: string;
 }
 
+interface Curricular {
+  slug: string;
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://stvivekanandschool.com';
 
   // Static routes
   const staticRoutes = [
     '',
-    '/about',
-    '/admissions',
+    '/about-us/our-history',
+    '/about-us/why-choose-us',
+    '/about-us/mission-vision',
+    '/about-us/principals-message',
+    '/academics/overview',
+    '/academics/all-facilities',
+    '/academics/cbse-affiliation',
+    '/academics/streams-offered',
+    '/academics/sports',
+    '/gallery',
     '/admissions/admission-process',
     '/admissions/fee-structure',
     '/admissions/career-counselling',
-    '/academics',
-    '/co-curricular',
-    '/facilities',
+    '/mandatory-disclosure',
     '/news',
     '/events',
     '/contact-us',
@@ -37,9 +47,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Fetch dynamic routes from Sanity
-    const [blogs, events] = await Promise.all([
+    const [blogs, events, Curricular] = await Promise.all([
       sanityClient.fetch<Blog[]>(ALL_BLOGS_QUERY),
       sanityClient.fetch<Event[]>(EVENT_QUERY),
+      sanityClient.fetch<Curricular[]>(CURRICULAR_QUERY),
     ]);
 
     // Blog routes
@@ -53,6 +64,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Event routes
     const eventRoutes = events?.map((event) => ({
       url: `${baseUrl}/events/${event.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    })) || [];
+
+    // Event routes
+    const curricularRoutes = Curricular?.map((curricular) => ({
+      url: `${baseUrl}/co-curricular/${curricular.slug}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
