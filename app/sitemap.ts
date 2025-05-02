@@ -78,7 +78,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })) || [];
 
     // Combine all routes
-    return [...staticRoutes, ...blogRoutes, ...eventRoutes];
+    return [...staticRoutes, ...blogRoutes, ...eventRoutes, ...curricularRoutes];
   } catch (error) {
     console.error('Error generating sitemap:', error);
     // Return only static routes if there's an error
