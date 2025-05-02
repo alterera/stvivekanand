@@ -16,9 +16,7 @@ Crawl-delay: 10
 # Specific rules for Googlebot
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 5
 
 # Specific rules for Bingbot
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 5 
