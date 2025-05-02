@@ -1,18 +1,24 @@
 import { MetadataRoute } from 'next';
 import { sanityClient } from '@/lib/sanity';
-import { ALL_BLOGS_QUERY, EVENT_QUERY, CURRICULAR_QUERY } from '@/lib/queries';
+import { ALL_BLOGS_QUERY, ALL_EVENTS_QUERY, ALL_CURRICULAR_QUERY } from '@/lib/queries';
 
 interface Blog {
-  slug: string;
+  slug: {
+    current: string;
+  };
   publishedAt: string;
 }
 
 interface Event {
-  slug: string;
+  slug: {
+    current: string;
+  };
 }
 
 interface Curricular {
-  slug: string;
+  slug: {
+    current: string;
+  };
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -35,8 +41,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/admissions/fee-structure',
     '/admissions/career-counselling',
     '/mandatory-disclosure',
-    '/news',
-    '/events',
     '/contact-us',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -47,15 +51,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Fetch dynamic routes from Sanity
-    const [blogs, events, Curricular] = await Promise.all([
+    const [blogs, events, curricular] = await Promise.all([
       sanityClient.fetch<Blog[]>(ALL_BLOGS_QUERY),
-      sanityClient.fetch<Event[]>(EVENT_QUERY),
-      sanityClient.fetch<Curricular[]>(CURRICULAR_QUERY),
+      sanityClient.fetch<Event[]>(ALL_EVENTS_QUERY),
+      sanityClient.fetch<Curricular[]>(ALL_CURRICULAR_QUERY),
     ]);
 
     // Blog routes
     const blogRoutes = blogs?.map((blog) => ({
-      url: `${baseUrl}/news/${blog.slug}`,
+      url: `${baseUrl}/news/${blog.slug.current}`,
       lastModified: new Date(blog.publishedAt),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
@@ -63,15 +67,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Event routes
     const eventRoutes = events?.map((event) => ({
-      url: `${baseUrl}/events/${event.slug}`,
+      url: `${baseUrl}/events/${event.slug.current}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     })) || [];
 
-    // Event routes
-    const curricularRoutes = Curricular?.map((curricular) => ({
-      url: `${baseUrl}/co-curricular/${curricular.slug}`,
+    // Curricular routes
+    const curricularRoutes = curricular?.map((item) => ({
+      url: `${baseUrl}/co-curricular/${item.slug.current}`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.7,

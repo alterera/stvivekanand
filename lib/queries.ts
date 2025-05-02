@@ -47,11 +47,29 @@ export const CURRICULAR_QUERY = groq`
   }
 `;
 
+// Fetch all curricular activities
+export const ALL_CURRICULAR_QUERY = groq`
+  *[_type == "curricular"] {
+    title,
+    slug {
+      current
+    },
+    description,
+    image {
+      asset-> {
+        url
+      }
+    }
+  }
+`;
+
 // Fetch all blog posts
 export const ALL_BLOGS_QUERY = groq`
   *[_type == "blog"] | order(publishedAt desc) {
     title,
-    slug,
+    slug {
+      current
+    },
     featuredImage {
       asset-> {
         url
@@ -75,6 +93,32 @@ export const BLOG_QUERY = groq`
   }
 `;
 
+// Fetch all events
+export const ALL_EVENTS_QUERY = groq`
+  *[_type == "event"] {
+    title,
+    slug {
+      current
+    },
+    subtitle,
+    description,
+    images[] {
+      asset-> {
+        _id,
+        url
+      }
+    }
+  }
+`;
+
+// Fetch latest blog posts (for the "Latest Posts" section)
+export const LATEST_BLOGS_QUERY = groq`
+  *[_type == "blog"] | order(publishedAt desc) [0...4] {
+    title,
+    slug
+  }
+`;
+
 export const EVENT_QUERY = groq`
   *[_type == "event" && slug.current == $slug][0] {
     title,
@@ -94,16 +138,6 @@ export const EVENT_QUERY = groq`
     }
   }
 `;
-
-// Fetch latest blog posts (for the "Latest Posts" section)
-export const LATEST_BLOGS_QUERY = groq`
-  *[_type == "blog"] | order(publishedAt desc) [0...4] {
-    title,
-    slug
-  }
-`;
-
-
 
 export const MANDATORY_DISCLOSURE_QUERY = groq`
   *[_type == "mandatoryDisclosure"][0] {
