@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Mission & Vision | St. Vivekanand School Bikaner",
   description: "Discover our school's mission to provide holistic education and our vision to create transformative learning experiences for students in Bikaner.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/about-us/mission-vision',
+  },
   keywords: [
     "school mission",
     "educational vision",

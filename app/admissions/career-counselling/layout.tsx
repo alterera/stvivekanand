@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Career Counselling | St. Vivekanand School Bikaner",
   description: "Discover our comprehensive career counselling services, helping students make informed decisions about their future through expert guidance and annual career fairs at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/admissions/career-counselling',
+  },
   keywords: [
     "career counselling",
     "career guidance",

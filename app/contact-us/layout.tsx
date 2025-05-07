@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us | St. Vivekanand School Bikaner",
   description: "Get in touch with St. Vivekanand School Bikaner. Find our contact information, location, and send us your queries through our contact form.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/contact-us',
+  },
   keywords: [
     "contact school",
     "school contact",

@@ -41,7 +41,7 @@ const Gallery = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557] text-center mt-8 mb-2">
           School Gallery
         </h2>
-        <p className="text-center text-sm mb-8">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nihil provident praesentium, labore libero quas?</p>
+        <p className="text-center text-sm mb-8">See the glimpses of our school</p>
 
         {/* Category Filter Buttons */}
         <div className="flex gap-4 justify-center mb-10 text-sm font-semibold flex-wrap">
@@ -83,7 +83,7 @@ const Gallery = () => {
                   height={200}
                   className="w-full h-auto object-cover"
                   placeholder="blur"
-                  blurDataURL="/assets/placeholder.png"
+                  blurDataURL="/assets/sports/basketball.png"
                 />
               </motion.div>
             ))

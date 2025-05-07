@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Latest News & Updates | St. Vivekanand School Bikaner",
   description: "Stay updated with the latest news, events, and announcements from St. Vivekanand School Bikaner. Read about our achievements, activities, and important updates.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/news',
+  },
   keywords: [
     "school news",
     "school updates",

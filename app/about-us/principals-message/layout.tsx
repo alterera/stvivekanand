@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Principal's Message | St. Vivekanand School Bikaner",
   description: "Read the inspiring message from our Principal, Nidhi Gupta, about our school's vision, values, and commitment to holistic education in Bikaner.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/about-us/principals-message',
+  },
   keywords: [
     "Principal's message",
     "St. Vivekanand School principal",

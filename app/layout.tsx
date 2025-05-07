@@ -88,12 +88,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://stvivekanandschool.com",
-  },
-  verification: {
-    google: "your-google-site-verification",
-    yandex: "your-yandex-verification",
-    yahoo: "your-yahoo-verification",
-  },
+  }
 };
 
 export default function RootLayout({

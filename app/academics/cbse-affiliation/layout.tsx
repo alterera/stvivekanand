@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "CBSE Affiliation | St. Vivekanand School Bikaner",
   description: "Learn about our CBSE affiliation and how we maintain high educational standards following the Central Board of Secondary Education guidelines at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/academics/cbse-affiliation',
+  },
   keywords: [
     "CBSE school",
     "CBSE affiliation",

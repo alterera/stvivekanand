@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Academic Streams | St. Vivekanand School Bikaner",
   description: "Discover our specialized academic streams in Science and Commerce, offering comprehensive education and career-focused learning at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/academics/streams-offered',
+  },
   keywords: [
     "academic streams",
     "science stream",

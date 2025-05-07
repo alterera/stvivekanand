@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Curriculum | St. Vivekanand School Bikaner",
   description: "Discover our comprehensive curriculum designed for holistic development, combining academic excellence with practical learning experiences at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/academics/curriculum',
+  },
   keywords: [
     "school curriculum",
     "educational syllabus",

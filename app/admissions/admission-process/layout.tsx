@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Admission Process | St. Vivekanand School Bikaner",
   description: "Learn about our streamlined admission process, eligibility criteria, and required documents for joining St. Vivekanand School, one of the best schools in Bikaner.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/admissions/admission-process',
+  },
   keywords: [
     "school admission",
     "admission process",

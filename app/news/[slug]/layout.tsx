@@ -33,6 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${newsData.title} | St. Vivekanand School Bikaner`,
     description: newsData.article.slice(0, 160),
+    alternates: {
+      canonical: `https://stvivekanandschool.com/news/${params}`,
+    },
     keywords: [
       newsData.title.toLowerCase(),
       "school news",

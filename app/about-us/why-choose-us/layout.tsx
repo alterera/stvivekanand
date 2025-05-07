@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Why Choose Us | St. Vivekanand School Bikaner",
   description: "Discover why St. Vivekanand School is the preferred choice for education in Bikaner, offering experiential learning, modern infrastructure, and a strong cultural foundation.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/about-us/why-choose-us',
+  },
   keywords: [
     "why choose St. Vivekanand",
     "best school in bikaner",

@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Academic Facilities | St. Vivekanand School Bikaner",
   description: "Explore our state-of-the-art academic facilities including science labs, computer labs, library, and specialized learning spaces at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/academics/all-facilities',
+  },
   keywords: [
     "school facilities",
     "academic infrastructure",

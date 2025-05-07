@@ -42,6 +42,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "school function",
       "educational event"
     ],
+    alternates: {
+      canonical: `https://stvivekanandschool.com/events/${params}`,
+    },
     openGraph: {
       title: `${eventData.title} | St. Vivekanand School Bikaner`,
       description: eventData.subtitle || eventData.description.slice(0, 160),

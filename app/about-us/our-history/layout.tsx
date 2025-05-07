@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our History | St. Vivekanand School Bikaner",
   description: "Explore the rich history of St. Vivekanand School, from its foundation in 1977 to becoming one of Bikaner's leading educational institutions.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/about-us/our-history',
+  },
   keywords: [
     "school history",
     "St. Vivekanand School history",

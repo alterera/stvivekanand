@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Fee Structure 2025-26 | St. Vivekanand School Bikaner",
   description: "Explore our transparent and structured fee system for the academic year 2025-26, offering flexible payment options and clear fee breakdowns at St. Vivekanand School.",
+  alternates: {
+    canonical: 'https://stvivekanandschool.com/admissions/fee-structure',
+  },
   keywords: [
     "school fees",
     "fee structure",

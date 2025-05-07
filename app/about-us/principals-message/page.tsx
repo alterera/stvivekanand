@@ -4,65 +4,11 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-import Head from "next/head";
 
 
 const PrincipalMessage = () => {
   return (
     <>
-      <Head>
-        <title>Principal&apos;s Message | Saint Vivekanand School</title>
-
-        {/* Basic Meta Tags */}
-        <meta
-          name="description"
-          content="Our mission is to provide quality education in Bikaner, fostering knowledge, growth, and excellence."
-        />
-        <meta
-          name="keywords"
-          content="Principal's Message, Saint Vivekanand School, Education, Bikaner, Message"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="robots" content="index, follow" />
-
-        {/* Canonical Tag */}
-        <link
-          rel="canonical"
-          href="https://www.saintvivekanandschool.com/about-us/principal-message"
-        />
-
-        {/* Open Graph Tags (For Social Media) */}
-        <meta
-          property="og:title"
-          content="Principal's Message | Saint Vivekanand School"
-        />
-        <meta
-          property="og:description"
-          content="Our mission is to provide quality education in Bikaner."
-        />
-        <meta
-          property="og:url"
-          content="https://www.saintvivekanandschool.com/about-us/principal-message"
-        />
-        <meta property="og:image" content="/assets/logo/ic-logo.png" />
-        <meta property="og:type" content="website" />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Principal's Message | Saint Vivekanand School"
-        />
-        <meta
-          name="twitter:description"
-          content="Our mission is to provide quality education in Bikaner."
-        />
-        <meta name="twitter:image" content="/assets/logo/ic-logo.png" />
-
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <section className="w-full bg-[#F9F9F9] py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <DynamicBreadcrumb />
