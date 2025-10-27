@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PT_Sans, EB_Garamond } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
@@ -106,6 +107,20 @@ export default function RootLayout({
           <BackToTop/>
           <AdmissionModal />
           <Toaster />
+        
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-92M4BSDTEV"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-92M4BSDTEV');
+          `}
+        </Script>
       </body>
     </html>
   );
