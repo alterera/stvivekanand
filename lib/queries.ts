@@ -176,3 +176,28 @@ export const FEE_STRUCTURE_QUERY = groq`
     }
   }
 `;
+
+// Fetch all legal pages
+export const ALL_LEGAL_PAGES_QUERY = groq`
+  *[_type == "legal"] | order(lastUpdated desc) {
+    title,
+    slug {
+      current
+    },
+    pageType,
+    lastUpdated
+  }
+`;
+
+// Fetch a single legal page by slug
+export const LEGAL_PAGE_QUERY = groq`
+  *[_type == "legal" && slug.current == $slug][0] {
+    title,
+    metaDescription,
+    keywords,
+    content,
+    lastUpdated,
+    effectiveDate,
+    pageType
+  }
+`;

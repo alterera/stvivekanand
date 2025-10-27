@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { sanityClient } from '@/lib/sanity';
-import { ALL_BLOGS_QUERY, ALL_EVENTS_QUERY, ALL_CURRICULAR_QUERY } from '@/lib/queries';
+import { ALL_BLOGS_QUERY, ALL_EVENTS_QUERY, ALL_CURRICULAR_QUERY, ALL_LEGAL_PAGES_QUERY } from '@/lib/queries';
 
 interface Blog {
   slug: {
@@ -19,6 +19,13 @@ interface Curricular {
   slug: {
     current: string;
   };
+}
+
+interface LegalPage {
+  slug: {
+    current: string;
+  };
+  lastUpdated: string;
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -51,10 +58,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Fetch dynamic routes from Sanity
-    const [blogs, events, curricular] = await Promise.all([
+    const [blogs, events, curricular, legalPages] = await Promise.all([
       sanityClient.fetch<Blog[]>(ALL_BLOGS_QUERY),
       sanityClient.fetch<Event[]>(ALL_EVENTS_QUERY),
       sanityClient.fetch<Curricular[]>(ALL_CURRICULAR_QUERY),
+      sanityClient.fetch<LegalPage[]>(ALL_LEGAL_PAGES_QUERY),
     ]);
 
     // Blog routes
@@ -81,8 +89,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     })) || [];
 
+    // Legal page routes
+    const legalRoutes = legalPages?.map((page) => ({
+      url: `${baseUrl}/${page.slug.current}`,
+      lastModified: new Date(page.lastUpdated),
+      changeFrequency: 'monthly' as const,
+      priority: 0.5,
+    })) || [];
+
     // Combine all routes
-    return [...staticRoutes, ...blogRoutes, ...eventRoutes, ...curricularRoutes];
+    return [...staticRoutes, ...blogRoutes, ...eventRoutes, ...curricularRoutes, ...legalRoutes];
   } catch (error) {
     console.error('Error generating sitemap:', error);
     // Return only static routes if there's an error

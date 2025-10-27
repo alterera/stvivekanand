@@ -21,8 +21,8 @@ const footerLinks = [
   {
     section: "About Us",
     links: [
-      { title: "Our History", href: "/about/our-history" },
-      { title: "Why Choose Us", href: "/about/why-choose-us" },
+      { title: "Our History", href: "/about-us/our-history" },
+      { title: "Why Choose Us", href: "/about-us/why-choose-us" },
       { title: "CBSE Affiliation", href: "/academics/cbse-affiliation" },
       { title: "Careers", href: "#" },
     ],
