@@ -5,6 +5,7 @@ import BlogPost from "@/components/BlogPost";
 import { notFound } from "next/navigation";
 import { PortableTextBlock } from "next-sanity";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 interface BlogData {
   title: string;
@@ -39,6 +40,7 @@ const Page = async ({ params }: { params: Params }) => {
   return (
     <>
       <section className="py-20 w-full px-4 md:px-12">
+        <DynamicBreadcrumb />
         <h1 className="text-3xl font-bold text-center">{blogData.title}</h1>
         <div className="flex flex-col md:flex-row gap-10 mt-10 relative">
           <div className="w-full md:w-3/4">

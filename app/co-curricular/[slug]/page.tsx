@@ -5,6 +5,7 @@ import { sanityClient } from "@/lib/sanity";
 import { CURRICULAR_QUERY } from "@/lib/queries";
 import { CurricularData } from "@/types/index";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
+import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
 
 interface PageParams {
   params: Promise<{
@@ -46,6 +47,7 @@ const Page = async ({ params }: PageParams) => {
 
   return (
     <section className="py-20 max-w-7xl mx-auto">
+      <DynamicBreadcrumb />
       <h1 className="text-3xl font-bold text-center pb-2">{curricularData.title}</h1>
       <p className="text-center text-sm px-6 md:px-0">{curricularData.subtitle}</p>
 
