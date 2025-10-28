@@ -35,9 +35,9 @@ const DynamicBreadcrumb = () => {
                     {segment.replace(/-/g, " ").toUpperCase()}
                   </BreadcrumbPage>
                 ) : (
-                  <BreadcrumbLink href={href}>
+                  <BreadcrumbPage>
                     {segment.replace(/-/g, " ").toUpperCase()}
-                  </BreadcrumbLink>
+                  </BreadcrumbPage>
                 )}
               </BreadcrumbItem>
             </React.Fragment>

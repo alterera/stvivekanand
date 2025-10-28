@@ -60,7 +60,7 @@ const CareerCounselling = () => {
             {/* Image */}
             <div className="w-full md:w-1/2">
               <Image
-                src={"/assets/background/campus-bg.png"}
+                src={"/assets/background/campus-bg.webp"}
                 alt="career-counselling"
                 width={600}
                 height={400}
@@ -126,7 +126,7 @@ const images = [
     img: "/assets/background/bg-3.jpeg",
   },
   {
-    img: "/assets/background/campus-bg.png",
+    img: "/assets/background/campus-bg.webp",
   },
   {
     img: "/assets/background/hero-bg.png",
