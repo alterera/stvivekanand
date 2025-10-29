@@ -10,21 +10,21 @@ import Rankings from "@/components/Rankings";
 import Sports from "@/components/Sports";
 
 export const metadata: Metadata = {
-  title: "St. Vivekanand School | Excellence in Education",
-  description: "St. Vivekanand School is a premier educational institution offering quality education, sports, and extracurricular activities. Discover our academic programs, achievements, and student life.",
-  keywords: ["St. Vivekanand School", "education", "school", "academics", "sports", "extracurricular activities", "best school in bikaner", "cbse school in bikaner", "bikaner school", "Vivekanand School", "SVS", "svs bikaner", "cbse school in bikaner rajasthan", "saint vivekanand", ""],
+  title: "St. Vivekanand School | Best School in Bikaner",
+  description: "St. Vivekanand School is a premier educational institution in Bikaner offering quality education, sports, and extracurricular activities. Discover our academic programs, achievements, and student life.",
+  keywords: ["best school in bikaner", "saint vivekanand", "top cbse school bikaner", "best school bikaner", "school bikaner city", "cbse school in bikaner", "bikaner school", "vivekanand school", "svs bikaner", "cbse school in bikaner rajasthan"],
   authors: [{ name: "St. Vivekanand School" }],
   openGraph: {
-    title: "St. Vivekanand School | Excellence in Education",
-    description: "St. Vivekanand School is a premier educational institution offering quality education, sports, and extracurricular activities.",
+    title: "St. Vivekanand School | Best School in Bikaner",
+    description: "St. Vivekanand School is a premier educational institution in Bikaner offering quality education, sports, and extracurricular activities.",
     type: "website",
     locale: "en_IN",
     siteName: "St. Vivekanand School",
   },
   twitter: {
     card: "summary_large_image",
-    title: "St. Vivekanand School | Excellence in Education",
-    description: "St. Vivekanand School is a premier educational institution offering quality education, sports, and extracurricular activities.",
+    title: "St. Vivekanand School | Best School in Bikaner",
+    description: "St. Vivekanand School is a premier educational institution in Bikaner offering quality education, sports, and extracurricular activities.",
   },
   robots: {
     index: true,

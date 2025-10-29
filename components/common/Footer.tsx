@@ -39,7 +39,7 @@ const Footer = () => {
       viewport={{ once: true }}
     >
       <div className="max-w-7xl mx-auto px-4 md:px-0 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pb-8 border-b border-gray-700">
           {/* School Info */}
           <div className="space-y-6">
             <Image
@@ -57,19 +57,19 @@ const Footer = () => {
               </p>
               <div className="space-y-2">
                 <p className="flex items-center gap-2">
-                <Headset size={20} />
+                  <Headset size={20} />
                   <a href="tel:01512231906" className="hover:text-[#E63946]">
                     0151-223-1906
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
-                <Phone size={20} />
+                  <Phone size={20} />
                   <a href="tel:+919571665859" className="hover:text-[#E63946]">
                     +91 957-166-5859
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
-                  <Mail size={20}/>
+                  <Mail size={20} />
                   <a
                     href="mailto:st.vivekanand@yahoo.com"
                     className="hover:text-[#E63946]"
@@ -114,6 +114,46 @@ const Footer = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="pt-8">
+          <h3 className="text-xl font-bold mb-4">
+            Why Choose St. Vivekanand School, Bikaner?
+          </h3>
+          <p className="text-gray-300">
+            St. Vivekanand School is recognized as one of the best schools in
+            Bikaner, offering a nurturing environment focused on academic
+            excellence and moral development. As a top CBSE school in Bikaner,
+            we combine modern teaching methods with strong values to help
+            students grow intellectually, emotionally, and socially. With
+            experienced teachers, advanced facilities, and a commitment to
+            holistic education, St. Vivekanand School stands as the ideal choice
+            for parents seeking quality education and overall development for
+            their children.
+          </p>
+        </div>
+        <div className="mt-10">
+          <h3 className="text-xl font-bold mb-4">Popular Searches</h3>
+          {[
+            { title: "Best School in Bikaner", href: "/about-us/why-choose-us" },
+            { title: "Best School in Bikaner City", href: "/about-us/mission-vision" },
+            { title: "Top Schools in Bikaner", href: "/about-us/our-history" },
+            { title: "Bikaner School", href: "/" },
+            { title: "CBSE Schools in Bikaner Rajasthan", href: "/about-us/our-history" },
+            { title: "Top 10 CBSE Schools in Bikaner", href: "/about-us/why-choose-us" },
+          ].map((item, index, arr) => (
+            <React.Fragment key={item.title}>
+              <Link
+                href={item.href}
+                className="inline-block text-gray-300 leading-7 hover:text-white transition-colors"
+              >
+                {item.title}
+              </Link>
+              {index < arr.length - 1 && (
+                <span className="text-white mx-2">|</span>
+              )}
+            </React.Fragment>
+          ))}
         </div>
 
         {/* Bottom Bar */}
