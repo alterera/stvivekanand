@@ -136,7 +136,7 @@ const GridBox = ({ title, color, link, image, delay }: { title: string; color: s
   return (
     <motion.div
       className="relative h-72 md:h-96 w-full rounded-lg overflow-hidden group"
-      whileHover={{ scale: 1.05 }}
+      // whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay }}
@@ -144,7 +144,7 @@ const GridBox = ({ title, color, link, image, delay }: { title: string; color: s
     >
       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
       <div className={`absolute inset-0 ${color} opacity-70 group-hover:opacity-60 transition-all duration-300`}></div>
-      <Link href={link} className="absolute inset-0 flex items-center justify-center text-3xl font-bold" style={{ fontFamily: 'var(--font-garamond)' }}>
+      <Link href={link} className="absolute inset-0 flex items-center justify-center text-3xl font-bold hover:underline duration-500" style={{ fontFamily: 'var(--font-garamond)' }}>
         {title}
       </Link>
     </motion.div>

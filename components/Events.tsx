@@ -105,7 +105,7 @@ const Events = () => {
             <motion.div
               key={event._id} // Use the unique _id from Sanity as the key
               className="relative h-[200px] md:h-[250px] overflow-hidden group rounded-lg shadow-lg"
-              whileHover={{ scale: 1.05 }}
+              // whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
             >
               {/* Background Image */}

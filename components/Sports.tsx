@@ -145,7 +145,7 @@ const Sports = () => {
               <motion.div
                 key={sport.id}
                 className="relative h-[200px] md:h-[300px] overflow-hidden group rounded-sm shadow-lg"
-                whileHover={{ scale: 1.05 }}
+                // whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 {/* Background Image */}

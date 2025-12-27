@@ -55,7 +55,7 @@ const Rankings = () => {
                 key={rank.id}
                 className="bg-gray-100 rounded-md p-6 flex flex-col items-center text-center 
                 group hover:bg-[#457B9D] transition-all duration-300 shadow-lg"
-                whileHover={{ scale: 1.05 }}
+                // whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 <h3 className="text-4xl md:text-5xl font-bold text-[#7B243D] mb-2 

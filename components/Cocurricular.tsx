@@ -137,13 +137,13 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      // whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
       className="relative flex flex-col justify-between p-6 rounded-lg shadow-lg w-full h-[320px] text-white overflow-hidden"
       style={{ background: `linear-gradient(to bottom, #0D3658, ${bottom})` }}
     >
       <div className="absolute inset-0 opacity-70 mix-blend-multiply">
-        <Image src={image} alt={title} fill className="object-cover" />
+        <Image src={image} alt={title} fill className="object-cover hover:scale-110 duration-500" />
       </div>
 
       <div className="relative z-10">

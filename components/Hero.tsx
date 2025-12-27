@@ -92,7 +92,7 @@ const Hero = () => {
                 transition={{ duration: 1.2 }}
               >
                 <Link href={hero[heroCount % hero.length]?.url || "#"}>
-                  <Button className="text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold hover:scale-105 transition-transform duration-300">
+                  <Button className="text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold transition-transform duration-300">
                     {hero[heroCount % hero.length]?.buttonText}
                   </Button>
                 </Link>
