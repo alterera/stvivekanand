@@ -110,7 +110,7 @@ export default function RootLayout({
         
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-92M4BSDTEV"
+          src="https://www.googletagmanager.com/gtag/js?id=G-Z9BN0MGCL3"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -118,7 +118,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-92M4BSDTEV');
+            gtag('config', 'G-Z9BN0MGCL3');
           `}
         </Script>
       </body>
