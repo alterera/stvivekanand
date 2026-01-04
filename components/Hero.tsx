@@ -8,15 +8,23 @@ import Link from "next/link";
 import { sanityClient } from "@/lib/sanity";
 import Preloader from "./Preloader";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import MuxPlayer from "@mux/mux-player-react";
 
 type Slide = { type: "video" | "image"; url: string };
 
 // Static media array (Videos & Images)
 const slides: Slide[] = [
   { type: "image", url: "/assets/background/campus-main.webp" }, 
-  { type: "video", url: "/assets/background/hero.webm" },
+  { type: "video", url: "sZbjTP1OAN00kbRW3aekfYDgFJn3r01R02tHST6JBha9rg.m3u8" }, // Mux playback ID
   { type: "image", url: "/assets/background/young.webp" },
 ];
+
+// Get video playback IDs from slides for preloading
+const getVideoPlaybackIds = (slides: Slide[]): string[] => {
+  return slides
+    .filter(slide => slide.type === "video")
+    .map(slide => slide.url.replace(/\.m3u8$/, ""));
+};
 
 interface HeroData {
   title: string;
@@ -47,8 +55,24 @@ const Hero = () => {
 
   if (!hero) return <Preloader />;
 
+  const videoPlaybackIds = getVideoPlaybackIds(slides);
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
+      {/* Hidden Preloader - Preloads video while user is on first slide */}
+      <div className="absolute opacity-0 pointer-events-none -z-10" aria-hidden="true">
+        {videoPlaybackIds.map((playbackId, index) => (
+          <MuxPlayer
+            key={`preload-${index}`}
+            playbackId={playbackId}
+            preload="auto"
+            muted
+            playsInline
+            style={{ width: "1px", height: "1px" }}
+          />
+        ))}
+      </div>
+
       {/* Background Media */}
       <Background mediaType={slides[heroCount].type} mediaUrl={slides[heroCount].url} />
 

@@ -1,28 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import MuxPlayer from "@mux/mux-player-react";
+import { motion } from "framer-motion";
 
 const Background = ({ mediaType, mediaUrl }: { mediaType: "video" | "image"; mediaUrl: string }) => {
-  const [isSafari, setIsSafari] = useState(false);
-
-  useEffect(() => {
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
-  }, []);
-
+  // Strip .m3u8 extension if present for Mux playback ID
+  const playbackId = mediaUrl.replace(/\.m3u8$/, "");
+  const posterUrl = `https://image.mux.com/${playbackId}/thumbnail.jpg?time=0`;
+  
   return (
     <div className="absolute inset-0 w-full h-full">
       {mediaType === "video" ? (
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          {/* Use `.mp4` if Safari is detected */}
-          {isSafari ? (
-            <source src={'/assets/background/hero-fallback.mp4'} type="video/mp4" />
-          ) : (
-            <>
-              <source src={mediaUrl} type="video/webm" />
-            </>
-          )}
-        </video>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <MuxPlayer
+            playbackId={playbackId}
+            poster={posterUrl}
+            autoPlay="any"
+            loop
+            muted
+            playsInline
+            preload="auto"
+            primaryColor="transparent"
+            secondaryColor="transparent"
+            streamType="on-demand"
+            className="w-full h-full object-cover"
+            style={{ 
+              width: "100%", 
+              height: "100%", 
+              objectFit: "cover",
+              position: "absolute",
+              top: 0,
+              left: 0
+            }}
+          />
+        </motion.div>
       ) : (
         <Image src={mediaUrl} alt="Background" height={300} width={800} className="w-full h-full object-cover" />
       )}

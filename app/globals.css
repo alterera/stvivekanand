@@ -20,3 +20,10 @@ body {
 .fontGaramond {
   font-family: var(--font-garamond);
 }
+
+/* Mux Player Optimizations for Background Video */
+mux-player {
+  --loading-indicator: none;
+  --controls: none;
+  --box-shadow: none;
+}
