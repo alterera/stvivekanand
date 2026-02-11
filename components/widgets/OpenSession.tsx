@@ -6,7 +6,7 @@ const OpenSession = () => {
               <h3 className=" mb-6">Admission Open</h3>
 
               <h2 className="text-yellow-300 mb-5">nursery to class xii</h2>
-              <p className="mb-5">2025-26 session</p>
+              <p className="mb-5">2026-27 session</p>
               <p className="text-3xl font-semibold ">apply now</p>
     </div>
   )

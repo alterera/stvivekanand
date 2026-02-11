@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       );
     } else {
       return NextResponse.json(
-        { message: 'Failed to send email' },
+        { message: 'Failed to send email'},
         { status: 500 }
       );
     }

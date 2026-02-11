@@ -76,7 +76,7 @@ const AdmissionForm = () => {
   return (
     <section className="w-full">
       <h3 className="text-2xl font-bold text-[#1D3557] mb-6 text-center">
-        Admission Open for 2025-26
+        Admission Open for 2026-27
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -144,10 +144,10 @@ const AdmissionForm = () => {
                 <SelectValue placeholder="Select your academic year" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="2025-2026">2025 - 2026</SelectItem>
-                <SelectItem value="2024-2025">2024 - 2025</SelectItem>
-                <SelectItem value="2023-2024">2023 - 2024</SelectItem>
-                <SelectItem value="2022-2023">2022 - 2023</SelectItem>
+                <SelectItem value="2025-2026">2026 - 2027</SelectItem>
+                <SelectItem value="2024-2025">2025 - 2026</SelectItem>
+                <SelectItem value="2023-2024">2024 - 2025</SelectItem>
+                <SelectItem value="2022-2023">2023 - 2024</SelectItem>
               </SelectContent>
             </Select>
           </div>
