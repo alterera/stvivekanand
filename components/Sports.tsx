@@ -85,7 +85,7 @@ const Sports = () => {
             {/* Image Container */}
             <div className="lg:w-full relative h-[200px] md:h-[100px] lg:h-[300px] overflow-hidden rounded-sm shadow-lg">
               <Image
-                src="/assets/sports/sports.jpeg"
+                src="/assets/sports/sports-2.jpeg"
                 alt="Sports at St. Vivekanand"
                 fill
                 className="object-cover transition-transform duration-500 hover:scale-105"
