@@ -29,7 +29,11 @@ const fetcher = (query: string) => sanityClient.fetch(query);
 
 const Events = () => {
   // Fetch events data using SWR
-  const { data: events, error, isLoading } = useSWR<EventCard[]>(EVENTS_QUERY, fetcher);
+  const {
+    data: events,
+    error,
+    isLoading,
+  } = useSWR<EventCard[]>(EVENTS_QUERY, fetcher);
 
   // Show a loading state while data is being fetched
   if (isLoading) {
@@ -53,7 +57,9 @@ const Events = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1D3557] mb-2">
             Events & Activities
           </h2>
-          <p className="text-center mb-10">Failed to load events. Please try again later.</p>
+          <p className="text-center mb-10">
+            Failed to load events. Please try again later.
+          </p>
         </div>
       </section>
     );
@@ -67,9 +73,27 @@ const Events = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <Image src={'/assets/patterns/dots.png'} alt="pattern" height={100} width={100} className="hidden md:flex absolute top-16"/>
-      <Image src={'/assets/patterns/hilly.png'} alt="pattern" height={100} width={100} className="absolute bottom-16 right-0"/>
-      <Image src={'/assets/patterns/3-circle.png'} alt="pattern" height={100} width={180} className="absolute bottom-16 left-10 -rotate-12"/>
+      <Image
+        src={"/assets/patterns/dots.png"}
+        alt="pattern"
+        height={100}
+        width={100}
+        className="hidden md:flex absolute top-16"
+      />
+      <Image
+        src={"/assets/patterns/hilly.png"}
+        alt="pattern"
+        height={100}
+        width={100}
+        className="absolute bottom-16 right-0"
+      />
+      <Image
+        src={"/assets/patterns/3-circle.png"}
+        alt="pattern"
+        height={100}
+        width={180}
+        className="absolute bottom-16 left-10 -rotate-12"
+      />
       <div className="max-w-7xl mx-auto px-4 md:px-0">
         {/* Section Title */}
         <motion.h2
@@ -80,7 +104,13 @@ const Events = () => {
           viewport={{ once: true }}
         >
           Events & Activities
-          <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[55%]"/>
+          <Image
+            src="/assets/patterns/curvy.png"
+            alt="hilly"
+            height={100}
+            width={120}
+            className="absolute top-10 left-[55%]"
+          />
         </motion.h2>
         <motion.p
           className="text-center mb-10"
@@ -156,12 +186,14 @@ const Events = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <Button
-            variant="destructive"
-            className="text-white bg-[#7B243D] hover:bg-[#E63946]/90 px-6 py-2 text-base z-10"
-          >
-            View All Events
-          </Button>
+          <Link href={"/events"}>
+            <Button
+              variant="destructive"
+              className="text-white bg-[#7B243D] hover:bg-[#E63946]/90 px-6 py-2 text-base z-10"
+            >
+              View All Events
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </motion.section>

@@ -95,7 +95,7 @@ export const BLOG_QUERY = groq`
 
 // Fetch all events
 export const ALL_EVENTS_QUERY = groq`
-  *[_type == "event"] {
+  *[_type == "event"] | order(_createdAt desc) {
     title,
     slug {
       current

@@ -59,7 +59,7 @@ const FeeStructure = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
-            Fee Structure 2025-26
+            Fee Structure 2026-27
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Our school provides a transparent and structured fee system to

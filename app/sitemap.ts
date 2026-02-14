@@ -49,6 +49,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/admissions/career-counselling',
     '/mandatory-disclosure',
     '/contact-us',
+    '/news',
+    '/events',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
