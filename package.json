@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@heroui/navbar": "^2.2.12",
@@ -21,7 +21,7 @@
     "@radix-ui/react-select": "^2.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@radix-ui/react-toast": "^1.2.10",
-    "@sanity/client": "^6.28.3",
+    "@sanity/client": "^7.26.2",
     "@sanity/image-url": "^1.1.0",
     "@sanity/presentation": "^2.0.0",
     "@sanity/vision": "^3.77.2",
@@ -33,30 +33,38 @@
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.475.0",
     "motion": "^12.4.10",
-    "next": "15.2.8",
-    "next-sanity": "^9.8.60",
+    "next": "16.3.0",
+    "next-sanity": "^11.6.13",
     "nextjs-toploader": "^3.7.15",
     "nodemailer": "^6.10.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
-    "react-is": "^19.1.0",
+    "react-is": "19.2.8",
     "styled-components": "^6.1.15",
-    "swiper": "^11.2.4",
+    "swiper": "^14.1.0",
     "swr": "^2.3.3",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.1.7",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "eslint": "^9.39.2",
+    "eslint-config-next": "16.3.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.8.2"
+  },
+  "allowScripts": {
+    "@heroui/shared-utils@2.1.6": true,
+    "esbuild@0.25.6": true,
+    "sharp@0.33.5": true
+  },
+  "overrides": {
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4"
   }
 }

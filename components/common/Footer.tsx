@@ -166,7 +166,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © St. Vivekanand School, 2025. All rights reserved.
+              © St. Vivekanand School, 2026. All rights reserved.
             </p>
             <div className="flex items-center gap-4 text-sm text-gray-400">
               <Link href="/terms-of-use" className="hover:text-white">
@@ -182,12 +182,12 @@ const Footer = () => {
               </Link>
             </div>
             <p className="text-sm text-gray-400">
-              Powered by{" "}
+              Developed by{" "}
               <a
                 href="https://alterera.net"
                 className="text-white hover:text-[#E63946]"
               >
-                Alterera Networks
+                Alterera
               </a>
             </p>
           </div>
