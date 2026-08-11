@@ -21,46 +21,41 @@ const localDocuments = [
   },
   {
     slNo: 2,
-    information: "COPIES OF SCHOOL LAND CERTIFICATE",
-    href: "/documents/land-certificate.pdf",
-  },
-  {
-    slNo: 3,
     information: "SCHOOL FEE STRUCTURE 2026-27",
     href: "/documents/fee-structure-2026-27.pdf",
   },
   {
-    slNo: 4,
+    slNo: 3,
     information: "NO OBJECTION CERTIFICATE",
     href: "/documents/NOC.pdf",
   },
   {
-    slNo: 5,
+    slNo: 4,
     information: "BUILDING SAFETY CERTIFICATE",
     href: "/documents/building-certificate.pdf",
   },
   {
-    slNo: 6,
+    slNo: 5,
     information: "VALID FIRE SAFETY CERTIFICATE",
     href: "/documents/fire-certificate.pdf",
   },
   {
-    slNo: 7,
+    slNo: 6,
     information: "WATER TEST CERTIFICATE",
     href: "/documents/water-health-certificate.pdf",
   },
   {
-    slNo: 8,
+    slNo: 7,
     information: "List of PTA",
     href: "/documents/list_of_PTA.pdf",
   },
   {
-    slNo: 9,
+    slNo: 8,
     information: "List of SMC",
     href: "/documents/list_of_SMC.pdf",
   },
   {
-    slNo: 10,
+    slNo: 9,
     information: "Trust Certificate",
     href: "/documents/trust-certificate.pdf",
   },
