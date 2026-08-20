@@ -25,7 +25,7 @@ const documentsAndInfo = [
 const resultAndAcademics = [
   { slNo: 1, information: "FEE STRUCTURE OF THE SCHOOL", href: "/documents/fee-structure-2026-27.pdf" },
   { slNo: 2, information: "ANNUAL ACADEMIC CALENDER", href: "/documents/svs-calender.pdf" },
-  { slNo: 3, information: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)", href: "/documents/list_of_SMC.pdf" },
+  { slNo: 3, information: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)", href: "/documents/List of SMC.pdf" },
   { slNo: 4, information: "LIST OF PARENTS TEACHERS ASSOCIATION (PTA)", href: "/documents/list_of_PTA.pdf" },
   { slNo: 5, information: "LAST THREE YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABLE", href: "/documents/Last Three Year Board Result.pdf" },
 ] as const;
