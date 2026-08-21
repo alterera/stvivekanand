@@ -20,6 +20,7 @@ const documentsAndInfo = [
   { slNo: 4, information: "BUILDING SAFETY CERTIFICATE", href: "/documents/building-certificate.pdf" },
   { slNo: 5, information: "VALID FIRE SAFETY CERTIFICATE", href: "/documents/fire-certificate.pdf" },
   { slNo: 6, information: "WATER TEST CERTIFICATE", href: "/documents/water-health-certificate.pdf" },
+  {slNo: 7, information: "COPY OF THE DEO CERTIFICATE SUBMITTED BY THE SCHOOL FOR AFFILIATION/UPGRADATION/EXTENSION OF AFFILIATIONOR SELF CERTIFICATION BY SCHOOL", href: "/documents/Self Certificate.pdf" },
 ] as const;
 
 const resultAndAcademics = [
@@ -28,6 +29,10 @@ const resultAndAcademics = [
   { slNo: 3, information: "LIST OF SCHOOL MANAGEMENT COMMITTEE (SMC)", href: "/documents/List of SMC.pdf" },
   { slNo: 4, information: "LIST OF PARENTS TEACHERS ASSOCIATION (PTA)", href: "/documents/list_of_PTA.pdf" },
   { slNo: 5, information: "LAST THREE YEAR RESULT OF THE BOARD EXAMINATION AS PER APPLICABLE", href: "/documents/Last Three Year Board Result.pdf" },
+] as const;
+
+const facultyDetails = [
+  { slNo: 1, information: "FACULTY DETAILS", href: "/documents/5_6068714086881829020.pdf" },
 ] as const;
 
 function LocalDocTable({ title, items }: { title: string; items: ReadonlyArray<{ slNo: number; information: string; href: string }> }) {
@@ -135,10 +140,7 @@ const MandatoryDisclosure: React.FC<Props> = ({ data }) => {
 
           <LocalDocTable title="Documents and Information" items={documentsAndInfo} />
           <LocalDocTable title="Result and Academics" items={resultAndAcademics} />
-
-          {data.tables.slice(1).map((table, index) => (
-            <SanityTable key={`faculty-${index}`} table={table} onViewFile={handleOpenModal} tableTitle="Faculty Details" />
-          ))}
+          <LocalDocTable title="Faculty Details" items={facultyDetails} />
         </div>
 
         <div className="w-full md:w-1/3 h-fit rounded-md sticky top-5">
