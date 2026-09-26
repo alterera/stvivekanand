@@ -9,9 +9,10 @@ import Image from "next/image";
 
 interface SwiperComponentProps {
   images: string[];
+  label?: string;
 }
 
-const SwiperComponent: React.FC<SwiperComponentProps> = ({ images }) => {
+const SwiperComponent: React.FC<SwiperComponentProps> = ({ images, label = "Photo" }) => {
   return (
     <div className="relative">
       <Swiper
@@ -33,7 +34,14 @@ const SwiperComponent: React.FC<SwiperComponentProps> = ({ images }) => {
       >
         {images.map((img, idx) => (
           <SwiperSlide key={idx}>
-            <Image src={img} alt={`Slide ${idx}`} width={500} height={300} className="w-full"/>
+            <Image
+              src={img}
+              alt={`${label} ${idx + 1}`}
+              width={800}
+              height={480}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="w-full h-auto"
+            />
           </SwiperSlide>
         ))}
       </Swiper>

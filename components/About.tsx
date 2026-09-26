@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Quote from "./ui/quote";
 
 const About = () => {
@@ -76,10 +76,11 @@ const About = () => {
             className="absolute bottom-0 right-6"
           >
             <Image
-              src="/assets/about/principal.png"
-              alt="Nidhi Gupta"
+              src="/assets/about/principal.webp"
+              alt="Nidhi Gupta, Principal"
               width={600}
               height={300}
+              sizes="600px"
             />
           </motion.div>
         </motion.div>
@@ -142,11 +143,11 @@ const About = () => {
             className={`absolute bottom-0 flex justify-center -right-48 w-full`}
           >
             <Image
-              src="/assets/about/Nipun_Gupta.png"
-              alt="Nipun Gupta"
+              src="/assets/about/Nipun_Gupta.webp"
+              alt="Nipun Gupta, Director"
               width={500}
               height={400}
-              className=""
+              sizes="500px"
             />
           </motion.div>
         </div>
@@ -163,10 +164,11 @@ const About = () => {
           {/* Image Container */}
           <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/about/principal.png"
-              alt="Nidhi Gupta"
+              src="/assets/about/principal.webp"
+              alt="Nidhi Gupta, Principal"
               width={480}
               height={500}
+              sizes="(max-width: 768px) 90vw, 480px"
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
             <div className="h-60"></div>
@@ -204,10 +206,11 @@ const About = () => {
           {/* Image Container */}
           <div className="relative w-full bg-white/10 p-6 rounded-lg mt-6">
             <Image
-              src="/assets/about/Nipun_Gupta.png"
-              alt="Nipun Gupta"
+              src="/assets/about/Nipun_Gupta.webp"
+              alt="Nipun Gupta, Director"
               width={480}
               height={450}
+              sizes="(max-width: 768px) 90vw, 480px"
               className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
             />
             <div className="h-60"></div>

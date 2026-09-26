@@ -1,38 +1,49 @@
-// lib/queries.ts
-import { groq } from 'next-sanity';
-import { sanityClient } from './sanity';
-import { Sport } from '@/types/index';
+import { groq } from "next-sanity";
+import { sanityFetch } from "./sanity";
+import { Sport } from "@/types/index";
 
-export async function getSportsData(): Promise<Sport[]> {
-  return sanityClient.fetch(groq`
-    *[_type == "sports"] {
-      _id,
-      title,
-      intro,
-      atSchoolTitle,
-      atSchoolIntro,
-      images[] {
-        asset-> {
-          _id,
-          url
-        }
-      },
-      faqs[] {
-        faq,
-        answer
-      },
-      sportId {
-        current
+export const SPORTS_QUERY = groq`
+  *[_type == "sports"] {
+    _id,
+    title,
+    intro,
+    atSchoolTitle,
+    atSchoolIntro,
+    images[] {
+      asset-> {
+        _id,
+        url
       }
+    },
+    faqs[] {
+      faq,
+      answer
+    },
+    sportId {
+      current
     }
-  `);
+  }
+`;
+
+export function getSportsData(): Promise<Sport[]> {
+  return sanityFetch<Sport[]>({ query: SPORTS_QUERY, tags: ["sports"] });
 }
 
-export const GALLERY_QUERY = `*[_type == "gallery"]{
-  title,
-  "images": images[].asset->url,
-  category
-}`;
+export const HERO_QUERY = groq`
+  *[_type == "hero"] | order(order asc) {
+    title,
+    description,
+    buttonText,
+    url
+  }
+`;
+
+export const GALLERY_QUERY = groq`
+  *[_type == "gallery"] {
+    title,
+    "images": images[].asset->url
+  }
+`;
 
 export const CURRICULAR_QUERY = groq`
   *[_type == "curricular" && slug.current == $slug][0] {
@@ -47,13 +58,13 @@ export const CURRICULAR_QUERY = groq`
   }
 `;
 
-// Fetch all curricular activities
 export const ALL_CURRICULAR_QUERY = groq`
   *[_type == "curricular"] {
     title,
     slug {
       current
     },
+    _updatedAt,
     description,
     image {
       asset-> {
@@ -63,7 +74,6 @@ export const ALL_CURRICULAR_QUERY = groq`
   }
 `;
 
-// Fetch all blog posts
 export const ALL_BLOGS_QUERY = groq`
   *[_type == "blog"] | order(publishedAt desc) {
     title,
@@ -75,15 +85,31 @@ export const ALL_BLOGS_QUERY = groq`
         url
       }
     },
-    publishedAt
+    publishedAt,
+    _updatedAt
   }
 `;
 
-// Fetch a single blog post by slug
 export const BLOG_QUERY = groq`
   *[_type == "blog" && slug.current == $slug][0] {
     title,
+    excerpt,
     article,
+    featuredImage {
+      asset-> {
+        url
+      }
+    },
+    publishedAt,
+    _updatedAt
+  }
+`;
+
+export const HOME_BLOGS_QUERY = groq`
+  *[_type == "blog"] | order(publishedAt desc) [0...4] {
+    title,
+    slug,
+    excerpt,
     featuredImage {
       asset-> {
         url
@@ -93,13 +119,13 @@ export const BLOG_QUERY = groq`
   }
 `;
 
-// Fetch all events
 export const ALL_EVENTS_QUERY = groq`
   *[_type == "event"] | order(_createdAt desc) {
     title,
     slug {
       current
     },
+    _updatedAt,
     subtitle,
     description,
     images[] {
@@ -111,7 +137,15 @@ export const ALL_EVENTS_QUERY = groq`
   }
 `;
 
-// Fetch latest blog posts (for the "Latest Posts" section)
+export const HOME_EVENTS_QUERY = groq`
+  *[_type == "event"] | order(_createdAt desc) {
+    _id,
+    title,
+    "imageUrl": images[0].asset->url,
+    "slug": slug.current
+  }
+`;
+
 export const LATEST_BLOGS_QUERY = groq`
   *[_type == "blog"] | order(publishedAt desc) [0...4] {
     title,
@@ -124,6 +158,8 @@ export const EVENT_QUERY = groq`
     title,
     subtitle,
     description,
+    _createdAt,
+    _updatedAt,
     images[] {
       asset-> {
         _id,
@@ -177,7 +213,6 @@ export const FEE_STRUCTURE_QUERY = groq`
   }
 `;
 
-// Fetch all legal pages
 export const ALL_LEGAL_PAGES_QUERY = groq`
   *[_type == "legal"] | order(lastUpdated desc) {
     title,
@@ -189,15 +224,19 @@ export const ALL_LEGAL_PAGES_QUERY = groq`
   }
 `;
 
-// Fetch a single legal page by slug
 export const LEGAL_PAGE_QUERY = groq`
   *[_type == "legal" && slug.current == $slug][0] {
     title,
     metaDescription,
-    keywords,
     content,
     lastUpdated,
     effectiveDate,
     pageType
   }
 `;
+
+export const SLUGS_QUERY = groq`*[_type == $type && defined(slug.current)].slug.current`;
+
+export function getSlugs(type: "blog" | "event" | "curricular" | "legal") {
+  return sanityFetch<string[]>({ query: SLUGS_QUERY, params: { type }, tags: [type] });
+}

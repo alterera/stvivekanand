@@ -1,8 +1,8 @@
-"use client";
-
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-import { motion } from "framer-motion";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
+import * as motion from "motion/react-client";
 import Image from "next/image";
+
+const contentSizes = "(max-width: 768px) 100vw, 50vw";
 
 const fadeInVariant = {
   hidden: { opacity: 0, y: 50 },
@@ -20,7 +20,8 @@ const Page = () => {
               Academic Facilities
               <Image
                 src={"/assets/patterns/curvy.png"}
-                alt="shs"
+                alt=""
+                aria-hidden="true"
                 height={100}
                 width={100}
                 className="absolute left-[55%]"
@@ -44,24 +45,27 @@ const Page = () => {
                 variants={fadeInVariant}
               >
                 <Image
-                  src={"/assets/patterns/science-lab.png"}
+                  src={"/assets/patterns/science-lab.webp"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-10 md:bottom-0 right-80 opacity-30 rotate-12"
                 />
                 <Image
-                  src={"/assets/patterns/micro.png"}
+                  src={"/assets/patterns/micro.webp"}
                   height={100}
                   width={350}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-20 md:top-24 right-0 opacity-30 md:-rotate-12"
                 />
                 <Image
                   src={"/assets/patterns/joint-dash.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-40 left-24"
                 />
                 <motion.div
@@ -73,7 +77,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/science.webp"}
-                    alt={"science"}
+                    alt="Students working in the science laboratory"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -83,9 +88,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
-                    Science Laborities
-                  </h3>
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
+                    Science Laboratories
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -128,14 +133,16 @@ const Page = () => {
                   src={"/assets/patterns/joint-2.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-52 left-72"
                 />
                 <Image
                   src={"/assets/patterns/astro.png"}
                   height={100}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute -bottom-20 left-5 opacity-15 rotate-12"
                 />
                 <motion.div
@@ -147,7 +154,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/space.webp"}
-                    alt={"science"}
+                    alt="Space Lab at St. Vivekanand School"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -157,9 +165,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Space Lab
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -205,21 +213,24 @@ const Page = () => {
                   src={"/assets/patterns/joint-dash.png"}
                   height={200}
                   width={280}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-44 left-[450px] rotate-90"
                 />
                 <Image
                   src={"/assets/patterns/rob.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-72 md:bottom-0 right-0 md:right-64 opacity-15 rotate-12"
                 />
                 <Image
                   src={"/assets/patterns/rob-2.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute top-80 md:top-28 left-20 md:left-[80%] opacity-15 rotate-12"
                 />
                 <motion.div
@@ -231,7 +242,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/ai-ml.webp"}
-                    alt={"science"}
+                    alt="Students building projects in the robotics and AI lab"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -241,9 +253,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Robotics Lab: Where Innovation Meets Learning
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -287,7 +299,8 @@ const Page = () => {
                   src={"/assets/patterns/joint-2.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-40 left-96 rotate-180"
                 />
                 <motion.div
@@ -299,7 +312,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/computer.webp"}
-                    alt={"science"}
+                    alt="Computer lab with student workstations"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -309,9 +323,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Computer Lab
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -353,14 +367,16 @@ const Page = () => {
                   src={"/assets/patterns/joint-dash.png"}
                   height={200}
                   width={300}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-48 left-[450px] rotate-90"
                 />
                 <Image
                   src={"/assets/patterns/boy.png"}
                   height={200}
                   width={300}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-40 opacity-10 right-10"
                 />
                 <motion.div
@@ -372,7 +388,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/experiential.webp"}
-                    alt={"science"}
+                    alt="Students in an experiential learning activity"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -382,9 +399,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Best School for Experiential Learning
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -428,21 +445,24 @@ const Page = () => {
                   src={"/assets/patterns/books.png"}
                   height={100}
                   width={300}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-0 md:bottom-10 left-36  opacity-15"
                 />
                 <Image
                   src={"/assets/patterns/joint-dash.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-40 right-64"
                 />
                 <Image
                   src={"/assets/patterns/book-2.png"}
                   height={100}
                   width={150}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute top-0 left-96 opacity-10"
                 />
                 <motion.div
@@ -454,7 +474,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/library.webp"}
-                    alt={"science"}
+                    alt="School library reading area"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -464,9 +485,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Library
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -498,7 +519,8 @@ const Page = () => {
                   src={"/assets/patterns/joint-2.png"}
                   height={200}
                   width={450}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-96 left-64 rotate-180"
                 />
                 <motion.div
@@ -510,7 +532,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/ai-ml.webp"}
-                    alt={"science"}
+                    alt="Students building projects in the robotics and AI lab"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -520,9 +543,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Artificial Intelligence & Machine Learning Lab
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -553,14 +576,16 @@ const Page = () => {
                   src={"/assets/patterns/joint-2.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="hidden md:flex absolute -bottom-48 right-72 rotate-180"
                 />
                 <Image
                   src={"/assets/patterns/phonic.png"}
                   height={200}
                   width={400}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-0 md:bottom-10 right-5 md:left-32  opacity-15"
                 />
                 <motion.div
@@ -572,7 +597,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/phonic.webp"}
-                    alt={"science"}
+                    alt="Young students in the phonics lab"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -582,10 +608,10 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     Phonic Lab: A Revolutionary Approach to Early Language
                     Learning
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}
@@ -627,7 +653,8 @@ const Page = () => {
                   src={"/assets/patterns/stem.png"}
                   height={200}
                   width={350}
-                  alt="science-p"
+                  alt=""
+                  aria-hidden="true"
                   className="absolute bottom-0 md:bottom-10 right-32  opacity-15"
                 />
                 <motion.div
@@ -639,7 +666,8 @@ const Page = () => {
                 >
                   <Image
                     src={"/assets/academics/stem.webp"}
-                    alt={"science"}
+                    alt="Students in the STEM skill program"
+                    sizes={contentSizes}
                     width={400}
                     height={300}
                     className="rounded-lg shadow-lg object-cover w-full"
@@ -649,9 +677,9 @@ const Page = () => {
                   className="relative flex flex-col justify-center w-full md:w-1/2"
                   variants={fadeInVariant}
                 >
-                  <h3 className="text-4xl font-bold text-[#1D3557] mb-4">
+                  <h2 className="text-4xl font-bold text-[#1D3557] mb-4">
                     STEM Skill Program: Hands-On Learning for Future Innovators
-                  </h3>
+                  </h2>
                   <motion.div
                     className="prose max-w-none text-gray-700"
                     variants={fadeInVariant}

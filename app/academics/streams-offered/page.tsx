@@ -1,18 +1,13 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { FaCalculator } from "react-icons/fa";
-import { MdScience } from "react-icons/md";
-import { HiAcademicCap } from "react-icons/hi";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import * as motion from "motion/react-client";
+import { Atom, Calculator, GraduationCap } from "lucide-react";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 const streams = [
   {
     id: 1,
     title: "Science Group",
     description: "A strong foundation in scientific principles and analytical skills.",
-    icon: <MdScience className="text-5xl text-[#E63946]" />,
+    icon: <Atom className="size-12 shrink-0 text-[#E63946]" aria-hidden="true" />,
     subjects: ["English", "Physics", "Chemistry", "Mathematics", "Biology"],
     optional: ["Physical Education", "Informatics", "Hindi"],
   },
@@ -20,7 +15,7 @@ const streams = [
     id: 2,
     title: "Commerce Group",
     description: "Comprehensive business education with financial and economic insights.",
-    icon: <FaCalculator className="text-5xl text-[#E63946]" />,
+    icon: <Calculator className="size-12 shrink-0 text-[#E63946]" aria-hidden="true" />,
     subjects: ["English", "Accountancy", "Business Organization", "Economics"],
     optional: ["Hindi", "Physical Education", "Informatics"],
   },
@@ -47,9 +42,9 @@ const Streams = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Streams Offered at St. Vivekanand School
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Our school provides a structured academic journey from UKG to Class XII, offering 
             specialized streams in Science and Commerce for senior secondary students.
@@ -65,8 +60,8 @@ const Streams = () => {
           viewport={{ once: true }}
         >
           <div className="bg-[#457B9D] text-white py-10 px-6 rounded-lg shadow-lg">
-            <HiAcademicCap className="text-5xl mx-auto mb-4 text-white" />
-            <h3 className="text-2xl font-bold">Complete Academic Journey</h3>
+            <GraduationCap className="size-12 mx-auto mb-4 text-white" aria-hidden="true" />
+            <h2 className="text-2xl font-bold">Complete Academic Journey</h2>
             <p className="mt-3 text-gray-200 max-w-3xl mx-auto">
               At St. Vivekanand School, we nurture students from UKG to Class XII 
               with a balanced curriculum focusing on academic excellence, leadership, and personal growth.
@@ -95,7 +90,7 @@ const Streams = () => {
               {/* Icon & Title */}
               <div className="flex items-center gap-4">
                 {stream.icon}
-                <h3 className="text-2xl font-bold">{stream.title}</h3>
+                <h2 className="text-2xl font-bold">{stream.title}</h2>
               </div>
 
               {/* Description */}
@@ -103,7 +98,7 @@ const Streams = () => {
 
               {/* Subjects */}
               <div>
-                <h4 className="text-lg font-semibold underline">Core Subjects:</h4>
+                <h3 className="text-lg font-semibold underline">Core Subjects:</h3>
                 <ul className="list-disc pl-6 mt-2 text-gray-300">
                   {stream.subjects.map((subject) => (
                     <li key={subject}>{subject}</li>
@@ -113,7 +108,7 @@ const Streams = () => {
 
               {/* Optional Subjects */}
               <div>
-                <h4 className="text-lg font-semibold underline">Optional Subjects:</h4>
+                <h3 className="text-lg font-semibold underline">Optional Subjects:</h3>
                 <ul className="list-disc pl-6 mt-2 text-gray-300">
                   {stream.optional.map((subject) => (
                     <li key={subject}>{subject}</li>

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import OpenSession from "./widgets/OpenSession";
 import AdmissionForm from "./widgets/AdmissionForm";
-import DynamicBreadcrumb from "./DynamicBreadcumb";
+import DynamicBreadcrumb from "./DynamicBreadcrumb";
 
 interface Props {
   data: MandatoryDisclosureData;

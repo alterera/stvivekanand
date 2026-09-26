@@ -1,48 +1,12 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Latest News & Updates | St. Vivekanand School Bikaner",
-  description: "Stay updated with the latest news, events, and announcements from St. Vivekanand School Bikaner. Read about our achievements, activities, and important updates.",
-  alternates: {
-    canonical: 'https://stvivekanandschool.com/news',
-  },
-  keywords: [
-    "school news",
-    "school updates",
-    "school announcements",
-    "school achievements",
-    "best school in bikaner",
-    "school activities",
-    "school events",
-    "education news",
-    "school blog"
-  ],
-  openGraph: {
-    title: "Latest News & Updates | St. Vivekanand School Bikaner",
-    description: "Stay updated with the latest news, events, and announcements from St. Vivekanand School Bikaner. Read about our achievements, activities, and important updates.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "St. Vivekanand School",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Latest News & Updates | St. Vivekanand School Bikaner",
-    description: "Stay updated with the latest news, events, and announcements from St. Vivekanand School Bikaner. Read about our achievements, activities, and important updates.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-};
+export const metadata = pageMetadata({
+  title: "Latest News & Updates",
+  description:
+    "Stay updated with the latest news, events, and announcements from St. Vivekanand School Bikaner. Read about our achievements, activities, and important updates.",
+  path: "/news",
+});
 
-export default function NewsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function NewsLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
-} 
+}

@@ -1,35 +1,34 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { FaUserCheck, FaFileAlt, FaCalendarCheck, FaSchool } from "react-icons/fa";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import * as motion from "motion/react-client";
+import { CalendarCheck, FileText, School, UserCheck } from "lucide-react";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import AdmissionForm from "@/components/widgets/AdmissionForm";
+
+const iconClass = "size-12 shrink-0 text-[#E63946]";
 
 const admissionSteps = [
   {
     id: 1,
     title: "Step 1: Registration",
     description: "Fill out the online or offline admission form and submit it with the required details.",
-    icon: <FaFileAlt className="text-5xl text-[#E63946]" />,
+    icon: <FileText className={iconClass} aria-hidden="true" />,
   },
   {
     id: 2,
     title: "Step 2: Document Submission",
     description: "Submit required documents, including Birth Certificate or Transfer Certificate.",
-    icon: <FaUserCheck className="text-5xl text-[#E63946]" />,
+    icon: <UserCheck className={iconClass} aria-hidden="true" />,
   },
   {
     id: 3,
     title: "Step 3: Interaction & Assessment",
     description: "For certain classes, an interaction session with the student and parents may be required.",
-    icon: <FaCalendarCheck className="text-5xl text-[#E63946]" />,
+    icon: <CalendarCheck className={iconClass} aria-hidden="true" />,
   },
   {
     id: 4,
     title: "Step 4: Confirmation of Admission",
     description: "Once selected, complete the fee payment process to secure admission.",
-    icon: <FaSchool className="text-5xl text-[#E63946]" />,
+    icon: <School className={iconClass} aria-hidden="true" />,
   },
 ];
 
@@ -53,9 +52,9 @@ const Admissions = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Admission Procedure
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Enroll your child in a nurturing environment that promotes academic excellence, discipline, and holistic development.
           </p>
@@ -83,7 +82,7 @@ const Admissions = () => {
               {/* Icon & Title */}
               <div className="flex items-center gap-4">
                 {step.icon}
-                <h3 className="text-2xl font-bold">{step.title}</h3>
+                <h2 className="text-2xl font-bold">{step.title}</h2>
               </div>
 
               {/* Description */}
@@ -105,7 +104,7 @@ const Admissions = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold text-[#1D3557] mb-6">General Guidelines for Parents</h3>
+          <h2 className="text-2xl font-bold text-[#1D3557] mb-6">General Guidelines for Parents</h2>
           <ul className="space-y-4 text-gray-700 list-disc pl-4 marker:text-[#85193C]">
             <li>Parents should not enter classrooms during school hours.</li>
             <li>Meetings with teachers should be arranged through the Principal.</li>
@@ -126,7 +125,7 @@ const Admissions = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-2xl font-bold mb-6">Required Documents</h3>
+          <h2 className="text-2xl font-bold mb-6">Required Documents</h2>
           <ul className="space-y-4 text-gray-200 list-disc pl-4 marker:text-[#85193C]">
             <li>Transfer Certificate (TC) for students transferring from another school.</li>
             <li>Birth Certificate for students enrolling in school for the first time.</li>

@@ -1,48 +1,12 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Why Choose Us | St. Vivekanand School Bikaner",
-  description: "Discover why St. Vivekanand School is the preferred choice for education in Bikaner, offering experiential learning, modern infrastructure, and a strong cultural foundation.",
-  alternates: {
-    canonical: 'https://stvivekanandschool.com/about-us/why-choose-us',
-  },
-  keywords: [
-    "why choose St. Vivekanand",
-    "best school in bikaner",
-    "experiential learning",
-    "modern school infrastructure",
-    "quality education",
-    "school facilities",
-    "educational excellence",
-    "student development",
-    "school advantages"
-  ],
-  openGraph: {
-    title: "Why Choose Us | St. Vivekanand School Bikaner",
-    description: "Discover why St. Vivekanand School is the preferred choice for education in Bikaner, offering experiential learning, modern infrastructure, and a strong cultural foundation.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "St. Vivekanand School",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Why Choose Us | St. Vivekanand School Bikaner",
-    description: "Discover why St. Vivekanand School is the preferred choice for education in Bikaner, offering experiential learning, modern infrastructure, and a strong cultural foundation.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-};
+export const metadata = pageMetadata({
+  title: "Why Choose Us",
+  description:
+    "Discover why St. Vivekanand School is the preferred choice for education in Bikaner, offering experiential learning, modern infrastructure, and a strong cultural foundation.",
+  path: "/about-us/why-choose-us",
+});
 
-export default function WhyChooseUsLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function WhyChooseUsLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
-} 
+}

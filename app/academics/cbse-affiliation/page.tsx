@@ -1,9 +1,6 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import * as motion from "motion/react-client";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -14,12 +11,12 @@ const CbseAffiliation = () => {
         <DynamicBreadcrumb />
         {/* Heading Section */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             CBSE Affiliation
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-            animi.
+            St. Vivekanand School, Bikaner is affiliated with the Central Board of
+            Secondary Education and follows the NCERT curriculum.
           </p>
         </div>
 
@@ -34,10 +31,11 @@ const CbseAffiliation = () => {
           {/* Image Section */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/assets/background/bg-2.jpeg"
-              alt="Principal"
+              src="/assets/background/bg-2.webp"
+              alt="St. Vivekanand School campus"
               width={500}
               height={500}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="rounded-lg shadow-lg object-cover"
             />
           </div>
@@ -59,9 +57,9 @@ const CbseAffiliation = () => {
               regulations laid down by CBSE, which ensures a certain level of
               uniformity and quality across all CBSE schools in the country.
             </p>
-            <Link href={"/mandatory-disclosure"}>
-              <Button className="bg-[#85193C] my-2 hover:bg-[#8e2345]">Mandatory Disclosure</Button>
-            </Link>
+            <Button asChild className="bg-[#85193C] my-2 hover:bg-[#8e2345]">
+              <Link href="/mandatory-disclosure">Mandatory Disclosure</Link>
+            </Button>
           </div>
         </motion.div>
       </div>

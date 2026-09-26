@@ -44,35 +44,77 @@ git checkout -b feature/task-name
 ```
 🔹 Example: `feature/fix-footer`
 
-### **3️⃣ Committing & Pushing Changes**
-After working on the task, add and commit changes:
+### **3️⃣ Running Locally**
 ```bash
+npm install
+cp .env.example .env.local   # then fill in the values
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Setup and Operations
 
-## Learn More
+The site is a Next.js 16 App Router project with content in Sanity (studio in `sanity/`), deployed on Vercel.
 
-To learn more about Next.js, take a look at the following resources:
+### Environment variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Set these in `.env.local` for development and in Vercel → Project → Settings → Environment Variables for production. See `.env.example`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Variable | Purpose |
+| --- | --- |
+| `EMAIL_USER` | Gmail address that sends form emails |
+| `EMAIL_PASSWORD` | Gmail App Password for `EMAIL_USER` |
+| `ADMIN_EMAIL` | Inbox that receives admission, schedule-a-call, and contact submissions |
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | Sanity project (defaults to `vynrfzal`) |
+| `NEXT_PUBLIC_SANITY_DATASET` | Sanity dataset (defaults to `production`) |
+| `SANITY_REVALIDATE_SECRET` | Shared secret for the Sanity publish webhook |
 
-## Deploy on Vercel
+### Content caching and the Sanity webhook
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pages read Sanity through `sanityFetch` in `lib/sanity.ts`. Responses are cached for up to an hour and tagged by document type (`blog`, `event`, `curricular`, `legal`, `gallery`, `feeStructure`, `sports`, `hero`, `mandatoryDisclosure`).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To make published changes appear immediately, create a webhook in Sanity (manage.sanity.io → project → API → Webhooks):
+
+- URL: `https://stvivekanandschool.com/api/revalidate`
+- Dataset: `production`
+- Trigger on: Create, Update, Delete
+- Filter: leave empty (all documents)
+- Projection: `{_type, "slug": slug.current}`
+- HTTP method: `POST`
+- Secret: the same value as `SANITY_REVALIDATE_SECRET`
+
+Without the webhook, content still refreshes within an hour.
+
+### Form spam protection
+
+`/api/admission`, `/api/schedule-call`, and `/api/contact` validate input, escape all values in the email HTML, drop submissions that fill the hidden honeypot field, and apply a best-effort in-memory limit of 5 requests per 10 minutes per IP.
+
+Serverless instances do not share memory, so also add a Vercel Firewall rule (Vercel → Project → Firewall → Configure → New Rule):
+
+- If: Request Path starts with `/api/` **and** Method equals `POST`
+- Then: Rate Limit, fixed window, 10 requests per 60 seconds, keyed by IP, action Deny (429)
+
+### Security headers
+
+`next.config.ts` sends HSTS, `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, `Permissions-Policy`, and a Content Security Policy in **report-only** mode. After a week with no CSP violations in the browser console (check the home page video, gallery, contact map, and analytics), rename the header to `Content-Security-Policy` to enforce it. If you add a new third-party service, add its host to the matching directive first.
+
+### Images
+
+- Use `next/image` with a `sizes` prop for every image; use `preload` only for the single largest above-the-fold image.
+- Keep files in `public/` small. `scripts/optimize-images.mjs` converts heavy PNG/JPEG files to WebP (max 1920px) and regenerates the 1200×630 Open Graph image:
+
+```bash
+node scripts/optimize-images.mjs
+```
+
+Update references to the new `.webp` files, then delete the originals.
+
+### SEO conventions
+
+- Page metadata comes from `pageMetadata()` in `lib/seo.ts`. Pass a short `title` (the helper adds "| St. Vivekanand School Bikaner") and the page `path` for the canonical URL.
+- Structured data helpers live in `lib/jsonld.ts` and render through `components/JsonLd.tsx`.
+- `app/sitemap.ts` lists static routes; add new pages there and bump `STATIC_LAST_MODIFIED` when page copy changes.
+- Each page should have exactly one `<h1>`.

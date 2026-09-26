@@ -1,10 +1,6 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-
+import * as motion from "motion/react-client";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 const historyData = [
   {
@@ -19,7 +15,7 @@ const historyData = [
     title: "Growth & Expansion",
     description:
       "Over the years, Saint Vivekanand School has expanded its campus, introducing state-of-the-art facilities, modern classrooms, and a wide range of extracurricular programs to ensure an all-round development of students.",
-    imageUrl: "/assets/background/bg-3.jpeg",
+    imageUrl: "/assets/background/bg-3.webp",
   },
   {
     id: 3,
@@ -38,9 +34,9 @@ const OurHistory = () => {
 
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Our History
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             A journey of excellence, discipline, and growth - Saint Vivekanand
             School has been shaping young minds and inspiring future leaders
@@ -68,6 +64,7 @@ const OurHistory = () => {
                   alt={item.title}
                   width={600}
                   height={400}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="rounded-lg shadow-lg object-cover"
                 />
               </div>

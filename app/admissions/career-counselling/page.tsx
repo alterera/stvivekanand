@@ -1,8 +1,5 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { Marquee } from "@/components/magicui/marquee";
 import {
   Accordion,
@@ -10,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 const FaqData = [
   {
@@ -30,26 +27,39 @@ const FaqData = [
   },
 ];
 
+const images = [
+  { img: "/assets/background/bg-2.webp", alt: "Students on the St. Vivekanand School campus" },
+  { img: "/assets/background/bg-3.webp", alt: "School activities at St. Vivekanand School" },
+  { img: "/assets/background/campus-bg.webp", alt: "St. Vivekanand School campus building" },
+  { img: "/assets/background/hero-bg.webp", alt: "St. Vivekanand School grounds" },
+];
+
+const firstRow = images.slice(0, images.length / 2);
+const secondRow = images.slice(images.length / 2);
+
+const PhotoCard = ({ img, alt }: { img: string; alt: string }) => {
+  return (
+    <figure className="relative h-52 w-64 md:h-60 md:w-80 lg:h-60 lg:w-96 overflow-hidden rounded-xl border">
+      <Image src={img} alt={alt} fill sizes="(max-width: 768px) 256px, 384px" className="object-cover" />
+      <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition duration-300" />
+    </figure>
+  );
+};
+
 const CareerCounselling = () => {
   return (
     <section className="w-full bg-[#F9F9F9] py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <DynamicBreadcrumb />
 
-        {/* Heading */}
         <div className="text-center mb-12 mt-5">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
-            Career Counselling
-          </h2>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">Career Counselling</h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            A journey of excellence, discipline, and growth - Saint Vivekanand
-            School has been shaping young minds and inspiring future leaders
-            since its foundation.
+            Guidance, one-to-one counselling, and an annual career fair to help every student choose
+            their path with confidence.
           </p>
         </div>
-        {/* History Timeline */}
         <div className="flex flex-col gap-16">
-          {/* {counsellingData.map((item, index) => ( */}
           <motion.div
             className="flex flex-col md:flex-row items-center gap-12"
             initial={{ opacity: 0, y: 50 }}
@@ -57,37 +67,34 @@ const CareerCounselling = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            {/* Image */}
             <div className="w-full md:w-1/2">
               <Image
-                src={"/assets/background/campus-bg.webp"}
-                alt="career-counselling"
+                src="/assets/background/campus-bg.webp"
+                alt="St. Vivekanand School campus, where career counselling sessions are held"
                 width={600}
                 height={400}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="rounded-lg shadow-lg object-cover"
               />
             </div>
 
-            {/* Content */}
             <div className="w-full md:w-1/2">
-              <h3 className="text-2xl font-semibold text-[#002147] mb-4">
+              <h2 className="text-2xl font-semibold text-[#002147] mb-4">
                 Counselling in St. Vivekanand School
-              </h3>
+              </h2>
               <p className="text-gray-700 text-base md:text-lg">
-                In todays fast-paced world, choosing the right career path is
-                crucial for every student. It is important for them to receive
-                proper guidance and support to help them make informed decisions
-                about their future. At St. Vivekanand School, we understand the
-                significance of career counselling and have a dedicated staff
-                member who is committed to helping our students achieve their
-                career goals.
+                In today&apos;s fast-paced world, choosing the right career path is crucial for every
+                student. It is important for them to receive proper guidance and support to help them
+                make informed decisions about their future. At St. Vivekanand School, we understand
+                the significance of career counselling and have a dedicated staff member who is
+                committed to helping our students achieve their career goals.
               </p>
             </div>
           </motion.div>
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
             <Marquee pauseOnHover className="[--duration:20s]">
-              {firstRow.map((review) => (
-                <ReviewCard key={review.img} img={review.img} />
+              {firstRow.map((photo) => (
+                <PhotoCard key={photo.img} {...photo} />
               ))}
             </Marquee>
           </div>
@@ -95,8 +102,8 @@ const CareerCounselling = () => {
           <div>
             <Accordion type="single" collapsible className="w-full">
               {FaqData.map((faq) => (
-                <AccordionItem value={`${"item-" + faq.id}`} key={faq.id}>
-                  <AccordionTrigger>+ {faq.faq}</AccordionTrigger>
+                <AccordionItem value={`item-${faq.id}`} key={faq.id}>
+                  <AccordionTrigger>{faq.faq}</AccordionTrigger>
                   <AccordionContent>{faq.answer}</AccordionContent>
                 </AccordionItem>
               ))}
@@ -105,8 +112,8 @@ const CareerCounselling = () => {
 
           <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
             <Marquee reverse pauseOnHover className="[--duration:20s]">
-              {secondRow.map((review) => (
-                <ReviewCard key={review.img} img={review.img} />
+              {secondRow.map((photo) => (
+                <PhotoCard key={photo.img} {...photo} />
               ))}
             </Marquee>
           </div>
@@ -117,37 +124,3 @@ const CareerCounselling = () => {
 };
 
 export default CareerCounselling;
-
-const images = [
-  {
-    img: "/assets/background/bg-2.jpeg",
-  },
-  {
-    img: "/assets/background/bg-3.jpeg",
-  },
-  {
-    img: "/assets/background/campus-bg.webp",
-  },
-  {
-    img: "/assets/background/hero-bg.png",
-  },
-];
-
-const firstRow = images.slice(0, images.length / 2);
-const secondRow = images.slice(images.length / 2);
-
-const ReviewCard = ({ img }: { img: string }) => {
-  return (
-    <figure
-      className="relative h-52 w-64 md:h-60 md:w-80 lg:h-60 lg:w-96 cursor-pointer overflow-hidden rounded-xl border"
-      style={{
-        backgroundImage: `url(${img})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Overlay for Better Readability */}
-      <div className="absolute inset-0 bg-black/30 hover:bg-black/10 transition duration-300"></div>
-    </figure>
-  );
-};

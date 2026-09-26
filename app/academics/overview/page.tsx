@@ -1,12 +1,30 @@
-"use client";
-
-import React from "react";
-import { motion } from "framer-motion";
-import { FaBasketballBall, FaFlask, FaRobot, FaBookReader, FaLaptopCode, FaMicroscope, FaBrain, FaLanguage, FaLightbulb, FaChalkboardTeacher, FaChild, FaUsers, FaDumbbell, FaMusic, FaPalette, FaPaintBrush } from "react-icons/fa";
+import type React from "react";
+import * as motion from "motion/react-client";
+import {
+  Volleyball,
+  FlaskConical,
+  Bot,
+  BookOpen,
+  Laptop,
+  Microscope,
+  Brain,
+  Languages,
+  Lightbulb,
+  Presentation,
+  Trophy,
+  Target,
+  Dumbbell,
+  Music,
+  Palette,
+  Paintbrush,
+  Drama,
+} from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
+
+const iconClass = "size-12 shrink-0 text-[#E63946]";
 
 type Facility = {
   id: number;
@@ -17,31 +35,31 @@ type Facility = {
 };
 
 const facilities: Facility[] = [
-  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FaFlask className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#science-laborities" },
-  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <FaMicroscope className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#space-lab" },
-  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <FaRobot className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#robotics" },
-  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <FaLaptopCode className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#computer-department" },
-  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <FaLightbulb className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#experiential-learning" },
-  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <FaBookReader className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#library" },
-  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <FaBrain className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#ai-ml-lab" },
-  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <FaLanguage className="text-5xl text-[#E63946]" /> , link: "/academics/all-facilities/#phonic-lab"},
-  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <FaChalkboardTeacher className="text-5xl text-[#E63946]" />, link: "/academics/all-facilities/#steam-lab" },
+  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FlaskConical className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#science-laborities" },
+  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <Microscope className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#space-lab" },
+  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <Bot className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#robotics" },
+  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <Laptop className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#computer-department" },
+  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <Lightbulb className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#experiential-learning" },
+  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <BookOpen className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#library" },
+  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <Brain className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#ai-ml-lab" },
+  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <Languages className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#phonic-lab" },
+  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <Presentation className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#steam-lab" },
 ];
-  
-  const sportsFacilities: Facility[] = [
-    { id: 1, title: "Basketball Court", description: "A state-of-the-art court that hosts one of the finest basketball communities in town.", icon: <FaBasketballBall className="text-5xl text-[#E63946]" />, link: "/academics/sports/#basketball-court" },
-    { id: 2, title: "Badminton Court", description: "Indoor badminton court with guided daily practice sessions.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#badminton-court" },
-    { id: 3, title: "Cricket Practice Turf", description: "A closed-net cricket practice area for future cricketers.", icon: <FaUsers className="text-5xl text-[#E63946]" />, link: "/academics/sports/#cricket-turf" },
-    { id: 4, title: "Gymnasium", description: "An elementary gym for students who want to put in extra hours of training.", icon: <FaDumbbell className="text-5xl text-[#E63946]" />, link: "/academics/sports/#gymnasium-strength-and-fitness" },
-    { id: 5, title: "Lawn Tennis Court", description: "A newly-added hard-court tennis facility.", icon: <FaChild className="text-5xl text-[#E63946]" />, link: "/academics/sports/#table-tennis-spin-to-win" },
-  ];
-  
-  const coCurricular = [
-    { id: 1, title: "Vocal & Instrumental Music", description: "Dedicated coach for singing and musical instruments.", icon: <FaMusic className="text-5xl text-[#E63946]" /> },
-    { id: 2, title: "Painting Workshops", description: "Regular painting classes to explore different styles of art.", icon: <FaPalette className="text-5xl text-[#E63946]" /> },
-    { id: 3, title: "Kathak Chapter", description: "Special Kathak classes by a Jaipur Kathak Gharana tutor.", icon: <FaChild className="text-5xl text-[#E63946]" /> },
-    { id: 4, title: "Textile & Embroidery", description: "Textile education & embroidery masterclasses by resident tutors.", icon: <FaPaintBrush className="text-5xl text-[#E63946]" /> },
-  ];
+
+const sportsFacilities: Facility[] = [
+  { id: 1, title: "Basketball Court", description: "A state-of-the-art court that hosts one of the finest basketball communities in town.", icon: <Volleyball className={iconClass} aria-hidden="true" />, link: "/academics/sports/#basketball-court" },
+  { id: 2, title: "Badminton Court", description: "Indoor badminton court with guided daily practice sessions.", icon: <Trophy className={iconClass} aria-hidden="true" />, link: "/academics/sports/#badminton-court" },
+  { id: 3, title: "Cricket Practice Turf", description: "A closed-net cricket practice area for future cricketers.", icon: <Target className={iconClass} aria-hidden="true" />, link: "/academics/sports/#cricket-turf" },
+  { id: 4, title: "Gymnasium", description: "An elementary gym for students who want to put in extra hours of training.", icon: <Dumbbell className={iconClass} aria-hidden="true" />, link: "/academics/sports/#gymnasium-strength-and-fitness" },
+  { id: 5, title: "Lawn Tennis Court", description: "A newly-added hard-court tennis facility.", icon: <Trophy className={iconClass} aria-hidden="true" />, link: "/academics/sports/#table-tennis-spin-to-win" },
+];
+
+const coCurricular = [
+  { id: 1, title: "Vocal & Instrumental Music", description: "Dedicated coach for singing and musical instruments.", icon: <Music className={iconClass} aria-hidden="true" /> },
+  { id: 2, title: "Painting Workshops", description: "Regular painting classes to explore different styles of art.", icon: <Palette className={iconClass} aria-hidden="true" /> },
+  { id: 3, title: "Kathak Chapter", description: "Special Kathak classes by a Jaipur Kathak Gharana tutor.", icon: <Drama className={iconClass} aria-hidden="true" /> },
+  { id: 4, title: "Textile & Embroidery", description: "Textile education & embroidery masterclasses by resident tutors.", icon: <Paintbrush className={iconClass} aria-hidden="true" /> },
+];
 
 const Academics = () => {
   return (
@@ -62,9 +80,9 @@ const Academics = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-4xl md:text-4xl font-bold text-[#1D3557]">
             Academics at St. Vivekanand School
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
             Our institution follows the NCERT curriculum under CBSE guidelines, providing modern learning experiences with a legacy of excellence since 1977.
           </p>
@@ -88,9 +106,10 @@ const Academics = () => {
           </div>
           <Image
             src="/assets/background/campus-bg.webp"
-            alt="School Building"
+            alt="St. Vivekanand School building in Bikaner"
             width={500}
             height={350}
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="rounded-lg shadow-lg"
           />
         </motion.div>
@@ -124,24 +143,24 @@ const Academics = () => {
         >
           <h3 className="text-2xl font-bold text-[#1D3557] mb-6">A Glimpse Into Our Campus</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <Image src="/assets/academics/science.webp" alt="Classroom" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/academics/computer.webp" alt="Science Lab" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/academics/experiential.webp" alt="Library" width={300} height={200} className="rounded-lg shadow-md" />
-            <Image src="/assets/academics/library.webp" alt="Computer Lab" width={300} height={200} className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/science.webp" alt="Science lab" width={300} height={200} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/computer.webp" alt="Computer lab" width={300} height={200} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/experiential.webp" alt="Experiential learning activity" width={300} height={200} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-lg shadow-md" />
+            <Image src="/assets/academics/library.webp" alt="School library" width={300} height={200} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-lg shadow-md" />
           </div>
         </motion.div>
 
         {/* Sports Facilities */}
         <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-16">
-          <Image src="/assets/sports/cricket.jpeg" alt="Sports Facilities" width={500} height={350} className="rounded-lg shadow-lg" />
+          <Image src="/assets/sports/cricket.webp" alt="Cricket practice at the school sports facilities" width={500} height={350} sizes="(max-width: 768px) 100vw, 50vw" className="rounded-lg shadow-lg" />
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-[#1D3557] mb-4">Sports Facilities</h3>
             <p className="text-gray-700">
             Our school takes immense pride in offering one of the largest in-house sports infrastructures in the city, designed to provide students with world-class courts and facilities. From state-of-the-art basketball and badminton courts to professional-grade cricket practice turfs, we ensure that every aspiring athlete gets the best training environment. Our indoor and outdoor sports complexes cater to a wide range of activities, including table tennis, lawn tennis, football, and athletics, helping students develop physical strength, teamwork, and sportsmanship. With trained coaches and structured programs, we prepare students not just for inter-school competitions but also for state and national-level championships, nurturing their potential to excel in the world of sports.
             </p>
-            <Link href={'/academics/sports/'}>
-              <Button className="bg-[#85193C] w-fit my-5 font-semibold">Learn More</Button>
-            </Link>
+            <Button asChild className="bg-[#85193C] w-fit my-5 font-semibold">
+              <Link href="/academics/sports">Learn More</Link>
+            </Button>
           </div>
         </motion.div>
 
@@ -163,10 +182,10 @@ const Academics = () => {
           <div className="flex flex-col justify-center">
             <h3 className="text-2xl font-bold text-[#1D3557] mb-4">Co-Curricular Activities</h3>
             <p className="text-gray-700">
-            At our school, we believe that education extends beyond textbooks, which is why we have dedicated arts, music, and cultural programs to help students explore and refine their creative talents. Whether it&npos;s vocal and instrumental music, theater and dance, or painting and textile embroidery, we provide a platform for students to express themselves artistically. Our expert mentors guide students in mastering their craft, fostering confidence, creativity, and self-discipline. Through annual cultural events, art exhibitions, and music recitals, we encourage students to showcase their skills, giving them opportunities to shine on local, national, and international stages. These programs ensure a holistic development approach, making learning a joyful and enriching experience.
+            At our school, we believe that education extends beyond textbooks, which is why we have dedicated arts, music, and cultural programs to help students explore and refine their creative talents. Whether it&apos;s vocal and instrumental music, theater and dance, or painting and textile embroidery, we provide a platform for students to express themselves artistically. Our expert mentors guide students in mastering their craft, fostering confidence, creativity, and self-discipline. Through annual cultural events, art exhibitions, and music recitals, we encourage students to showcase their skills, giving them opportunities to shine on local, national, and international stages. These programs ensure a holistic development approach, making learning a joyful and enriching experience.
             </p>
           </div>
-          <Image src="/assets/co-curricular/paintings.webp" alt="Co-Curricular Activities" width={500} height={350} className="rounded-lg shadow-lg" />
+          <Image src="/assets/co-curricular/paintings.webp" alt="Student paintings from co-curricular art classes" width={500} height={350} sizes="(max-width: 768px) 100vw, 50vw" className="rounded-lg shadow-lg" />
         </motion.div>
 
         {/* Co-Curricular Grid */}

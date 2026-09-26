@@ -9,55 +9,40 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Image from "next/image";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import { PortableText } from "next-sanity";
 import { PortableTextComponents } from "@/components/PortableTextComponent";
+import JsonLd from "@/components/JsonLd";
+import { faqJsonLd } from "@/lib/jsonld";
+import { pageMetadata, truncate } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
   const sportsData: Sport[] = await getSportsData();
-  
-  return {
-    title: "Sports Facilities | St. Vivekanand School Bikaner",
-    description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
-    keywords: [
-      "sports facilities",
-      "school sports",
-      "sports infrastructure",
-      "athletic programs",
-      "best school in bikaner",
-      "sports education",
-      "physical education",
-      "sports development",
-      "athletic training"
-    ],
-    openGraph: {
-      title: "Sports Facilities | St. Vivekanand School Bikaner",
-      description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
-      type: "website",
-      locale: "en_IN",
-      siteName: "St. Vivekanand School",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Sports Facilities | St. Vivekanand School Bikaner",
-      description: `Explore our comprehensive sports facilities including ${sportsData.map(sport => sport.title).join(', ')} at St. Vivekanand School.`,
-    },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-      },
-    },
-  };
+  const names = sportsData.map((sport) => sport.title).filter(Boolean).join(", ");
+
+  return pageMetadata({
+    title: "Sports Facilities",
+    description: truncate(
+      names
+        ? `Explore our sports facilities including ${names} at St. Vivekanand School, Bikaner.`
+        : "Discover the sports program at St. Vivekanand School: facilities, coaching, teams, and achievements.",
+    ),
+    path: "/academics/sports",
+    imageAlt: "St. Vivekanand School Sports",
+  });
 }
 
 const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
+  const faqs = sportsData.flatMap((sport) =>
+    (sport.faqs ?? [])
+      .filter((faq) => faq.faq && faq.answer)
+      .map((faq) => ({ question: faq.faq, answer: faq.answer })),
+  );
 
   return (
     <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
+      {faqs.length > 0 && <JsonLd data={faqJsonLd(faqs)} />}
       <DynamicBreadcrumb />
 
       <div className="container mx-auto pt-4">
@@ -74,7 +59,8 @@ const SportsPage = async () => {
             src={"/assets/patterns/hand-curv.png"}
             height={100}
             width={100}
-            alt="pa"
+            alt=""
+            aria-hidden="true"
             className="hidden md:block absolute -top-10 left-0"
           />
           {sportsData.map((sport, i) => {
@@ -85,7 +71,7 @@ const SportsPage = async () => {
               return null;
             }
 
-            const imageUrls = sport.images.map((image) => image.asset.url);
+            const imageUrls = (sport.images ?? []).map((image) => image.asset.url);
 
             return (
               <section
@@ -115,12 +101,12 @@ const SportsPage = async () => {
                   </div>
 
                   <div className="w-full md:w-1/2">
-                    <SwiperComponent images={imageUrls} />
+                    <SwiperComponent images={imageUrls} label={`${sport.title} at St. Vivekanand School, photo`} />
                   </div>
                 </div>
 
                 <Accordion type="single" collapsible className="w-full mt-5">
-                  {sport.faqs.map((faq, i) => (
+                  {(sport.faqs ?? []).map((faq, i) => (
                     <AccordionItem value={`item-${i}`} key={i}>
                       <AccordionTrigger>{faq.faq}</AccordionTrigger>
                       <AccordionContent>{faq.answer}</AccordionContent>

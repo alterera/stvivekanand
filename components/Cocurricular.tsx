@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
@@ -23,7 +22,7 @@ const activities: CardProps[] = [
     title: "Vocal & Music",
     subtitle: "Dedicated coach for singing classes and instrumental music.",
     backgroundColors: { top: "#51D1F7", bottom: "#FFFFFF" },
-    image: "/assets/background/bg-2.jpeg",
+    image: "/assets/background/bg-2.webp",
     link: "/co-curricular/vocal-and-instrumental-music"
   },
   {
@@ -44,22 +43,22 @@ const activities: CardProps[] = [
     title: "Textile & Embroidery",
     subtitle: "Textile & embroidery masterclasses by a resident tutor for those who opt for it.",
     backgroundColors: { top: "#6F3FF1", bottom: "#FFFFFF" },
-    image: "/assets/background/bg-2.jpeg",
+    image: "/assets/background/bg-2.webp",
     link: "/co-curricular/textile-and-embroidery"
   },
   {
     title: "Clubs & Chapters",
     subtitle: "Passion-led clubs like Abacus, Hiking, Martial Arts, Skating & Calligraphy.",
     backgroundColors: { top: "#FBDA35", bottom: "#FFFFFF" },
-    image: "/assets/background/bg-2.jpeg",
+    image: "/assets/background/bg-2.webp",
     link: "/co-curricular/clubs-and-chapters"
   },
   {
     title: "& Many More!",
     subtitle: " From music and dance to coding and debate, our co-curricular programs go beyond the classroom to inspire creativity, leadership, and lifelong skills.",
     backgroundColors: { top: "#6F3FF1", bottom: "#FBDA35" },
-    image: "/assets/background/bg-2.jpeg",
-    link: "#"
+    image: "/assets/background/bg-2.webp",
+    link: "/academics/overview"
   },
 ];
 
@@ -71,7 +70,7 @@ const CoCurricular = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      style={{backgroundImage: `url('/assets/background/co-curricular.png')`, objectFit: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'right top'}}
+      style={{backgroundImage: `url('/assets/background/co-curricular.webp')`, objectFit: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'right top'}}
     >
       <div className="max-w-7xl mx-auto">
         <motion.h2
@@ -82,7 +81,7 @@ const CoCurricular = () => {
           viewport={{ once: true }}
         >
           Co-Curricular Activities
-          <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[55%]"/>
+          <Image src="/assets/patterns/curvy.png" alt="" aria-hidden="true" height={100} width={120} className="absolute top-10 left-[55%]"/>
         </motion.h2>
         <motion.p
           className="text-center mb-10"
@@ -143,7 +142,13 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
       style={{ background: `linear-gradient(to bottom, #0D3658, ${bottom})` }}
     >
       <div className="absolute inset-0 opacity-70 mix-blend-multiply">
-        <Image src={image} alt={title} fill className="object-cover hover:scale-110 duration-500" />
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="(max-width: 768px) 90vw, 33vw"
+          className="object-cover hover:scale-110 duration-500"
+        />
       </div>
 
       <div className="relative z-10">
@@ -151,9 +156,11 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
         <p className="mt-2">{subtitle}</p>
       </div>
 
-      <Link href={link} className="relative z-10 mt-4 rounded-md self-start">
-        <Button className="bg-white text-black font-semibold hover:text-white">Learn More</Button>
-      </Link>
+      <Button asChild className="relative z-10 mt-4 self-start bg-white text-black font-semibold hover:text-white">
+        <Link href={link} aria-label={`Learn more about ${title.replace(/^& /, "")}`}>
+          Learn More
+        </Link>
+      </Button>
     </motion.div>
   );
 };

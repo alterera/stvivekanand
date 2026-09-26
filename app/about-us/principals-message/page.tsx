@@ -1,10 +1,6 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-
+import * as motion from "motion/react-client";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 const PrincipalMessage = () => {
   return (
@@ -14,9 +10,9 @@ const PrincipalMessage = () => {
           <DynamicBreadcrumb />
           {/* Heading Section */}
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+            <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
               Principal&apos;s Message
-            </h2>
+            </h1>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
               A message from our esteemed principal, shaping the future of our
               students.
@@ -35,9 +31,10 @@ const PrincipalMessage = () => {
             <div className="w-full md:w-1/2">
               <Image
                 src="/assets/faculty/principal.webp"
-                alt="Principal"
+                alt="Nidhi Gupta, Principal of St. Vivekanand School"
                 width={500}
                 height={500}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="rounded-lg shadow-lg object-cover"
               />
             </div>

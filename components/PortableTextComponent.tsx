@@ -3,18 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableTextReactComponents } from "@portabletext/react";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { urlFor } from "@/lib/sanity"; // Import the urlFor function
+import { urlFor } from "@/lib/sanity";
 
 export const PortableTextComponents: Partial<PortableTextReactComponents> = {
   types: {
     image: ({ value }: { value: { asset: SanityImageSource; alt?: string } }) => (
       <div className="my-4 rounded-lg overflow-hidden">
         <Image
-          src={urlFor(value.asset)}
-          alt={value.alt || " "}
-          width={800}
-          height={450}
-          className="object-cover w-full"
+          src={urlFor(value.asset).width(1200).auto("format").url()}
+          alt={value.alt || ""}
+          width={1200}
+          height={675}
+          sizes="(max-width: 768px) 100vw, 800px"
+          className="object-cover w-full h-auto"
         />
       </div>
     ),

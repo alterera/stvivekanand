@@ -25,10 +25,16 @@ const components: { title: string; href: string; description: string }[] = [
       "A brief overview of our campus to get the idea of our legacy.",
   },
   {
-    title: "All Facilitues",
+    title: "Curriculum",
+    href: "/academics/curriculum",
+    description:
+      "How we teach, from foundational years to senior secondary.",
+  },
+  {
+    title: "All Facilities",
     href: "/academics/all-facilities",
     description:
-      "All details of the academic facilities our school provides.",
+      "Labs, library, smart classrooms, and every facility on campus.",
   },
   {
     title: "CBSE Affiliation",
@@ -40,24 +46,19 @@ const components: { title: string; href: string; description: string }[] = [
     title: "Streams Offered",
     href: "/academics/streams-offered",
     description:
-      "Displays an indicator showing the completion progress of a task.",
+      "Science and Commerce streams for Classes 11 and 12.",
   },
-  // {
-  //   title: "Career Counselling",
-  //   href: "/academics/career-counselling",
-  //   description: "Our school have dedicated department to help you with your career decisions.",
-  // },
   {
     title: "Sports",
     href: "/academics/sports",
     description:
-      "A set of layered sections of content—known as tab panels—that.",
+      "Cricket, basketball, tennis, gymnasium, and coaching on campus.",
   },
   {
     title: "Gallery",
     href: "/gallery",
     description:
-      "See the glimpses of our school in a page which contains the memory.",
+      "Photos from sports, events, cultural programmes, and classrooms.",
   },
 ];
 
@@ -78,14 +79,14 @@ const admissionComponent: { title: string; href: string; description: string }[]
     title: "Career Counselling",
     href: "/admissions/career-counselling",
     description:
-      "Know more about the fee structure of your child future journey.",
+      "Guidance and career fairs to help students plan what comes next.",
   },
-  
   {
-    title: "TC Updates",
-    href: "#",
-    description: "Find transfer certificates of your ward in a easy way.",
-  }
+    title: "Schedule a Call",
+    href: "/schedule-a-call",
+    description:
+      "Share your details and our admissions team will call you back.",
+  },
 ];
 
 export function NavBar() {
@@ -145,15 +146,16 @@ export function NavBar() {
           isVisible ? "translate-y-0" : "-translate-y-full"
         } ${navBg}`}>
         <header className="flex items-center h-full justify-between max-w-7xl mx-auto px-4 md:px-0 xl:px-4">
-          <Link href={"/"}>
-          <Image
-            src="/assets/logo/stlogo.png"
-            alt="School Logo"
-            width={150}
-            height={80}
-            className="object-contain"
+          <Link href={"/"} aria-label="St. Vivekanand School home">
+            <Image
+              src="/assets/logo/stlogo.png"
+              alt="St. Vivekanand School"
+              width={150}
+              height={80}
+              preload
+              className="object-contain"
             />
-            </Link>
+          </Link>
 
           <div className="hidden lg:block">
             <NavigationMenu>
@@ -178,7 +180,7 @@ export function NavBar() {
                         </NavigationMenuLink>
                       </li>
                       <ListItem href="/about-us/why-choose-us"  title="Why Choose Us?" className="hover:bg-[#0D3658] hover:text-white">
-                        Want to know why we are the best in whole north India.
+                        What makes St. Vivekanand different for your child.
                       </ListItem>
                       <ListItem href="/about-us/mission-vision" title="Mission & Vision" className="hover:bg-[#0D3658] hover:text-white">
                         Read about our mission and vision for the society from our past.
@@ -231,24 +233,24 @@ export function NavBar() {
           </div>
 
           <div className="flex-1 flex justify-end lg:hidden items-center gap-4">
-  <Link href="/admissions/admission-process">
-    <Button variant="destructive" className="text-white bg-[#85193C] font-semibold shadow-lg">
-      Apply Now
-    </Button>
-  </Link>
-  <button
-    onClick={() => setIsOpen(!isOpen)}
-    className="p-2 hover:bg-gray-100 rounded-md"
-  >
-    {isOpen ? <X size={24} /> : <Menu size={24} />}
-  </button>
-</div>
+            <Button asChild variant="destructive" className="text-white bg-[#85193C] font-semibold shadow-lg">
+              <Link href="/admissions/admission-process">Apply Now</Link>
+            </Button>
+            <button
+              type="button"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              className="p-2 hover:bg-gray-100 rounded-md"
+            >
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
 
-<Link href="/admissions/admission-process">
-  <Button className="hidden lg:inline-block text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg">
-    Apply Now
-  </Button>
-</Link>
+          <Button asChild className="hidden lg:inline-flex text-white bg-[#85193C] hover:bg-[#0D3658] font-semibold shadow-lg">
+            <Link href="/admissions/admission-process">Apply Now</Link>
+          </Button>
         </header>
       </section>
 
@@ -260,7 +262,9 @@ export function NavBar() {
       >
         <div className="p-4">
           <button
+            type="button"
             onClick={() => setIsOpen(false)}
+            aria-label="Close menu"
             className="p-2 hover:bg-gray-100 rounded-md mb-4"
           >
             <X size={24} />
@@ -334,11 +338,13 @@ function MobileDropdown({ title, children }: { title: string; children: React.Re
   return (
     <div>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
         className="flex items-center justify-between w-full p-3 hover:bg-gray-100 rounded-md"
       >
         <span className="font-semibold">{title}</span>
-        <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+        <span aria-hidden="true" className={`transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
           ▼
         </span>
       </button>
@@ -358,7 +364,7 @@ const ListItem = React.forwardRef<
       <NavigationMenuLink asChild>
         <Link
           ref={ref}
-          href={href} // ✅ Ensure href is always passed
+          href={href}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#0D3658]  hover:text-white focus:bg-accent focus:text-accent-foreground",
             className

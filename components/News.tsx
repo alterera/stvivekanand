@@ -1,49 +1,18 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import * as motion from "motion/react-client";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import useSWR from "swr";
-import { sanityClient } from "@/lib/sanity";
+import NewsSlider from "./NewsSlider";
+import { sanityFetch } from "@/lib/sanity";
+import { HOME_BLOGS_QUERY } from "@/lib/queries";
 import { BlogPost } from "@/types/index";
 
-// SWR fetcher function
-const fetcher = (query: string) => sanityClient.fetch(query);
+const formatNewsDate = (value: string) =>
+  new Date(value).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
 
-const News = () => {
-  // Fetch the latest 4 blog posts
-  const { data: blogPosts, isLoading } = useSWR<BlogPost[]>(
-    `*[_type == "blog"] | order(publishedAt desc) [0...4] {
-      title,
-      slug,
-      excerpt,
-      featuredImage {
-        asset-> {
-          url
-        }
-      },
-      publishedAt
-    }`,
-    fetcher
-  );
-
-  // Skeleton Loading Component
-  const SkeletonLoader = () => (
-    <div className="bg-[#0D3658] overflow-hidden shadow-md rounded-sm animate-pulse">
-      <div className="relative h-48 w-full bg-gray-700"></div>
-      <div className="p-6">
-        <div className="h-4 bg-gray-700 rounded mb-2 w-1/2"></div>
-        <div className="h-6 bg-gray-700 rounded mb-3 w-3/4"></div>
-        <div className="h-4 bg-gray-700 rounded mb-4 w-full"></div>
-        <div className="h-10 bg-gray-700 rounded"></div>
-      </div>
-    </div>
+const News = async () => {
+  const blogPosts = await sanityFetch<BlogPost[]>({ query: HOME_BLOGS_QUERY, tags: ["blog"] }).catch(
+    () => [] as BlogPost[],
   );
 
   return (
@@ -59,139 +28,65 @@ const News = () => {
       }}
     >
       <Image
-        src={"/assets/patterns/line-circle-half.png"}
-        alt="pattern"
+        src="/assets/patterns/line-circle-half.png"
+        alt=""
+        aria-hidden="true"
         height={100}
         width={180}
         className="hidden md:flex absolute bottom-5 right-10"
       />
-      <div className="max-w-7xl mx-auto md:px-8 md:px-0 z-10">
-        {/* Title Section */}
-        <motion.h2
-          className="relative text-3xl md:text-4xl font-bold text-center text-white mb-2"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+      <div className="max-w-7xl mx-auto md:px-8 z-10">
+        <h2 className="relative text-3xl md:text-4xl font-bold text-center text-white mb-2">
           News & Updates
-        </motion.h2>
-        <motion.p
-          className="text-center text-white mb-10"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          The largest gamut of in-house sports facilities for any school, right in
-          the city centre.
-        </motion.p>
+        </h2>
+        <p className="text-center text-white mb-10">
+          Achievements, announcements, and stories from our students and teachers.
+        </p>
 
-        {/* News Slider for Mobile */}
         <div className="md:hidden">
-          <Swiper
-            modules={[Pagination]}
-            slidesPerView={1.2}
-            spaceBetween={10}
-            pagination={{ clickable: true }}
-            centeredSlides={true}
-          >
-            {isLoading
-              ? [1, 2, 3, 4].map((i) => (
-                  <SwiperSlide key={i}>
-                    <SkeletonLoader />
-                  </SwiperSlide>
-                ))
-              : blogPosts?.map((post) => (
-                  <SwiperSlide key={post.slug.current}>
-                    <div className="bg-[#1D3557] overflow-hidden shadow-md rounded-sm">
-                      <div className="relative h-48 w-full">
-                        <Image
-                          src={post.featuredImage.asset.url}
-                          alt={post.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <p className="text-sm text-[#457B9D] font-semibold mb-2">
-                          {new Date(post.publishedAt).toLocaleDateString()}
-                        </p>
-                        <h3 className="text-xl font-bold text-white mb-3">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-300 mb-4 line-clamp-2">
-                          {post.excerpt}
-                        </p>
-                        <Link href={`/news/${post.slug.current}`}>
-                          <Button
-                            variant="outline"
-                            className="w-full border-[#457B9D] text-[#457B9D] hover:bg-[#E63946] hover:text-white transition-all duration-300"
-                          >
-                            Read More
-                          </Button>
-                        </Link>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-          </Swiper>
+          <NewsSlider posts={blogPosts} />
         </div>
 
-        {/* News Grid for Larger Screens */}
         <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 xl:px-4">
-          {isLoading
-            ? [1, 2, 3, 4].map((i) => <SkeletonLoader key={i} />)
-            : blogPosts?.map((post) => (
-                <div
-                  key={post.slug.current}
-                  className="bg-[#0D3658] overflow-hidden shadow-md rounded-sm"
+          {blogPosts.map((post) => (
+            <div key={post.slug.current} className="bg-[#0D3658] overflow-hidden shadow-md rounded-sm">
+              <div className="relative h-48 w-full">
+                {post.featuredImage?.asset?.url && (
+                  <Image
+                    src={post.featuredImage.asset.url}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    className="object-cover"
+                  />
+                )}
+              </div>
+              <div className="p-6">
+                <p className="text-xs text-gray-200 font-medium mb-2">{formatNewsDate(post.publishedAt)}</p>
+                <h3 className="text-xl font-bold text-white mb-3">{post.title}</h3>
+                <p className="text-gray-300 mb-4 line-clamp-2">{post.excerpt}</p>
+                <Button
+                  asChild
+                  className="w-full text-white font-semibold bg-[#85193C] hover:bg-[#E63946]/90 transition-all duration-300"
                 >
-                  <div className="relative h-48 w-full">
-                    <Image
-                      src={post.featuredImage.asset.url}
-                      alt={post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-xs text-gray-200 font-medium mb-2">
-                      {new Date(post.publishedAt).toLocaleDateString()}
-                    </p>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                      {post.title}
-                    </h3>
-                    <p className="text-gray-300 mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-                    <Link href={`/news/${post.slug.current}`}>
-                      <Button className="w-full text-white font-semibold bg-[#85193C] hover:bg-[#E63946]/90 transition-all duration-300">
-                        Read More
-                      </Button>
-                    </Link>
-                  </div>
-                </div>
-              ))}
+                  <Link href={`/news/${post.slug.current}`} aria-label={`Read more: ${post.title}`}>
+                    Read More
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {/* View All News Button */}
-        <motion.div
-          className="flex justify-center mt-5"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <Link href="/news">
-            <Button
-              variant="destructive"
-              className="text-white bg-[#85193C] hover:bg-[#E63946]/90 p-4 text-sm mb-10"
-            >
-              View All Updates
-            </Button>
-          </Link>
-        </motion.div>
+        <div className="flex justify-center mt-5">
+          <Button
+            asChild
+            variant="destructive"
+            className="text-white bg-[#85193C] hover:bg-[#E63946]/90 p-4 text-sm mb-10"
+          >
+            <Link href="/news">View All Updates</Link>
+          </Button>
+        </div>
       </div>
     </motion.section>
   );

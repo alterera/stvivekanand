@@ -1,48 +1,12 @@
-import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact Us | St. Vivekanand School Bikaner",
-  description: "Get in touch with St. Vivekanand School Bikaner. Find our contact information, location, and send us your queries through our contact form.",
-  alternates: {
-    canonical: 'https://stvivekanandschool.com/contact-us',
-  },
-  keywords: [
-    "contact school",
-    "school contact",
-    "school address",
-    "school phone number",
-    "best school in bikaner",
-    "school email",
-    "school location",
-    "school contact form",
-    "school inquiry"
-  ],
-  openGraph: {
-    title: "Contact Us | St. Vivekanand School Bikaner",
-    description: "Get in touch with St. Vivekanand School Bikaner. Find our contact information, location, and send us your queries through our contact form.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "St. Vivekanand School",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Us | St. Vivekanand School Bikaner",
-    description: "Get in touch with St. Vivekanand School Bikaner. Find our contact information, location, and send us your queries through our contact form.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-};
+export const metadata = pageMetadata({
+  title: "Contact Us",
+  description:
+    "Get in touch with St. Vivekanand School Bikaner. Find our contact information, location, and send us your queries through our contact form.",
+  path: "/contact-us",
+});
 
-export default function ContactLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function ContactUsLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
-} 
+}

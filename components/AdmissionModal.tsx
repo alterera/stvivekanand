@@ -25,9 +25,7 @@ export default function AdmissionModal() {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">
-            {/* Admission Open for 2025-26 */}
-          </DialogTitle>
+          <DialogTitle className="sr-only">Admission enquiry form</DialogTitle>
         </DialogHeader>
         <div className="mt-4">
           <AdmissionForm />

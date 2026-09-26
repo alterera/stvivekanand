@@ -4,45 +4,44 @@ import Script from "next/script";
 import "./globals.css";
 import { NavBar } from "@/components/common/NavBar";
 import Footer from "@/components/common/Footer";
-import NextTopLoader from 'nextjs-toploader';
+import NextTopLoader from "nextjs-toploader";
 import BackToTop from "@/components/BackToTop";
 import AdmissionModal from "@/components/AdmissionModal";
 import { Toaster } from "@/components/ui/toaster";
-// import Prospectus from "@/components/Prospectus";
+import JsonLd from "@/components/JsonLd";
+import MotionProvider from "@/components/motion/MotionProvider";
+import { schoolJsonLd } from "@/lib/jsonld";
+import { BRAND_SUFFIX, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL } from "@/lib/seo";
 
 const getPtSans = PT_Sans({
   weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-sans"
+  display: "swap",
+  variable: "--font-sans",
 });
 
 const getGaramond = EB_Garamond({
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["500", "700"],
   subsets: ["latin"],
-  variable: "--font-garamond"
-})
+  display: "swap",
+  variable: "--font-garamond",
+});
+
+const defaultTitle = "St. Vivekanand School - Best CBSE School in Bikaner";
+const defaultDescription =
+  "St. Vivekanand School is a CBSE school in Bikaner offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://stvivekanandschool.com'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "St. Vivekanand School - Best CBSE School in Bikaner",
-    template: "%s | St. Vivekanand School Bikaner"
+    default: defaultTitle,
+    template: `%s | ${BRAND_SUFFIX}`,
   },
-  description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
-  keywords: [
-    "best school in bikaner",
-    "cbse school bikaner",
-    "top school in bikaner",
-    "school in bikaner",
-    "education in bikaner",
-    "best cbse school",
-    "quality education",
-    "holistic development",
-    "nursery to class 12"
-  ],
-  authors: [{ name: "St. Vivekanand School" }],
-  creator: "St. Vivekanand School",
-  publisher: "St. Vivekanand School",
+  description: defaultDescription,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
   formatDetection: {
     email: false,
     address: false,
@@ -51,25 +50,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://stvivekanandschool.com",
-    siteName: "St. Vivekanand School",
-    title: "St. Vivekanand School - Best CBSE School in Bikaner",
-    description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
-    images: [
-      {
-        url: "/st-og.png",
-        width: 1200,
-        height: 630,
-        alt: "St. Vivekanand School - Best CBSE School in Bikaner",
-      },
-    ],
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: defaultTitle }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "St. Vivekanand School - Best CBSE School in Bikaner",
-    description: "St. Vivekanand School is the best CBSE school in Bikaner, offering quality education, modern facilities, and holistic development for students from Nursery to Class 12.",
-    images: ["/st-og.png"],
-    creator: "@stvivekanandschool",
+    title: defaultTitle,
+    description: defaultDescription,
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
@@ -77,9 +68,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   icons: {
@@ -87,9 +78,6 @@ export const metadata: Metadata = {
     shortcut: "/assets/icons/fav.png",
     apple: "/assets/icons/fav.png",
   },
-  alternates: {
-    canonical: "https://stvivekanandschool.com",
-  }
 };
 
 export default function RootLayout({
@@ -98,17 +86,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body className={`${getPtSans.className} ${getGaramond.variable} antialiased`}>
-        <NextTopLoader color="#85193C" shadow="0 0 10px #85193C,0 0 5px #85193C"/>
+        <JsonLd data={schoolJsonLd()} />
+        <NextTopLoader color="#85193C" showSpinner={false} shadow={false} />
+        <MotionProvider>
           <NavBar />
           {children}
           <Footer />
-          <BackToTop/>
+          <BackToTop />
           <AdmissionModal />
-          <Toaster />
-        
-        {/* Google Analytics */}
+        </MotionProvider>
+        <Toaster />
+
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-Z9BN0MGCL3"
           strategy="afterInteractive"

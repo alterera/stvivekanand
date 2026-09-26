@@ -1,9 +1,8 @@
-// app/events/page.tsx
 import Image from "next/image";
 import Link from "next/link";
-import { sanityClient } from "@/lib/sanity";
+import { sanityFetch } from "@/lib/sanity";
 import { ALL_EVENTS_QUERY } from "@/lib/queries";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 interface EventListItem {
   title: string;
@@ -14,7 +13,7 @@ interface EventListItem {
 }
 
 export default async function EventsPage() {
-  const events: EventListItem[] = await sanityClient.fetch(ALL_EVENTS_QUERY);
+  const events = await sanityFetch<EventListItem[]>({ query: ALL_EVENTS_QUERY, tags: ["event"] });
 
   return (
     <section className="w-full py-20">
@@ -30,7 +29,7 @@ export default async function EventsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-          {events.map((event) => {
+          {events.map((event, index) => {
             const thumbnailUrl =
               event.images?.[0]?.asset?.url ?? "/assets/background/new-1.jpg";
             return (
@@ -41,6 +40,8 @@ export default async function EventsPage() {
                     alt={event.title}
                     width={400}
                     height={250}
+                    loading={index < 3 ? "eager" : "lazy"}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="w-full h-48 object-cover"
                   />
                   <div className="p-4">

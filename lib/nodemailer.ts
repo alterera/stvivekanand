@@ -1,83 +1,102 @@
-import nodemailer from 'nodemailer';
-
-interface AdmissionFormData {
-  name: string;
-  email: string;
-  mobile: string;
-  city: string;
-  academicYear: string;
-  class: string;
-  schoolType: string;
-}
-
-interface ScheduleCallFormData {
-  studentName: string;
-  class: string;
-  currentSchool: string;
-  guardianName: string;
-  contactNumber: string;
-  address: string;
-  message?: string;
-}
+import nodemailer from "nodemailer";
+import { escapeHtml } from "./escapeHtml";
+import type { AdmissionFormData, ContactFormData, ScheduleCallFormData } from "./validation";
 
 const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
+  host: "smtp.gmail.com",
   port: 465,
-  secure: true, // use SSL
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASSWORD,
   },
 });
 
-export const sendAdmissionEmail = async (formData: AdmissionFormData) => {
-  const mailOptions = {
-    from: `"St. Vivekanand School" <${process.env.EMAIL_USER}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: 'New Admission Form Submission',
-    html: `
-      <h2>New Admission Form Submission</h2>
-      <p><strong>Name:</strong> ${formData.name}</p>
-      <p><strong>Email:</strong> ${formData.email}</p>
-      <p><strong>Mobile:</strong> ${formData.mobile}</p>
-      <p><strong>City:</strong> ${formData.city}</p>
-      <p><strong>Academic Year:</strong> ${formData.academicYear}</p>
-      <p><strong>Class:</strong> ${formData.class}</p>
-      <p><strong>School Type:</strong> ${formData.schoolType}</p>
-    `,
-  };
+type Row = [label: string, value: string | undefined];
 
+function renderRows(rows: Row[]) {
+  return rows
+    .filter(([, value]) => value)
+    .map(
+      ([label, value]) =>
+        `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value).replace(/\n/g, "<br />")}</p>`,
+    )
+    .join("\n");
+}
+
+async function send({
+  subject,
+  heading,
+  rows,
+  replyTo,
+}: {
+  subject: string;
+  heading: string;
+  rows: Row[];
+  replyTo?: string;
+}) {
   try {
-    await transporter.sendMail(mailOptions);
-    return { success: true };
+    await transporter.sendMail({
+      from: `"St. Vivekanand School" <${process.env.EMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL,
+      replyTo,
+      subject,
+      text: rows
+        .filter(([, value]) => value)
+        .map(([label, value]) => `${label}: ${value}`)
+        .join("\n"),
+      html: `<h2>${escapeHtml(heading)}</h2>\n${renderRows(rows)}`,
+    });
+    return { success: true as const };
   } catch (error) {
-    console.error('Error sending email:', error);
-    return { success: false, error };
+    console.error(`Error sending "${subject}" email:`, error);
+    return { success: false as const };
   }
-};
+}
 
-export async function sendScheduleCallEmail(formData: ScheduleCallFormData) {
-  const mailOptions = {
-    from: `"St. Vivekanand School" <${process.env.EMAIL_USER}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: 'New Schedule Call Request',
-    html: `
-      <h2>New Schedule Call Request</h2>
-      <p><strong>Student Name:</strong> ${formData.studentName}</p>
-      <p><strong>Class:</strong> ${formData.class}</p>
-      <p><strong>Current School:</strong> ${formData.currentSchool}</p>
-      <p><strong>Guardian Name:</strong> ${formData.guardianName}</p>
-      <p><strong>Contact Number:</strong> ${formData.contactNumber}</p>
-      <p><strong>Address:</strong> ${formData.address}</p>
-      ${formData.message ? `<p><strong>Additional Message:</strong> ${formData.message}</p>` : ''}
-    `,
-  };
+export function sendAdmissionEmail(data: AdmissionFormData) {
+  return send({
+    subject: "New Admission Form Submission",
+    heading: "New Admission Form Submission",
+    replyTo: data.email,
+    rows: [
+      ["Name", data.name],
+      ["Email", data.email],
+      ["Mobile", data.mobile],
+      ["City", data.city],
+      ["Academic Year", data.academicYear],
+      ["Class", data.class],
+      ["School Type", data.schoolType],
+    ],
+  });
+}
 
-  try {
-    await transporter.sendMail(mailOptions);
-    return { success: true };
-  } catch (error) {
-    console.error('Error sending schedule call email:', error);
-    return { success: false, error };
-  }
-} 
+export function sendScheduleCallEmail(data: ScheduleCallFormData) {
+  return send({
+    subject: "New Schedule Call Request",
+    heading: "New Schedule Call Request",
+    rows: [
+      ["Student Name", data.studentName],
+      ["Class", data.class],
+      ["Current School", data.currentSchool],
+      ["Guardian Name", data.guardianName],
+      ["Contact Number", data.contactNumber],
+      ["Address", data.address],
+      ["Additional Message", data.message],
+    ],
+  });
+}
+
+export function sendContactEmail(data: ContactFormData) {
+  return send({
+    subject: "New Contact Form Message",
+    heading: "New Contact Form Message",
+    replyTo: data.email,
+    rows: [
+      ["Name", data.name],
+      ["Email", data.email],
+      ["Phone", data.phone],
+      ["Message", data.message],
+    ],
+  });
+}

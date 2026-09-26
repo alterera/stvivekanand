@@ -1,11 +1,6 @@
-"use client";
-
-import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import DynamicBreadcrumb from "@/components/DynamicBreadcumb";
-
-
+import * as motion from "motion/react-client";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 
 const MissionVision = () => {
   return (
@@ -14,9 +9,9 @@ const MissionVision = () => {
         <DynamicBreadcrumb />
         {/* Page Heading */}
         <div className="text-center mb-12 mt-5">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Our Mission & Vision
-          </h2>
+          </h1>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Guiding principles that shape the future of our students and
             community.
@@ -34,10 +29,11 @@ const MissionVision = () => {
           {/* Image */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/assets/about/msn.jpeg"
-              alt="Our Mission"
+              src="/assets/about/msn.webp"
+              alt="Students at St. Vivekanand School, representing our mission"
               width={500}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="rounded-lg shadow-lg object-cover"
             />
           </div>
@@ -70,9 +66,10 @@ const MissionVision = () => {
           <div className="w-full md:w-1/2">
             <Image
               src="/assets/academics/stem.webp"
-              alt="Our Vision"
+              alt="STEM learning at St. Vivekanand School, representing our vision"
               width={500}
               height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="rounded-lg shadow-lg object-cover"
             />
           </div>

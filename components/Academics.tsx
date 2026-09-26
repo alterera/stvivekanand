@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -64,7 +63,7 @@ const gridItems = [
 const Academics = () => {
   return (
     <section className="relative w-full xl:px-4 py-16 flex flex-col items-center bg-[#fff9f5] text-[#1D3557] overflow-hidden">
-      <Image src="/assets/patterns/tri-dots.png" alt="hilly" height={100} width={140} className="absolute top-16 -right-5 rotate-90" />
+      <Image src="/assets/patterns/tri-dots.png" alt="" aria-hidden="true" height={100} width={140} className="absolute top-16 -right-5 rotate-90" />
       
       <motion.div 
         initial={{ opacity: 0, y: 50 }} 
@@ -74,8 +73,8 @@ const Academics = () => {
         className="px-6"
       >
         <h2 className="relative text-4xl font-bold text-center mb-2">
-          Academics - The Experential Learning
-          <Image src="/assets/patterns/curvy.png" alt="hilly" height={100} width={120} className="absolute top-10 left-[60%]"/>
+          Academics - The Experiential Learning
+          <Image src="/assets/patterns/curvy.png" alt="" aria-hidden="true" height={100} width={120} className="absolute top-10 left-[60%]"/>
         </h2>
         <motion.p 
           initial={{ opacity: 0, y: 50 }} 
@@ -142,7 +141,13 @@ const GridBox = ({ title, color, link, image, delay }: { title: string; color: s
       transition={{ duration: 0.6, delay }}
       viewport={{ once: true }}
     >
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
+      <Image
+        src={image}
+        alt=""
+        fill
+        sizes="(max-width: 768px) 85vw, 33vw"
+        className="object-cover"
+      />
       <div className={`absolute inset-0 ${color} opacity-70 group-hover:opacity-60 transition-all duration-300`}></div>
       <Link href={link} className="absolute inset-0 flex items-center justify-center text-3xl font-bold hover:underline duration-500" style={{ fontFamily: 'var(--font-garamond)' }}>
         {title}
