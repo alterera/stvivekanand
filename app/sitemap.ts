@@ -32,7 +32,7 @@ const STATIC_ROUTES = [
   "/gallery",
   "/admissions/admission-process",
   "/admissions/fee-structure",
-  "/admissions/career-counselling",
+  "/admissions/tc-updates",
   "/mandatory-disclosure",
   "/contact-us",
   "/schedule-a-call",

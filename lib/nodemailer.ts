@@ -58,15 +58,12 @@ export function sendAdmissionEmail(data: AdmissionFormData) {
   return send({
     subject: "New Admission Form Submission",
     heading: "New Admission Form Submission",
-    replyTo: data.email,
     rows: [
       ["Name", data.name],
-      ["Email", data.email],
       ["Mobile", data.mobile],
       ["City", data.city],
       ["Academic Year", data.academicYear],
       ["Class", data.class],
-      ["School Type", data.schoolType],
     ],
   });
 }

@@ -16,19 +16,19 @@ export default async function EventsPage() {
   const events = await sanityFetch<EventListItem[]>({ query: ALL_EVENTS_QUERY, tags: ["event"] });
 
   return (
-    <section className="w-full py-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-0">
+    <section className="w-full bg-[#F9F9F9] py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <DynamicBreadcrumb />
-        <div className="py-5">
-          <h1 className="text-3xl font-bold text-center pb-2">
+        <div className="text-center mb-12 mt-6">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">
             Events & Activities
           </h1>
-          <p className="text-center text-sm">
+          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
             Explore our school events, celebrations, and activities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event, index) => {
             const thumbnailUrl =
               event.images?.[0]?.asset?.url ?? "/assets/background/new-1.jpg";

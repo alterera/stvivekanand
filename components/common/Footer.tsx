@@ -11,6 +11,7 @@ const footerLinks = [
     links: [
       { title: "Admission Process", href: "/admissions/admission-process" },
       { title: "Fee Structure", href: "/admissions/fee-structure" },
+      { title: "TC Updates", href: "/admissions/tc-updates" },
       { title: "Schedule a Call", href: "/schedule-a-call" },
       { title: "Mandatory Disclosure", href: "/mandatory-disclosure" },
     ],
@@ -114,17 +115,29 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pt-8">
-          <h2 className="text-xl font-bold mb-4">Why Choose St. Vivekanand School, Bikaner?</h2>
-          <p className="text-gray-300">
-            St. Vivekanand School is recognized as one of the best schools in Bikaner, offering a
-            nurturing environment focused on academic excellence and moral development. As a CBSE
-            school in Bikaner, we combine modern teaching methods with strong values to help students
-            grow intellectually, emotionally, and socially. With experienced teachers, advanced
-            facilities, and a commitment to holistic education, St. Vivekanand School stands as the
-            ideal choice for parents seeking quality education and overall development for their
-            children.
-          </p>
+        <div className="pt-8 space-y-8">
+          <div>
+            <h2 className="text-xl font-bold mb-4">Why Choose St. Vivekanand School, Bikaner?</h2>
+            <p className="text-gray-300">
+              St. Vivekanand School is recognized as one of the best schools in Bikaner, offering a
+              nurturing environment focused on academic excellence and moral development. As a CBSE
+              school in Bikaner, we combine modern teaching methods with strong values to help students
+              grow intellectually, emotionally, and socially. With experienced teachers, advanced
+              facilities, and a commitment to holistic education, St. Vivekanand School stands as the
+              ideal choice for parents seeking quality education and overall development for their
+              children.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-bold mb-4">Popular Search</h2>
+            <p className="text-gray-300 leading-relaxed">
+              Best School in Bikaner | Best CBSE School in Bikaner | Top Schools in Bikaner | CBSE
+              School in Bikaner | School Admission in Bikaner | St. Vivekanand School Bikaner | Best
+              School for Nursery in Bikaner | Top CBSE Schools in Rajasthan | English Medium School in
+              Bikaner | Best School near Statue Circle Bikaner
+            </p>
+          </div>
         </div>
 
         <div className="mt-16 pt-8 border-t border-gray-700">

@@ -6,26 +6,24 @@ interface BlogPostProps {
   title: string;
   article: PortableTextBlock[];
   featuredImage: string;
-  formattedDate: string;
 }
 
-export default function BlogPost({ title, article, featuredImage, formattedDate }: BlogPostProps) {
+export default function BlogPost({ title, article, featuredImage }: BlogPostProps) {
   return (
-    <div className="w-full">
+    <div className="w-full bg-white rounded-lg border border-gray-200 shadow-sm p-6 md:p-8">
       {featuredImage && (
-        <div className="relative w-full h-64 mb-6">
+        <div className="relative w-full aspect-[16/9] mb-8 overflow-hidden rounded-lg">
           <Image
             src={featuredImage}
             alt={title}
             fill
             fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 75vw"
-            className="object-cover rounded-lg"
+            className="object-cover"
           />
         </div>
       )}
-      <p className="text-gray-500 mb-4 text-sm">Published on: {formattedDate}</p>
-      <div className="prose">
+      <div className="prose prose-neutral max-w-none">
         <PortableText value={article} components={PortableTextComponents} />
       </div>
     </div>

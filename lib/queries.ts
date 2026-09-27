@@ -235,6 +235,15 @@ export const LEGAL_PAGE_QUERY = groq`
   }
 `;
 
+export const TC_UPDATES_QUERY = groq`
+  *[_type == "transferCertificate"] | order(serialNo asc) {
+    serialNo,
+    studentName,
+    "pdfUrl": certificate.asset->url,
+    "fileName": certificate.asset->originalFilename
+  }
+`;
+
 export const SLUGS_QUERY = groq`*[_type == $type && defined(slug.current)].slug.current`;
 
 export function getSlugs(type: "blog" | "event" | "curricular" | "legal") {

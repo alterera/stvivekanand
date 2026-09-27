@@ -83,32 +83,43 @@ export default async function NewsArticlePage({ params }: Props) {
   });
 
   return (
-    <section className="py-20 w-full px-4 md:px-12">
-      <JsonLd
-        data={articleJsonLd({
-          type: "NewsArticle",
-          headline: blog.title,
-          description: describe(blog),
-          path: `/news/${slug}`,
-          image: blog.featuredImage?.asset?.url,
-          datePublished: blog.publishedAt,
-          dateModified: blog._updatedAt,
-        })}
-      />
-      <DynamicBreadcrumb currentLabel={blog.title} />
-      <h1 className="text-3xl font-bold text-center">{blog.title}</h1>
-      <div className="flex flex-col md:flex-row gap-10 mt-10 relative">
-        <div className="w-full md:w-3/4">
-          <BlogPost
-            title={blog.title}
-            article={blog.article}
-            featuredImage={blog.featuredImage?.asset?.url || ""}
-            formattedDate={formattedDate}
-          />
-        </div>
+    <section className="w-full bg-[#F9F9F9] py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <JsonLd
+          data={articleJsonLd({
+            type: "NewsArticle",
+            headline: blog.title,
+            description: describe(blog),
+            path: `/news/${slug}`,
+            image: blog.featuredImage?.asset?.url,
+            datePublished: blog.publishedAt,
+            dateModified: blog._updatedAt,
+          })}
+        />
 
-        <div className="w-full md:w-1/3 p-5 bg-gray-200 h-fit rounded-md sticky top-5">
-          <AdmissionForm />
+        <DynamicBreadcrumb currentLabel={blog.title} />
+
+        <header className="mt-6 mb-10 max-w-4xl">
+          <p className="text-sm text-gray-500 mb-3">Published on {formattedDate}</p>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557] leading-tight">
+            {blog.title}
+          </h1>
+        </header>
+
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          <article className="w-full lg:w-3/4 min-w-0">
+            <BlogPost
+              title={blog.title}
+              article={blog.article}
+              featuredImage={blog.featuredImage?.asset?.url || ""}
+            />
+          </article>
+
+          <aside className="w-full lg:w-1/4">
+            <div className="p-5 bg-white border border-gray-200 shadow-sm rounded-lg lg:sticky lg:top-24">
+              <AdmissionForm />
+            </div>
+          </aside>
         </div>
       </div>
     </section>

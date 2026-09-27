@@ -15,12 +15,10 @@ import Honeypot from "./Honeypot";
 
 const EMPTY_FORM = {
   name: "",
-  email: "",
   mobile: "",
   city: "",
   academicYear: "",
   class: "",
-  schoolType: "",
 };
 
 const labelClass = "block text-sm font-semibold text-gray-700 mb-1";
@@ -34,10 +32,10 @@ const AdmissionForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formData.academicYear || !formData.class || !formData.schoolType) {
+    if (!formData.academicYear || !formData.class) {
       toast({
         title: "Missing details",
-        description: "Please choose the academic year, class, and school type.",
+        description: "Please choose the academic year and class.",
         variant: "destructive",
       });
       return;
@@ -87,41 +85,22 @@ const AdmissionForm = () => {
       </h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <Honeypot value={website} onChange={setWebsite} />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label htmlFor={`${id}-name`} className={labelClass}>
-              Name
-            </label>
-            <Input
-              id={`${id}-name`}
-              type="text"
-              name="name"
-              placeholder="Student or parent name"
-              autoComplete="name"
-              maxLength={100}
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="bg-gray-50"
-            />
-          </div>
-          <div>
-            <label htmlFor={`${id}-email`} className={labelClass}>
-              Email
-            </label>
-            <Input
-              id={`${id}-email`}
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              autoComplete="email"
-              maxLength={150}
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="bg-gray-50"
-            />
-          </div>
+        <div>
+          <label htmlFor={`${id}-name`} className={labelClass}>
+            Name
+          </label>
+          <Input
+            id={`${id}-name`}
+            type="text"
+            name="name"
+            placeholder="Student or parent name"
+            autoComplete="name"
+            maxLength={100}
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="bg-gray-50"
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -205,23 +184,6 @@ const AdmissionForm = () => {
             </Select>
           </div>
 
-          <div>
-            <label id={`${id}-type-label`} className={labelClass}>
-              School Type
-            </label>
-            <Select
-              value={formData.schoolType}
-              onValueChange={(value) => setFormData((prev) => ({ ...prev, schoolType: value }))}
-            >
-              <SelectTrigger className="w-full" aria-labelledby={`${id}-type-label`}>
-                <SelectValue placeholder="Choose school type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="day">Day Scholar</SelectItem>
-                <SelectItem value="boarding">Boarding</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
         </div>
 
         <Button

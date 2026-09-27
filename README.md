@@ -74,7 +74,7 @@ Set these in `.env.local` for development and in Vercel → Project → Settings
 
 ### Content caching and the Sanity webhook
 
-Pages read Sanity through `sanityFetch` in `lib/sanity.ts`. Responses are cached for up to an hour and tagged by document type (`blog`, `event`, `curricular`, `legal`, `gallery`, `feeStructure`, `sports`, `hero`, `mandatoryDisclosure`).
+Pages read Sanity through `sanityFetch` in `lib/sanity.ts`. Responses are cached for up to an hour and tagged by document type (`blog`, `event`, `curricular`, `legal`, `gallery`, `feeStructure`, `sports`, `hero`, `mandatoryDisclosure`, `transferCertificate`).
 
 To make published changes appear immediately, create a webhook in Sanity (manage.sanity.io → project → API → Webhooks):
 

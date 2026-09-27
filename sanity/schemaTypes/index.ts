@@ -8,5 +8,6 @@ import events from "./events"
 import disclosure from "./disclosure"
 import feeStructure from "./feeStructure"
 import legal from "./legal"
+import transferCertificate from "./transferCertificate"
 
-export const schemaTypes = [hero, academics, sports, curricular, events, news, gallery, disclosure, feeStructure, legal]
+export const schemaTypes = [hero, academics, sports, curricular, events, news, gallery, disclosure, feeStructure, legal, transferCertificate]

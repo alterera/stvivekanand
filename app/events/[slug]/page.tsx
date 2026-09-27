@@ -60,36 +60,40 @@ export default async function EventPage({ params }: Props) {
   }
 
   return (
-    <section className="w-full px-4 md:px-12 py-20">
-      <JsonLd
-        data={articleJsonLd({
-          headline: event.title,
-          description: describe(event),
-          path: `/events/${slug}`,
-          image: event.images?.[0]?.asset?.url,
-          datePublished: event._createdAt,
-          dateModified: event._updatedAt,
-        })}
-      />
-      <DynamicBreadcrumb currentLabel={event.title} />
+    <section className="w-full bg-[#F9F9F9] py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <JsonLd
+          data={articleJsonLd({
+            headline: event.title,
+            description: describe(event),
+            path: `/events/${slug}`,
+            image: event.images?.[0]?.asset?.url,
+            datePublished: event._createdAt,
+            dateModified: event._updatedAt,
+          })}
+        />
+        <DynamicBreadcrumb currentLabel={event.title} />
 
-      <div className="my-5">
-        <h1 className="text-3xl text-[#0D3658] font-bold text-center mb-2">{event.title}</h1>
-        {event.subtitle && (
-          <p className="text-sm text-gray-500 text-center mb-8">{event.subtitle}</p>
-        )}
-      </div>
+        <header className="mt-6 mb-10 text-center max-w-4xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557]">{event.title}</h1>
+          {event.subtitle && (
+            <p className="text-gray-600 mt-4">{event.subtitle}</p>
+          )}
+        </header>
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row relative gap-5">
-        <div className="w-full md:w-3/4">
-          <EventPost
-            title={event.title}
-            description={event.description ?? ""}
-            images={event.images ?? []}
-          />
-        </div>
-        <div className="w-full md:w-1/4 p-5 bg-gray-200 h-fit rounded-md sticky top-5">
-          <AdmissionForm />
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+          <div className="w-full lg:w-3/4">
+            <EventPost
+              title={event.title}
+              description={event.description ?? ""}
+              images={event.images ?? []}
+            />
+          </div>
+          <aside className="w-full lg:w-1/4">
+            <div className="p-5 bg-white border border-gray-200 shadow-sm rounded-lg lg:sticky lg:top-24">
+              <AdmissionForm />
+            </div>
+          </aside>
         </div>
       </div>
     </section>

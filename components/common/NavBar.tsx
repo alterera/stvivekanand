@@ -76,10 +76,10 @@ const admissionComponent: { title: string; href: string; description: string }[]
       "Know more about the fee structure of your child future journey.",
   },
   {
-    title: "Career Counselling",
-    href: "/admissions/career-counselling",
+    title: "TC Updates",
+    href: "/admissions/tc-updates",
     description:
-      "Guidance and career fairs to help students plan what comes next.",
+      "Search and download transfer certificates for students.",
   },
   {
     title: "Schedule a Call",

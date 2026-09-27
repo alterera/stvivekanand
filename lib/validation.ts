@@ -54,18 +54,15 @@ export function isHoneypotFilled(input: unknown) {
 
 export type AdmissionFormData = {
   name: string;
-  email: string;
   mobile: string;
   city: string;
   academicYear: string;
   class: string;
-  schoolType: string;
 };
 
 export function validateAdmission(input: unknown) {
   return validate<AdmissionFormData>(input, {
     name: { label: "Name", required: true, max: 100 },
-    email: { label: "Email", required: true, max: 150, pattern: EMAIL, patternMessage: "Enter a valid email" },
     mobile: {
       label: "Mobile number",
       required: true,
@@ -76,7 +73,6 @@ export function validateAdmission(input: unknown) {
     city: { label: "City", required: true, max: 80 },
     academicYear: { label: "Academic year", required: true, max: 20 },
     class: { label: "Class", required: true, max: 30 },
-    schoolType: { label: "School type", required: true, max: 30 },
   });
 }
 
