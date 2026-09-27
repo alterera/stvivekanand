@@ -2,7 +2,7 @@ import * as motion from "motion/react-client";
 import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import { sanityFetch } from "@/lib/sanity";
 import { FEE_STRUCTURE_QUERY } from "@/lib/queries";
-import AdmissionForm from "@/components/widgets/AdmissionForm";
+import AdmissionFormSidebar from "@/components/widgets/AdmissionFormSidebar";
 import {
   Table,
   TableBody,
@@ -59,28 +59,37 @@ const FeeStructure = async () => {
                 <h2 className="text-2xl font-semibold text-center pb-4 text-[#1D3557]">
                   {structure.title}
                 </h2>
-                <Table className="border">
-                  <TableHeader>
-                    <TableRow className="bg-[#85193C] text-white">
-                      <TableHead>Class</TableHead>
-                      <TableHead>1st Instalment</TableHead>
-                      <TableHead>2nd Instalment</TableHead>
-                      <TableHead>3rd Instalment</TableHead>
-                      <TableHead className="text-right">Yearly Total</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody style={{ fontFamily: "arial" }}>
-                    {(structure.fees ?? []).map((fee, i) => (
-                      <TableRow key={i}>
-                        <TableCell className="font-bold">{fee.class}</TableCell>
-                        <TableCell>₹{fee.emi1}</TableCell>
-                        <TableCell>₹{fee.emi2}</TableCell>
-                        <TableCell>₹{fee.emi3}</TableCell>
-                        <TableCell className="text-right font-bold">₹{fee.yearly}</TableCell>
+                <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md">
+                  <Table>
+                    <TableHeader>
+                      <TableRow className="bg-[#85193C] hover:bg-[#85193C]">
+                        <TableHead className="font-bold text-white">Class</TableHead>
+                        <TableHead className="font-bold text-white">1st Instalment</TableHead>
+                        <TableHead className="font-bold text-white">2nd Instalment</TableHead>
+                        <TableHead className="font-bold text-white">3rd Instalment</TableHead>
+                        <TableHead className="text-right font-bold text-white">Yearly Total</TableHead>
                       </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                    </TableHeader>
+                    <TableBody style={{ fontFamily: "arial" }}>
+                      {(structure.fees ?? []).map((fee, i) => (
+                        <TableRow
+                          key={i}
+                          className={`group ${i % 2 === 0 ? "bg-white" : "bg-gray-50"}`}
+                        >
+                          <TableCell className="font-semibold text-[#1D3557] group-hover:text-white">
+                            {fee.class}
+                          </TableCell>
+                          <TableCell className="group-hover:text-white">₹{fee.emi1}</TableCell>
+                          <TableCell className="group-hover:text-white">₹{fee.emi2}</TableCell>
+                          <TableCell className="group-hover:text-white">₹{fee.emi3}</TableCell>
+                          <TableCell className="text-right font-semibold group-hover:text-white">
+                            ₹{fee.yearly}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </motion.div>
             ))}
 
@@ -100,8 +109,8 @@ const FeeStructure = async () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/3 p-5 bg-gray-200 h-fit rounded-md sticky top-5">
-            <AdmissionForm />
+          <div className="w-full md:w-1/3">
+            <AdmissionFormSidebar />
           </div>
         </div>
       </div>

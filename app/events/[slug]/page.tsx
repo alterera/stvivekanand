@@ -5,7 +5,7 @@ import { EVENT_QUERY, getSlugs } from "@/lib/queries";
 import { notFoundMetadata, pageMetadata, truncate } from "@/lib/seo";
 import { articleJsonLd } from "@/lib/jsonld";
 import EventPost from "@/components/EventPost";
-import AdmissionForm from "@/components/widgets/AdmissionForm";
+import AdmissionFormSidebar from "@/components/widgets/AdmissionFormSidebar";
 import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import JsonLd from "@/components/JsonLd";
 
@@ -82,17 +82,15 @@ export default async function EventPage({ params }: Props) {
         </header>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          <div className="w-full lg:w-3/4">
+          <div className="w-full lg:w-2/3">
             <EventPost
               title={event.title}
               description={event.description ?? ""}
               images={event.images ?? []}
             />
           </div>
-          <aside className="w-full lg:w-1/4">
-            <div className="p-5 bg-white border border-gray-200 shadow-sm rounded-lg lg:sticky lg:top-24">
-              <AdmissionForm />
-            </div>
+          <aside className="w-full lg:w-1/3">
+            <AdmissionFormSidebar />
           </aside>
         </div>
       </div>
