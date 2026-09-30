@@ -138,9 +138,10 @@ export const ALL_EVENTS_QUERY = groq`
 `;
 
 export const HOME_EVENTS_QUERY = groq`
-  *[_type == "event"] | order(_createdAt desc) {
+  *[_type == "event"] | order(_createdAt desc) [0...4] {
     _id,
     title,
+    subtitle,
     "imageUrl": images[0].asset->url,
     "slug": slug.current
   }
