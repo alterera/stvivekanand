@@ -5,11 +5,13 @@ import { ArrowRight, CalendarDays, Pin } from "lucide-react";
 import { Button } from "./ui/button";
 import { sanityFetch } from "@/lib/sanity";
 import { HOME_EVENTS_QUERY, HOME_NOTICES_QUERY } from "@/lib/queries";
+import { getEventDateIso, parseEventDate } from "@/lib/eventDate";
 
 interface EventListItem {
   _id: string;
   title: string;
   slug: string;
+  eventDate?: string;
   _createdAt: string;
 }
 
@@ -22,16 +24,6 @@ interface NoticeListItem {
 
 const formatNoticeDate = (value: string) =>
   new Date(value).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
-
-function parseEventDate(iso: string) {
-  const d = new Date(iso);
-  return {
-    day: d.getDate(),
-    month: d.toLocaleDateString("en-IN", { month: "short" }).toUpperCase(),
-    time: d.toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", hour12: true }),
-    year: d.getFullYear(),
-  };
-}
 
 function EventDateBadge({ iso }: { iso: string }) {
   const { day, month } = parseEventDate(iso);
@@ -137,7 +129,8 @@ const Events = async () => {
             {events.length > 0 ? (
               <ul className="divide-y divide-gray-100">
                 {events.map((event, index) => {
-                  const { time, year } = parseEventDate(event._createdAt);
+                  const dateIso = getEventDateIso(event);
+                  const { time, year } = parseEventDate(dateIso);
                   return (
                     <motion.li
                       key={event._id}
@@ -150,13 +143,13 @@ const Events = async () => {
                         href={`/events/${event.slug}`}
                         className="flex gap-4 py-4 transition-opacity hover:opacity-90"
                       >
-                        <EventDateBadge iso={event._createdAt} />
+                        <EventDateBadge iso={dateIso} />
                         <div className="min-w-0 flex-1 pt-0.5">
                           <p className="font-semibold leading-snug text-[#1D3557] transition-colors group-hover:text-[#85193C]">
                             {event.title}
                           </p>
                           <p className="mt-1 text-sm text-gray-500">
-                            <time dateTime={event._createdAt}>
+                            <time dateTime={dateIso}>
                               {time} · {year}
                             </time>
                           </p>

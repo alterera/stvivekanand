@@ -1,19 +1,9 @@
+import Image from "next/image";
+import Link from "next/link";
 import { getSportsData } from "@/lib/queries";
 import { Sport } from "@/types/index";
-import SwiperComponent from "@/components/SwiperComponent";
 import { Metadata } from "next";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import Image from "next/image";
 import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
-import { PortableText } from "next-sanity";
-import { PortableTextComponents } from "@/components/PortableTextComponent";
-import JsonLd from "@/components/JsonLd";
-import { faqJsonLd } from "@/lib/jsonld";
 import { pageMetadata, truncate } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -34,88 +24,66 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const SportsPage = async () => {
   const sportsData: Sport[] = await getSportsData();
-  const faqs = sportsData.flatMap((sport) =>
-    (sport.faqs ?? [])
-      .filter((faq) => faq.faq && faq.answer)
-      .map((faq) => ({ question: faq.faq, answer: faq.answer })),
-  );
 
   return (
-    <section className="max-w-7xl mx-auto px-6 md:px-12 py-20">
-      {faqs.length > 0 && <JsonLd data={faqJsonLd(faqs)} />}
-      <DynamicBreadcrumb />
+    <section className="relative w-full overflow-hidden bg-[#F9F9F9] py-20">
+      <Image
+        src="/assets/patterns/hand-curv.png"
+        height={100}
+        width={100}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-2 left-0 hidden md:block"
+      />
+      <div className="relative mx-auto max-w-7xl px-6 md:px-12">
+        <DynamicBreadcrumb />
 
-      <div className="container mx-auto pt-4">
-        <h1 className="text-4xl font-bold mb-2 text-center text-[#0D3658]">
-          Sports Facilities
-        </h1>
-        <p className="text-center mb-8">
-          The largest gamut of in-house sports facilities for any school, right
-          in the city centre
-        </p>
+        <div className="container mx-auto pt-4">
+          <h1 className="mb-2 text-center text-4xl font-bold text-[#0D3658]">Sports Facilities</h1>
+          <p className="mb-10 text-center text-gray-600">
+            The largest gamut of in-house sports facilities for any school, right in the city centre
+          </p>
 
-        <div className="relative">
-          <Image
-            src={"/assets/patterns/hand-curv.png"}
-            height={100}
-            width={100}
-            alt=""
-            aria-hidden="true"
-            className="hidden md:block absolute -top-10 left-0"
-          />
-          {sportsData.map((sport, i) => {
-            const sectionId = sport.sportId?.current;
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {sportsData.map((sport) => {
+              const slug = sport.sportId?.current;
+              if (!slug) return null;
 
-            if (!sectionId) {
-              console.warn(`Missing sportId for sport: ${sport.title}`);
-              return null;
-            }
+              const thumbnail =
+                sport.images?.[0]?.asset?.url ?? "/assets/sports/sports-2.webp";
 
-            const imageUrls = (sport.images ?? []).map((image) => image.asset.url);
-
-            return (
-              <section
-                key={sport._id}
-                id={sectionId}
-                className="mb-12 scroll-mt-20"
-              >
-                <div
-                  className={`flex flex-col-reverse gap-10 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
+              return (
+                <Link
+                  key={sport._id}
+                  href={`/academics/sports/${slug}`}
+                  className="group overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-gray-200 transition-shadow hover:shadow-lg"
                 >
-                  <div className="w-full md:w-1/2 py-5 md:py-10 flex flex-col justify-center">
-                    <h2 className="text-3xl font-semibold mb-4 text-[#0D3658]">
+                  <div className="relative h-52 overflow-hidden bg-[#0D3658]">
+                    <Image
+                      src={thumbnail}
+                      alt={sport.title}
+                      width={400}
+                      height={260}
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h2 className="text-xl font-semibold text-[#0D3658] group-hover:text-[#85193C]">
                       {sport.title}
                     </h2>
-                    <div className="mb-4 text-gray-700">
-                      <PortableText
-                        value={sport.intro}
-                      />
-                    </div>
-
-                    <h3 className="text-xl font-bold mb-4 text-[#0D3658]">
-                      {sport.atSchoolTitle}
-                    </h3>
-                    <div className="mb-4 text-gray-700">
-                      <PortableText value={sport.atSchoolIntro} components={PortableTextComponents}/>
-                    </div>
+                    <span className="mt-2 inline-block text-sm font-semibold text-[#85193C]">
+                      View details →
+                    </span>
                   </div>
+                </Link>
+              );
+            })}
+          </div>
 
-                  <div className="w-full md:w-1/2">
-                    <SwiperComponent images={imageUrls} label={`${sport.title} at St. Vivekanand School, photo`} />
-                  </div>
-                </div>
-
-                <Accordion type="single" collapsible className="w-full mt-5">
-                  {(sport.faqs ?? []).map((faq, i) => (
-                    <AccordionItem value={`item-${i}`} key={i}>
-                      <AccordionTrigger>{faq.faq}</AccordionTrigger>
-                      <AccordionContent>{faq.answer}</AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </section>
-            );
-          })}
+          {sportsData.length === 0 && (
+            <p className="py-12 text-center text-gray-500">No sports listed at the moment.</p>
+          )}
         </div>
       </div>
     </section>

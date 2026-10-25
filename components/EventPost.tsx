@@ -1,11 +1,5 @@
 "use client";
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import Image from "next/image";
 
 interface EventPostProps {
@@ -14,32 +8,47 @@ interface EventPostProps {
   images: { asset: { url: string } }[];
 }
 
-const EventPost: React.FC<EventPostProps> = ({ title, description, images }) => {
+function bentoClass(index: number, total: number): string {
+  if (total === 1) return "col-span-2 row-span-2 min-h-[280px] md:min-h-[360px]";
+  if (total === 2) return "col-span-1 row-span-2 min-h-[200px] md:min-h-[280px]";
+  if (index === 0) return "col-span-2 row-span-2 min-h-[220px] md:min-h-[320px]";
+  if (index === 1) return "col-span-1 row-span-1 min-h-[160px] md:min-h-[200px]";
+  if (index === 2) return "col-span-1 row-span-1 min-h-[160px] md:min-h-[200px]";
+  return "col-span-1 row-span-1 min-h-[160px] md:min-h-[180px]";
+}
+
+const EventPost = ({ title, description, images }: EventPostProps) => {
   return (
-    <div className="w-full mx-auto bg-white md:shadow-lg space-y-6">
-      <Swiper
-        modules={[Pagination, Navigation]}
-        pagination={{ clickable: true }}
-        navigation
-        className="w-full h-80 rounded-lg"
-      >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <Image
-              src={image.asset.url}
-              alt={`${title} photo ${index + 1}`}
-              width={1000}
-              height={640}
-              fetchPriority={index === 0 ? "high" : "auto"}
-              sizes="(max-width: 768px) 100vw, 75vw"
-              className="w-full h-full object-cover rounded-lg"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-      <h2 className="text-gray-600 px-4 text-2xl font-semibold">{title}</h2>
-      <p className="text-gray-600 px-4 pb-5 whitespace-pre-line">{description}</p>
-    </div>
+    <article className="w-full space-y-8">
+      {images.length > 0 && (
+        <div
+          className="grid grid-cols-2 gap-3 md:gap-4 auto-rows-fr rounded-2xl bg-[#fff9f5] p-3 md:p-4 ring-1 ring-[#85193C]/10"
+          aria-label={`Photos from ${title}`}
+        >
+          {images.map((image, index) => (
+            <div
+              key={index}
+              className={`relative overflow-hidden rounded-xl bg-white shadow-sm ${bentoClass(index, images.length)}`}
+            >
+              <Image
+                src={image.asset.url}
+                alt={`${title} photo ${index + 1}`}
+                fill
+                fetchPriority={index === 0 ? "high" : "auto"}
+                sizes="(max-width: 768px) 50vw, 33vw"
+                className="object-contain p-2"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+        <p className="whitespace-pre-line text-base leading-relaxed text-gray-700 md:text-lg">
+          {description}
+        </p>
+      </div>
+    </article>
   );
 };
 

@@ -13,9 +13,15 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'subtitle',
-      title: 'Subtitle',
-      type: 'string',
+      name: 'eventDate',
+      title: 'Event date & time',
+      type: 'datetime',
+      description: 'When the event takes place (shown on the website). Include date and time.',
+      options: {
+        dateFormat: 'YYYY-MM-DD',
+        timeFormat: 'HH:mm',
+        timeStep: 15,
+      },
     },
     {
       name: 'slug',

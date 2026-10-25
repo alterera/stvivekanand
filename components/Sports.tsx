@@ -2,42 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import * as motion from "motion/react-client";
 import { Button } from "./ui/button";
+import { getSportsData } from "@/lib/queries";
 
-interface SportCard {
-  id: number;
-  title: string;
-  imageUrl: string;
-  link: string;
-}
+const FALLBACK_IMAGES: Record<string, string> = {
+  "basketball-court": "/assets/sports/basketball.webp",
+  "gymnasium-strength-and-fitness": "/assets/sports/gymnasium.webp",
+  "cricket-turf": "/assets/sports/cricket.webp",
+  "lawn-tennis": "/assets/sports/tennis.webp",
+};
 
-const sportsContent: SportCard[] = [
-  {
-    id: 1,
-    title: "Basketball Court",
-    imageUrl: "/assets/sports/basketball.webp",
-    link: "/academics/sports/#basketball-court",
-  },
-  {
-    id: 2,
-    title: "Gymnasium",
-    imageUrl: "/assets/sports/gymnasium.webp",
-    link: "/academics/sports/#gymnasium-strength-and-fitness",
-  },
-  {
-    id: 3,
-    title: "Cricket Turf",
-    imageUrl: "/assets/sports/cricket.webp",
-    link: "/academics/sports/#cricket-turf",
-  },
-  {
-    id: 4,
-    title: "Lawn Tennis Court",
-    imageUrl: "/assets/sports/tennis.webp",
-    link: "/academics/sports/#lawn-tennis",
-  },
-];
+const Sports = async () => {
+  const sportsData = await getSportsData().catch(() => []);
+  const sportsWithSlug = sportsData.filter((sport) => sport.sportId?.current);
 
-const Sports = () => {
   return (
     <motion.section
       className="relative w-full bg-white xl:px-4"
@@ -105,44 +82,53 @@ const Sports = () => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            {sportsContent.map((sport, index) => (
-              <div
-                key={sport.id}
-                className="relative h-[200px] md:h-[300px] overflow-hidden group rounded-sm shadow-lg"
-              >
-                <Image
-                  src={sport.imageUrl}
-                  alt={sport.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  sizes="(max-width: 1024px) 50vw, 25vw"
-                />
+            {sportsWithSlug.map((sport, index) => {
+              const slug = sport.sportId.current;
+              const imageUrl =
+                sport.images?.[0]?.asset?.url ?? FALLBACK_IMAGES[slug] ?? "/assets/sports/sports-2.webp";
 
-                <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/60" />
-
-                <motion.div
-                  className="absolute inset-0 p-4 flex flex-col justify-end"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
+              return (
+                <div
+                  key={sport._id}
+                  className="relative h-[200px] md:h-[300px] overflow-hidden group rounded-sm shadow-lg"
                 >
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3 transform transition-transform duration-300 group-hover:translate-y-[-8px]">
-                    {sport.title}
-                  </h3>
+                  <Image
+                    src={imageUrl}
+                    alt={sport.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
 
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="w-fit bg-transparent text-white border-white hover:bg-[#7B243D] font-bold hover:text-white hover:border-none"
+                  <div className="absolute inset-0 bg-black/40 transition-colors duration-300 group-hover:bg-black/60" />
+
+                  <motion.div
+                    className="absolute inset-0 p-4 flex flex-col justify-end"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    viewport={{ once: true }}
                   >
-                    <Link href={sport.link} aria-label={`Read more about the ${sport.title}`}>
-                      Read More
-                    </Link>
-                  </Button>
-                </motion.div>
-              </div>
-            ))}
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-3 transform transition-transform duration-300 group-hover:translate-y-[-8px]">
+                      {sport.title}
+                    </h3>
+
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="w-fit bg-transparent text-white border-white hover:bg-[#7B243D] font-bold hover:text-white hover:border-none"
+                    >
+                      <Link
+                        href={`/academics/sports/${slug}`}
+                        aria-label={`Read more about the ${sport.title}`}
+                      >
+                        Read More
+                      </Link>
+                    </Button>
+                  </motion.div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

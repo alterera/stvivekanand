@@ -3,7 +3,7 @@ import { sanityFetch } from "./sanity";
 import { Sport } from "@/types/index";
 
 export const SPORTS_QUERY = groq`
-  *[_type == "sports"] {
+  *[_type == "sports"] | order(title asc) {
     _id,
     title,
     intro,
@@ -25,8 +25,39 @@ export const SPORTS_QUERY = groq`
   }
 `;
 
+export const SPORT_BY_SLUG_QUERY = groq`
+  *[_type == "sports" && sportId.current == $slug][0] {
+    _id,
+    title,
+    intro,
+    atSchoolTitle,
+    atSchoolIntro,
+    images[] {
+      asset-> {
+        _id,
+        url
+      }
+    },
+    faqs[] {
+      faq,
+      answer
+    },
+    sportId {
+      current
+    }
+  }
+`;
+
+export const SPORT_SLUGS_QUERY = groq`
+  *[_type == "sports" && defined(sportId.current)].sportId.current
+`;
+
 export function getSportsData(): Promise<Sport[]> {
   return sanityFetch<Sport[]>({ query: SPORTS_QUERY, tags: ["sports"] });
+}
+
+export function getSportSlugs() {
+  return sanityFetch<string[]>({ query: SPORT_SLUGS_QUERY, tags: ["sports"] });
 }
 
 export const HERO_QUERY = groq`
@@ -120,13 +151,14 @@ export const HOME_BLOGS_QUERY = groq`
 `;
 
 export const ALL_EVENTS_QUERY = groq`
-  *[_type == "event"] | order(_createdAt desc) {
+  *[_type == "event"] | order(coalesce(eventDate, _createdAt) desc) {
     title,
     slug {
       current
     },
+    eventDate,
+    _createdAt,
     _updatedAt,
-    subtitle,
     description,
     images[] {
       asset-> {
@@ -138,10 +170,10 @@ export const ALL_EVENTS_QUERY = groq`
 `;
 
 export const HOME_EVENTS_QUERY = groq`
-  *[_type == "event"] | order(_createdAt desc) [0...8] {
+  *[_type == "event"] | order(coalesce(eventDate, _createdAt) desc) [0...3] {
     _id,
     title,
-    subtitle,
+    eventDate,
     _createdAt,
     "imageUrl": images[0].asset->url,
     "slug": slug.current
@@ -219,8 +251,8 @@ export const LATEST_BLOGS_QUERY = groq`
 export const EVENT_QUERY = groq`
   *[_type == "event" && slug.current == $slug][0] {
     title,
-    subtitle,
     description,
+    eventDate,
     _createdAt,
     _updatedAt,
     images[] {

@@ -103,7 +103,7 @@ const Academics = () => {
         </motion.p>
         <div className="mb-12 flex justify-center">
           <Button asChild className="bg-[#85193C] font-semibold text-white hover:bg-[#85193C]/90">
-            <Link href="/academics">Explore academics</Link>
+            <Link href="/academics/all-facilities">Explore academics</Link>
           </Button>
         </div>
       </motion.div>

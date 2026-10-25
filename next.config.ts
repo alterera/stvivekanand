@@ -53,8 +53,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/academics/all-facilities",
-        destination: "/academics",
+        source: "/academics",
+        destination: "/academics/all-facilities",
         permanent: true,
       },
       {

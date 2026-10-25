@@ -7,6 +7,7 @@ import {
   ALL_LEGAL_PAGES_QUERY,
   ALL_NOTICES_QUERY,
   SECTION_SLUGS_QUERY,
+  SPORT_SLUGS_QUERY,
 } from "@/lib/queries";
 import { SITE_URL } from "@/lib/seo";
 
@@ -25,7 +26,7 @@ const STATIC_ROUTES = [
   "/about-us/why-choose-us",
   "/about-us/mission-vision",
   "/about-us/principals-message",
-  "/academics",
+  "/academics/all-facilities",
   "/academics/overview",
   "/notices",
   "/academics/cbse-affiliation",
@@ -60,13 +61,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   try {
-    const [blogs, events, curricular, legalPages, notices, sectionSlugs] = await Promise.all([
+    const [blogs, events, curricular, legalPages, notices, sectionSlugs, sportSlugs] =
+      await Promise.all([
       sanityFetch<SlugDoc[]>({ query: ALL_BLOGS_QUERY, tags: ["blog"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_EVENTS_QUERY, tags: ["event"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_CURRICULAR_QUERY, tags: ["curricular"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_LEGAL_PAGES_QUERY, tags: ["legal"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_NOTICES_QUERY, tags: ["notice"] }),
       sanityFetch<string[]>({ query: SECTION_SLUGS_QUERY, tags: ["section"] }),
+      sanityFetch<string[]>({ query: SPORT_SLUGS_QUERY, tags: ["sports"] }),
     ]);
 
     const toEntries = (
@@ -93,10 +96,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
       }));
 
+    const sportEntries: MetadataRoute.Sitemap = (sportSlugs ?? [])
+      .filter(Boolean)
+      .map((slug) => ({
+        url: `${SITE_URL}/academics/sports/${slug}`,
+        lastModified: STATIC_LAST_MODIFIED,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      }));
+
     return [
       ...staticRoutes,
       ...toEntries(blogs, "/news", "monthly", 0.7),
       ...toEntries(events, "/events", "monthly", 0.7),
+      ...sportEntries,
       ...toEntries(notices, "/notices", "monthly", 0.7),
       ...toEntries(curricular, "/co-curricular", "monthly", 0.7),
       ...toEntries(legalPages, "", "yearly", 0.3),

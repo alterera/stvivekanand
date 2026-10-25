@@ -32,7 +32,7 @@ const components: { title: string; href: string; description: string }[] = [
   },
   {
     title: "Academic Facilities",
-    href: "/academics",
+    href: "/academics/all-facilities",
     description:
       "Labs, library, smart classrooms, and every facility on campus.",
   },
@@ -55,11 +55,17 @@ const components: { title: string; href: string; description: string }[] = [
       "Cricket, basketball, tennis, gymnasium, and coaching on campus.",
   },
   {
+    title: "Events",
+    href: "/events",
+    description:
+      "Events from sports, cultural programmes, and classrooms.",
+  },
+  {
     title: "Gallery",
     href: "/gallery",
     description:
       "Photos from sports, events, cultural programmes, and classrooms.",
-  },
+  }
 ];
 
 const admissionComponent: { title: string; href: string; description: string }[] = [
@@ -167,7 +173,7 @@ export function NavBar() {
                       <li className="row-span-3">
                         <NavigationMenuLink asChild>
                           <Link
-                            className="flex h-full w-full select-none hover:bg-[#0D3658] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                            className="flex h-full w-full select-none bg-[#0D3658] bg-cover text-white flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                             href="/about-us/our-history"
                           style={{backgroundImage: "url('/assets/background/stvivek.png')"}} >
                             <div className="mb-2 mt-4 text-lg font-bold hover:text-[#85193C]">
@@ -195,7 +201,7 @@ export function NavBar() {
                   </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <NavigationMenuTrigger>Our Curriculum</NavigationMenuTrigger>
+                  <NavigationMenuTrigger>Academics</NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                       {components.map((component) => (
