@@ -35,15 +35,15 @@ type Facility = {
 };
 
 const facilities: Facility[] = [
-  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FlaskConical className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#science-laborities" },
-  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <Microscope className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#space-lab" },
-  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <Bot className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#robotics" },
-  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <Laptop className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#computer-department" },
-  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <Lightbulb className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#experiential-learning" },
-  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <BookOpen className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#library" },
-  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <Brain className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#ai-ml-lab" },
-  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <Languages className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#phonic-lab" },
-  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <Presentation className={iconClass} aria-hidden="true" />, link: "/academics/all-facilities/#steam-lab" },
+  { id: 1, title: "Science Laboratories", description: "Fully equipped Physics, Chemistry, and Biology Labs.", icon: <FlaskConical className={iconClass} aria-hidden="true" />, link: "/academics/science-laborities" },
+  { id: 2, title: "Space Lab", description: "The only Space Lab in the city, offering hands-on space study experiences.", icon: <Microscope className={iconClass} aria-hidden="true" />, link: "/academics/space-lab" },
+  { id: 3, title: "Robotics Lab", description: "Hands-on experience in robotics and elementary toolkit learning.", icon: <Bot className={iconClass} aria-hidden="true" />, link: "/academics/robotics" },
+  { id: 4, title: "Computer Lab", description: "Modern, internet-enabled lab for research, homework, and projects.", icon: <Laptop className={iconClass} aria-hidden="true" />, link: "/academics/computer-department" },
+  { id: 5, title: "Experiential Learning", description: "Activity-based learning to help students discover themselves.", icon: <Lightbulb className={iconClass} aria-hidden="true" />, link: "/academics/experiential-learning" },
+  { id: 6, title: "Library", description: "Over 45 years of curated knowledge, with IIT-JEE & NEET sections.", icon: <BookOpen className={iconClass} aria-hidden="true" />, link: "/academics/library" },
+  { id: 7, title: "AI & Machine Learning Lab", description: "Learn the basics of AI & ML with practical applications.", icon: <Brain className={iconClass} aria-hidden="true" />, link: "/academics/ai-ml-lab" },
+  { id: 8, title: "Phonics Lab", description: "UK-based phonics learning pedagogy for early English learning.", icon: <Languages className={iconClass} aria-hidden="true" />, link: "/academics/phonic-lab" },
+  { id: 9, title: "Steam Lab", description: "Science, Technology, Engineering, Arts, and Math combined for real-world applications.", icon: <Presentation className={iconClass} aria-hidden="true" />, link: "/academics/steam-lab" },
 ];
 
 const sportsFacilities: Facility[] = [

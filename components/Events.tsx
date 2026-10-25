@@ -1,75 +1,64 @@
 import Image from "next/image";
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarDays, Pin } from "lucide-react";
 import { Button } from "./ui/button";
 import { sanityFetch } from "@/lib/sanity";
-import { HOME_EVENTS_QUERY } from "@/lib/queries";
+import { HOME_EVENTS_QUERY, HOME_NOTICES_QUERY } from "@/lib/queries";
 
-const FALLBACK_IMAGE = "/assets/background/new-1.jpg";
-
-interface EventCard {
+interface EventListItem {
   _id: string;
   title: string;
-  subtitle?: string;
-  imageUrl?: string;
   slug: string;
+  _createdAt: string;
 }
 
-function EventCardItem({ event, index }: { event: EventCard; index: number }) {
-  const imageUrl = event.imageUrl || FALLBACK_IMAGE;
+interface NoticeListItem {
+  _id: string;
+  title: string;
+  slug: string;
+  publishedAt: string;
+}
 
+const formatNoticeDate = (value: string) =>
+  new Date(value).toLocaleDateString("en-IN", { year: "numeric", month: "short", day: "numeric" });
+
+function parseEventDate(iso: string) {
+  const d = new Date(iso);
+  return {
+    day: d.getDate(),
+    month: d.toLocaleDateString("en-IN", { month: "short" }).toUpperCase(),
+    time: d.toLocaleTimeString("en-IN", { hour: "numeric", minute: "2-digit", hour12: true }),
+    year: d.getFullYear(),
+  };
+}
+
+function EventDateBadge({ iso }: { iso: string }) {
+  const { day, month } = parseEventDate(iso);
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      viewport={{ once: true }}
-      className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+    <div
+      className="flex shrink-0 flex-col items-center justify-center rounded-md border-2 border-[#85193C]/20 bg-[#fff9f5] px-3 py-2 text-center min-w-[4.25rem]"
+      aria-hidden="true"
     >
-      <Link href={`/events/${event.slug}`} className="flex h-full flex-col">
-        <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-          <Image
-            src={imageUrl}
-            alt={event.title}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            loading={index < 4 ? "eager" : "lazy"}
-          />
-        </div>
-
-        <div className="flex flex-1 flex-col p-5">
-          <p className="mb-2 flex items-center gap-1.5 text-xs font-medium text-gray-500">
-            <Sparkles className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-            School Event
-          </p>
-          <h3 className="mb-2 line-clamp-2 text-lg font-bold leading-snug text-[#1D3557] transition-colors group-hover:text-[#85193C]">
-            {event.title}
-          </h3>
-          {event.subtitle && (
-            <p className="mb-4 line-clamp-2 flex-1 text-sm leading-relaxed text-gray-600">
-              {event.subtitle}
-            </p>
-          )}
-          <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-[#85193C] transition-all group-hover:gap-2">
-            Read more
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </span>
-        </div>
-      </Link>
-    </motion.article>
+      <span className="text-2xl font-bold leading-none text-[#85193C]">{day}</span>
+      <span className="mt-1 text-xs font-bold tracking-wide text-[#1D3557]">{month}</span>
+    </div>
   );
 }
 
 const Events = async () => {
-  const events = await sanityFetch<EventCard[]>({ query: HOME_EVENTS_QUERY, tags: ["event"] }).catch(
-    () => [] as EventCard[],
-  );
+  const [events, notices] = await Promise.all([
+    sanityFetch<EventListItem[]>({ query: HOME_EVENTS_QUERY, tags: ["event"] }).catch(
+      () => [] as EventListItem[],
+    ),
+    sanityFetch<NoticeListItem[]>({ query: HOME_NOTICES_QUERY, tags: ["notice"] }).catch(
+      () => [] as NoticeListItem[],
+    ),
+  ]);
 
   return (
     <motion.section
-      className="relative w-full bg-white py-16 md:py-20"
+      className="relative w-full bg-[#F9F9F9] py-16 md:py-20"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -86,31 +75,110 @@ const Events = async () => {
 
       <div className="relative mx-auto max-w-7xl px-6 md:px-12">
         <div className="mb-10 text-center md:mb-12">
-          <h2 className="text-3xl font-bold text-[#1D3557] md:text-4xl">Events & Activities</h2>
+          <h2 className="text-3xl font-bold text-[#1D3557] md:text-4xl">Notices & Events</h2>
           <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-            Celebrations, competitions, and milestones from life at St. Vivekanand School.
+            Official circulars and upcoming celebrations from life at St. Vivekanand School.
           </p>
         </div>
 
-        {events.length > 0 ? (
-          <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {events.map((event, index) => (
-              <li key={event._id} className="h-full">
-                <EventCardItem event={event} index={index} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="py-12 text-center text-gray-500">No events to display at the moment.</p>
-        )}
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
+          <div className="order-1 rounded-lg border-2 border-dashed border-[#85193C]/30 bg-[#fff9f5] p-6 shadow-sm md:p-8">
+            <div className="mb-6 flex items-center gap-2 border-b border-[#85193C]/20 pb-4">
+              <Pin className="h-5 w-5 text-[#85193C]" aria-hidden="true" />
+              <h3 className="text-xl font-bold text-[#1D3557]">Notice Board</h3>
+            </div>
 
-        <div className="mt-10 flex justify-center md:mt-12">
-          <Button
-            asChild
-            className="bg-[#85193C] px-6 py-2 text-base font-semibold text-white hover:bg-[#85193C]/90"
-          >
-            <Link href="/events">View All Events</Link>
-          </Button>
+            {notices.length > 0 ? (
+              <ul className="divide-y divide-gray-200">
+                {notices.map((notice, index) => (
+                  <motion.li
+                    key={notice._id}
+                    initial={{ opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    viewport={{ once: true }}
+                  >
+                    <Link
+                      href={`/notices/${notice.slug}`}
+                      className="flex flex-col gap-1 py-4 transition-colors hover:text-[#85193C] sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+                    >
+                      <span className="font-semibold text-[#1D3557]">{notice.title}</span>
+                      <time
+                        dateTime={notice.publishedAt}
+                        className="shrink-0 text-sm text-gray-500"
+                      >
+                        {formatNoticeDate(notice.publishedAt)}
+                      </time>
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            ) : (
+              <p className="py-8 text-center text-sm text-gray-500">No notices at the moment.</p>
+            )}
+
+            <div className="mt-6">
+              <Link
+                href="/notices"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#85193C] hover:gap-2"
+              >
+                View all notices
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="order-2 rounded-lg border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+            <div className="mb-6 flex items-center gap-2 border-b border-gray-200 pb-4">
+              <CalendarDays className="h-5 w-5 text-[#85193C]" aria-hidden="true" />
+              <h3 className="text-xl font-bold text-[#1D3557]">School Events</h3>
+            </div>
+
+            {events.length > 0 ? (
+              <ul className="divide-y divide-gray-100">
+                {events.map((event, index) => {
+                  const { time, year } = parseEventDate(event._createdAt);
+                  return (
+                    <motion.li
+                      key={event._id}
+                      initial={{ opacity: 0, x: 12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
+                    >
+                      <Link
+                        href={`/events/${event.slug}`}
+                        className="flex gap-4 py-4 transition-opacity hover:opacity-90"
+                      >
+                        <EventDateBadge iso={event._createdAt} />
+                        <div className="min-w-0 flex-1 pt-0.5">
+                          <p className="font-semibold leading-snug text-[#1D3557] transition-colors group-hover:text-[#85193C]">
+                            {event.title}
+                          </p>
+                          <p className="mt-1 text-sm text-gray-500">
+                            <time dateTime={event._createdAt}>
+                              {time} · {year}
+                            </time>
+                          </p>
+                        </div>
+                      </Link>
+                    </motion.li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <p className="py-8 text-center text-sm text-gray-500">No events to display at the moment.</p>
+            )}
+
+            <div className="mt-6">
+              <Button
+                asChild
+                className="bg-[#85193C] px-6 py-2 text-base font-semibold text-white hover:bg-[#85193C]/90"
+              >
+                <Link href="/events">View all events</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </motion.section>

@@ -108,17 +108,18 @@ const CoCurricular = () => {
           ))}
         </div>
 
-        {/* Mobile View - Swiper */}
-        <motion.div className="md:hidden w-full mt-6 px-4">
+        {/* Mobile: full-width track, inset card slides */}
+        <motion.div className="relative left-1/2 mt-6 w-screen -translate-x-1/2 md:hidden">
           <Swiper
             modules={[Pagination]}
             slidesPerView={1}
-            spaceBetween={15}
+            spaceBetween={16}
             pagination={{ clickable: true }}
-            centeredSlides={true}
+            centeredSlides={false}
+            className="mobile-card-carousel !px-4"
           >
             {activities.map((activity, i) => (
-              <SwiperSlide key={i} className="flex justify-center">
+              <SwiperSlide key={i} className="!h-auto">
                 <Card {...activity} />
               </SwiperSlide>
             ))}
@@ -138,7 +139,7 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
     <motion.div
       // whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className="relative flex flex-col justify-between p-6 rounded-lg shadow-lg w-full h-[320px] text-white overflow-hidden"
+      className="relative flex h-[320px] w-full flex-col justify-between overflow-hidden rounded-xl p-6 text-white shadow-md"
       style={{ background: `linear-gradient(to bottom, #0D3658, ${bottom})` }}
     >
       <div className="absolute inset-0 opacity-70 mix-blend-multiply">

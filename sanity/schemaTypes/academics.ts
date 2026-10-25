@@ -24,9 +24,10 @@ export default defineType({
     },
     {
       name: "sectionId",
-      title: "Section ID (for navigation)",
+      title: "Section ID (URL slug)",
       type: "slug",
       options: { source: "title", maxLength: 100 },
+      validation: (Rule) => Rule.required(),
     },
   ],
 });

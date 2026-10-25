@@ -5,6 +5,8 @@ import {
   ALL_EVENTS_QUERY,
   ALL_CURRICULAR_QUERY,
   ALL_LEGAL_PAGES_QUERY,
+  ALL_NOTICES_QUERY,
+  SECTION_SLUGS_QUERY,
 } from "@/lib/queries";
 import { SITE_URL } from "@/lib/seo";
 
@@ -23,8 +25,9 @@ const STATIC_ROUTES = [
   "/about-us/why-choose-us",
   "/about-us/mission-vision",
   "/about-us/principals-message",
+  "/academics",
   "/academics/overview",
-  "/academics/all-facilities",
+  "/notices",
   "/academics/cbse-affiliation",
   "/academics/streams-offered",
   "/academics/curriculum",
@@ -57,11 +60,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   try {
-    const [blogs, events, curricular, legalPages] = await Promise.all([
+    const [blogs, events, curricular, legalPages, notices, sectionSlugs] = await Promise.all([
       sanityFetch<SlugDoc[]>({ query: ALL_BLOGS_QUERY, tags: ["blog"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_EVENTS_QUERY, tags: ["event"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_CURRICULAR_QUERY, tags: ["curricular"] }),
       sanityFetch<SlugDoc[]>({ query: ALL_LEGAL_PAGES_QUERY, tags: ["legal"] }),
+      sanityFetch<SlugDoc[]>({ query: ALL_NOTICES_QUERY, tags: ["notice"] }),
+      sanityFetch<string[]>({ query: SECTION_SLUGS_QUERY, tags: ["section"] }),
     ]);
 
     const toEntries = (
@@ -79,12 +84,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           priority,
         }));
 
+    const sectionEntries: MetadataRoute.Sitemap = (sectionSlugs ?? [])
+      .filter(Boolean)
+      .map((slug) => ({
+        url: `${SITE_URL}/academics/${slug}`,
+        lastModified: STATIC_LAST_MODIFIED,
+        changeFrequency: "monthly" as const,
+        priority: 0.75,
+      }));
+
     return [
       ...staticRoutes,
       ...toEntries(blogs, "/news", "monthly", 0.7),
       ...toEntries(events, "/events", "monthly", 0.7),
+      ...toEntries(notices, "/notices", "monthly", 0.7),
       ...toEntries(curricular, "/co-curricular", "monthly", 0.7),
       ...toEntries(legalPages, "", "yearly", 0.3),
+      ...sectionEntries,
     ];
   } catch (error) {
     console.error("Error generating sitemap:", error);

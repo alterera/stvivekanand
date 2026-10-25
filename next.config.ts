@@ -53,6 +53,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/academics/all-facilities",
+        destination: "/academics",
+        permanent: true,
+      },
+      {
         source: "/:path*",
         has: [
           {

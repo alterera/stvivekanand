@@ -138,13 +138,75 @@ export const ALL_EVENTS_QUERY = groq`
 `;
 
 export const HOME_EVENTS_QUERY = groq`
-  *[_type == "event"] | order(_createdAt desc) [0...4] {
+  *[_type == "event"] | order(_createdAt desc) [0...8] {
     _id,
     title,
     subtitle,
+    _createdAt,
     "imageUrl": images[0].asset->url,
     "slug": slug.current
   }
+`;
+
+export const HOME_NOTICES_QUERY = groq`
+  *[_type == "notice"] | order(publishedAt desc) [0...8] {
+    _id,
+    title,
+    "slug": slug.current,
+    publishedAt
+  }
+`;
+
+export const ALL_NOTICES_QUERY = groq`
+  *[_type == "notice"] | order(publishedAt desc) {
+    title,
+    slug {
+      current
+    },
+    excerpt,
+    publishedAt,
+    _updatedAt
+  }
+`;
+
+export const NOTICE_QUERY = groq`
+  *[_type == "notice" && slug.current == $slug][0] {
+    title,
+    excerpt,
+    article,
+    featuredImage {
+      asset-> {
+        url
+      }
+    },
+    publishedAt,
+    _updatedAt
+  }
+`;
+
+export const ALL_SECTIONS_QUERY = groq`
+  *[_type == "section" && defined(sectionId.current)] | order(_createdAt asc) {
+    _id,
+    title,
+    description,
+    "sectionSlug": sectionId.current,
+    "imageUrl": image.asset->url
+  }
+`;
+
+export const SECTION_BY_SLUG_QUERY = groq`
+  *[_type == "section" && sectionId.current == $slug][0] {
+    _id,
+    title,
+    description,
+    "sectionSlug": sectionId.current,
+    "imageUrl": image.asset->url,
+    _updatedAt
+  }
+`;
+
+export const SECTION_SLUGS_QUERY = groq`
+  *[_type == "section" && defined(sectionId.current)].sectionId.current
 `;
 
 export const LATEST_BLOGS_QUERY = groq`
@@ -247,6 +309,10 @@ export const TC_UPDATES_QUERY = groq`
 
 export const SLUGS_QUERY = groq`*[_type == $type && defined(slug.current)].slug.current`;
 
-export function getSlugs(type: "blog" | "event" | "curricular" | "legal") {
+export function getSlugs(type: "blog" | "event" | "curricular" | "legal" | "notice") {
   return sanityFetch<string[]>({ query: SLUGS_QUERY, params: { type }, tags: [type] });
+}
+
+export function getSectionSlugs() {
+  return sanityFetch<string[]>({ query: SECTION_SLUGS_QUERY, tags: ["section"] });
 }

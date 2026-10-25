@@ -31,8 +31,8 @@ const components: { title: string; href: string; description: string }[] = [
       "How we teach, from foundational years to senior secondary.",
   },
   {
-    title: "All Facilities",
-    href: "/academics/all-facilities",
+    title: "Academic Facilities",
+    href: "/academics",
     description:
       "Labs, library, smart classrooms, and every facility on campus.",
   },
