@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { toPlainText, type PortableTextBlock } from "next-sanity";
 import { PortableText } from "@portabletext/react";
-import { ArrowLeft } from "lucide-react";
 import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
+import AdmissionFormSidebar from "@/components/widgets/AdmissionFormSidebar";
 import { PortableTextComponents } from "@/components/PortableTextComponent";
 import { sanityFetch } from "@/lib/sanity";
 import { SECTION_BY_SLUG_QUERY, getSectionSlugs } from "@/lib/queries";
@@ -76,22 +75,30 @@ export default async function AcademicsFacilityPage({ params }: Props) {
           <h1 className="text-3xl font-bold text-[#1D3557] md:text-4xl">{section.title}</h1>
         </header>
 
-        <div className="relative mt-8 aspect-[21/9] w-full max-w-5xl overflow-hidden rounded-lg bg-gray-100">
-          <Image
-            src={imageUrl}
-            alt={section.title}
-            fill
-            sizes="(max-width: 1280px) 100vw, 1024px"
-            className="object-cover"
-            priority
-          />
-        </div>
+        <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:gap-12">
+          <div className="w-full min-w-0 lg:w-2/3">
+            <div className="relative aspect-[21/9] w-full overflow-hidden rounded-lg bg-gray-100">
+              <Image
+                src={imageUrl}
+                alt={section.title}
+                fill
+                sizes="(max-width: 1280px) 100vw, 1024px"
+                className="object-cover"
+                priority
+              />
+            </div>
 
-        {section.description && section.description.length > 0 && (
-          <article className="prose prose-neutral mt-10 max-w-3xl rounded-lg border border-gray-200 bg-white p-6 shadow-sm md:p-8">
-            <PortableText value={section.description} components={PortableTextComponents} />
-          </article>
-        )}
+            {section.description && section.description.length > 0 && (
+              <article className="prose prose-neutral mt-10 rounded-lg border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+                <PortableText value={section.description} components={PortableTextComponents} />
+              </article>
+            )}
+          </div>
+
+          <aside className="w-full lg:w-1/3">
+            <AdmissionFormSidebar />
+          </aside>
+        </div>
       </div>
     </section>
   );

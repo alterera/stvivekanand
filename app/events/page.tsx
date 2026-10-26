@@ -79,7 +79,7 @@ export default async function EventsPage({ searchParams }: Props) {
               <Link
                 key={event.slug.current}
                 href={`/events/${event.slug.current}`}
-                className="group overflow-hidden rounded-xl bg-white shadow-md ring-1 ring-gray-200 transition-shadow hover:shadow-lg"
+                className="group overflow-hidden rounded-md bg-white ring-1 ring-gray-200"
               >
                 <div className="relative h-48 overflow-hidden bg-[#0D3658]">
                   <Image

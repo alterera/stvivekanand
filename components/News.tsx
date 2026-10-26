@@ -21,7 +21,7 @@ function NewsCard({ post, index }: { post: BlogPost; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       viewport={{ once: true }}
-      className="group flex h-full flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+      className="group flex h-full flex-col overflow-hidden border border-gray-200 bg-white hover:shadow-sm transition-shadow"
     >
       <Link href={`/news/${post.slug.current}`} className="flex h-full flex-col">
         <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">

@@ -7,6 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Honeypot from "@/components/widgets/Honeypot";
+import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
+import AdmissionFormSidebar from "@/components/widgets/AdmissionFormSidebar";
 
 const EMPTY_FORM = {
   studentName: "",
@@ -71,10 +73,16 @@ export default function ScheduleCallPage() {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 mt-10">
-      <div className="max-w-2xl mx-auto">
-        <h1 className="text-3xl font-bold text-[#1D3557] mb-8 text-center">Schedule a Call with Us</h1>
-        <div className="relative bg-white rounded-lg shadow-md p-6">
+    <section className="w-full bg-white py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <DynamicBreadcrumb />
+        <h1 className="mb-8 mt-6 text-center text-3xl font-bold text-[#1D3557] md:text-4xl">
+          Schedule a Call with Us
+        </h1>
+
+        <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
+          <div className="w-full min-w-0 lg:w-2/3">
+            <div className="relative rounded-lg bg-white p-6 shadow-md">
           <form onSubmit={handleSubmit} className="space-y-6">
             <Honeypot value={website} onChange={setWebsite} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -212,8 +220,14 @@ export default function ScheduleCallPage() {
               {isSubmitting ? "Submitting..." : "Schedule Call"}
             </Button>
           </form>
+            </div>
+          </div>
+
+          <aside className="w-full lg:w-1/3">
+            <AdmissionFormSidebar />
+          </aside>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -55,12 +55,6 @@ const components: { title: string; href: string; description: string }[] = [
       "Cricket, basketball, tennis, gymnasium, and coaching on campus.",
   },
   {
-    title: "Events",
-    href: "/events",
-    description:
-      "Events from sports, cultural programmes, and classrooms.",
-  },
-  {
     title: "Gallery",
     href: "/gallery",
     description:
@@ -232,6 +226,7 @@ export function NavBar() {
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
+                <Link href={'/events'} className="text-sm font-bold px-4 py-2 hover:text-[#85193C]">Events</Link>
                 <Link href={'/contact-us'} className="text-sm font-bold px-4 py-2 hover:text-[#85193C]">Contact</Link>
                 <Link href={'/mandatory-disclosure'} className="text-sm font-bold px-4 py-2 hover:text-[#85193C]">Disclosure</Link>
               </NavigationMenuList>
@@ -292,7 +287,7 @@ export function NavBar() {
               </Link>
             </MobileDropdown>
 
-            <MobileDropdown title="Our Curriculum">
+            <MobileDropdown title="Academics">
               {components.map((component) => (
                 <Link
                   key={component.title}
@@ -318,6 +313,9 @@ export function NavBar() {
               ))}
             </MobileDropdown>
 
+            <Link href="/events" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
+              Events
+            </Link>
             <Link href="/contact-us" className="block p-3 hover:bg-gray-100 rounded-md" onClick={() => setIsOpen(false)}>
               Contact
             </Link>

@@ -1,6 +1,7 @@
+import Image from "next/image";
 import * as motion from "motion/react-client";
-import { Trophy } from "lucide-react";
 import { NumberTicker } from "./magicui/number-ticker";
+import { Awards } from "./ui/award";
 
 interface RankingCard {
   id: number;
@@ -19,30 +20,68 @@ const rankingContent: RankingCard[] = [
 const Rankings = () => {
   return (
     <motion.section
-      className="w-full bg-[#002147] py-16 xl:px-4"
+      className="relative w-full overflow-hidden bg-[#002147] py-16 xl:px-4"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="max-w-7xl mx-auto px-4 md:px-0">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-          <div className="md:w-[300px] flex flex-col items-center text-center md:text-left">
-            <Trophy className="size-16 md:size-20 text-white mb-4" aria-hidden="true" />
-            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Legacy</h2>
+      <Image
+        src="/assets/patterns/dots.png"
+        alt=""
+        aria-hidden="true"
+        height={120}
+        width={120}
+        className="pointer-events-none absolute left-8 top-8 opacity-20"
+      />
+      <Image
+        src="/assets/patterns/tri-dots.png"
+        alt=""
+        aria-hidden="true"
+        height={100}
+        width={140}
+        className="pointer-events-none absolute bottom-10 right-6 rotate-90 opacity-25"
+      />
+      <div
+        className="pointer-events-none absolute -left-24 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-[#85193C]/20"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-16 top-20 h-64 w-64 rounded-full bg-[#457B9D]/25"
+        aria-hidden="true"
+      />
+
+      <div className="relative mx-auto max-w-7xl px-6 md:px-12">
+        <div className="flex flex-col items-center gap-10 md:flex-row md:gap-16">
+          <div className="flex w-full flex-col items-center text-center md:w-[280px] md:shrink-0 md:text-left">
+            <Awards
+              variant="stamp"
+              title="Bikaner"
+              subtitle="SVS Legacy"
+              recipient="Since 1977"
+              level="gold"
+              className="h-44 w-44 md:h-48 md:w-48"
+            />
+            <h2 className="mt-6 text-3xl font-bold text-white md:text-4xl">Our Legacy</h2>
+            <p className="mt-2 text-sm text-white/75 text-center">
+              Milestones that reflect decades of academic and sporting excellence.
+            </p>
           </div>
 
-          <ul className="flex-1 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <ul className="grid flex-1 grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
             {rankingContent.map((rank) => (
               <li
                 key={rank.id}
-                className="bg-gray-100 rounded-md p-6 flex flex-col items-center text-center group hover:bg-[#457B9D] transition-all duration-300 shadow-lg"
+                className="group flex flex-col items-center rounded-xl bg-gray-100 p-6 text-center shadow-lg transition-all duration-300 hover:bg-[#457B9D] hover:shadow-xl"
               >
-                <p className="text-4xl md:text-5xl font-bold text-[#7B243D] mb-2 group-hover:text-white">
-                  <NumberTicker value={rank.rank} className="text-[#7B243D] group-hover:text-white" />
+                <p className="mb-2 text-4xl font-bold text-[#7B243D] md:text-5xl group-hover:text-white">
+                  <NumberTicker
+                    value={rank.rank}
+                    className="text-[#7B243D] group-hover:text-white"
+                  />
                   <span>{rank.suffix}</span>
                 </p>
-                <p className="text-sm md:text-base text-gray-600 group-hover:text-white/90 transition-colors duration-300">
+                <p className="text-sm text-gray-600 transition-colors duration-300 group-hover:text-white/90 md:text-base">
                   {rank.description}
                 </p>
               </li>

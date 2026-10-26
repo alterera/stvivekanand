@@ -74,53 +74,79 @@ const Events = async () => {
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-12">
-          <div className="order-1 rounded-lg border-2 border-dashed border-[#85193C]/30 bg-[#fff9f5] p-6 shadow-sm md:p-8">
-            <div className="mb-6 flex items-center gap-2 border-b border-[#85193C]/20 pb-4">
-              <Pin className="h-5 w-5 text-[#85193C]" aria-hidden="true" />
-              <h3 className="text-xl font-bold text-[#1D3557]">Notice Board</h3>
+          <div className="order-1 overflow-hidden rounded-md bg-white ring-1 ring-[#85193C]/15">
+            <div className="bg-gradient-to-r from-[#85193C] to-[#6d1530] px-6 py-5 md:px-8">
+              <div className="flex items-center gap-3">
+                <span
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm"
+                  aria-hidden="true"
+                >
+                  <Pin className="h-5 w-5 text-white" />
+                </span>
+                <div>
+                  <h3 className="text-xl font-bold text-white">Notice Board</h3>
+                  <p className="text-xs text-white/80">Official school circulars</p>
+                </div>
+              </div>
             </div>
 
-            {notices.length > 0 ? (
-              <ul className="divide-y divide-gray-200">
-                {notices.map((notice, index) => (
-                  <motion.li
-                    key={notice._id}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <Link
-                      href={`/notices/${notice.slug}`}
-                      className="flex flex-col gap-1 py-4 transition-colors hover:text-[#85193C] sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
+            <div className="bg-[#faf8f6] p-4 md:p-6">
+              {notices.length > 0 ? (
+                <ul className="space-y-3">
+                  {notices.map((notice, index) => (
+                    <motion.li
+                      key={notice._id}
+                      initial={{ opacity: 0, x: -12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      viewport={{ once: true }}
                     >
-                      <span className="font-semibold text-[#1D3557]">{notice.title}</span>
-                      <time
-                        dateTime={notice.publishedAt}
-                        className="shrink-0 text-sm text-gray-500"
+                      <Link
+                        href={`/notices/${notice.slug}`}
+                        className="group flex gap-4 rounded-xl border border-[#85193C]/10 bg-white p-4 shadow-sm transition-all hover:border-[#85193C]/30"
                       >
-                        {formatNoticeDate(notice.publishedAt)}
-                      </time>
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
-            ) : (
-              <p className="py-8 text-center text-sm text-gray-500">No notices at the moment.</p>
-            )}
+                        <span
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#85193C]/10 text-sm font-bold text-[#85193C]"
+                          aria-hidden="true"
+                        >
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <div className="min-w-0 flex-1">
+                          <span className="font-semibold leading-snug text-[#1D3557] group-hover:text-[#85193C]">
+                            {notice.title}
+                          </span>
+                          <time
+                            dateTime={notice.publishedAt}
+                            className="mt-1 block text-xs font-medium text-gray-500"
+                          >
+                            {formatNoticeDate(notice.publishedAt)}
+                          </time>
+                        </div>
+                        <ArrowRight
+                          className="mt-1 h-4 w-4 shrink-0 text-gray-400 transition-transform group-hover:translate-x-0.5 group-hover:text-[#85193C]"
+                          aria-hidden="true"
+                        />
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="py-8 text-center text-sm text-gray-500">No notices at the moment.</p>
+              )}
 
-            <div className="mt-6">
-              <Link
-                href="/notices"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#85193C] hover:gap-2"
-              >
-                View all notices
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
+              <div className="mt-6 border-t border-[#85193C]/10 pt-4">
+                <Link
+                  href="/notices"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#85193C] transition-colors hover:text-[#6d1530]"
+                >
+                  View all notices
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div className="order-2 rounded-lg border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="order-2 overflow-hidden rounded-md bg-white p-6 ring-1 ring-gray-200 md:p-8">
             <div className="mb-6 flex items-center gap-2 border-b border-gray-200 pb-4">
               <CalendarDays className="h-5 w-5 text-[#85193C]" aria-hidden="true" />
               <h3 className="text-xl font-bold text-[#1D3557]">School Events</h3>

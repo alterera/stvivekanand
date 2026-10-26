@@ -36,7 +36,7 @@ export function AcademicsFacilityRows({ sections }: { sections: AcademicsSection
         return (
           <article
             key={section._id}
-            className={`overflow-hidden rounded-2xl border border-[#E8E4E0]/80 shadow-sm ${surface}`}
+            className={`overflow-hidden ${surface}`}
           >
             <div className="grid grid-cols-1 items-stretch lg:grid-cols-2">
               <div

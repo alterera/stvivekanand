@@ -14,7 +14,9 @@ export default async function GalleryPage() {
         <h1 className="text-3xl md:text-4xl font-bold text-[#1D3557] text-center mt-8 mb-2">
           School Gallery
         </h1>
-        <p className="text-center text-sm mb-8">See the glimpses of our school</p>
+        <p className="mb-8 text-center text-gray-600">
+          Tap any photo to expand. Drag down on the image to close.
+        </p>
         <GalleryGrid items={galleryData ?? []} />
       </div>
     </section>

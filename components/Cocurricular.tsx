@@ -139,7 +139,7 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
     <motion.div
       // whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className="relative flex h-[320px] w-full flex-col justify-between overflow-hidden rounded-xl p-6 text-white shadow-md"
+      className="relative flex h-[320px] w-full flex-col justify-between overflow-hidden rounded-md p-6 text-white shadow-md"
       style={{ background: `linear-gradient(to bottom, #0D3658, ${bottom})` }}
     >
       <div className="absolute inset-0 opacity-70 mix-blend-multiply">
@@ -148,7 +148,7 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
           alt=""
           fill
           sizes="(max-width: 768px) 90vw, 33vw"
-          className="object-cover hover:scale-110 duration-500"
+          className="object-cover hover:scale-105 duration-500"
         />
       </div>
 
@@ -157,7 +157,7 @@ const Card = ({ title, subtitle, backgroundColors, image, link }: CardProps) => 
         <p className="mt-2">{subtitle}</p>
       </div>
 
-      <Button asChild className="relative z-10 mt-4 self-start bg-white text-black font-semibold hover:text-white">
+      <Button asChild className="relative z-10 mt-4 self-start bg-white text-black font-semibold hover:text-white hover:bg-[#85193C]">
         <Link href={link} aria-label={`Learn more about ${title.replace(/^& /, "")}`}>
           Learn More
         </Link>

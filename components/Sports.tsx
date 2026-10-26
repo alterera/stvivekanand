@@ -13,7 +13,7 @@ const FALLBACK_IMAGES: Record<string, string> = {
 
 const Sports = async () => {
   const sportsData = await getSportsData().catch(() => []);
-  const sportsWithSlug = sportsData.filter((sport) => sport.sportId?.current);
+  const sportsWithSlug = sportsData.filter((sport) => sport.sportId?.current).slice(0, 4);
 
   return (
     <motion.section
